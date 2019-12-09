@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Sida's Auto Carry - API</title>
+		<link rel="icon" href="../img/favicon.ico" />
+		<link rel="icon" type="image/png" href="../img/favicon.png" />
+		<link rel="stylesheet" href="../style.css">
+		<link rel="stylesheet" href="../fonts.css">
+	</head>
+	
+	<body>
+		<div class="content">
+			<div class="menu">
+				<a href="../"><div class="title"></div></a>
+				<a class="menu_item" href="../About/">About</a>
+				<a class="menu_item" href="../Download/">Download</a>
+				<a class="menu_item" href="../Purchase/">Purchase</a>
+				<a class="menu_item" href="../Guide/">Guide</a>
+				<a class="menu_item" href="../Support/">Support</a>
+				<a class="menu_item" href="../API/">API</a>
+			</div>
+			
+			<h1>Sac Helper</h1>
+			<p>SacHelper is a simple library who's sole purpose is to eliminate any issues that may occur from your script loading before SAC. This is especially important if you plan to use any of the callbacks or hooks. The library is automatically downloaded by SAC so you simply need to require it at the top of your script. If you're only using a few basic functions, you do not need this.</p>
+			<p class="code">require 'SacHelper'</p>
+			
+			<h1>SacUnits</h1>
+			<p>SacUnits are new units created as extensions to BoL units. They are used extensively throughout SAC and are also available to you if you wish to use them. Any internal propeties that you would have no use for are not visible to your scripts, so they only contain data you may find useful. As these units are extensions of BoL units, everything you'd usually expect on a unit is still there.<br/>
+			Note that if you are using SAC callbacks, all SacUnits are fully persistant, meaning you can freely save your own data to the units and access it anywhere. You will not break SAC by replacing existing properties, but I would not recommend doing so as your data will be lost.<br/>
+			There are 5 types of SacUnit:
+			<ol>
+				<li>Players</li>
+				<li>Minions</li>
+				<li>Jungle</li>
+				<li>Buildings</li>
+				<li>Others (misc) - These are things like wards, pets, barrels etc.</li>
+			</ol></p>
+			
+			<div class="sub_content">
+				<h1>Accessing SacUnits</h1>
+				<p>For performance reasons, SacUnits are only updated when they are within a specific range.<br/>
+				You can access the SacUnit for myHero directly with:</p>
+				<p class="code">_G.SAC.myHero</p>
+				<p>You can access the "active" SacUnits in the following locations:</p>
+				<p class="code">_G.SAC.Players<br/>
+				_G.SAC.Minions<br/>
+				_G.SAC.Jungle<br/>
+				_G.SAC.Buildings<br/>
+				_G.SAC.Others</p>
+				<p>If you need to access all SacUnits, regardless of whether their data is updated, you can access them in the following locations. Only use if you have a specific reason to do so!</p>
+				<p class="code">_G.SAC.SacUnits.Players<br/>
+				_G.SAC.SacUnits.Minions<br/>
+				_G.SAC.SacUnits.Jungle<br/>
+				_G.SAC.SacUnits.Buildings<br/>
+				_G.SAC.SacUnits.Others</p>
+				<p>The default ranges for SacUnit updates are:</p>
+				<p class="code">{player = math.huge, minion = 2500, jungle = 2500, other = 2500, building = math.huge}</p>
+				<p>If you wish to override any of these ranges, simply call the following function passing a table containing the relevant overrides:</p>
+				<p class="code">-- Update jungle monsters at any distance<br/>
+				_G.SAC:SetUpdateRange({jungle = math.huge})</p>
+				<p>Consider performance implications on less powerful machines before setting 'minion' and 'other' ranges too high.</p>
+			</div>
+			
+			<h1>SacUnit Properties</h1>
+			<p>Pretty much all properties will be nil if they are not true/exist. I rarely ever explicitly set things to false.</p>
+			
+			<div class="sub_content">
+				<h1>All SacUnits</h1>
+				<p class="code">.isSacUnit - True if this is a SacUnit<br/>
+				.isPlayer - True if this is a champion<br/>
+				.isMinion - True if this is a minion<br/>
+				.isJungle - True if this is a jungle monster<br/>
+				.isBuilding - True if this is a building<br/>
+				.isEnemy - True if this unit is an enemy<br/>
+				.isAlly - True if this unit is an ally<br/>
+				.iCanOrbwalk - True if this unit is in range to be orbwalked<br/>
+				.distance - Distance to the unit<br/>
+				.unitGroup - "Players"/"Minions"/"Jungle"/"Buildings"/"Others"<br/>
+				.validTarget - True if this unit is a valid target. Also includes a few extra checks, such as minimum visible time from the user's settings<br/>
+				.visibleSince - Returns how long this unit has been visible. nil if the unit is not visible<br/>
+				.hiddenSince - Returns how long this unit has been out of vision. nil if the unit is visible<br/>
+				<br/>
+				.buffs - Holds a table of buffs. Table keys are the buff names<br/>
+				&#160;&#160;&#160;.Source - The source of this buff<br/>
+				&#160;&#160;&#160;.Buff - The buff object<br/>
+				&#160;&#160;&#160;.Stacks - Number of stacks</p>
+				
+				<h1>Players</h1>
+				<p class="code">.is&#60;charName&#62; - Example: if myHero.isJax then print("I am Jax") end<br/>
+				.isShooting - True if this unit is shooting. Example: myHero.isShooting<br/>
+				.melee - True if this unit is melee. Includes stance changes (Jayce/Nidalee etc). Example: myHero.melee<br/>
+				.ranged - True if this unit is ranged. Includes stance changes. Example: myHero.ranged<br/>
+				.manaPercent - The units mana as a percentage of its max (0-100). Example: myHero.manaPercent > 75<br/>
+				.healthPercent - The units health as a percentage of its max (0-100). Example: myHero.healthPercent > 75<br/>
+				.realAP - The unit's real AP including item modifications (myHero.ap is incorrect). Example: print(myHero.realAP)<br/>
+				.moveReady - True if this unit is not shooting<br/>
+				.attackReady - True if this unit is able to attack now<br/>
+				.isAfterAttack - True if the current time is within a small window after the unit attacked<br/>
+				.isOnScreen - True if this unit is currently visible on-screen<br/>
+				.nextAttackTime - Returns the time that this unit can next attack. Returns current time if they can attack now.<br/>
+				.role - 1 = ADC, 2 = AP, 3 = Support, 4 = Bruiser, 5 = Tank<br/>
+				.hasMana - True if this unit has mana. nil on champions such as Mordekaiser<br/>
+				<br/>
+				.qReady - True if Q is ready to cast<br/>
+				.wReady - True if W is ready to cast<br/>
+				.eReady - True if E is ready to cast<br/>
+				.rReady - True if R is ready to cast<br/>
+				.qState - Equivalent to unit:CanUseSpell(_Q) (not specifically a READY check)<br/>
+				.wState - Equivalent to unit:CanUseSpell(_W) (not specifically a READY check)<br/>
+				.eState - Equivalent to unit:CanUseSpell(_E) (not specifically a READY check)<br/>
+				.rState - Equivalent to unit:CanUseSpell(_R) (not specifically a READY check)<br/>
+				.qData - Equivalent to unit:GetSpellData(_Q)<br/>
+				.wData - Equivalent to unit:GetSpellData(_W)<br/>
+				.eData - Equivalent to unit:GetSpellData(_E)<br/>
+				.rData - Equivalent to unit:GetSpellData(_R)<br/>
+				.qLevel - Returns the unit's Q level<br/>
+				.wLevel - Returns the unit's W level<br/>
+				.eLevel - Returns the unit's E level<br/>
+				.rLevel - Returns the unit's R level<br/>
+				<br/>
+				.spells - Holds the same data as .qData/.wData etc, except accessible by skill name or key:<br/>
+				&#160;&#160;&#160;.spells[skillName] - Returns .&#60;skill&#62;Data for this skill name. Must be one of the unit's 4 skills<br/>
+				&#160;&#160;&#160;.spells[skillKey] - Returns .&#60;skill&#62;Data for this skill key. Must be one of the unit's 4 skills. Example: myHero.spells[_Q]<br/>
+				<br/>
+				.skillReady - Holds the same as .qReady/wReady etc, except accessible by skill key<br/>
+				&#160;&#160;&#160;.skillReady[skillKey] - Returns .&#60;skill&#62;Ready for this skill key. Must be one of the unit's 4 skills. Example: myHero.skillReady[_Q]<br/>
+				<br/>
+				.items - Returns a table containing this unit's items. Key is item name, value is slot. Example: myHero.items["HealthBomb"]<br/>
+				<br/>
+				.attack - Holds data about the unit's latest attack, whether it's in progress or not<br/>
+				&#160;&#160;&#160;.reset - True if this attack was reset by a skill<br/>
+				&#160;&#160;&#160;.cancelled - True if this attack was cancelled<br/>
+				&#160;&#160;&#160;.name - The name of the attack<br/>
+				&#160;&#160;&#160;.completed - The time that this attack completed. nil if it hasn't completed or was reset/cancelled<br/>
+				&#160;&#160;&#160;.startedAt - The time that this attack started<br/>
+				&#160;&#160;&#160;.target - SacUnit target of the attack. Can be nil when using on other players so check it exists first.<br/>
+				<br/>
+				-- myHero only --<br/>
+				.selectedTarget - Holds the unit's selected target. This unit is a SacUnit. nil if nothing selected<br/>
+				<br/>
+				.masteries - Holds the player's mastery values matching their setup in the script<br/>
+				&#160;&#160;&#160;.doubleedgedsword - 0 or 1<br/>
+				&#160;&#160;&#160;.savagery - 0 to 5<br/>
+				&#160;&#160;&#160;.oppressor - 0 or 1<br/>
+				&#160;&#160;&#160;.bountyhunter - 0<br/>
+				&#160;&#160;&#160;.bountyhuntercount - The number of unique champions killed by the player. Not actually a mastery but it's here anyway</p>
+				
+				<h1>Minions</h1>
+				<p class="code">.iCanAlmostOrbwalk - True if this unit is just outside of orbwalk range<br/>
+				.isWarrior - True if this is a cannon minion (.isMelee is already reserved by BoL, and broken)<br/>
+				.isCaster - True if this is a caster minion<br/>
+				.isCannon - True if this is a cannon minion<br/>
+				.isSuper - True if this is a super minion<br/>
+				.melee - True if this unit is melee<br/>
+				.ranged - True if this unit is ranged<br/>
+				.isAlly - True if this unit is an ally<br/>
+				.isEnemy - True if this unit is an enemy<br/>
+				.priority - Super = 1, Cannon = 1, Melee = 2, Caster = 3<br/>
+				.lane - "Top"/"Mid"/"Bot"<br/>
+				.healthPercent - The units health as a percentage of its max (0-100)</p>
+				
+				<h1>Jungle</h1>
+				<p class="code">.is&#60;charName without "SRU_" prefix&#62; - Example: if unit.isBaron then<br/>
+				.isPriority - True if this is a priority monster. Non-priority monsters are small monsters (small wolf etc) and crabs<br/>
+				.iCanAlmostOrbwalk - True if this unit is just outside of orbwalk range</p>
+				
+				<h1>Buildings</h1>
+				<p class="code">.isTower - True if this unit is a tower<br/>
+				.isInhib - True if this unit is an inhibitor<br/>
+				.isNexus - True if this unit is a nexus<br/>
+				<br/>
+				.towerInfo - Exists for towers only. Holds some additional tower data:<br/>
+				&#160;&#160;&#160;.lane = "Top"/"Mid"/"Bot"/"Base"<br/>
+				&#160;&#160;&#160;.type = "Outer"/"Inner"/"Inhib"/"Nexus"/"Fountain"<br/>
+				&#160;&#160;&#160;.team = TEAM_BLUE or TEAM_RED. These are statics from AllClass, you can use them directly</p>
+				
+				<h1>Other (Misc)</h1>
+				<p class="code">- No additional properties</p>
+			</div>
+			
+			<h1>Callbacks</h1>
+			<p>There are a number of new callbacks available, as well as replacements for the default BoL callbacks. Any callback that replaces a BoL callback has the exact same functionality, with the exception that all units returned by the callback will be SacUnits, and the callback will never be triggered if any of the objects are invalid. Callbacks without params are the same unless otherwise stated.</p>
+			
+			<div class="sub_content">
+				<h1>Using Callbacks</h1>
+				<p>If you want to use any of these callbacks, it's important to require SacHelper from above.</p>
+				<p class="code">SAC:Bind("CallbackName", function(params) end)</p>
+				
+				<h1>OnLoad</h1>
+				<p>The OnLoad callback will always be called when both your script and SAC have loaded. If SAC loads instantly and your script loads after 30 seconds, it'll be called as soon as your script loads. If your script loads instantly and SAC loads after 30 seconds, it'll be called as soon as SAC loads.</p>
+				<p class="code">SAC:Bind("OnLoad", function()<br/>
+				&#160;&#160;&#160;print("SAC must be loaded, safe to initialise stuff")<br/>
+				end)</p>
+				
+				<h1>New Callbacks</h1>
+				<p class="code">BeforeAttack(target) -- Called directly before an auto attack<br/>
+				OnAttackStarted(unit) -- Champions only<br/>
+				OnAttackCompleted(unit) -- Champions only<br/>
+				OnAttackReset(unit) -- Champions only<br/>
+				OnAttackCancelled(unit)<br/>
+				OnGainAggro(unit, target) -- VIP only!<br/>
+				OnLoseAggro(unit, target) -- VIP only!<br/>
+				OnUnitDeath(unit)<br/>
+				OnKill(source, target) -- May only call for myHero, untested with other units.<br/>
+				OnGainVision(unit) -- Does not include buildings. Does not trigger when the unit is first created (first time seen).<br/>
+				OnLoseVision(unit) -- Does not include buildings.<br/>
+				OnLeftMouseDown()<br/>
+				OnLeftMouseUp()</p>
+				
+				<h1>Replacement BoL Callbacks</h1>
+				<p class="code">OnAnimation(unit, animation)<br/>
+				OnProcessSpell(unit, spell)<br/>
+				CreateObj(object)<br/>
+				DeletObj(object)<br/>
+				OnDraw() -- Using this will allow Stream Mode to also hide your sprites if the user activates it.<br/>
+				OnApplyBuff(source, unit, buff)<br/>
+				OnUpdateBuff(unit, buff, stacks)<br/>
+				OnNewPath(unit, startPos, endPos, isDash, dashSpeed, dashGravity, dashDistance)<br/>
+				OnProcessAttack(unit, spell)<br/>
+				OnUnload()<br/>
+				OnBugsplat()<br/>
+				OnWndMsg(msg, key)</p>
+			</div>
+			
+			<h1>Hooks</h1>
+			<p>Hooks allow you to inject your own code into some of SAC's decision making processes and alter the result.</p>
+			
+			<div class="sub_content">
+				<h1>Using Hooks</h1>
+				<p class="code">SAC:Hook("HookName", function(params) end)</p>
+				
+				<h1>Available Hooks</h1>
+				<p class="code">AllowedToMove() - Return false to stop SAC from moving<br/>
+				AllowedToAttack() - Return false to stop SAC from attacking<br/>
+				<br/>
+				KillableMinion(minion) - Return false to stop SAC considering this minion killable (auto attack last hit)<br/>
+				AlmostKillableMinion(minion) - Return false to stop SAC pausing farm to wait for this minion to be killable<br/>
+				LaneClear(minion) - Return false to stop SAC targeting this minion to push the lane<br/>
+				<br/>
+				UseItem(itemName, itemID) -- Return false to block this item cast<br/>
+				<br/>
+				CastMinionLastHit(minion, skillKey) - Return false to block this last hit spell cast<br/>
+				CastMinionPush(minion, skillKey) - Return false to block this spell cast<br/>
+				CastMinionTower(minion, skillKey) - Return false to block this tower farm spell<br/>
+				CastMinion(minion, skillKey) - Return false to block this farm spell. Could be for LastHit, Push or Tower farm.<br/>
+				<br/>
+				OrbRangeTargetSelect(player) - Return false to block SAC from targeting this player when it is in orbwalk range<br/>
+				SkillRangeTargetSelect(player) - Return false to block SAC from targeting this player when it is outside of orbwalk range</p>
+				
+				<h1>Hook Examples</h1>
+				<p class="code">-- SAC will never consider a caster minion killable (white arrows in-game)<br/>
+				SAC:Hook("KillableMinion", function(minion) return not minion.isCaster end)<br/>
+				<br/>
+				-- SAC will never target Jax when he's in orbwalk range<br/>
+				SAC:Hook("OrbRangeTargetSelect", function(player) return not player.isJax end)<br/>
+				<br/>
+				-- SAC won't allow any player other than Jax to be targeted in orbwalk range<br/>
+				SAC:Hook("OrbRangeTargetSelect", function(player) return player.isJax end)<br/>
+				<br/>
+				-- SAC will never move when myHero isn't on the screen (even if move position is on the screen)<br/>
+				SAC:Hook("AllowedToMove", function() return myHero.isOnScreen end)</p>
+			</div>
+			
+			<h1>Functions</h1>
+			<p>Most functions will only work once SAC has successfully loaded and authed. Calling them before this won't throw any errors, but won't do anything either.<br/>
+			This is <b>not an issue if you're using the OnLoad callback</b>. Otherwise, you can manually check:</p>
+			<p class="code">SAC.Loaded -- Script loaded<br/>
+			SAC.Authed -- Script authed</p>
+			
+			<div class="sub_content">
+				<h1>Using Functions</h1>
+				<p>All functions can be called as follows:</p>
+				<p class="code">SAC:FunctionName(params)</p>
+				
+				<h1>Script Control Functions</h1>
+				<p class="code">:DisableMovement() -- Disables movement but allows SAC to continue to farm correctly by holding position to cancel attack aggro when necessary.<br/>
+				:HardDisableMovement() -- Disables movement and SAC won't manage your attack aggro. Lane clearing will suck as the game will blindly continue to attack.<br/>
+				:EnableMovement() -- Cancels both of the above functions, re-enabling all movement.<br/>
+				:AttacksEnabled(true/false) -- Enable or disable attacks<br/>
+				:OrbwalkMode() -- Disables skill farm, jungle skills and champion skills<br/>
+				:DisableSkillFarm() -- Disables all skill farming, including under towers<br/>
+				:EnableSkillFarm() -- Re-enables all skill farm<br/>
+				:DisableJungleSkills() -- Disables all skill use on jungle monsters<br/>
+				:EnableJungleSkills() -- Re-enables all skill use on jungle monsters<br/>
+				:DisablePlayerSkills() -- Disables casting any skills on champions<br/>
+				:EnablePlayerSkills() -- Re-enables casting skills on champions<br/>
+				:ForceMode("AutoCarry"/"MixedMode"/"LaneClear") -- Force the given mode. Call again with nil to disable.<br/>
+				:ChannelDetectionEnabled(true/false) -- Enabled by default. If disabled, SAC will no longer pause while channeling.<br/>
+				:PreferredOrbwalkPoint(point) -- SAC will orbwalk to this point, but only when it was going to move anyway. Options like "mouse over hero to stop move" can still be used by the user.<br/>
+				:ForceOrbwalkPoint(point) -- SAC will orbwalk to this point. It will ignore user preferences and will not block off-screen movement commands.<br/>
+				:SetUpdateRange(overrides) -- Set the update ranges for different SacUnit types. Explained above in SacUnit section.</p>
+			
+				<h1>Target Control Functions</h1>
+				<p class="code">:SetTSRange(range) -- Set the range that SAC can search for enemies outside of orbwalk range. By default this is the highest range of SAC's supported skills for this champion.<br/>
+				<br/>
+				:SetPreferredTarget(player) -- When SAC is specifically looking for a champion target, it will prioritise this target if it is in range for the actions the script wants to perform. This is the ideal function to use, as it will allow the user to still perform any action they want such as farming, target lock etc, but your target will be prioritized over any other champion when SAC is choosing a champion target.<br/>
+				<br/>
+				:ForcePreferredTarget(player, range) -- SAC will always target this champion when it's within the range you set. This will override all other target selection and in doing so will disable farming, focus selected target, target lock and more. When the target is not within range, normal functionality resumes.<br/>
+				<br/>
+				:ForceTarget(player) -- This is absolute. SAC will not target anything other than this champion no matter where they are, whether they're dead, not visible etc.<br/>
+				<br/>
+				:UnlockTarget() -- Cancels any of the above target modifications.<br/>
+				<br/>
+				:GetTarget() -- Returns a SacUnit and a reason. The reason is why this unit is targeted, and can be any of the following:<br/>
+				&#160;&#160;&#160;"forced" -- This target was forced using 'ForcePreferredTarget' or 'ForceTarget' above.<br/>
+				&#160;&#160;&#160;"targetlock" -- This unit is targeted because the user has them selected and is holding down left mouse button. Target lock is absolute unless the user releases the mouse button or the target dies.<br/>
+				&#160;&#160;&#160;"priomisc" -- SAC is targeting a misc unit such as a pet, ward or barrel. The user is using Lane Clear or Custom Mode with "prioritise misc objects" enabled.<br/>
+				&#160;&#160;&#160;"farmkill" -- SAC wants to last hit this minion<br/>
+				&#160;&#160;&#160;"farmwait" -- SAC is waiting a short while for this minion to become last hittable<br/>
+				&#160;&#160;&#160;"farmkillcombo" -- SAC is performing a skill/AA farm combo on this minion for the last hit<br/>
+				&#160;&#160;&#160;"farmpushcombo" -- SAC is performing a lane clear skill/AA combo to push the lane<br/>
+				&#160;&#160;&#160;"farmtowercombo" -- SAC is performing a skill/AA combo to last hit this tower minion<br/>
+				&#160;&#160;&#160;"farmtowerpushcombo" -- SAC is using some free time under the tower to prepare caster minions etc<br/>
+				&#160;&#160;&#160;"focusselected" -- This unit is targeted because the user has them selected, and the unit meets their "Focus Selected Target" settings<br/>
+				&#160;&#160;&#160;"enemy" -- An enemy champion is being targeted and has been selected by SAC target selector<br/>
+				&#160;&#160;&#160;"clear" -- This minion has been targeted for lane clear. It will be attacked to push the lane.<br/>
+				&#160;&#160;&#160;"jungle" -- A jungle monster is targeted</p>
+				
+				<h1>Mode Functions</h1>
+				<p class="code">:AnyModeActive() -- Returns whether any mode is currently active in SAC.<br/>
+				:GetActiveMode() -- Returns a string for the current active mode. nil if no mode active.<br/>
+				&#160;&#160;&#160;"AutoCarry" -> Auto Carry is active<br/>
+				&#160;&#160;&#160;"MixedMode" -> Mixed Mode is active<br/>
+				&#160;&#160;&#160;"LaneClear" -> Lane Clear is active<br/>
+				&#160;&#160;&#160;"LastHit" -> Last hit no longer exists and has been replaced by Custom Mode. The user can choose which mode your script receives when they use Custom Mode. For example, they can configure Custom Mode as another Auto Carry type mode and make your script think Auto Carry is active.<br/>
+				&#160;&#160;&#160;The "LastHit" option actually just allows the user to indicate to you that they do not want to attack enemies. The user can only set this in Custom Mode.</p>
+			
+				<h1>Orbwalking Functions</h1>
+				<p class="code">:CanMove() -- Returns false when you are attacking. Same as myHero.moveReady<br/>
+				:CanAttack() -- Returns whether your champion can physically attack now, but does not necessarily mean that SAC will attack.<br/>
+				:AllowedToMove() -- Returns whether SAC is allowed to perform a movement now, including all option checks, humanizer checks etc.<br/>
+				:AllowedToAttack() -- Returns whether SAC is allowed to perform an attack now, including all option checks, humanizer checks etc.<br/>
+				:SetOrbwalkPriority(true/false) -- By default, SAC will always prioritise champions in orbwalk range. Set this to false to give priority to champions outside of orbwalk range.<br/>
+				:CanOrbwalkTarget(target) -- Returns whether this unit can be attacked. Same as target.iCanOrbwalk for SacUnits.<br/>
+				:CanOrbwalkTargetAdditionalRange(target, range) -- Returns whether this target could be attacked if you gained x range.</p>
+				
+				<h1>Minion Functions</h1>
+				<p class="code">:GetLevelAdvantage() -- Returns the level advantage for your team. Negative if you're behind.<br/>
+				:GetLevelAdvantageDamagePercent(minion) -- Returns the overall percent damage increase for this minion based on team level advantage and tower advantage in its lane. Negative if behind.<br/>
+				:GetLevelAdvantageDefenseAmount(minion) -- Returns the defense increase for this minion based on team level advantage and tower advantage in its lane. 0 if behind.<br/>
+				:IsKillable(minion) -- Returns whether the minion is killable with an auto attack and meets all requirements to be attacked (range etc).<br/>
+				:IsAlmostKillable(minion) -- Returns whether the minion will very soon be killable with an auto attack, and is not very far from orbwalk range.<br/>
+				:IsValidLaneClearTarget(minion) -- Returns whether it's safe to attack this minion without worrying about losing the last hit. Considers auto attack damage only.<br/>
+				:CanExecuteMinion(minion) -- Returns whether this minion can be executed with Spoils of War (Relic shield items). Requires you to have a stack of Spoils of War.</p>
+				
+				<h1>Skill Functions</h1>
+				<p class="code">:LoadPrediction(predictionName) -- Loads the chosen prediction if it's not already loaded. Predictions will always be loaded before they are used, but it's better to ensure the prediction is already loaded rather than load it when trying to cast a skill for the first time.<br/>
+				<br/>
+				:GetPrediction(predictionName, target, data) -- Returns castPosition, hitChance from the selected prediction.<br/>
+				<br/>
+				predictionName can be:<br/>
+				&#160;&#160;&#160;"VPrediction"<br/>
+				&#160;&#160;&#160;"HPrediction"<br/>
+				&#160;&#160;&#160;"FHPrediction"<br/>
+				&#160;&#160;&#160;"KPrediction"<br/>
+				<br/>
+				'data' must be a table containing:<br/>
+				{<br/>
+				&#160;&#160;&#160;delay -> number<br/>
+				&#160;&#160;&#160;width -> number<br/>
+				&#160;&#160;&#160;range -> number<br/>
+				&#160;&#160;&#160;speed -> number<br/>
+				&#160;&#160;&#160;source (myHero if nil) -> unit<br/>
+				&#160;&#160;&#160;type -> "linear"/"cone"/"circle"<br/>
+				&#160;&#160;&#160;[optional] collisionMinions -> true/false<br/>
+				&#160;&#160;&#160;[optional] collisionChampions -> true/false<br/>
+				}</p>
+				
+				<h1>Var Functions</h1>
+				<p class="code">:UniqueChampionsKilled() -- Returns the number of unique champions you have killed. Persistant during reloads, but SAC had to be loaded when the kill happened.<br/>
+				:GetSpoilStacks() -- Returns the number of Spoils of War stacks you have, if any.<br/>
+				:GetGamePhase() -- 1 = Early, 2 = Mid, 3 = Late. This is a user-controlled variable. Some users won't use this feature, and game phase will always be 1.<br/>
+				:GetGamePhaseString() -- "Early" / "Mid" / "Late"<br/>
+				<br/>
+				:GetTowerCount() -- Returns a table. Values indicate how many towers are remaining in a given position. Example: GetTowerCount().Ally.Top<br/>
+				&#160;&#160;&#160;{<br/>
+				&#160;&#160;&#160;&#160;&#160;&#160;Ally = {Top = 3, Mid = 3, Bot = 3}<br/>
+				&#160;&#160;&#160;&#160;&#160;&#160;Enemy = {Top = 3, Mid = 3, Bot = 3}<br/>
+				&#160;&#160;&#160;}</p>
+				
+				<h1>Random/Utility Functions</h1>
+				<p class="code">:ValidTarget(unit, distance) -- Similar to normal ValidTarget except contains some humanizer checks from user settings such as minimum time visible.<br/>
+				:ValidUnit(unit, distance) -- Like ValidTarget except without checking specific targeting requirements<br/>
+				:ValidAllyTarget(unit, distance) -- Like ValidTarget but for allies<br/>
+				:EnemiesInRange(range) -- Returns the number of enemies in range. nil range will return number of attackable enemies.<br/>
+				:AlliesInRange(range) -- Returns the number of allies in range. Range cannot be nil.<br/>
+				:LeftMouseDown() -- Returns whether left mouse is down<br/>
+				:PosOnScreen(pos) -- Returns true if the given position is on-screen. pos can be anything with x, y, z value. You can also use unit.isOnScreen with SacUnits.<br/>
+				:KeyToString(key) -- Converts _Q to "Q", _W to "W" etc.<br/>
+				:RandomFloat(min, max) -- Returns a random float between min and max.<br/>
+				:GetKeyString(key) -- Will attempt to return the correct name for a given key. For example GetKeyString(32) will return "Space".<br/>
+				<br/>
+				:SaveForThisGame(name, data) -- Will save data any data for this game.<br/>
+				:LoadForThisGame(name) -- If data has been saved for this game with this name, it will be returned. nil if no data or new game. Useful for preserving data between BoL reloads.<br/>
+				:SaveForThisChamp(name, data) -- Will save data specifically for this champion. You can use the same name on another champion to save separately for them.<br/>
+				:LoadForThisChamp(name) -- If data has been saved for this champion with this name, it will be returned. nil if not found.<br/>
+				:SaveData(name, data) -- Saves data under this name.<br/>
+				:LoadData(name) -- Loads data for the given name. nil if not found.</p>
+			</div>
+			
+			<h1>Examples</h1>
+			<p>I'll try to update this with some better examples when I'm not so tired.</p>
+			<p class="code">require 'SacHelper'<br/>
+			<br/>
+			local myHero<br/>
+			<br/>
+			SAC:Bind("OnLoad", function()<br/>
+			&#160;&#160;&#160;print("SAC and my script have loaded! Good luck!")<br/>
+			&#160;&#160;&#160;myHero = _G.SAC.myHero<br/>
+			end)<br/>
+			<br/>
+			SAC:Bind("OnGainVision", function(unit)<br/>
+			&#160;&#160;&#160;print(unit.charName .. " came into vision!")<br/>
+			end)<br/>
+			<br/>
+			SAC:Bind("OnProcessAttack", function(unit, spell)<br/>
+			&#160;&#160;&#160;if unit.isMinion and unit.healthPercent &#60; 30 then<br/>
+			&#160;&#160;&#160;&#160;&#160;&#160;print("This minion is almost dead, don't know why he bothered.")<br/>
+			&#160;&#160;&#160;end<br/>
+			end)<br/>
+			<br/>
+			-- Don't let SAC move until Q is ready<br/>
+			SAC:Hook("AllowedToMove", function()<br/>
+			&#160;&#160;&#160;return myHero.qReady<br/>
+			end)<br/>
+			<br/>
+			SAC:Bind("OnAttackStarted", function(unit)<br/>
+			&#160;&#160;&#160;if unit.isPlayer and unit.isEnemy and unit.attack.target then<br/>
+			&#160;&#160;&#160;&#160;&#160;&#160;print(unit.charName .. " just attacked " .. unit.attack.target.charName)<br/>
+			&#160;&#160;&#160;end<br/>
+			end)<br/>
+			<br/>
+			-- If I've selected a minion, this will only print when the minion is within 2500 range since that's the default update range for minion SacUnits!<br/>
+			SAC:Bind("OnTick", function()<br/>
+			&#160;&#160;&#160;if myHero.selectedTarget then<br/>
+			&#160;&#160;&#160;&#160;&#160;&#160;print("I have selected " .. myHero.selectedTarget.charName)<br/>
+			&#160;&#160;&#160;end<br/>
+			end)</p>
+			
+			<div class="push"></div>
+		</div>
+		
+		<div class="footer">
+			<p>2016 © Sida's Auto Carry</p>
+			<p>Site coded and designed with <span class="heart">♥</span> by <a href="http://www.scarjit.de/DrPhoenix/">Doctor Phoenix</a> for <a href="http://forum.botoflegends.com/user/858-sida/">Sida</a></p>
+		</div>
+	</body>
+</html>

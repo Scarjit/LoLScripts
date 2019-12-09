@@ -1,0 +1,4 @@
+ErrorDocument 403 /ErrorSites/403.html
+ErrorDocument 404 /ErrorSites/401.html
+ErrorDocument 401 /ErrorSites/404.html
+ErrorDocument 500 /ErrorSites/500.html
