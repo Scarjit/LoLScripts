@@ -1,0 +1,35 @@
+return {
+	["Savagery"] = {
+		["Evelynn"] = 0,
+		["Ziggs"] = 0,
+	},
+	["EnemyHitBoxes"] = {
+		["Data"] = {
+			["Trundle"] = 240.40387599204,
+			["Evelynn"] = 163.96392387421,
+		},
+		["TimeSaved"] = 27.108846664429,
+	},
+	["FarmOffsetAmount"] = {
+		["Evelynn"] = 0,
+		["Ziggs"] = 0,
+	},
+	["DoubleEdgedSword"] = {
+		["Evelynn"] = false,
+		["Ziggs"] = false,
+	},
+	["TargetSelectorMode"] = 8,
+	["WindUpAmount"] = {
+		["Evelynn"] = 0,
+		["Ziggs"] = 0,
+	},
+	["WindUpType"] = {
+		["Evelynn"] = 1,
+		["Ziggs"] = 1,
+	},
+	["FarmOffsetType"] = {
+		["Evelynn"] = 1,
+		["Ziggs"] = 1,
+	},
+	["StreamingMode"] = false,
+}

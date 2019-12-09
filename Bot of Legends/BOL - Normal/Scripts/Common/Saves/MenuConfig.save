@@ -1,0 +1,625 @@
+return {
+	["AmberCarries - Kalista"] = {
+		["AMBERKalista"] = {
+			["wBug2"] = {
+				["status"] = false,
+			},
+			["wBug"] = {
+				["status"] = false,
+			},
+		},
+		["R"] = {
+			["life"] = {
+				["value"] = 15,
+			},
+			["auto"] = {
+				["status"] = true,
+			},
+		},
+		["harass"] = {
+			["UseE"] = {
+				["status"] = true,
+			},
+			["UseQ"] = {
+				["status"] = true,
+			},
+			["harassKey"] = {
+				["key"] = 67,
+			},
+		},
+		["lasthit"] = {
+			["eNumber"] = {
+				["value"] = 2,
+			},
+			["eMinion"] = {
+				["status"] = true,
+			},
+		},
+		["message"] = {
+			["Exaust"] = {
+				["status"] = true,
+			},
+			["timer"] = {
+				["value"] = 0.5,
+			},
+			["Blitz"] = {
+				["status"] = true,
+			},
+		},
+		["KillSteal"] = {
+			["use"] = {
+				["status"] = true,
+			},
+		},
+		["Skin"] = {
+			["nSkin"] = {
+				["dropid"] = 2,
+			},
+		},
+		["W"] = {
+			["Range"] = {
+				["value"] = 2500,
+			},
+			["use"] = {
+				["status"] = true,
+			},
+		},
+		["balista"] = {
+			["range"] = {
+				["value"] = 200,
+			},
+			["use"] = {
+				["status"] = true,
+			},
+		},
+		["misc"] = {
+			["offset"] = {
+				["value"] = 0.5,
+			},
+		},
+		["jungle"] = {
+			["redBuff"] = {
+				["status"] = true,
+			},
+			["golem"] = {
+				["status"] = false,
+			},
+			["drake"] = {
+				["status"] = true,
+			},
+			["gromp"] = {
+				["status"] = false,
+			},
+			["wolve"] = {
+				["status"] = true,
+			},
+			["crabe"] = {
+				["status"] = true,
+			},
+			["nashor"] = {
+				["status"] = true,
+			},
+			["blueBuff"] = {
+				["status"] = true,
+			},
+			["ghost"] = {
+				["status"] = true,
+			},
+			["eJungle"] = {
+				["status"] = true,
+			},
+		},
+		["combo"] = {
+			["comboKey"] = {
+				["key"] = 32,
+			},
+			["useQ"] = {
+				["status"] = true,
+			},
+			["orbwalk"] = {
+				["status"] = true,
+			},
+		},
+		["draw"] = {
+			["currentTarget"] = {
+				["status"] = true,
+			},
+			["drawQ"] = {
+				["status"] = true,
+			},
+			["drawR"] = {
+				["status"] = true,
+			},
+			["minion"] = {
+				["status"] = true,
+			},
+			["jungle"] = {
+				["status"] = true,
+			},
+			["drawE"] = {
+				["status"] = true,
+			},
+			["HP"] = {
+				["status"] = true,
+			},
+		},
+		["E"] = {
+			["force"] = {
+				["status"] = true,
+			},
+			["eSlow"] = {
+				["status"] = true,
+			},
+			["eHero"] = {
+				["status"] = true,
+			},
+			["slowRange"] = {
+				["status"] = true,
+			},
+		},
+	},
+	["AmberCarries - Utility"] = {
+		["Prediction"] = {
+			["pred"] = {
+				["dropid"] = 2,
+			},
+		},
+		["item"] = {
+			["Bortk"] = {
+				["status"] = true,
+			},
+			["Sabre"] = {
+				["status"] = true,
+			},
+			["Mercurial"] = {
+				["status"] = true,
+			},
+			["Quicksilver"] = {
+				["status"] = true,
+			},
+			["Youmus"] = {
+				["status"] = true,
+			},
+			["humanizer"] = {
+				["value"] = 0,
+			},
+		},
+	},
+	["AmberTop - Utility"] = {
+		["item"] = {
+			["Bortk"] = {
+				["status"] = false,
+			},
+			["Hydre"] = {
+				["status"] = false,
+			},
+			["Tiamat"] = {
+				["status"] = true,
+			},
+			["Mercurial"] = {
+				["status"] = false,
+			},
+			["humanizer"] = {
+				["value"] = 0,
+			},
+			["Sabre"] = {
+				["status"] = false,
+			},
+			["Quicksilver"] = {
+				["status"] = false,
+			},
+			["Youmus"] = {
+				["status"] = false,
+			},
+			["Hextech"] = {
+				["status"] = true,
+			},
+		},
+	},
+	["AmberCarries - Lucian"] = {
+		["laneClear"] = {
+			["laneClearKey"] = {
+				["key"] = 86,
+			},
+			["useQ"] = {
+				["status"] = true,
+			},
+			["useW"] = {
+				["status"] = true,
+			},
+			["manaManager"] = {
+				["value"] = 70,
+			},
+		},
+		["R"] = {
+			["use"] = {
+				["status"] = true,
+			},
+			["combo"] = {
+				["status"] = true,
+			},
+			["useE"] = {
+				["status"] = true,
+			},
+		},
+		["Q"] = {
+			["minion"] = {
+				["status"] = true,
+			},
+		},
+		["harass"] = {
+			["manaManager"] = {
+				["value"] = 70,
+			},
+			["useQ"] = {
+				["status"] = true,
+			},
+			["useW"] = {
+				["status"] = true,
+			},
+			["harassKey"] = {
+				["key"] = 67,
+			},
+		},
+		["combo"] = {
+			["useR"] = {
+				["status"] = true,
+			},
+			["useQ"] = {
+				["status"] = true,
+			},
+			["useW"] = {
+				["status"] = true,
+			},
+			["comboKey"] = {
+				["key"] = 32,
+			},
+			["useE"] = {
+				["status"] = true,
+			},
+		},
+		["drawing"] = {
+			["currentTarget"] = {
+				["status"] = true,
+			},
+			["eRange"] = {
+				["status"] = true,
+			},
+			["qRange"] = {
+				["status"] = true,
+			},
+			["wRange"] = {
+				["status"] = true,
+			},
+			["damage"] = {
+				["status"] = true,
+			},
+			["eTime"] = {
+				["status"] = true,
+			},
+			["rRange"] = {
+				["status"] = true,
+			},
+		},
+		["E"] = {
+			["mode"] = {
+				["dropid"] = 1,
+			},
+		},
+	},
+	["AmberTop - Ekko"] = {
+		["LaneClear"] = {
+			["ManaManager"] = {
+				["value"] = 80,
+			},
+			["minionHit"] = {
+				["value"] = 2,
+			},
+			["Q"] = {
+				["status"] = true,
+			},
+			["Key"] = {
+				["key"] = 86,
+			},
+		},
+		["JungleClear"] = {
+			["ManaManager"] = {
+				["value"] = 80,
+			},
+			["minionHit"] = {
+				["value"] = 2,
+			},
+			["Q"] = {
+				["status"] = true,
+			},
+			["Key"] = {
+				["key"] = 86,
+			},
+		},
+		["Combo"] = {
+			["W"] = {
+				["status"] = true,
+			},
+			["R"] = {
+				["status"] = true,
+			},
+			["Key"] = {
+				["key"] = 32,
+			},
+			["Q"] = {
+				["status"] = true,
+			},
+			["E"] = {
+				["status"] = true,
+			},
+		},
+		["Harass"] = {
+			["ManaManager"] = {
+				["value"] = 80,
+			},
+			["enemyHit"] = {
+				["value"] = 1,
+			},
+			["Q"] = {
+				["status"] = true,
+			},
+			["Key"] = {
+				["key"] = 67,
+			},
+		},
+		["Spells"] = {
+			["save"] = {
+				["value"] = 15,
+			},
+			["minDie"] = {
+				["value"] = 1,
+			},
+			["saveActive"] = {
+				["status"] = true,
+			},
+			["offR"] = {
+				["status"] = true,
+			},
+			["minHit"] = {
+				["value"] = 2,
+			},
+		},
+		["Draw"] = {
+			["qColor"] = {
+				["color"] = {
+					[1] = 125,
+					[2] = 200,
+					[3] = 50,
+					[4] = 170,
+				},
+			},
+			["Q"] = {
+				["status"] = true,
+			},
+			["targetColor"] = {
+				["color"] = {
+					[1] = 125,
+					[2] = 200,
+					[3] = 50,
+					[4] = 170,
+				},
+			},
+			["W"] = {
+				["status"] = true,
+			},
+			["eColor"] = {
+				["color"] = {
+					[1] = 125,
+					[2] = 200,
+					[3] = 50,
+					[4] = 170,
+				},
+			},
+			["target"] = {
+				["status"] = true,
+			},
+			["wColor"] = {
+				["color"] = {
+					[1] = 125,
+					[2] = 200,
+					[3] = 50,
+					[4] = 170,
+				},
+			},
+			["damageColor"] = {
+				["color"] = {
+					[1] = 125,
+					[2] = 200,
+					[3] = 50,
+					[4] = 170,
+				},
+			},
+			["ghostColor"] = {
+				["color"] = {
+					[1] = 125,
+					[2] = 200,
+					[3] = 50,
+					[4] = 170,
+				},
+			},
+			["damage"] = {
+				["status"] = true,
+			},
+			["ghost"] = {
+				["status"] = true,
+			},
+			["E"] = {
+				["status"] = true,
+			},
+		},
+		["KillSteal"] = {
+			["Q"] = {
+				["status"] = true,
+			},
+		},
+	},
+	["AmberCarries - Vayne"] = {
+		["R"] = {
+			["lifeE"] = {
+				["value"] = 70,
+			},
+			["countAlly"] = {
+				["value"] = 2,
+			},
+			["lifeMe"] = {
+				["value"] = 50,
+			},
+			["countEnemie"] = {
+				["value"] = 2,
+			},
+			["keepType"] = {
+				["status"] = true,
+			},
+			["rangeE"] = {
+				["value"] = 2000,
+			},
+			["keepRange"] = {
+				["value"] = 220,
+			},
+			["rangeA"] = {
+				["value"] = 2000,
+			},
+			["keep"] = {
+				["status"] = true,
+			},
+		},
+		["tower"] = {
+			["useQ"] = {
+				["status"] = true,
+			},
+			["ally"] = {
+				["status"] = true,
+			},
+			["hp"] = {
+				["value"] = 20,
+			},
+		},
+		["harass"] = {
+			["harassKey"] = {
+				["key"] = 67,
+			},
+			["useQ"] = {
+				["status"] = true,
+			},
+		},
+		["draw"] = {
+			["drawE"] = {
+				["status"] = true,
+			},
+			["drawQ"] = {
+				["status"] = true,
+			},
+			["wall"] = {
+				["status"] = true,
+			},
+			["typeQ"] = {
+				["dropid"] = 1,
+			},
+			["currentTarget"] = {
+				["status"] = true,
+			},
+			["drawStunt"] = {
+				["status"] = true,
+			},
+			["HP"] = {
+				["status"] = true,
+			},
+		},
+		["Q"] = {
+			["force"] = {
+				["status"] = false,
+			},
+			["kite"] = {
+				["status"] = true,
+			},
+			["type"] = {
+				["dropid"] = 3,
+			},
+			["range"] = {
+				["value"] = 150,
+			},
+		},
+		["gabcloser"] = {
+			["Akali"] = {
+				["status"] = true,
+			},
+		},
+		["wall"] = {
+			["wallKey"] = {
+				["key"] = 84,
+			},
+		},
+		["Skin"] = {
+			["nSkin"] = {
+				["dropid"] = 1,
+			},
+		},
+		["laneclear"] = {
+			["mana"] = {
+				["value"] = 80,
+			},
+			["useQ"] = {
+				["status"] = false,
+			},
+			["laneclearKey"] = {
+				["key"] = 86,
+			},
+		},
+		["combo"] = {
+			["useR"] = {
+				["status"] = true,
+			},
+			["useQ"] = {
+				["status"] = true,
+			},
+			["useE"] = {
+				["status"] = true,
+			},
+			["comboKey"] = {
+				["key"] = 32,
+			},
+		},
+		["killsteal"] = {
+			["UseE"] = {
+				["status"] = true,
+			},
+			["killsteal"] = {
+				["status"] = true,
+			},
+		},
+		["E"] = {
+			["Teemo"] = {
+				["status"] = true,
+			},
+			["Zac"] = {
+				["status"] = true,
+			},
+			["stuntChance"] = {
+				["value"] = 2,
+			},
+			["Akali"] = {
+				["status"] = true,
+			},
+			["auto"] = {
+				["status"] = true,
+			},
+			["Soraka"] = {
+				["status"] = true,
+			},
+			["Twitch"] = {
+				["status"] = true,
+			},
+			["Range"] = {
+				["value"] = 430,
+			},
+			["type"] = {
+				["dropid"] = 2,
+			},
+		},
+	},
+}

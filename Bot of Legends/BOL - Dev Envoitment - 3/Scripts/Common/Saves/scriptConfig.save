@@ -1,0 +1,927 @@
+return {
+	["NOW_Evelynn_s"] = {
+	},
+	["Menu_Evelynn_h"] = {
+	},
+	["NOWEvelynn_Items_HXG"] = {
+	},
+	["Menu_Evelynn_lc"] = {
+	},
+	["sac_SkillFarm_ERavagenongamephase"] = {
+		["MixedMode"] = 1,
+		["CustomMode"] = 1,
+		["LaneClear"] = 1,
+	},
+	["NOWEvelynn_Items_CP"] = {
+	},
+	["NOWEvelynn_Items_FQC"] = {
+	},
+	["Big Fat Orbwalker_OrbIT"] = {
+	},
+	["NOW_Evelynn_i"] = {
+	},
+	["sac_Behaviour"] = {
+		["Sep17"] = "",
+		["MouseOverHeroDistance"] = 70,
+		["MouseOverHero"] = true,
+	},
+	["sidasacmain"] = {
+	},
+	["sac_SkillSetup_RAgonysEmbrace"] = {
+		["AttackSettings"] = false,
+		["Range"] = 650,
+		["CanCancel"] = false,
+		["AfterAA"] = false,
+		["Delay"] = 0.25,
+		["PredictionSettings"] = false,
+		["_tsInstances"] = {
+		},
+		["HitChance"] = 2,
+		["Width"] = 250,
+		["Priority"] = false,
+		["Prediction"] = 1,
+		["AARange"] = false,
+		["Sep27"] = "",
+		["_param"] = {
+		},
+		["SkillData"] = false,
+	},
+	["sidasacmain_sidasacskills_QBouncingBomb"] = {
+	},
+	["NOWEvelynn_Items_BRK"] = {
+	},
+	["S1mple_Ziggs2"] = {
+	},
+	["Farm"] = {
+	},
+	["Menu_Evelynn_as"] = {
+	},
+	["OrbTest_adv"] = {
+	},
+	["PewalkCore_Selector"] = {
+	},
+	["sac_Farming_Adjustments"] = {
+		["AdjustFarming"] = false,
+		["Amount"] = 1,
+		["Type"] = 1,
+	},
+	["S1mple_Ziggs2_orb_minion"] = {
+	},
+	["Menu_PredictionEvelynn"] = {
+	},
+	["sac_Skills_WDarkFrenzy"] = {
+		["MixedModeMana"] = 30,
+		["CustomMode"] = false,
+		["AutoCarryMana"] = 0,
+		["AutoCarry"] = false,
+		["LaneClear"] = false,
+		["ManaSettings"] = false,
+		["Sep30"] = "",
+		["LaneClearMana"] = 30,
+		["MixedMode"] = false,
+		["CustomModeMana"] = 30,
+		["Sep31"] = "",
+		["EnabledModes"] = false,
+	},
+	["sidasacmain_sidasacdrawing_sidasacenemyrangesub"] = {
+	},
+	["sidasacmain_sidasacitems_sidasaclaneclearitemssub"] = {
+	},
+	["NOWEvelynn_LaneClear"] = {
+	},
+	["sidasacmain_sidasacskills_ERavage"] = {
+	},
+	["sidasacmain_sidasacdrawing_sidasaccirclessub"] = {
+	},
+	["sidasacmain_sidasacsetup_sidasaclaneclearsub"] = {
+	},
+	["sac_Behaviour_AutoCarry"] = {
+		["AttacksEnabled"] = true,
+		["FocusOther"] = false,
+		["FocusJungle"] = false,
+		["Sep5"] = "",
+		["FocusMinions"] = false,
+		["FocusSelected"] = false,
+		["AttackMovement"] = false,
+		["MovementEnabled"] = true,
+		["Sep6"] = "",
+		["FocusBuildings"] = false,
+		["FocusPlayers"] = true,
+	},
+	["sac_Items_MixedMode"] = {
+		["BotrkOptions"] = false,
+		["Sep49"] = "",
+		["ItemSwordOfFeastAndFamine"] = true,
+		["ItemGlacialSpikeCast"] = true,
+		["HextechGunblade"] = true,
+		["ItemsUsage"] = false,
+		["BilgewaterCutlass"] = true,
+		["OdinEntropicClaymore"] = true,
+		["RanduinsOmen"] = true,
+		["BortkHeal"] = 0,
+		["shurelyascrest"] = true,
+		["YoumusBlade"] = true,
+	},
+	["sac_SkillSetup_ERavage"] = {
+		["AttackSettings"] = false,
+		["Range"] = 225,
+		["AfterAA"] = true,
+		["Speed"] = 1800,
+		["Delay"] = 0.25,
+		["Priority"] = false,
+		["AARange"] = false,
+		["CanCancel"] = false,
+		["Sep26"] = "",
+		["SkillData"] = false,
+	},
+	["S1mpleOrbWalker_misc"] = {
+		["_tsInstances"] = {
+		},
+		["preferm"] = false,
+		["deadradius"] = 20,
+		["_param"] = {
+		},
+		["healthpred"] = true,
+		["debug"] = false,
+		["moveunderTower"] = false,
+		["tower"] = true,
+	},
+	["S1mpleOrbWalker_keys"] = {
+	},
+	["sidasacmain_sidasacpets"] = {
+	},
+	["NOWEvelynn_Items_ENT"] = {
+	},
+	["sac_Farming_TowerFarm"] = {
+		["Outer"] = true,
+		["Inner"] = true,
+		["TowerTypes"] = false,
+	},
+	["sidasacmain_sidasacskills_RAgonysEmbrace"] = {
+	},
+	["sac"] = {
+		["Language"] = 1,
+		["Sep0"] = "",
+		["ScriptVersion"] = 0.11,
+		["Sep1"] = "",
+	},
+	["Menu_KeySettings"] = {
+	},
+	["sidasacmain_sidasacskills_QHateSpike"] = {
+	},
+	["sac_Behaviour_CustomMode"] = {
+		["farmStyle"] = 1,
+		["Sep13"] = "",
+		["FarmPrio"] = true,
+		["AttackMovement"] = false,
+		["Sep15"] = "",
+		["AttacksEnabled"] = true,
+		["FocusOther"] = false,
+		["Sep16"] = "",
+		["FocusJungle"] = false,
+		["AttackPlayers"] = false,
+		["ScriptIntegration"] = 5,
+		["FocusPlayers"] = true,
+		["FocusMinions"] = false,
+		["FocusSelected"] = false,
+		["Sep14"] = "",
+		["AttackJungle"] = false,
+		["ScriptInteg"] = false,
+		["MovementEnabled"] = true,
+		["FocusBuildings"] = false,
+		["PrioMisc"] = false,
+		["Farming"] = false,
+	},
+	["Big Fat Orbwalker"] = {
+	},
+	["OrbTest"] = {
+	},
+	["sac_SkillFarm_QHateSpikenongamephase"] = {
+		["MixedMode"] = 1,
+		["CustomMode"] = 1,
+		["LaneClear"] = 1,
+	},
+	["OrbTest_human"] = {
+	},
+	["sidasacmain_sidasacsubstream"] = {
+	},
+	["S1mple_Ziggs2_hr"] = {
+		["_tsInstances"] = {
+		},
+		["wdirection"] = 1,
+		["usew"] = true,
+		["minqmana"] = 15,
+		["minemana"] = 15,
+		["_param"] = {
+		},
+		["usee"] = false,
+		["useq"] = true,
+		["minwmana"] = 15,
+	},
+	["sidasacmain_sidasacsetup_sidasacmixedmodesub"] = {
+	},
+	["NOW_Evelynn_d"] = {
+	},
+	["SkillClear"] = {
+	},
+	["sac_Skills_ERavage"] = {
+		["MixedModeMana"] = 30,
+		["AutoCarryMana"] = 0,
+		["AutoCarry"] = false,
+		["LaneClear"] = false,
+		["TargetMixedMode"] = 1,
+		["ManaSettings"] = false,
+		["LaneClearMana"] = 30,
+		["Sep32"] = "",
+		["CustomModeMana"] = 30,
+		["CustomMode"] = false,
+		["TargetLaneClear"] = 1,
+		["Sep33"] = "",
+		["TargetAutoCarry"] = 2,
+		["MixedMode"] = false,
+		["EnabledModes"] = false,
+		["TargetSettings"] = false,
+		["TargetCustomMode"] = 1,
+	},
+	["Menu_HumanizerSettings"] = {
+		["_tsInstances"] = {
+		},
+		["SmiteHumanizerMinValue"] = 100,
+		["SpellsHumanizerMaxValue"] = 200,
+		["SpellsHumanizerMinValue"] = 100,
+		["SmiteHumanizerON"] = true,
+		["SpellsHumanizerON"] = true,
+		["_param"] = {
+		},
+		["QSSHumanizerMinValue"] = 100,
+		["QSSHumanizerMaxValue"] = 200,
+		["SmiteHumanizerMaxValue"] = 200,
+		["QSSHumanizerON"] = true,
+	},
+	["sac_SkillFarm"] = {
+		["UseGamePhasesEvelynn"] = true,
+		["Sep47"] = "",
+	},
+	["S1mple_Ziggs2_spells_w"] = {
+		["autothrowenabled"] = true,
+		["autotower"] = true,
+		["_param"] = {
+		},
+		["autothrowmaxhpperc"] = 0,
+		["_tsInstances"] = {
+		},
+	},
+	["sidasacmain_sidasacskills"] = {
+	},
+	["NOWEvelynn_JungleClear"] = {
+	},
+	["Menu_AwarenessSettings"] = {
+	},
+	["NOWEvelynn_Draws"] = {
+	},
+	["S1mple_Ziggs2_orb_draw"] = {
+	},
+	["sidasacmain_sidasacfarming_sidasacpredictionfarm"] = {
+	},
+	["S1mple_Ziggs2_adv"] = {
+		["_tsInstances"] = {
+		},
+		["debug"] = true,
+		["_param"] = {
+		},
+	},
+	["Big Fat Orbwalker_OrbKB"] = {
+		["_tsInstances"] = {
+		},
+		["_param"] = {
+			[1] = {
+				["key"] = 32,
+			},
+			[2] = {
+				["key"] = 67,
+			},
+			[3] = {
+				["key"] = 88,
+			},
+			[4] = {
+				["key"] = 86,
+			},
+		},
+		["LastHit"] = false,
+		["Combo"] = false,
+		["Mixed"] = false,
+		["LaneClear"] = false,
+	},
+	["NOWEvelynn_Combo"] = {
+	},
+	["OrbTest_draw"] = {
+		["_tsInstances"] = {
+		},
+		["range"] = true,
+		["aaneeded"] = false,
+		["showpurplebar"] = false,
+		["sprites"] = false,
+		["circleinstead"] = false,
+		["mhealth"] = true,
+		["_param"] = {
+		},
+		["numericaa"] = false,
+		["erange"] = true,
+	},
+	["OrbTest_misc"] = {
+	},
+	["NOWEvelynn_Items_YGB"] = {
+	},
+	["PewalkCore_Humanizer"] = {
+	},
+	["FHPrediction_debug"] = {
+	},
+	["S1mpleOrbWalker_human"] = {
+	},
+	["sidasacmain_sidasacfarming_sidasactowerfarm"] = {
+	},
+	["sac_Behaviour_MixedMode"] = {
+		["AttacksEnabled"] = true,
+		["FocusOther"] = false,
+		["Sep8"] = "",
+		["AttackPlayers"] = true,
+		["FarmPrio"] = true,
+		["Sep9"] = "",
+		["FocusMinions"] = false,
+		["FocusSelected"] = false,
+		["FocusJungle"] = false,
+		["AttackMovement"] = false,
+		["Sep7"] = "",
+		["MovementEnabled"] = true,
+		["FocusBuildings"] = false,
+		["FocusPlayers"] = true,
+		["Farming"] = false,
+	},
+	["sac_Drawing_Champions"] = {
+		["2"] = true,
+		["3"] = true,
+		["4"] = true,
+		["5"] = true,
+		["RangeCircleRole"] = false,
+		["Sep57"] = "",
+		["Sep56"] = "",
+		["RangeCircleChamp"] = false,
+		["1"] = true,
+	},
+	["S1mpleOrbWalker_draw"] = {
+		["_tsInstances"] = {
+		},
+		["range"] = true,
+		["othercolor"] = false,
+		["aaneeded"] = true,
+		["showpurplebar"] = false,
+		["sprites"] = false,
+		["circleinstead"] = false,
+		["mhealth"] = true,
+		["_param"] = {
+		},
+		["numericaa"] = false,
+		["erange"] = true,
+	},
+	["S1mple_Ziggs2_keys"] = {
+	},
+	["NOWEvelynn_Items_BWC"] = {
+	},
+	["Menu"] = {
+		["menuKey"] = 16,
+		["pDraw"] = {
+			["x"] = 1267,
+			["y"] = 864,
+		},
+		["draw"] = {
+			["x"] = 7,
+			["y"] = 255,
+		},
+	},
+	["sidasacmain_sidasacsetup_sidasaclasthitsub"] = {
+	},
+	["FHPrediction"] = {
+	},
+	["sac_Items_CustomMode"] = {
+		["YoumusBlade"] = true,
+		["RanduinsOmen"] = true,
+		["ItemGlacialSpikeCast"] = true,
+		["HextechGunblade"] = true,
+		["Sep51"] = "",
+		["ItemsUsage"] = false,
+		["BilgewaterCutlass"] = true,
+		["OdinEntropicClaymore"] = true,
+		["BotrkOptions"] = false,
+		["BortkHeal"] = 0,
+		["shurelyascrest"] = true,
+		["ItemSwordOfFeastAndFamine"] = true,
+	},
+	["Menu_Evelynn_c"] = {
+		["_tsInstances"] = {
+		},
+		["UseW"] = true,
+		["UseQ"] = true,
+		["_param"] = {
+		},
+		["WFarRange"] = 1.5,
+		["UseE"] = true,
+		["UseR"] = true,
+		["minR"] = 1,
+	},
+	["NOW_Evelynn_f"] = {
+	},
+	["S1mple_Ziggs2_human"] = {
+	},
+	["NOW_Evelynn_melee"] = {
+	},
+	["NOW_Evelynn_ts"] = {
+	},
+	["S1mple_Ziggs2_orb_adv"] = {
+		["_tsInstances"] = {
+		},
+		["canmovetoggle"] = false,
+		["latency"] = 0,
+		["latencytoggle"] = false,
+		["canaatoggle"] = false,
+		["reloadsprites"] = true,
+		["_param"] = {
+		},
+		["canmove"] = 20,
+		["canaa"] = 0,
+	},
+	["sidasacmain_sidasacsetup_sidasacautocarrysub"] = {
+	},
+	["S1mple_Ziggs2_orb_human"] = {
+	},
+	["NOW_Evelynn_t"] = {
+	},
+	["sidasacmain_sidasacadvanced"] = {
+	},
+	["sidasacmain_sidasacitems_sidasacautocarryitemssub"] = {
+	},
+	["Menu_Evelynn_jc"] = {
+	},
+	["NOWEvelynn_LastHit"] = {
+	},
+	["VPrediction"] = {
+	},
+	["FHPrediction_stun"] = {
+	},
+	["NOW_Evelynn"] = {
+	},
+	["S1mple_Ziggs2_lc"] = {
+	},
+	["sac_Items_LaneClear"] = {
+		["Sep50"] = "",
+		["BotrkOptions"] = false,
+		["RanduinsOmen"] = true,
+		["ItemSwordOfFeastAndFamine"] = true,
+		["HextechGunblade"] = true,
+		["ItemsUsage"] = false,
+		["BilgewaterCutlass"] = true,
+		["ItemGlacialSpikeCast"] = true,
+		["OdinEntropicClaymore"] = true,
+		["BortkHeal"] = 0,
+		["shurelyascrest"] = true,
+		["YoumusBlade"] = true,
+	},
+	["sidasacmain_sidasacfarming_sidasacsubmasteries"] = {
+	},
+	["sac_Drawing_MyHero"] = {
+		["_tsInstances"] = {
+		},
+		["DrawOptions"] = false,
+		["rangeColour"] = {
+			[1] = 255,
+			[2] = 255,
+			[3] = 255,
+			[4] = 255,
+		},
+		["_param"] = {
+		},
+		["rangeThickness"] = 2,
+		["Movement"] = false,
+		["Sep53"] = "",
+	},
+	["sac_Drawing_Target"] = {
+		["Style"] = true,
+		["Buildings"] = true,
+		["ReticleStyle"] = 1,
+		["Selected"] = true,
+		["Minions"] = true,
+		["Sep55"] = "",
+		["RangeArc"] = true,
+		["Jungle"] = true,
+		["Sep54"] = "",
+		["ReticleThickness"] = 5,
+		["Units"] = true,
+		["Champions"] = true,
+	},
+	["VPrediction_Developers"] = {
+	},
+	["sac_Skills_RAgonysEmbrace"] = {
+		["MixedModeMana"] = 30,
+		["AutoCarryMana"] = 0,
+		["AutoCarry"] = false,
+		["LaneClear"] = false,
+		["TargetMixedMode"] = 1,
+		["ManaSettings"] = false,
+		["LaneClearMana"] = 30,
+		["TargetCustomMode"] = 1,
+		["CustomModeMana"] = 30,
+		["CustomMode"] = false,
+		["TargetLaneClear"] = 1,
+		["Sep35"] = "",
+		["Sep34"] = "",
+		["MixedMode"] = false,
+		["TargetAutoCarry"] = 2,
+		["EnabledModes"] = false,
+		["TargetSettings"] = false,
+	},
+	["S1mpleOrbWalker_minion"] = {
+	},
+	["sidasacmain_sidasachotkeys"] = {
+	},
+	["NOW_Evelynn_k"] = {
+	},
+	["S1mpleOrbWalker_adv"] = {
+	},
+	["NOWEvelynn_Items_RAO"] = {
+	},
+	["sac_Humanizer"] = {
+		["Attacks"] = true,
+		["MaxDelay"] = 600,
+		["ActionDelay"] = 0,
+		["RandomizeAttackSpeed"] = true,
+		["Items"] = true,
+		["MinVisible"] = true,
+		["Sep21"] = "",
+		["RandomizeDelay"] = 50,
+		["MaxOrbwalkSpeed"] = 2.5,
+		["Movement"] = true,
+		["Sep18"] = "",
+		["Sep19"] = "",
+		["MinVisibleAmount"] = 250,
+		["Spells"] = true,
+		["MinDelay"] = 150,
+		["BlockOffScreen"] = true,
+		["Sep20"] = "",
+		["Modify"] = false,
+		["Sep22"] = "",
+		["RandomSpeedAmount"] = 25,
+		["LimitOrbwalkSpeed"] = false,
+		["AdvancedMovement"] = false,
+	},
+	["NOWEvelynn_Items_GH"] = {
+	},
+	["S1mple_Ziggs2_orb"] = {
+	},
+	["OrbTest_keys"] = {
+	},
+	["sac_SacBars_Toggles"] = {
+		["_tsInstances"] = {
+		},
+		["_param"] = {
+		},
+		["icons"] = false,
+		["enabled"] = true,
+		["showTooltips"] = true,
+		["lock"] = false,
+	},
+	["sidasacmain_sidasacmelee"] = {
+	},
+	["NOWEvelynn"] = {
+	},
+	["sac_SkillFarm_QHateSpike"] = {
+		["CustomModeEarly"] = 1,
+		["CustomModeLate"] = 1,
+		["LaneClearMid"] = 1,
+		["MixedModeEarly"] = 1,
+		["MixedModeLate"] = 1,
+		["Late"] = false,
+		["Early"] = false,
+		["LaneClearLate"] = 1,
+		["Sep38"] = "",
+		["MixedModeMid"] = 1,
+		["Mid"] = false,
+		["Sep37"] = "",
+		["LaneClearEarly"] = 1,
+		["Sep36"] = "",
+		["CustomModeMid"] = 1,
+	},
+	["sidasacmain_sidasacdrawing_sidasacother"] = {
+	},
+	["sidasacmain_sidasacitems_sidasacmixedmodeitemssub"] = {
+	},
+	["sidasacmain_sidasacconfig"] = {
+	},
+	["sac_SkillFarm_ERavage"] = {
+		["CustomModeEarly"] = 1,
+		["CustomModeLate"] = 1,
+		["LaneClearMid"] = 1,
+		["Mid"] = false,
+		["MixedModeLate"] = 1,
+		["Late"] = false,
+		["MixedModeEarly"] = 1,
+		["Sep41"] = "",
+		["Sep40"] = "",
+		["MixedModeMid"] = 1,
+		["LaneClearLate"] = 1,
+		["Early"] = false,
+		["LaneClearEarly"] = 1,
+		["Sep39"] = "",
+		["CustomModeMid"] = 1,
+	},
+	["sidasacmain_sidasacdrawing_sidasacminionhealthsub"] = {
+	},
+	["NOWEvelynn_Items_TIHY"] = {
+	},
+	["sac_Drawing_Jungle"] = {
+		["TickerStyle"] = 3,
+	},
+	["sac_Targeting"] = {
+		["TargetLock"] = false,
+		["Sep23"] = "",
+	},
+	["VPrediction_Collision"] = {
+	},
+	["Big Fat Orbwalker_OrbST"] = {
+	},
+	["Carry"] = {
+	},
+	["sac_Behaviour_LaneClear"] = {
+		["Sep11"] = "",
+		["FocusOther"] = false,
+		["Sep12"] = "",
+		["FocusJungle"] = false,
+		["AttackPlayers"] = true,
+		["PrioMisc"] = true,
+		["Sep10"] = "",
+		["FocusMinions"] = false,
+		["FocusSelected"] = false,
+		["AttacksEnabled"] = true,
+		["AttackMovement"] = false,
+		["FarmPrio"] = true,
+		["MovementEnabled"] = true,
+		["FocusBuildings"] = false,
+		["FocusPlayers"] = true,
+		["Farming"] = false,
+	},
+	["NOW_Evelynn_m"] = {
+	},
+	["NOWEvelynn_Mixed"] = {
+	},
+	["sac_Farming_SupportMode"] = {
+		["RelicShieldFarm"] = true,
+		["CannonPrio"] = true,
+		["SoloFarm"] = true,
+	},
+	["sac_Drawing_Minions"] = {
+		["AlmostKillableMarker"] = true,
+		["KillableMarker"] = true,
+		["KillExpectedMarker"] = true,
+		["TickerStyle"] = 3,
+	},
+	["S1mple_Ziggs2_draw"] = {
+	},
+	["sac_Jungle"] = {
+		["RAgonysEmbrace"] = false,
+		["QHateSpike"] = false,
+		["ERavage"] = false,
+		["WDarkFrenzy"] = false,
+	},
+	["LaneClear"] = {
+	},
+	["Freeze"] = {
+	},
+	["NOWEvelynn_Items_HXL"] = {
+	},
+	["NOWEvelynn_Items_OHM"] = {
+	},
+	["sidasacmain_sidasacts"] = {
+	},
+	["S1mple_Ziggs2_spells_w_autothrow"] = {
+	},
+	["NOWEvelynn_Masteries"] = {
+	},
+	["sac_Hotkeys"] = {
+		["_tsInstances"] = {
+		},
+		["CustomMode"] = false,
+		["LaneFreeze"] = false,
+		["ManualMode"] = false,
+		["LaneClear"] = false,
+		["AutoCarry"] = false,
+		["ToggleSettings"] = false,
+		["_param"] = {
+			[1] = {
+				["key"] = 32,
+			},
+			[2] = {
+				["key"] = 67,
+			},
+			[3] = {
+				["key"] = 88,
+			},
+			[6] = {
+				["key"] = 112,
+			},
+			[9] = {
+				["key"] = 74,
+			},
+			[10] = {
+				["key"] = 118,
+			},
+			[8] = {
+				["key"] = 72,
+			},
+			[7] = {
+				["key"] = 117,
+			},
+			[4] = {
+				["key"] = 86,
+			},
+		},
+		["StreamMode"] = false,
+		["MixedMode"] = false,
+		["SkillFarm"] = true,
+		["SupportModeEvelynn"] = false,
+		["HotkeyTypes"] = false,
+	},
+	["sac_SkillSetup_QHateSpike"] = {
+		["AttackSettings"] = false,
+		["Priority"] = false,
+		["AARange"] = false,
+		["CanCancel"] = false,
+		["Sep24"] = "",
+		["AfterAA"] = false,
+	},
+	["Mixed"] = {
+	},
+	["DisableAttacks"] = {
+	},
+	["sidasacmain_sidasacskills_EHexplosiveMinefield"] = {
+	},
+	["Menu_DrawSettings"] = {
+		["DrawAaON"] = true,
+		["_param"] = {
+		},
+		["SmiteDrawON"] = true,
+		["LastHitDrawON"] = true,
+		["_tsInstances"] = {
+		},
+		["DrawTargetON"] = true,
+	},
+	["NOWEvelynn_Items_TIAMAT"] = {
+	},
+	["sac_Drawing"] = {
+		["_tsInstances"] = {
+		},
+		["Sep58"] = "",
+		["CircleStyle"] = 2,
+		["_param"] = {
+		},
+	},
+	["sac_Farming"] = {
+		["_tsInstances"] = {
+		},
+		["enabled"] = false,
+		["FarmMethod"] = 1,
+		["_param"] = {
+		},
+	},
+	["Menu_ItemsSettings"] = {
+	},
+	["sac_SkillTower"] = {
+		["RAgonysEmbrace"] = false,
+		["QHateSpike"] = false,
+		["ERavage"] = false,
+		["WDarkFrenzy"] = false,
+	},
+	["Menu_MiscSettings"] = {
+		["SetSkin"] = 0,
+		["UseSmite"] = false,
+		["_tsInstances"] = {
+		},
+		["_param"] = {
+		},
+	},
+	["NOWEvelynn_SmiteEvelynn"] = {
+	},
+	["sac_Skills_QHateSpike"] = {
+		["MixedModeMana"] = 30,
+		["CustomMode"] = false,
+		["AutoCarryMana"] = 0,
+		["AutoCarry"] = false,
+		["LaneClear"] = false,
+		["ManaSettings"] = false,
+		["CustomModeMana"] = 30,
+		["LaneClearMana"] = 30,
+		["MixedMode"] = false,
+		["Sep29"] = "",
+		["Sep28"] = "",
+		["EnabledModes"] = false,
+	},
+	["S1mple_Ziggs2_minion"] = {
+	},
+	["NOWEvelynn_Items_HYDRA"] = {
+	},
+	["OrbTest_minion"] = {
+	},
+	["S1mple_Ziggs2_misc"] = {
+	},
+	["sac_Items_AutoCarry"] = {
+		["Sep48"] = "",
+		["BotrkOptions"] = false,
+		["RanduinsOmen"] = true,
+		["ItemSwordOfFeastAndFamine"] = true,
+		["HextechGunblade"] = true,
+		["ItemsUsage"] = false,
+		["BilgewaterCutlass"] = true,
+		["ItemGlacialSpikeCast"] = true,
+		["OdinEntropicClaymore"] = true,
+		["BortkHeal"] = 0,
+		["shurelyascrest"] = true,
+		["YoumusBlade"] = true,
+	},
+	["sidasacmain_sidasacsubhumanizer"] = {
+	},
+	["Menu_ItemsSettings_QSS"] = {
+	},
+	["S1mple_Ziggs2_orb_misc"] = {
+	},
+	["sac_SkillFarm_RAgonysEmbrace"] = {
+		["Sep45"] = "",
+		["CustomModeLate"] = 1,
+		["Late"] = false,
+		["Early"] = false,
+		["MixedModeMid"] = 1,
+		["LaneClearLate"] = 1,
+		["PushSettings"] = false,
+		["CustomModeEarly"] = 1,
+		["MinTargets"] = 5,
+		["LaneClearMid"] = 1,
+		["MixedModeLate"] = 1,
+		["Sep42"] = "",
+		["MixedModeEarly"] = 1,
+		["Mid"] = false,
+		["Sep43"] = "",
+		["LaneClearEarly"] = 1,
+		["Sep44"] = "",
+		["CustomModeMid"] = 1,
+	},
+	["NOWEvelynn_Keys"] = {
+	},
+	["sac_Advanced"] = {
+		["DisableMoveHumanizer"] = false,
+	},
+	["S1mpleOrbWalker"] = {
+	},
+	["sac_SkillSetup_WDarkFrenzy"] = {
+		["AttackSettings"] = false,
+		["Sep25"] = "",
+		["Priority"] = false,
+		["AARange"] = false,
+		["CanCancel"] = false,
+		["AfterAA"] = false,
+	},
+	["sac_SacBars_Modes"] = {
+		["_tsInstances"] = {
+		},
+		["_param"] = {
+		},
+		["icons"] = false,
+		["enabled"] = true,
+		["showTooltips"] = true,
+		["lock"] = false,
+	},
+	["sac_SkillFarm_RAgonysEmbracenongamephase"] = {
+		["CustomMode"] = 1,
+		["MinTargets"] = 5,
+		["MixedMode"] = 1,
+		["Sep46"] = "",
+		["LaneClear"] = 1,
+		["PushSettings"] = false,
+	},
+	["PewalkCore_Draw"] = {
+	},
+	["FHPrediction_dash"] = {
+	},
+	["Master"] = {
+		["I1"] = 2,
+		["PS1"] = 0,
+		["iCount"] = 1,
+		["py"] = 864,
+		["x"] = 7,
+		["y"] = 255,
+		["osTime"] = 1469111647,
+		["useTS"] = false,
+		["name1"] = "Menu",
+		["px"] = 1267,
+		["P1"] = 6,
+	},
+	["S1mple_Ziggs2_orb_keys"] = {
+	},
+	["NOWEvelynn_Items_HXP"] = {
+	},
+}

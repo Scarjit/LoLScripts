@@ -1,0 +1,299 @@
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Date: Mon, 01 Feb 2016 20:41:42 GMT
+O-Host: ip-172-31-37-95
+Server: nginx/1.9.9
+transfer-encoding: chunked
+Connection: keep-alive
+
+4522
+<!DOCTYPE html><!--
+	  ,ad8888ba,   88888888ba         ,ad8888ba,    ,ad8888ba,
+	 d8"'    `"8b  88      "8b       d8"'    `"8b  d8"'    `"8b
+	d8'        `8b 88      ,8P      d8'           d8'
+	88          88 88aaaaaa8P'      88            88
+	88          88 88""""""'        88      88888 88      88888
+	Y8,        ,8P 88               Y8,        88 Y8,        88
+	 Y8a.    .a8P  88                Y8a.    .a88  Y8a.    .a88
+	  `"Y8888Y"'   88     dev@op.gg   `"Y88888P"    `"Y88888P"
+
+		 Copyright © 2013-2016 OP.GG. All rights reserved.
+--><html lang="en_US"><head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>All About League of Legends, OP.GG.</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="apple-itunes-app" content="app-id=605722237"><meta name="google-play-app" content="app-id=gg.op.lol.android"><meta property="keywords" content="League of Legends, Statistics, Stats, Champion Stats, Spectate, Summoners, Ranking, LoL, LOLKing, LOLNexus, MMR"><meta property="description" content="Check your Summoner statistics, MMR, realtime spectate and using powerful global LoL Charts!"><meta property="fb:app_id" content="677811765617932"><meta property="og:site_name" content="OP.GG Europe West"><meta property="og:description" content="Check your Summoner statistics, MMR, realtime spectate and using powerful global LoL Charts!"><meta property="og:type" content="website"><meta property="og:image" content="http://sk2.op.gg/images/logo/icon-144.png"><link rel="icon" type="image/x-icon" href="/favicon.ico?3"/><link rel="apple-touch-icon-precomposed" href="//sk2.op.gg/icon/Icon-72.png?v2"/><link rel="apple-touch-icon-precomposed" sizes="72x72" href="//sk2.op.gg/icon/Icon-72.png?v2"/><link rel="apple-touch-icon-precomposed" sizes="114x114" href="//sk2.op.gg/icon/Icon@2x.png?v2"/><link rel="apple-touch-icon-precomposed" sizes="144x144" href="//sk2.op.gg/icon/Icon-144.png?v2"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="format-detection" content="telephone=no"><meta name="autocomplete" content="off"><link href="//sk2.op.gg/css3/common.css?1454349241" rel="stylesheet" type="text/css"><link href="//sk2.op.gg/css3/multi.css?1454349240" rel="stylesheet" type="text/css"><link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/notosanskr.css"><script src="//sk2.op.gg/js3/scripts/head.js?2"></script><script type="text/javascript" src="//sk2.op.gg/js3/lib/moment/moment.js"></script><script>
+		_i18n.stringList = {"SUMMONER_FAVORITE_LIMIT_EXCEED_IELOW":"Internet Explorer can only save {{limit}} summoners. If you wish to add more favorites, please use Google Chrome or higher version of Internet Explorer.","NOTICE_WONDERINGABOUTMMR":"If you have any questions, please check <a href=\"\/help\/mmr\/\">Help<\/a> first.","MMR_SUBTITLE":"This service estimates your MMR by using OP.GG's algorithm that compares and analyzes the tier information of the summoners you have been matched with.","MMR \uc815\ud655\ub3c4":"MMR Accuracy","\uc11c\ubc84\uc5d0 \ubd80\ud558\uac00 \uc2ec\ud574 \ub370\uc774\ud130\ub97c \uac00\uc838\uc62c \uc218 \uc5c6\uc2b5\ub2c8\ub2e4. \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc2dc\uae30 \ubc14\ub78d\ub2c8\ub2e4.":"Due to overload on server, loading data has failed. Please try again later.","\uc5bc\ub9c8\ub098 \ubbff\uc744\ub9cc\ud55c\uc9c0\uc758 \uc218\uce58\uc785\ub2c8\ub2e4.":"This is the reliability and accuracy of the numbers.","SPECTATE_SETLOLDIRECTORY_PROMPT":"Please locate your League of Legends directory path where your RADS folder is. (Ex: D:\\Game\\Riot Games\\League of Legends KR)","SPECTATE_SETLOLDIRECTORY_REMOVED":"Directory path setting has been deleted","SPECTATE_SETLOLDIRECTORY_SETTED":"Directory path set to [{{directoryPath}}].","FAVORITE_SUMMONERS_TITLE":"Favorites","CHART_NOTICE_ABOVE_BRONZE":"Summoners above Bronze","CHART_TITLE_PICK_RATE_PER_GAME":"Pick ratio per game","CHART_TITLE_BAN_RATE_PER_GAME":"Ban ratio per game","CHART_TITLE_KDA_PER_GAME":"KDA per game","CHART_TITLE_CS_PER_GAME":"CS per game","CHART_TITLE_AVG_EA_PER_GAME":"Average per game {{count}}","CHART_TITLE_AVG_GOLD_PER_GAME":"Average gold per game: {{gold}}","CHART_TITLE_GOLD_OBTAIN_PER_GAME":"Gold earned per game","CHART_TITLE_WARDS_OBTAIN_PER_GAME":"Wards purchased per game","CHART_TITLE_LEAVE_PER_10K_GAMES":"Leaver count per 10k games","CHART_NOTICE_NO_DATA_THIS_OPTION":"This option does not have any data. Please choose a different option.","CHART_TITLE_ACCUM_PLAY_COUNT":"Total games played","CHART_NOTICE_ORDER_BY_WINRATE_MOUSE_HOVER_TO_SEE_CHAMP_PLAYCOUNT":"They are in order of win ratios, and you can see their number of games played by putting your mouse cursor over them.","CHART_TITLE_PLAY_COUNT":"Games played","CHART_TIERSHARE_LABEL":"Distribution","CHART_TIERSHARE_TOOLTIP":"\uc774 \ud2f0\uc5b4\uc5d0\uc11c\uc758 \ub7ad\ud06c \uc810\uc720\uc728","COMMON_AVERAGE":"Average","STATISTICS_FILTER_CHART_WINRATIO":"Win rate","TIER_RANK_DISTRIBUTION_CHART_TITLE":"League Distribution","RANK":"Ranked","CHART_TITLE_CHAMPION_AVERAGE":"Champion Average"};
+		moment.diffLocal = Math.round(new Date().getTime() / 1000) - 1454359301;
+	</script><!--[if lt IE 9]><script src="//sk2.op.gg/js3/jquery/jquery-1.11.2.min.js"></script><script src="//sk2.op.gg/js3/jquery/jquery-migrate-1.2.1.min.js"></script><![endif]--><!--[if gte IE 9]><!--><script src="//sk2.op.gg/js3/jquery/jquery-2.1.3.min.js"></script><!--<![endif]--><!--[if lte IE 9]><script src="//sk2.op.gg/js3/jquery/plugins/jquery.placeholder.min.js"></script><script>
+		$(function(){
+			$("input, textarea").placeholder();
+		});
+	</script><![endif]--><script src="//sk2.op.gg/lib/modernizr.js?1403580238"></script><script src="//sk2.op.gg/lib/browserdetect.js?1437675457"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.scrolltofixed.js?1430395958"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.cookie.js?1403580238"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.tablesorter.min.js?1443195088"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.tablesorter.widgets.js?1443195088"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.jcf/js/jcf.js?1441889666"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.jcf/js/jcf.select.js?1432682992"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.jcf/js/jcf.radio.js?1432682992"></script><script src="//sk2.op.gg/js3/jquery/plugins/jquery.jcf/js/jcf.checkbox.js?1432682992"></script><script src="//sk2.op.gg/js3/jquery/plugins/tipped/js/tipped/tipped.js?1440032114"></script><script src="//sk2.op.gg/js3/scripts/common.js?1451291138"></script><script src="//sk2.op.gg/js3/scripts/sidebar.js?1445598861"></script><script src="//sk2.op.gg/js3/scripts/layout.js?1451485624"></script><script>
+		$(function(){
+			$("button[data-copy-url]").click(function(){
+				var url = $(this).data("copy-url");
+				if ($("body").hasClass("ie8")) {
+					window.clipboardData.setData("Text", url);
+					alert("The URL has been copied. Please paste it wherever you want.");
+				} else {
+					prompt("Please copy the URL below (Ctrl+C) and paste it where you want it (Ctrl+V).", url);
+				}
+			});
+
+			if ($("body").hasClass("ie8") === false) {
+				window.history.replaceState(null, null, "/multi/query=mp273%2Cthelordie%2Cm4xboy%2Crekhy83");
+			}
+		});
+	</script><!--[if gt IE 8]><!--><!-- Start of opgg Zendesk Widget script --><script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","opgg.zendesk.com");/*]]>*/</script><!-- End of opgg Zendesk Widget script --><!--<![endif]--></head><!--[if IE 7]><body class="ie7"><![endif]--><!--[if IE 8]><body class="ie8"><![endif]--><!--[if gt IE 8]><!--><body><!--<![endif]--><div class="LayoutWrap hasSideBar CurrentMenu-multi"><div class="GlobalHeader"><div class="GlobalHeaderBackground"><img src="//sk2.op.gg/images/championsBackdrop_1400/53.jpg"></div><div class="GlobalNavigationWrap headerScrollFix"><div class="GlobalNavigation"><ul class="Menu"><li class="Menu active"><a href="/multi/" style="">
+								Multi-Search
+							</a></li><li class="Menu "><a href="/statistics/" style="">
+								Statistics
+							</a></li><li class="Menu "><a href="/ranking/" style="">
+								Rankings
+							</a></li><li class="Menu "><a href="/spectate/" style="">
+								Pro Spectate
+							</a></li><!--li class="Menu {$_menu1=='forum'?'active':''}"><a href="/forum/" class="animated rotateInDownRight" id="forumMenuTitle"><i class="icon-pencil"></i> @[[게시판]]</a></li--></ul><div class="HeaderTools"><dl><dd class="Region"><a href="#" onclick="$.OP.GG.layout.regionLanguage.open(); return false;"><i class='__spSite __spSite-97'></i> English</a></dd></dl></div></div></div><div class="HeaderWrap"><div class="Header"><div class="SearchBarWrap"><form action="/summoner/"><div class="SearchBar" id="SearchBar"><div class="LogoWrap"><a href="/"><img src="http://attach.s.op.gg/logo/20160128132857.89160650b0a0e100cb691b8d98edeadf.png" title="Jhin, the Virtuoso" class="Image"></a><sup class="Region">EUW</sup></div><div class="SearchInput"><input type="text" name="userName" class="Summoner" value="" placeholder="Enter the Summoner's name."><button class="Button"><i class="__spSite __spSite-16">Search a summoner</i></button></div></div></form></div><style>
+					.OldDesign { position: absolute; top: 10px; right: 10px; }
+					.OldDesign button { padding: 5px 5px 4px 5px; font-size: 11px; color: rgba(255, 255, 255, .5); text-decoration: none; border: 1px solid rgba(255, 255, 255, .3); background: rgba(0, 0, 0, .3); }
+					.OldDesign button:hover { color: #00b3fd; border: 1px solid #00b3fd; }
+				</style><div style="margin: 5px 0 0 20px;" class="OldDesign"><button class="tip" onclick="$.OP.GG.enableOldLayout();return false;" title="새 디자인이 아직 익숙하지 않으세요? 옛날 디자인을 쓰실 수 있습니다.">
+							Back to previous interface						</button></div></div></div></div><div class="ContentWrap"><div class="Content"><script>
+	$(function(){
+		var oContent = $(".LayoutWrap>.ContentWrap>.Content"),
+				adRight = $(".LifeOwnerGlobalRight");
+
+		var resizeTimeout = null;
+		var rs = function(){
+			var oSummonerContent = $("#SummonerLayoutContent"),
+					adTopFix = 70;
+
+			if (oSummonerContent.length > 0) {
+				var offset = oSummonerContent.offset();
+				adTopFix += offset.top - 200;
+			}
+
+			adRight.css({
+				display: 'block',
+				top: adTopFix,
+				right: (oContent.width() - 1000) / 2 - 120 - 10
+			});
+		};
+
+		$(window).resize(function(){
+			adRight[0].style.display = 'none';
+
+			if (resizeTimeout) {
+				clearTimeout(resizeTimeout);
+			}
+
+			resizeTimeout = setTimeout(function(){
+				rs();
+				resizeTimeout = null;
+			}, 300);
+		});
+		rs();
+	});
+</script><style>
+	.LifeOwnerGlobalRight { position: absolute; z-index: 0; }
+</style><div class="LifeOwnerGlobalRight" style="display: none;"><style id="LifeOwnerGlobalCSS"></style><div class="LifeOwnerGlobal"><div class="LifeOwner Size-120x600"><ins class="adsbygoogle"
+						     style="display:inline-block;width:120px;height:600px"
+						     data-ad-client="ca-pub-8377914384184168"
+						     data-ad-slot="2064541132"></ins><script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script></div></div></div><div class="PageHeaderWrap"><div class="Menu"><ol class="MenuList"><li class="Item active"><a href="/multi/" class="Link">Multi-Search</a></li></ol></div><div class="PageDescription"><span class="Text">If you paste the content from champion select chat, you can view a summary of all summoners in the game!</span></div></div><div class="MultiSearchLayoutWrap"><div class="MultiSearchLayout"><div class="Header"><div class="MultiSearchInput"><form action="/multi/" method="post" class="FormItem"><textarea name="query" placeholder="ROX Smeb joined the room.
+ROX Peanut joined the room.
+ROX Kuro joined the room.
+ROX PraY joined the room.
+ROX GorillA joined the room." class="TextArea">MP273,m4xboy,Thelordie,rekhy83</textarea><button class="Button SemiRound Blue Submit" type="submit">Search for many summoner names at the same time</button></form></div></div><div class="ContentWrap"><div class="Content"><div class="Box MultiSearchResult"><div class="Title">Search Results						<div class="Buttons"><button class="Button SemiRound Green" data-copy-url="http://euw.op.gg/multi/query=mp273%2Cthelordie%2Cm4xboy%2Crekhy83">Share</button></div></div><div class="Content"><script>
+	$(function(){
+		$(".MultiSearchTable > .Row").each(function(){
+			var
+					tr = $(this),
+					renewWorker = $(".Renew", tr),
+					summonerId = tr.data('summoner-id');
+			//if (summonerId == null) return;
+			tr.addClass('isRenewing');
+
+			$.OP.GG.ajax.getHTML({
+				url: '/multi/ajax/summoner/',
+				data: {
+					summonerId: summonerId
+				},
+				callback: {
+					onHTML: function(html){
+						tr.replaceWith(html);
+					},
+					onFinal: function(){
+						tr.removeClass('isRenewing');
+					}
+				}
+			});
+		});
+	});
+</script><div class="MultiSearchTable"><div class="Row tabWrap" data-summoner-id="32222974"><div class="SummonerInfo"><div class="SummonerSummary"><a href="//euw.op.gg/summoner/userName=mp273" class="SummonerImage" target="_blank"><img src="//sk2.op.gg/images/profile_icons/profileIcon984.jpg" class="Image"></a><a href="//euw.op.gg/summoner/userName=mp273" class="SummonerName" target="_blank">MP273</a></div><div class="RecentGameWinLogs"><div class="Title">Last 2 solo queue games (Win Ratio  50%)</div><ul class="List"><li class="Item tip" title="2016-01-06 03:29:29"><i class='__spSite __spSite-73'></i></li><li class="Item tip" title="2016-01-08 04:09:51"><i class='__spSite __spSite-71'></i></li></ul></div><ul class="SummonerExtra"><li class="PreviousSeason"><img src="//sk2.op.gg/images/medals_30/silver_1.png" class="TierImage"><span class="TierText">S3</span></li><li class="PreviousSeason"><img src="//sk2.op.gg/images/medals_30/silver_5.png" class="TierImage"><span class="TierText">S4</span></li><li class="PreviousSeason"><img src="//sk2.op.gg/images/medals_30/silver_1.png" class="TierImage"><span class="TierText">S5</span></li></ul><div class="Renew"><i class="Loading Loader14 black"></i><span>갱신중</span></div></div><div class="SummonerTierRank"><div class="WinLose"><div class="Title">All ranked games</div><div class="WinLoseWinRatio"><span class="Wins">14W</span><span class="Losses">5L</span><span class="WinRatio">(74%)</span></div></div><div class="TierRankMedal"><img src="//sk2.op.gg/images/medals/silver_3.png" class="Image"></div><div class="TierRank">
+							Silver 3
+				<span class="LP">(83 LP)</span></div></div><div class="ChampionStatsFilter"><div class="Buttons tabHeaders"><button class="Button SemiRound tabHeader active" data-tab-show-class="Season-6">
+											Season 6
+									</button><button class="Button SemiRound tabHeader " data-tab-show-class="Season-5">
+					Season 5
+				</button><button class="Button SemiRound tabHeader " data-tab-show-class="Season-4">
+					Season 4
+				</button></div></div><div class="MostChampionStats tabItems"><div class="ChampionSmallStats Season-6 tabItem"><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-91"></div></div><div class="ChampionName">Varus</div></td><td class="GameCount Cell">
+		6
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio green">3.15:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-108"></div></div><div class="ChampionName">Gnar</div></td><td class="GameCount Cell">
+		5
+	</td><td class="WinRatio Cell"><span class="Ratio red">100%</span></td><td class="KDA Cell"><span class="Ratio normal">2.64:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-95"></div></div><div class="ChampionName">Fiora</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio red">75%</span></td><td class="KDA Cell"><span class="Ratio normal">2.94:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-116"></div></div><div class="ChampionName">Lucian</div></td><td class="GameCount Cell">
+		3
+	</td><td class="WinRatio Cell"><span class="Ratio red">67%</span></td><td class="KDA Cell"><span class="Ratio normal">2.52:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-78"></div></div><div class="ChampionName">Malzahar</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span
+3a86
+ class="Ratio red">100%</span></td><td class="KDA Cell"><span class="Ratio normal">1.46:1</span></td></tr></tbody></table><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-93"></div></div><div class="ChampionName">Viktor</div></td><td class="GameCount Cell">
+		1
+	</td><td class="WinRatio Cell"><span class="Ratio normal">0%</span></td><td class="KDA Cell"><span class="Ratio green">3.00:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-105"></div></div><div class="ChampionName">Quinn</div></td><td class="GameCount Cell">
+		1
+	</td><td class="WinRatio Cell"><span class="Ratio normal">0%</span></td><td class="KDA Cell"><span class="Ratio normal">2.00:1</span></td></tr></tbody></table></div><div class="ChampionSmallStats Season-5 tabItem"><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-108"></div></div><div class="ChampionName">Gnar</div></td><td class="GameCount Cell">
+		48
+	</td><td class="WinRatio Cell"><span class="Ratio normal">48%</span></td><td class="KDA Cell"><span class="Ratio normal">2.43:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-93"></div></div><div class="ChampionName">Viktor</div></td><td class="GameCount Cell">
+		33
+	</td><td class="WinRatio Cell"><span class="Ratio red">61%</span></td><td class="KDA Cell"><span class="Ratio normal">2.53:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-30"></div></div><div class="ChampionName">Cho&#039;Gath</div></td><td class="GameCount Cell">
+		15
+	</td><td class="WinRatio Cell"><span class="Ratio red">73%</span></td><td class="KDA Cell"><span class="Ratio blue">4.36:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-116"></div></div><div class="ChampionName">Lucian</div></td><td class="GameCount Cell">
+		12
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.34:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-77"></div></div><div class="ChampionName">Leona</div></td><td class="GameCount Cell">
+		12
+	</td><td class="WinRatio Cell"><span class="Ratio normal">42%</span></td><td class="KDA Cell"><span class="Ratio normal">2.02:1</span></td></tr></tbody></table><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-63"></div></div><div class="ChampionName">Skarner</div></td><td class="GameCount Cell">
+		10
+	</td><td class="WinRatio Cell"><span class="Ratio red">60%</span></td><td class="KDA Cell"><span class="Ratio normal">2.57:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-92"></div></div><div class="ChampionName">Nautilus</div></td><td class="GameCount Cell">
+		8
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.15:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-62"></div></div><div class="ChampionName">Cassiopeia</div></td><td class="GameCount Cell">
+		7
+	</td><td class="WinRatio Cell"><span class="Ratio normal">57%</span></td><td class="KDA Cell"><span class="Ratio normal">2.09:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-95"></div></div><div class="ChampionName">Fiora</div></td><td class="GameCount Cell">
+		5
+	</td><td class="WinRatio Cell"><span class="Ratio red">60%</span></td><td class="KDA Cell"><span class="Ratio normal">2.89:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-123"></div></div><div class="ChampionName">Thresh</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.22:1</span></td></tr></tbody></table></div><div class="ChampionSmallStats Season-4 tabItem"><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-78"></div></div><div class="ChampionName">Malzahar</div></td><td class="GameCount Cell">
+		8
+	</td><td class="WinRatio Cell"><span class="Ratio red">63%</span></td><td class="KDA Cell"><span class="Ratio normal">2.83:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-47"></div></div><div class="ChampionName">Caitlyn</div></td><td class="GameCount Cell">
+		7
+	</td><td class="WinRatio Cell"><span class="Ratio normal">57%</span></td><td class="KDA Cell"><span class="Ratio green">3.18:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-38"></div></div><div class="ChampionName">Irelia</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">1.76:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-32"></div></div><div class="ChampionName">Rammus</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio green">3.04:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-123"></div></div><div class="ChampionName">Thresh</div></td><td class="GameCount Cell">
+		3
+	</td><td class="WinRatio Cell"><span class="Ratio red">67%</span></td><td class="KDA Cell"><span class="Ratio normal">2.92:1</span></td></tr></tbody></table><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-60"></div></div><div class="ChampionName">Vayne</div></td><td class="GameCount Cell">
+		3
+	</td><td class="WinRatio Cell"><span class="Ratio red">67%</span></td><td class="KDA Cell"><span class="Ratio normal">2.00:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-30"></div></div><div class="ChampionName">Cho&#039;Gath</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio red">100%</span></td><td class="KDA Cell"><span class="Ratio green">3.31:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-21"></div></div><div class="ChampionName">Ashe</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio red">100%</span></td><td class="KDA Cell"><span class="Ratio green">3.00:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-63"></div></div><div class="ChampionName">Skarner</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio green">3.00:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-121"></div></div><div class="ChampionName">Nami</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.79:1</span></td></tr></tbody></table></div></div></div><div class="Row tabWrap" data-summoner-id="20186473"><div class="SummonerInfo"><div class="SummonerSummary"><a href="//euw.op.gg/summoner/userName=thelordie" class="SummonerImage" target="_blank"><img src="//sk2.op.gg/images/profile_icons/profileIcon688.jpg" class="Image"></a><a href="//euw.op.gg/summoner/userName=thelordie" class="SummonerName" target="_blank">Thelordie</a></div><div class="RecentGameWinLogs"><div class="Message">
+					No recent Ranked Solo within 2 months.				</div></div><ul class="SummonerExtra"><li class="PreviousSeason"><img src="//sk2.op.gg/images/medals_30/silver_1.png" class="TierImage"><span class="TierText">S3</span></li><li class="PreviousSeason"><img src="//sk2.op.gg/images/medals_30/bronze_1.png" class="TierImage"><span class="TierText">S4</span></li><li class="PreviousSeason"><img src="//sk2.op.gg/images/medals_30/silver_3.png" class="TierImage"><span class="TierText">S5</span></li></ul><div class="Renew"><i class="Loading Loader14 black"></i><span>갱신중</span></div></div><div class="SummonerTierRank"><div class="TierRank">
+							Level <span class="summonerLevel">30</span></div></div><div class="ChampionStatsFilter"><div class="Buttons tabHeaders"><button class="Button SemiRound tabHeader active" data-tab-show-class="Season-5">
+											Season 5
+									</button><button class="Button SemiRound tabHeader " data-tab-show-class="Season-4">
+					Season 4
+				</button></div></div><div class="MostChampionStats tabItems"><div class="ChampionSmallStats Season-5 tabItem"><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-78"></div></div><div class="ChampionName">Malzahar</div></td><td class="GameCount Cell">
+		20
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.66:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-77"></div></div><div class="ChampionName">Leona</div></td><td class="GameCount Cell">
+		16
+	</td><td class="WinRatio Cell"><span class="Ratio red">63%</span></td><td class="KDA Cell"><span class="Ratio green">3.22:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-30"></div></div><div class="ChampionName">Cho&#039;Gath</div></td><td class="GameCount Cell">
+		15
+	</td><td class="WinRatio Cell"><span class="Ratio normal">53%</span></td><td class="KDA Cell"><span class="Ratio normal">2.96:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-121"></div></div><div class="ChampionName">Nami</div></td><td class="GameCount Cell">
+		5
+	</td><td class="WinRatio Cell"><span class="Ratio red">80%</span></td><td class="KDA Cell"><span class="Ratio normal">2.19:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-106"></div></div><div class="ChampionName">Syndra</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">25%</span></td><td class="KDA Cell"><span class="Ratio normal">1.31:1</span></td></tr></tbody></table><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-24"></div></div><div class="ChampionName">Morgana</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">25%</span></td><td class="KDA Cell"><span class="Ratio normal">0.95:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-14"></div></div><div class="ChampionName">Sivir</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">25%</span></td><td class="KDA Cell"><span class="Ratio normal">1.84:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-21"></div></div><div class="ChampionName">Ashe</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio red">100%</span></td><td class="KDA Cell"><span class="Ratio normal">2.07:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-4"></div></div><div class="ChampionName">Xin Zhao</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">1.44:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-74"></div></div><div class="ChampionName">Akali</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">1.53:1</span></td></tr></tbody></table></div><div class="ChampionSmallStats Season-4 tabItem"><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-71"></div></div><div class="ChampionName">Ezreal</div></td><td class="GameCount Cell">
+		9
+	</td><td class="WinRatio Cell"><span class="Ratio red">78%</span></td><td class="K
+225c
+DA Cell"><span class="Ratio green">3.49:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-83"></div></div><div class="ChampionName">Lux</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">25%</span></td><td class="KDA Cell"><span class="Ratio normal">2.73:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-59"></div></div><div class="ChampionName">Lee Sin</div></td><td class="GameCount Cell">
+		4
+	</td><td class="WinRatio Cell"><span class="Ratio normal">25%</span></td><td class="KDA Cell"><span class="Ratio normal">1.83:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-54"></div></div><div class="ChampionName">Jarvan IV</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.50:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-21"></div></div><div class="ChampionName">Ashe</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.63:1</span></td></tr></tbody></table><table class="Table"><thead class="Header"><tr class="Row"><th class="HeaderCell Champion">Champion</th><th class="HeaderCell GameCount">Played</th><th class="HeaderCell WinRatio">Win Ratio</th><th class="HeaderCell KDA">KDA</th></tr></thead><tbody class="Content"><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-86"></div></div><div class="ChampionName">Ahri</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">50%</span></td><td class="KDA Cell"><span class="Ratio normal">2.07:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-11"></div></div><div class="ChampionName">Alistar</div></td><td class="GameCount Cell">
+		2
+	</td><td class="WinRatio Cell"><span class="Ratio normal">0%</span></td><td class="KDA Cell"><span class="Ratio normal">2.13:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-36"></div></div><div class="ChampionName">Sona</div></td><td class="GameCount Cell">
+		1
+	</td><td class="WinRatio Cell"><span class="Ratio red">100%</span></td><td class="KDA Cell"><span class="Ratio orange">6.00:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-65"></div></div><div class="ChampionName">Nasus</div></td><td class="GameCount Cell">
+		1
+	</td><td class="WinRatio Cell"><span class="Ratio red">100%</span></td><td class="KDA Cell"><span class="Ratio green">3.71:1</span></td></tr><tr class="Row"><td class="Champion Cell"><div class="ChampionImage"><div class="__spc24 __spc24-29"></div></div><div class="ChampionName">Karthus</div></td><td class="GameCount Cell">
+		1
+	</td><td class="WinRatio Cell"><span class="Ratio normal">0%</span></td><td class="KDA Cell"><span class="Ratio normal">1.07:1</span></td></tr></tbody></table></div></div></div><div class="Row tabWrap" data-summoner-id="76586858"><div class="SummonerInfo"><div class="SummonerSummary"><a href="//euw.op.gg/summoner/userName=m4xboy" class="SummonerImage" target="_blank"><img src="//sk2.op.gg/images/profile_icons/profileIcon22.jpg" class="Image"></a><a href="//euw.op.gg/summoner/userName=m4xboy" class="SummonerName" target="_blank">m4xboy</a></div><div class="RecentGameWinLogs"><div class="Message">
+					No recent Ranked Solo within 2 months.				</div></div><ul class="SummonerExtra"></ul><div class="Renew"><i class="Loading Loader14 black"></i><span>갱신중</span></div></div><div class="SummonerTierRank"><div class="TierRank">
+							Level <span class="summonerLevel">5</span></div></div><div class="ChampionStatsFilter"><div class="Buttons tabHeaders"></div></div><div class="MostChampionStats tabItems"></div></div><div class="Row tabWrap" data-summoner-id="43931719"><div class="SummonerInfo"><div class="SummonerSummary"><a href="//euw.op.gg/summoner/userName=rekhy83" class="SummonerImage" target="_blank"><img src="//sk2.op.gg/images/profile_icons/profileIcon0.jpg" class="Image"></a><a href="//euw.op.gg/summoner/userName=rekhy83" class="SummonerName" target="_blank">rekhy83</a></div><div class="RecentGameWinLogs"><div class="Message">
+					No recent Ranked Solo within 2 months.				</div></div><ul class="SummonerExtra"></ul><div class="Renew"><i class="Loading Loader14 black"></i><span>갱신중</span></div></div><div class="SummonerTierRank"><div class="TierRank">
+							Level <span class="summonerLevel">0</span></div></div><div class="ChampionStatsFilter"><div class="Buttons tabHeaders"></div></div><div class="MostChampionStats tabItems"></div></div></div></div></div></div></div></div></div></div><div class="SideBarWrap"><div class="MiniSideBar" id="MiniSideBar"><div class="SideBarToolBox" id="SideBarToolBox"></div><div class="Tools"><div class="Tool"><a href="#" class="Button" onclick="$.OP.GG.sidebar.tool.openWithTicker(this, $('#TickerRecentSummoner')); return false;"><i class='__spSite __spSite-74'></i></a></div><div class="Tool"><a href="#" class="Button" onclick="$.OP.GG.sidebar.tool.openWithTicker(this, $('#TickerFavoriteSummoner')); return false;"><i class='__spSite __spSite-42'></i></a></div></div></div><div class="SideBar" id="SideBar"><div class="Ticker" id="TickerRecentSummoner"><div class="TickerHeader"><h6 class="TickerTitle">Recent</h6><div class="Buttons"><a href="#" class="Toggle Close" onclick="$.OP.GG.sidebar.ticker.close($(this).closest('.Ticker')); return false;"><i class='__spSite __spSite-85'></i> Fold </a><a href="#" class="Toggle Open" onclick="$.OP.GG.sidebar.ticker.open($(this).closest('.Ticker')); return false;"><i class='__spSite __spSite-84'></i> Unfold </a></div></div><div class="TickerContent RecentSummonerListWrap"><div class="RecentSummonerList"></div><div class="TickerMessage NotFound">
+							최근에 본 소환사가 없습니다.						</div></div></div><div class="Ticker" id="TickerFavoriteSummoner"><div class="TickerHeader"><h6 class="TickerTitle">Favorites</h6><div class="Buttons"><a href="#" class="Toggle Close" onclick="$.OP.GG.sidebar.ticker.close($(this).closest('.Ticker')); return false;"><i class='__spSite __spSite-85'></i> Fold </a><a href="#" class="Toggle Open" onclick="$.OP.GG.sidebar.ticker.open($(this).closest('.Ticker')); return false;"><i class='__spSite __spSite-84'></i> Unfold </a></div></div><div class="TickerContent FavoriteSummonerListWrap"><div class="FavoriteSummonerList"></div><div class="TickerMessage NotFound">
+							관심있는 소환사에 <i class='__spSite __spSite-39'></i> 즐겨찾기를 하여 편리하게 정보를 받아보세요.
+						</div></div></div><div class="Footer"><div class="FooterLinks"><a href="/help/">Help</a><a href="mailto:contact@op.gg">Business</a><a href="mailto:service@op.gg">Feedback</a><a href="#" onclick="$.OP.GG.layout.regionLanguage.open(); return false;">English (USA) (English)</a></div><div class="FooterCopyRight">
+						Data based on League of legends Korea.<br>© 2012-2016 <b>OP.GG</b>.
+					</div></div></div></div></div></div><script type="text/javascript">
+	(function(i, s, o, g, r, a, m){
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function(){
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-37377845-1', 'euw.op.gg');
+	ga('send', 'event', 'pageView', '/multi', window.location.hostname);
+			ga('set', 'dimension1', 'multi');
+			ga('send', 'pageview');
+
+	var sc_project = 8630180;
+	var sc_invisible = 1;
+	var sc_security = "e6464510";
+
+	(function(){
+		var s = document.getElementsByTagName('script')[0];
+		var sc = document.createElement('script');
+		sc.type = 'text/javascript';
+		sc.async = true;
+		sc.src = ('https:' == document.location.protocol ? 'https://secure' : 'http://www') + '.statcounter.com/counter/counter.js';
+
+		s.parentNode.insertBefore(sc, s);
+	})();
+</script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script><script type="text/javascript">
+	if (!wcs_add) var wcs_add = {};
+	wcs_add["wa"] = "55c48ac9e22bec";
+	wcs_do();
+</script></body></html>
+0
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Date: Mon, 01 Feb 2016 20:41:40 GMT
+O-Host: ip-172-31-37-96
+Server: nginx/1.9.9
+Content-Length: 41476
+Connection: keep-alive
+
+<!DOCTYPE html><!--
+	  ,ad8888ba,   88888888ba         ,ad8888ba,    ,ad8888ba,
+	 d8"'    `"8b  

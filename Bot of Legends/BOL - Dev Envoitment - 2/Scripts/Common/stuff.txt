@@ -1,0 +1,17 @@
+
+self.resetAttacks = Set { "dariusnoxiantacticsonh", "fiorae", "garenq", "hecarimrapidslash", "jaxempowertwo", "jaycehypercharge", "leonashieldofdaybreak", "luciane", "monkeykingdoubleattack", "mordekaisermaceofspades", "nasusq", "nautiluspiercinggaze", "netherblade", "parley", "poppydevastatingblow", "powerfist", "renektonpreexecute", "rengarq", "shyvanadoubleattack", "sivirw", "takedown", "talonnoxiandiplomacy", "trundletrollsmash", "vaynetumble", "vie", "volibearq", "xenzhaocombotarget", "yorickspectral", "reksaiq", "riventricleave", "kalistaexpunge", "itemtitanichydracleave", "itemtiamatcleave", "gravesmove", "masochism" }
+    self.altAnimations = { ["Ashe"] = "spell1", ["Blitzcrank"] = "spell3", ["Caitlyn"] = "passive", ["Lucian"] = "passive", ["MasterYi"] = "passive" }
+
+
+function Set(list)
+local set = {}
+for _, l in ipairs(list) do 
+  set[l] = true 
+end
+return set
+end
+
+self.altAttacks = Set { "caitlynheadshotmissile", "frostarrow", "garenslash2", "kennenmegaproc", "lucianpassiveattack", "masteryidoublestrike", "quinnwenhanced", "renektonexecute", "renektonsuperexecute", "rengarnewpassivebuffdash", "trundleq", "xenzhaothrust", "xenzhaothrust2", "xenzhaothrust3" }
+
+function NebelwolfisOrbWalkerClass:ProcessAttack(unit, spell)
+    if unit and unit.valid and spell and spell.name and spell.target and (spell.name:lower():find("attack") or self.altAttacks[spell.name:lower()]) then

@@ -1,0 +1,38 @@
+return
+{
+	["Morgana"] = {
+		["VIP"] = {
+			["Spell1"] = true,
+			["Movement"] = true,
+			["Spell0"] = true,
+		},
+		["Shield"] = {
+			["Ally"] = true,
+			["Enable"] = true,
+			["Damage"] = 80,
+			["CC"] = true,
+		},
+	},
+	["Kalista"] = {
+		["VIP"] = {
+			["Spell1"] = true,
+			["Movement"] = true,
+		},
+		["Dash"] = {
+			["Combat"] = true,
+			["Anchor"] = 1,
+			["Enable"] = true,
+		},
+	},
+	["Vayne"] = {
+		["VIP"] = {
+			["Spell2"] = true,
+			["Movement"] = true,
+		},
+		["Dash"] = {
+			["Combat"] = true,
+			["Anchor"] = 1,
+			["Enable"] = true,
+		},
+	},
+}

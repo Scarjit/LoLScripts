@@ -1,0 +1,16 @@
+1) Check if [Server] is reachable
+2) Generate a Session Key (Mersenne Twister)
+3) Verify that [Server] is not-spoofed
+	3.1) Encrypt a message (Session Key) with [Server]s Public Key
+	3.2) Send Message (Session Key) to [Server]
+	3.3) Decrypt Message (Session Key) on [Server]
+	3.4) Generate Session ID + Timestamp on [Server]
+	3.5) Reencrypt Message + Session ID with [Client] Public Key
+	3.6) Send Message (Session Key) to [Client]
+	3.7) [Client] decrypts Message (Session Key + ID) and checks if it is the Original Message (Session Key) + ID
+
+4) [Client] sends Username, ID encrypted with Session Key to server
+5) [Server] sends auth status encrypted with Session Key back
+6) [Server] encrypts (already Aroc Crypt encrypted) Script with Session Key and sends it to client.
+7) [Client] decrypts Script with Session Key and loads it
+8) Session Key get's invalidated [Server + Client]

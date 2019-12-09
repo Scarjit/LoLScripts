@@ -1,0 +1,310 @@
+return {
+	["hash"] = "RXZlbHlubg==",
+	["time"] = 2359.2109375,
+	["Buffs"] = {
+		["2.0037512779236SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1587.9072265625,
+				["stacks"] = 1,
+				["duration"] = 19999.999023438,
+				["endT"] = 21587.90625,
+			},
+		},
+		["2.0001394748688SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["stacks"] = 1,
+				["startT"] = 222.77841186523,
+				["ptr"] = {
+					["stacks"] = 0,
+				},
+				["type"] = 2,
+				["duration"] = 20000.00088501,
+				["endT"] = 20222.779296875,
+			},
+		},
+		["2.0042641162872SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1589.0047607422,
+				["stacks"] = 1,
+				["duration"] = 19999.999145508,
+				["endT"] = 21589.00390625,
+			},
+		},
+		["2.0039012432098SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1548.2299804688,
+				["stacks"] = 1,
+				["duration"] = 20000.000488281,
+				["endT"] = 21548.23046875,
+			},
+		},
+		["2.0037519931793SRU_ChaosMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1545.5434570313,
+				["stacks"] = 1,
+				["duration"] = 19999.999511719,
+				["endT"] = 21545.54296875,
+			},
+		},
+		["2.0001397132874SRU_ChaosMinionSiege"] = {
+			["turretshield"] = {
+				["stacks"] = 1,
+				["startT"] = 217.07127380371,
+				["ptr"] = {
+					["stacks"] = 0,
+				},
+				["type"] = 2,
+				["duration"] = 19999.999038696,
+				["endT"] = 20217.0703125,
+			},
+		},
+		["2.0000016689301SRUAP_Turret_Chaos3"] = {
+		},
+		["2.0039010047913SRU_ChaosMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1558.4283447266,
+				["stacks"] = 1,
+				["duration"] = 19999.999389648,
+				["endT"] = 21558.427734375,
+			},
+		},
+		["2.003901720047SRU_ChaosMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1554.505859375,
+				["stacks"] = 1,
+				["duration"] = 20000,
+				["endT"] = 21554.505859375,
+			},
+		},
+		["2.0037040710449SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1581.3548583984,
+				["stacks"] = 1,
+				["duration"] = 20000.000610352,
+				["endT"] = 21581.35546875,
+			},
+		},
+		["2.0041227340698SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1559.0119628906,
+				["stacks"] = 1,
+				["duration"] = 19999.999755859,
+				["endT"] = 21559.01171875,
+			},
+		},
+		["2.004264831543SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1589.0047607422,
+				["stacks"] = 1,
+				["duration"] = 19999.999145508,
+				["endT"] = 21589.00390625,
+			},
+		},
+		["2.0036718845367SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1547.1137695313,
+				["stacks"] = 1,
+				["duration"] = 19999.999511719,
+				["endT"] = 21547.11328125,
+			},
+		},
+		["2.0042643547058SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1589.0047607422,
+				["stacks"] = 1,
+				["duration"] = 19999.999145508,
+				["endT"] = 21589.00390625,
+			},
+		},
+		["2.0000059604645SRUAP_Turret_Chaos3"] = {
+			["sru_turret_laser_audio"] = {
+				["type"] = 1,
+				["startT"] = 1589.4564208984,
+				["stacks"] = 1,
+				["duration"] = 0.5,
+				["endT"] = 1589.9564208984,
+			},
+		},
+		["2.0001392364502SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["stacks"] = 1,
+				["startT"] = 215.18835449219,
+				["ptr"] = {
+					["stacks"] = 0,
+				},
+				["type"] = 2,
+				["duration"] = 19999.999145508,
+				["endT"] = 20215.1875,
+			},
+		},
+		["2.0041222572327SRU_ChaosMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1574.7534179688,
+				["stacks"] = 1,
+				["duration"] = 20000.000488281,
+				["endT"] = 21574.75390625,
+			},
+		},
+		["2.004123210907SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1559.0119628906,
+				["stacks"] = 1,
+				["duration"] = 19999.999755859,
+				["endT"] = 21559.01171875,
+			},
+		},
+		["2.0037045478821SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1538.7177734375,
+				["stacks"] = 1,
+				["duration"] = 20000.000976563,
+				["endT"] = 21538.71875,
+			},
+		},
+		["2.0037517547607SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1563.74609375,
+				["stacks"] = 1,
+				["duration"] = 20000,
+				["endT"] = 21563.74609375,
+			},
+		},
+		["2.0000061988831Evelynn"] = {
+			["srchampionbuff"] = {
+				["type"] = 0,
+				["startT"] = -765.00367675781,
+				["stacks"] = 0,
+				["duration"] = 24999.999755859,
+				["endT"] = 24234.996079102,
+			},
+			["evelynnstealth"] = {
+				["type"] = 0,
+				["startT"] = -758.50636230469,
+				["stacks"] = 0,
+				["duration"] = 24999.998535156,
+				["endT"] = 24241.492172852,
+			},
+			["shadowwalk"] = {
+				["type"] = 0,
+				["startT"] = -765.00367675781,
+				["stacks"] = 0,
+				["duration"] = 24999.999755859,
+				["endT"] = 24234.996079102,
+			},
+			["evelynnstealthmarker"] = {
+				["type"] = 2,
+				["startT"] = 1367.1348730469,
+				["stacks"] = 0,
+				["duration"] = 24999.99987793,
+				["endT"] = 26367.134750977,
+			},
+			["killcount"] = {
+				["stacks"] = 0,
+				["startT"] = 0,
+				["ptr"] = {
+					["stacks"] = 1,
+				},
+				["type"] = 1,
+				["duration"] = 25000,
+				["endT"] = 25000,
+			},
+			["smitedamagetracker"] = {
+				["type"] = 26,
+				["startT"] = -764.97163330078,
+				["stacks"] = 450,
+				["duration"] = 24999.998962402,
+				["endT"] = 24235.027329102,
+			},
+			["evelynnpassive"] = {
+				["type"] = 1,
+				["startT"] = -765.00367675781,
+				["stacks"] = 0,
+				["duration"] = 24999.999755859,
+				["endT"] = 24234.996079102,
+			},
+			["apbonusdamagetotowers"] = {
+				["type"] = 0,
+				["startT"] = -765.00367675781,
+				["stacks"] = 0,
+				["duration"] = 24999.999755859,
+				["endT"] = 24234.996079102,
+			},
+			["evelynnstealthring"] = {
+				["stacks"] = 0,
+				["startT"] = -168.39518188477,
+				["ptr"] = {
+					["stacks"] = 0,
+				},
+				["type"] = 0,
+				["duration"] = 25000.001251221,
+				["endT"] = 24831.606069336,
+			},
+			["srhomeguardspeed"] = {
+				["type"] = 14,
+				["startT"] = 1589.2092285156,
+				["stacks"] = 1,
+				["duration"] = 7,
+				["endT"] = 1596.2092285156,
+			},
+			["s6test_regionrules"] = {
+				["stacks"] = 0,
+				["startT"] = -432.20932983398,
+				["ptr"] = {
+					["stacks"] = 0,
+				},
+				["type"] = 0,
+				["duration"] = 25000.000946045,
+				["endT"] = 24567.791616211,
+			},
+		},
+		["2.0041224956512SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1579.0164794922,
+				["stacks"] = 1,
+				["duration"] = 19999.999145508,
+				["endT"] = 21579.015625,
+			},
+		},
+		["2.0036399364471SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1545.8159179688,
+				["stacks"] = 1,
+				["duration"] = 20000.000488281,
+				["endT"] = 21545.81640625,
+			},
+		},
+		["2.0034205913544SRU_OrderMinionSiege"] = {
+			["turretshield"] = {
+				["type"] = 2,
+				["startT"] = 1374.4029541016,
+				["ptr"] = {
+					["stacks"] = 0,
+				},
+				["stacks"] = 1,
+				["duration"] = 19999.999389648,
+				["endT"] = 21374.40234375,
+			},
+		},
+		["2.0000023841858SRUAP_Turret_Order3"] = {
+		},
+	},
+	["Kills"] = {
+	},
+}

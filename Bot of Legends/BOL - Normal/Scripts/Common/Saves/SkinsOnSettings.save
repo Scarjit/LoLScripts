@@ -1,0 +1,8 @@
+return {
+	["turrets"] = -1,
+	["minions"] = -1,
+	["champs"] = {
+		["Kalista"] = 2,
+	},
+	["wards"] = -1,
+}

@@ -1,0 +1,39 @@
+return {
+	["Evelynn"] = {
+		["masteries"] = {
+			["savagery"] = 0,
+			["doubleedgedsword"] = 0,
+			["bountyhunter"] = 0,
+			["oppressor"] = 0,
+			["bountyhuntercount"] = 0,
+		},
+	},
+	["SacBars"] = {
+		["Modes"] = {
+			["width"] = 150,
+			["rowSpacer"] = 5,
+			["height"] = 23,
+			["colSpacer"] = 19.333333333333,
+			["iconScale"] = 0.5,
+			["iconSize"] = 23,
+			["margin"] = 5,
+			["y"] = 869,
+			["x"] = 715,
+		},
+		["Toggles"] = {
+			["width"] = 150,
+			["rowSpacer"] = 5,
+			["height"] = 23,
+			["colSpacer"] = 2.4,
+			["iconScale"] = 0.5,
+			["iconSize"] = 23,
+			["margin"] = 5,
+			["y"] = 871,
+			["x"] = 897,
+		},
+	},
+	["GamePhase"] = {
+		["gameTimer"] = 161.60424804688,
+		["data"] = 1,
+	},
+}

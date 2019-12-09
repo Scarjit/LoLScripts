@@ -1,0 +1,15 @@
+return {
+	[1] = "Movement",
+	[2] = "Jump to ally",
+	[3] = "Spellshields",
+	[4] = "Dashes & Blinks",
+	[5] = "Block",
+	[6] = "Ward Jump",
+	[7] = "Jump to enemy",
+	[8] = "Flash",
+	[9] = "Untargetable",
+	[10] = "Speed Buffs",
+	[11] = "Ghost",
+	[12] = "Shields",
+	[13] = "Turn Around",
+}

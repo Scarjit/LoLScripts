@@ -1,0 +1,225 @@
+return {
+	["OrbTest_human"] = {
+	},
+	["sidasacmain_sidasacfarming_sidasacsubmasteries"] = {
+	},
+	["S1mple_Ziggs2_human"] = {
+	},
+	["sidasacmain_sidasacdrawing_sidasacother"] = {
+	},
+	["S1mple_Ziggs2_orb_draw"] = {
+	},
+	["S1mple_Ziggs2_keys"] = {
+	},
+	["sidasacmain_sidasacskills_QBouncingBomb"] = {
+	},
+	["S1mpleOrbWalker_draw"] = {
+		["circleinstead"] = false,
+		["range"] = true,
+		["aaneeded"] = true,
+		["mhealth"] = true,
+		["sprites"] = false,
+		["erange"] = true,
+		["numericaa"] = false,
+		["_tsInstances"] = {
+		},
+		["_param"] = {
+		},
+		["showpurplebar"] = false,
+		["othercolor"] = false,
+	},
+	["sidasacmain_sidasacts"] = {
+	},
+	["sidasacmain_sidasacdrawing_sidasacenemyrangesub"] = {
+	},
+	["sidasacmain_sidasacitems_sidasaclaneclearitemssub"] = {
+	},
+	["sidasacmain_sidasachotkeys"] = {
+	},
+	["sidasacmain_sidasacitems_sidasacautocarryitemssub"] = {
+	},
+	["sidasacmain_sidasacsubhumanizer"] = {
+	},
+	["S1mple_Ziggs2_minion"] = {
+	},
+	["S1mple_Ziggs2_adv"] = {
+		["_tsInstances"] = {
+		},
+		["debug"] = true,
+		["_param"] = {
+		},
+	},
+	["sidasacmain_sidasacdrawing_sidasaccirclessub"] = {
+	},
+	["S1mple_Ziggs2"] = {
+	},
+	["sidasacmain_sidasacsetup_sidasacmixedmodesub"] = {
+	},
+	["sidasacmain_sidasacsetup_sidasaclasthitsub"] = {
+	},
+	["sidasacmain_sidasacskills_EHexplosiveMinefield"] = {
+	},
+	["sidasacmain"] = {
+	},
+	["sidasacmain_sidasacmelee"] = {
+	},
+	["FHPrediction_debug"] = {
+	},
+	["S1mpleOrbWalker_misc"] = {
+		["moveunderTower"] = false,
+		["healthpred"] = true,
+		["deadradius"] = 20,
+		["_param"] = {
+		},
+		["_tsInstances"] = {
+		},
+		["debug"] = true,
+		["tower"] = true,
+		["preferm"] = false,
+	},
+	["sidasacmain_sidasacadvanced"] = {
+	},
+	["OrbTest"] = {
+	},
+	["OrbTest_keys"] = {
+	},
+	["sidasacmain_sidasacfarming_sidasacpredictionfarm"] = {
+	},
+	["sidasacmain_sidasacpets"] = {
+	},
+	["S1mpleOrbWalker_keys"] = {
+	},
+	["S1mple_Ziggs2_draw"] = {
+	},
+	["S1mple_Ziggs2_orb_adv"] = {
+		["canmovetoggle"] = false,
+		["latencytoggle"] = false,
+		["_param"] = {
+		},
+		["latency"] = 0,
+		["reloadsprites"] = true,
+		["canaatoggle"] = false,
+		["_tsInstances"] = {
+		},
+		["canmove"] = 20,
+		["canaa"] = 0,
+	},
+	["S1mple_Ziggs2_orb"] = {
+	},
+	["sidasacmain_sidasacfarming_sidasactowerfarm"] = {
+	},
+	["S1mple_Ziggs2_spells_w"] = {
+		["autothrowmaxhpperc"] = 0,
+		["autothrowenabled"] = true,
+		["_param"] = {
+		},
+		["_tsInstances"] = {
+		},
+		["autotower"] = true,
+	},
+	["OrbTest_misc"] = {
+	},
+	["S1mple_Ziggs2_hr"] = {
+		["useq"] = true,
+		["usee"] = false,
+		["minwmana"] = 15,
+		["minqmana"] = 15,
+		["minemana"] = 15,
+		["_tsInstances"] = {
+		},
+		["usew"] = true,
+		["_param"] = {
+		},
+		["wdirection"] = 1,
+	},
+	["S1mple_Ziggs2_orb_minion"] = {
+	},
+	["VPrediction_Developers"] = {
+	},
+	["Master"] = {
+		["iCount"] = 1,
+		["py"] = 864,
+		["I1"] = 1,
+		["PS1"] = 0,
+		["useTS"] = false,
+		["y"] = 255,
+		["name1"] = "FHPrediction",
+		["P1"] = 9,
+		["px"] = 1267,
+		["osTime"] = 1467587610,
+		["x"] = 6,
+	},
+	["S1mple_Ziggs2_misc"] = {
+	},
+	["sidasacmain_sidasacsubstream"] = {
+	},
+	["FHPrediction_dash"] = {
+	},
+	["VPrediction_Collision"] = {
+	},
+	["FHPrediction"] = {
+	},
+	["VPrediction"] = {
+	},
+	["sidasacmain_sidasacsetup_sidasacautocarrysub"] = {
+	},
+	["sidasacmain_sidasacskills"] = {
+	},
+	["S1mpleOrbWalker_human"] = {
+	},
+	["S1mple_Ziggs2_lc"] = {
+	},
+	["sidasacmain_sidasacsetup_sidasaclaneclearsub"] = {
+	},
+	["sidasacmain_sidasacconfig"] = {
+	},
+	["S1mple_Ziggs2_orb_keys"] = {
+	},
+	["Menu"] = {
+		["menuKey"] = 16,
+		["pDraw"] = {
+			["y"] = 864,
+			["x"] = 1267,
+		},
+		["draw"] = {
+			["y"] = 255,
+			["x"] = 6,
+		},
+	},
+	["S1mple_Ziggs2_spells_w_autothrow"] = {
+	},
+	["S1mpleOrbWalker_adv"] = {
+	},
+	["sidasacmain_sidasacitems_sidasacmixedmodeitemssub"] = {
+	},
+	["OrbTest_minion"] = {
+	},
+	["sidasacmain_sidasacdrawing_sidasacminionhealthsub"] = {
+	},
+	["S1mpleOrbWalker_minion"] = {
+	},
+	["FHPrediction_stun"] = {
+	},
+	["OrbTest_adv"] = {
+	},
+	["S1mple_Ziggs2_orb_human"] = {
+	},
+	["OrbTest_draw"] = {
+		["circleinstead"] = false,
+		["range"] = true,
+		["aaneeded"] = false,
+		["mhealth"] = true,
+		["sprites"] = false,
+		["erange"] = true,
+		["numericaa"] = false,
+		["_tsInstances"] = {
+		},
+		["_param"] = {
+		},
+		["showpurplebar"] = false,
+	},
+	["S1mpleOrbWalker"] = {
+	},
+	["S1mple_Ziggs2_orb_misc"] = {
+	},
+}

@@ -1,0 +1,23 @@
+return {
+	["sac_SacBars_Modes"] = {
+		["enabled"] = true,
+		["icons"] = false,
+		["showTooltips"] = true,
+		["lock"] = false,
+	},
+	["sac_Drawing_MyHero"] = {
+		["DrawOptions"] = false,
+	},
+	["sac_Farming"] = {
+		["enabled"] = false,
+	},
+	["sac_SacBars_Toggles"] = {
+		["enabled"] = true,
+		["icons"] = false,
+		["showTooltips"] = true,
+		["lock"] = false,
+	},
+	["sac_SkillSetup_RAgonysEmbrace"] = {
+		["Prediction"] = 1,
+	},
+}

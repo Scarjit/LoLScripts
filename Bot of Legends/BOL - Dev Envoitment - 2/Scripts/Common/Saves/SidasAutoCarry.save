@@ -1,0 +1,28 @@
+return {
+	["DoubleEdgedSword"] = {
+		["Ziggs"] = false,
+	},
+	["WindUpType"] = {
+		["Ziggs"] = 1,
+	},
+	["WindUpAmount"] = {
+		["Ziggs"] = 0,
+	},
+	["StreamingMode"] = false,
+	["TargetSelectorMode"] = 8,
+	["FarmOffsetType"] = {
+		["Ziggs"] = 1,
+	},
+	["FarmOffsetAmount"] = {
+		["Ziggs"] = 0,
+	},
+	["Savagery"] = {
+		["Ziggs"] = 0,
+	},
+	["EnemyHitBoxes"] = {
+		["Data"] = {
+			["Ziggs"] = 208.16246752301,
+		},
+		["TimeSaved"] = 640.98950195313,
+	},
+}
