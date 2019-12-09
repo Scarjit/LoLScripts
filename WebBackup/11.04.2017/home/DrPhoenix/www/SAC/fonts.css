@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'bebas';
+    src: url('fonts/bebasneue.eot');
+    src: url('fonts/bebasneue.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue.woff2') format('woff2'),
+         url('fonts/bebasneue.woff') format('woff'),
+         url('fonts/bebasneue.ttf') format('truetype'),
+         url('fonts/bebasneue.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas_thin';
+    src: url('fonts/bebasneue_thin.eot');
+    src: url('fonts/bebasneue_thin.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue_thin.woff2') format('woff2'),
+         url('fonts/bebasneue_thin.woff') format('woff'),
+         url('fonts/bebasneue_thin.ttf') format('truetype'),
+         url('fonts/bebasneue_thin.svg#bebas_neuethin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'geosanslight';
+    src: url('fonts/geosanslight.woff2') format('woff2'),
+         url('fonts/geosanslight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

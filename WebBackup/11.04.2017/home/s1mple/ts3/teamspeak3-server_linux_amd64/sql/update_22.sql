@@ -1,0 +1,1 @@
+ALTER TABLE tokens ADD COLUMN token_from_client_id int unsigned;

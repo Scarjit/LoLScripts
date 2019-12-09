@@ -1,0 +1,1 @@
+select * from clients where server_id = :server_id: and :field: like :field_value: limit 50

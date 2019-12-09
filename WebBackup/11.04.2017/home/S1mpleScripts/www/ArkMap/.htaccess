@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Login to continue"
+AuthUserFile /home/S1mpleScripts/www/ArkMap/.htpasswd
+require valid-user

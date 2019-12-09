@@ -1,0 +1,299 @@
+--Emulate require
+loadstring(Utility.ReadFile(path.."s1mple_lib.lua"))()
+--require("s1mple_lib")
+
+local heroes = {}
+local summoner_sprites = {}
+local Menu = nil
+local colors = {}
+
+--[[
+	UPDATER & SPRITE DOWNLOAD
+--]]
+function checkdir()
+	if(not isDir(path.."SPRITES"))then
+		lfs.mkdir(path .."SPRITES")
+	end
+
+	if(not isDir(path.."SPRITES\\Champion"))then
+		lfs.mkdir(path .."SPRITES\\Champion")
+	end
+
+	if(not isDir(path.."SPRITES\\Summoner"))then
+		lfs.mkdir(path .."SPRITES\\Summoner")
+	end
+end
+
+function checksprites()
+	for i=1,#heroes do
+		local h = heroes[i]
+		for i2=4,5 do
+			local spellname = h:GetSpellData(i2).name..".png"
+			local summoner = path.."SPRITES\\Summoner\\"..spellname
+			if(not isFile(summoner))then
+				Download("http://s1mplescripts.de/S1mpleScripts/Scripts/Cloudrop/sAwareness/Summoner/"..spellname, {}, "", path.."SPRITES\\Summoner\\"..spellname)
+				prettyprint(spellname.." downloaded !")
+			end
+		end
+
+		for i2=1,3 do
+			local spellname = h:GetSpellData(i2).name..".png"
+			local summoner = path.."SPRITES\\Champion\\"..spellname
+			if(not isFile(summoner))then
+				Download("http://s1mplescripts.de/S1mpleScripts/Scripts/Cloudrop/sAwareness/Champion/"..spellname, {}, "", path.."SPRITES\\Champion\\"..spellname)
+				prettyprint(spellname.." downloaded !")
+			end
+		end	
+	end
+end
+
+--[[
+	SPRITE LOADER
+--]]
+function LoadSprites()
+	for i=1,#heroes do
+		local h = heroes[i]
+		summoner_sprites[h.charName] = {
+			[1] = Render.Sprite(path.."SPRITES\\Summoner\\"..h:GetSpellData(4).name..".png"),
+			[2] = Render.Sprite(path.."SPRITES\\Summoner\\"..h:GetSpellData(5).name..".png"),
+		}
+	end
+end
+
+--[[
+	HP BAR COOLDOWN TRACKER
+--]]
+function DrawHPBarCooldownTrackers()
+	local start_offset_x = 10
+	local start_offset_y = -30
+	local bar_space = 26
+
+	local allowally = Menu.hpbar.allyheroes:Value()
+	local allowown = Menu.hpbar.ownhero:Value()
+
+	for i=1,#heroes do
+		local h = heroes[i]
+		if(not h.dead and h.visible) then
+			if(not allowown and h.networkID == myHero.networkID)then
+				
+			else
+				if(allowown and not allowally and h.networkID ~= myHero.networkID and h.team == myHero.team)then
+
+				else
+					local hpbar = Game.GetUnitHPBarPos(h)
+					local offset = Game.GetUnitHPBarOffset(h)
+					local realbar = {x = hpbar.x + offset.x + start_offset_y, y = hpbar.y + offset.y + start_offset_x}
+
+					if(h.networkID ~= myHero.networkID)then
+						realbar.y = realbar.y - 15
+						realbar.x = realbar.x - 20
+					end
+
+
+					if(h.team ~= myHero.team)then
+						realbar.y = realbar.y - 10
+					end
+
+					local xo = Menu.hpbar["offset_x_"..h.charName]:Value()
+					local yo = Menu.hpbar["offset_y_"..h.charName]:Value()
+
+					realbar.x = realbar.x + xo
+					realbar.y = realbar.y + yo
+
+					--Track normal Spells
+					for i2=0,3 do
+						local _XSpelldata = h:GetSpellData(i2)
+						local _XReadyState = h:CanUseSpell(i2)
+						local _XColor = colors[tonumber(_XReadyState)+1]
+
+						Graphics.DrawLine(Geometry.Vector2(realbar.x, realbar.y), Geometry.Vector2(realbar.x, realbar.y+15), 20, _XColor)
+
+						if(_XReadyState == 4 and _XSpelldata.currentCd < 60)then
+							local cd = "-1"
+							if(_XSpelldata.currentCd < 10)then
+								cd = tostring(math.round(_XSpelldata.currentCd*10)/10)
+								if cd:len() == 1 then
+									cd = cd..".0"
+								end
+							else
+								cd = tostring(math.round(_XSpelldata.currentCd))
+							end
+							Graphics.DrawText(cd, 15, realbar.x-cd:len()*4, realbar.y-5, Graphics.ARGB(255,0,0,0))
+						end	
+						realbar.x = realbar.x + bar_space
+					end
+				end
+			end
+		end
+	end
+end
+
+function DrawHPBarSummonerTrackers()
+	local start_offset_x = 15
+	local start_offset_y = 75	
+	local bar_space = 26	
+
+	local allowally = Menu.hpbar.allyheroes:Value()
+	local allowown = Menu.hpbar.ownhero:Value()
+
+	for i=1,#heroes do
+		local h = heroes[i]
+
+		if(not h.dead and h.visible) then
+
+			if(not allowown and h.networkID == myHero.networkID)then
+				
+			else
+				if(allowown and not allowally and h.networkID ~= myHero.networkID and h.team == myHero.team)then
+
+				else
+					local hpbar = Game.GetUnitHPBarPos(h)
+					local offset = Game.GetUnitHPBarOffset(h)
+					local realbar = {x = hpbar.x + offset.x + start_offset_y, y = hpbar.y + offset.y + start_offset_x}
+
+					if(h.networkID ~= myHero.networkID)then
+						realbar.y = realbar.y - 20
+					end
+
+					if(h.team ~= myHero.team)then
+						realbar.y = realbar.y - 5
+					end
+
+					local xo = Menu.hpbar["offset_x_"..h.charName]:Value()
+					local yo = Menu.hpbar["offset_y_"..h.charName]:Value()
+
+					realbar.x = realbar.x + xo
+					realbar.y = realbar.y + yo
+
+
+					if Menu.hpbar.summonerspellsprite:Value() then
+						for i2=1,2 do
+							local s1 = summoner_sprites[h.charName][i2]
+							s1:SetPosition(realbar.x,realbar.y)
+							s1:Draw()
+
+							local _XSpelldata = h:GetSpellData(i2+3)
+							local _XReadyState = h:CanUseSpell(i2+3)
+
+							if(_XReadyState == 4 and _XSpelldata.currentCd < 60)then
+								local cd = "-1"
+								if(_XSpelldata.currentCd < 10)then
+									cd = tostring(math.round(_XSpelldata.currentCd*10)/10)
+									if cd:len() == 1 then
+										cd = cd..".0"
+									end
+								else
+									cd = tostring(math.round(_XSpelldata.currentCd))
+								end
+								Graphics.DrawLine(Geometry.Vector2(realbar.x, realbar.y-10), Geometry.Vector2(realbar.x, realbar.y+10), 20, Graphics.ARGB(150,61,61,61))
+								Graphics.DrawText(cd, 15, realbar.x-cd:len()*4, realbar.y-10, Graphics.ARGB(255,255,0,0))
+							end
+							realbar.y = realbar.y - 20
+						end
+					else
+						realbar.y = realbar.y -5
+						for i=4,5 do
+							local _XSpelldata = h:GetSpellData(i)
+							local _XReadyState = h:CanUseSpell(i)
+							local _XColor = colors[tonumber(_XReadyState)+1]
+							Graphics.DrawLine(Geometry.Vector2(realbar.x, realbar.y), Geometry.Vector2(realbar.x, realbar.y+15), 20, _XColor)
+
+							if(_XReadyState == 4 and _XSpelldata.currentCd < 60)then
+								local cd = "-1"
+								if(_XSpelldata.currentCd < 10)then
+									cd = tostring(math.round(_XSpelldata.currentCd*10)/10)
+									if cd:len() == 1 then
+										cd = cd..".0"
+									end
+								else
+									cd = tostring(math.round(_XSpelldata.currentCd))
+								end				
+								Graphics.DrawText(cd, 15, realbar.x-cd:len()*4, realbar.y-5, Graphics.ARGB(255,0,0,0))
+							end
+							realbar.y = realbar.y - bar_space * 0.75
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+--[[
+	MENU
+--]]
+function GenerateMenu()
+	Menu = MenuConfig("<font color=\"#570BB2\"><b>sAwareness</b></font>")
+
+	Menu:Menu("hpbar", "HP Bar Settings")
+		Menu.hpbar:Boolean("allyheroes", "Display on Ally Heroes", true)
+		Menu.hpbar:Boolean("ownhero", "Display on own Hero", true)
+		Menu.hpbar:Boolean("summonerspellsprite", "Use Icons for Summoner Spells", true)
+		Menu.hpbar:Section("colorsettingsection", "Colors")
+		Menu.hpbar:ColorPick("color_ready", "Ready", Graphics.ARGB(255,0,255,0))
+		Menu.hpbar:ColorPick("color_unknown", "Unknown", Graphics.ARGB(255,255,255,255))
+		Menu.hpbar:ColorPick("color_notlearned", "Not learned", Graphics.ARGB(128,61,61,61))
+		Menu.hpbar:ColorPick("color_cooldown", "Cooldown", Graphics.ARGB(255,255,0,0))
+		Menu.hpbar:ColorPick("color_nomana", "No Mana", Graphics.ARGB(255,0,0,255))
+		Menu.hpbar:Section("offsets", "Special Offsets")
+
+		for i=1,#heroes do
+			local h = heroes[i]
+			Menu.hpbar:Slider("offset_x_"..h.charName, h.charName .. " X Offsets", 0, -100 ,100)
+			Menu.hpbar:Slider("offset_y_"..h.charName, h.charName .. " Y Offsets", 0, -100 ,100)
+		end
+end
+
+--[[
+	Init
+--]]
+
+function SetColorTable()
+	colors = {	
+		[1] = Menu.hpbar.color_ready:Value(), --READY
+		[2] = Menu.hpbar.color_unknown:Value(), --UNKNOWN_STATE
+		[3] = Menu.hpbar.color_unknown:Value(), --UNKNOWN_STATE
+		[4] = Menu.hpbar.color_notlearned:Value(), --NOT_LEARNED
+		[5] = Menu.hpbar.color_cooldown:Value(), --COOLDOWN
+		[6] = Menu.hpbar.color_nomana:Value(), --NO_MANA
+	}
+end
+
+--[[
+	Updates
+--]]
+function update()
+	local manifest = Utility.ReadFile(path.."manifest.json")
+	local lua_values = JSON:decode(manifest)
+	Download("http://s1mplescripts.de/S1mpleScripts/Scripts/Cloudrop/sAwareness/manifest.json", {}, "", path.."online_manifest.json")
+	local manifest_o = Utility.ReadFile(path.."online_manifest.json")
+	local lua_values_o = JSON:decode(manifest_o)
+
+	os.execute('del /Q \"'..path..'\"online_manifest.json')
+
+	if(lua_values_o["version"] ~= lua_values["version"])then
+		Download("http://s1mplescripts.de/S1mpleScripts/Scripts/Cloudrop/sAwareness/main.add", {}, "", path.."main.add")
+		Download("http://s1mplescripts.de/S1mpleScripts/Scripts/Cloudrop/sAwareness/s1mple_lib.lua", {}, "", path.."s1mple_lib.lua")
+		prettyprint("New Version downloaded")
+	end
+end
+
+--[[
+	CALLBACKS
+--]]
+
+Callback.Bind("GameStart", function ()
+	update()
+	heroes = Game.Heroes()
+	checkdir()
+	checksprites()
+	LoadSprites()
+	GenerateMenu()
+	SetColorTable()
+end)
+
+Callback.Bind("Draw", function ()
+	if not Menu then return end
+	DrawHPBarCooldownTrackers()
+	DrawHPBarSummonerTrackers()
+end)

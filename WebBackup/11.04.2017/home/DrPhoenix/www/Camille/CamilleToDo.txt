@@ -1,0 +1,16 @@
+Item support
+Use R to dodge dangerous spells
+Advance orbwalking for W
+Improve lasthiting / laneclear
+Minions LastHit Helper
+
+Items :
+	Titanic Hydra AA Reset
+	Potions
+	Red and Blue Smites
+	Youmuu
+	Hydra (x2)
+	Cutlass
+	BOTRK
+	QSS
+	Mercurial

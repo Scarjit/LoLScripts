@@ -1,0 +1,1 @@
+select org_channel_id, channel_id from channels where server_id = :server_id:;

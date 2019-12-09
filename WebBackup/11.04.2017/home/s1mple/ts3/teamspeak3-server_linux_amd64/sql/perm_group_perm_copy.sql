@@ -1,0 +1,3 @@
+insert into :table:(server_id, id1, id2, perm_id, perm_value, perm_negated, perm_skip)
+             select :dest_server_id:, :dest_group_id*:, id2, perm_id, perm_value, perm_negated, perm_skip from :table: where server_id=:src_server_id: and id1=:src_group_id*:
+    [[[union  select :dest_server_id:, :dest_group_id*:, id2, perm_id, perm_value, perm_negated, perm_skip from :table: where server_id=:src_server_id: and id1=:src_group_id*:]]]

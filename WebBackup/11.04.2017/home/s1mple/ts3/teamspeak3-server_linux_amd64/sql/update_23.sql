@@ -1,0 +1,1 @@
+UPDATE clients SET client_nickname="ServerQuery Guest" WHERE client_unique_id="ServerQuery";

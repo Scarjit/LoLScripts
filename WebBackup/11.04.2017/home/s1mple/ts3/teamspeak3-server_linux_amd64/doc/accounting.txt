@@ -1,0 +1,45 @@
+How the TeamSpeak 3 Accounting server works
+
+1. Background Information
+The TeamSpeak 3 Accounting server has two functions. First and foremost, it records how the TeamSpeak licensees use their TS3 servers. Specifically, it records how many slots they are using. At the end of every month using this information, an average slot usage can be calculated and billed.
+
+The second function of the TeamSpeak 3 Accounting server is to enforce the given licenses. The server makes sure our customers do not exceed the limits of their license. This includes running a unique virtual server (identified by it's unique id) on more than one serverprocess (TS3 server) and running more virtual servers and/or slots than allowed.
+
+2. How it works.
+
+2.1 Anti spam protection
+Before a report to the TeamSpeak 3 Accounting server is processed, it first checks if the reporting TS3 server is spamming. In the past, some defective TS3 server configurations caused servers to start and stop every second. This produced an enormous amount of data on the Accounting server. To prevent this, some anti spam measures were taken. 
+
+Before the Accounting server processes a start request, it first checks to see how many times a TS3 server tried to start and stop within a few seconds (currently 5) in the last period (currently 41 minutes). When this exceeds the threshold (currently 4) the whole license is marked as spamming. This means that servers cannot be started any more using this license while it is marked. The marked duration is currently 15 minutes. If a TS3 server tries to start using the marked license, the marked duration is reset. This means that if a TS3 server is started within 15 minutes of when the license was marked, it will again have to wait 15 minutes to get a functioning start.
+
+2.2 Start Request
+When a TS3 server is started, it sends a start request to the TeamSpeak Accounting server. This request contains the license and the virtual servers the TS3 server wants to start. If the TeamSpeak Accounting server decides the TS3 server is not allowed to start, the TS3 server stops itself. In the other cases, the TS3 server is considered running and the TS3 server continues running.
+
+The license is checked for:
+- Date
+- (temporary) Block. This can happen if a hoster is violating the license agreement.
+- Total virtual server count.
+- Total slot count.
+
+Further more, the TeamSpeak Accounting server checks that a unique virtual server only runs on one TS3 server. No two or more TS3 servers are allowed to run the same unique virtual server.
+
+If the license is expired, but a new one is created that has replaced the current one, this new license is downloaded and used. This can happen when for example a license is renewed.
+
+It has to be noted that several TS3 servers can operate on one license. This means that when a TS3 server is started, it checks if the start would violate the license. It takes into account that other servers are running on the same license. If starting this new TS3 server would exceed the limits set in the License the new TS3 server is not allowed to start. The running TS3 servers are unaffected.
+
+Special care is taken to prevent crashed servers from blocking TS3 server startup. A crashed server did not report its shutdown to the TeamSpeak Accounting server. The TeamSpeak Accounting server will time out TS3 servers if they have not reported for three hours. But during this time it assumes the server is running. If a server crashed and is restarted, this would mean that the TeamSpeak Accounting server would block because the unique virtual server is running on a different instance. To prevent this, on startup when a unique virtual server is reported, that is running elsewhere, it is assumed that the virtual server is moved to this new instance. This new starting instance will be the owner of the virtual server, and the other instance will not own this virtual server any more. This solves the problem for crashed TS3 servers and also for moved virtual servers.
+
+2.3 Report
+Once a TS3 server is started, it makes a report to the TeamSpeak Accounting server every following hour. If for some reason the TS3 server was not able to contact the TeamSpeak Accounting server, it shuts down.
+
+The report is checked for the same criteria as during startup. That is:
+- Date
+- (temporary) Block.
+- Total virtual server count.
+- Total slot count.
+- Unique Virtual server running on only 1 TS3 server
+
+If the license is expired (date) and no new license is available or the license is blocked, the TS3 server is stopped. If there are too many virtual server running or too many slots in total, the TS3 server is stopped. If the report contained a unique virtual server that is running on a different TS3 Server, the currently reporting TS3 server is stopped.
+
+2.4 Shutdown
+When a TS3 shuts down, it reports this fact to the TeamSpeak Accounting server. This means that after a graceful shutdown, the TeamSpeak Accounting server has removed all the virtual servers that were running on this TS3 server from the license usage data.

@@ -1,0 +1,251 @@
+body
+{
+	background-color: white;
+	color: #282E30;
+	text-align:left;
+	margin-left:15px;
+	margin-right:25px;
+}
+	
+a:link
+{
+	color: #1A91D0;
+	text-decoration: none;
+}
+a:visited
+{
+	color: #CDD7E5;
+	text-decoration: underline;
+}
+a:hover
+{
+	color: #0AA537;
+	text-decoration: none;
+}
+a:active
+{
+	color: #1A91D0;
+}
+
+p
+{
+	text-align:left;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #282E30;
+}
+
+h1
+{
+	/* Used for new chapters */
+	font-family: Verdana, Geneva, sans-serif;
+	color: #426080;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 185%;
+	margin-top: 75px;
+
+}
+
+h2, .function_name
+{
+	/* Used for subchapters and function names */
+	font-family: Verdana, Geneva, sans-serif;
+	color: #426080;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 150%;
+}
+
+.function_name {
+	margin-top: 0px;
+}
+
+.document_title
+{
+	font-family: Verdana, Geneva, sans-serif;
+	color: #426080;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 220%;
+	font-weight: 900;
+}
+.last_update
+{
+	font-family: Verdana, Geneva, sans-serif;
+	color: #426080;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	font-size: 90%;
+}
+.copyright
+{
+	color: #282E30;
+	font-style: normal;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.function_desc
+{
+	white-space: normal;
+	font-family: Verdana, Geneva, sans-serif;
+	line-height: normal;
+	color: #282E30;
+}
+
+.property_name{
+	text-transform: uppercase;
+	color: #282E30;
+}
+.property_description {
+	font-style: italic;
+	display:inline;
+	color: #282E30;
+}
+
+/* replace this with h3?? */
+.subheading-permissions, .subheading-syntax, .subheading-example
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+	color: #426080;
+}
+
+.function_perms
+{
+	white-space: pre-wrap;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.function_example_input, .function_syntax
+{
+	white-space: pre-wrap;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: lighter;
+	color: #282E30;
+}
+
+.function_example_output
+{
+	white-space: pre-wrap;
+	font-family: Verdana, Geneva, sans-serif;
+	margin-top: 12px;
+	font-weight: lighter;
+	margin-left: 25px;
+	line-height: 20px;
+	color: #282E30;
+}
+
+
+.enum_name, .enum_option_name, .enum_option_description, .enum_name_span, .enum_value, .enum
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: lighter;
+}
+
+.enum_option_name, .enum_option_description
+{
+	display: inline;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.enum_option_description
+{
+	margin-left: 100px;
+}
+
+.enum_value
+{
+	white-space: nowrap;
+}
+
+.enum_name_span
+{
+	width: 225px;
+	display: block;
+	float: left;
+}
+
+div.section {
+	margin-bottom: 50px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+table {
+	width: 75%;
+	margin-top: 10px;
+	border-collapse: collapse;
+}
+
+.escaping table, td, th {
+	border: 2px solid white;
+	background-color: #DEDFDF;
+	padding: 5px;
+}
+
+.example_heading, .escaping th, .properties th {
+	text-transform: uppercase;
+	color: white;
+	background-color: #426080;
+	text-align: left;
+}
+
+#toc {
+	list-style: none;
+	margin-bottom: 150px;
+	margin-right: 100px;
+}
+
+#toc li {
+	overflow: hidden;
+	padding-bottom: 2px;
+	font-weight: bold;
+	font-style: normal;
+	font-family: Verdana, Geneva, sans-serif;
+	text-transform: uppercase;
+	color: #282E30;
+}
+#toc .sub_li {
+	margin-left: 10px;
+	overflow: hidden;
+	padding-bottom: 2px;
+	font-weight: normal;
+	font-style: normal;
+	text-transform: none;
+}
+
+#toc a,
+#toc span {
+	display: inline-block;
+	background: #fff;
+	position: relative;
+	bottom: -4px;
+}
+#toc a {
+	padding: 0 0 3px 2px;
+	color: #426080;
+}
+#toc span {
+	float: left;
+	padding: 0 2px 3px 0;
+}
+
+#logo { 
+  position: absolute;
+  left: 80%;
+}
+code {
+	color: #426080;
+	font-family: monospace;
+	font-weight: 500;
+}
+div.image_logo {
+   width:450px;
+   height:160px;
+   background-image:url('TeamSpeak_Logo.png');
+   background-repeat: no-repeat;
+   margin-left:auto; 
+   margin-right:auto; 
+   padding:0; 
+}

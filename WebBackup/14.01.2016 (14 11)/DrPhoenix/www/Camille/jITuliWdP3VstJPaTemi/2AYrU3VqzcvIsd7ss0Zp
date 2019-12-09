@@ -1,0 +1,2407 @@
+if myHero.charName ~= "Camille" then return end
+
+local version = "1.01"
+
+local sbyte = string.byte
+local slen = string.len
+local schar = string.char
+local srep = string.rep
+local mathrseed = math.randomseed
+local mathrand = math.random
+local mathfloor = math.floor
+local mathhuge = math.huge
+local tstr = tostring
+local strformat = string.format
+local strgmatch = string.gmatch
+local b32lshift = bit32.lshift
+local b32rshift = bit32.rshift
+local lpairs = pairs
+local ostime = os.time
+local osclock = os.clock
+local tableconcat = table.concat
+local tableinsert = table.insert
+local ioopen = io.open
+local ltype = type
+local function PrintMsg(msg)
+	PrintChat("<font color=\"#ff9900\"><b>[</b></font><font color=\"#00a1ff\"><b>Doctor Camille</b></font><font color=\"#ff9900\"><b>]</b></font> <font color=\"#00d8ff\">"..msg.."</font>")
+end
+if not myHero or not myHero.x or ltype(myHero.x) ~= "number" then
+	PrintMsg("myHero is faulty")
+	return "ERROR", 0, "myHero is faulty"
+end
+if mathrand() == mathrand() then
+	PrintMsg("Random Check Missmatch")
+	return "ERROR", 0, "Random Check Missmatch"
+end
+local ok, Math = pcall(require, "math")
+if not ok then
+	PrintMsg("Could not get Requirements")
+	return "ERROR", 0, "Could not get Requirements"
+end
+local ok, String = pcall(require, "string")
+if not ok then
+	PrintMsg("Could not get Requirements")
+	return "ERROR", 0, "Could not get Requirements"
+end
+local ok, e = pcall(require, "bit32")
+if not ok then
+	PrintMsg("Could not get Requirements")
+	return "ERROR", 0, "Could not get Requirements"
+end
+mathrseed(osclock()*ostime()/myHero.x+GetUser():len())
+mathrand()
+for i=0, mathrand(42,1337) do
+	mathrand()
+end
+if e.rol and not e.lrotate then
+	e.lrotate = e.rol
+end
+if e.ror and not e.rrotate then
+	e.rrotate = e.ror
+end
+local Bit = e
+local Queue = function()
+	local queue = {};	
+	local tail = 0;
+	local head = 0;
+	local public = {};
+	public.push = function(obj)
+		queue[head] = obj;
+		head = head + 1;
+		return;		
+	end
+	public.pop = function()
+		if tail < head
+		then
+			local obj = queue[tail];
+			queue[tail] = nil;
+			tail = tail + 1;
+			return obj;
+		else
+			return nil;
+		end
+	end
+	public.size = function()
+		return head - tail;
+	end
+	public.getHead = function()
+		return head;
+	end
+	public.getTail = function()
+		return tail;
+	end
+	public.reset = function()
+		queue = {};
+		head = 0;
+		tail = 0;
+	end
+	return public;
+end
+local Stream = {};
+Stream.fromString = function(string)
+	local i=0;
+	return function()
+		i=i+1;
+		if(i <= slen(string)) then
+			return sbyte(string,i);
+		else
+			return nil;
+		end
+	end
+end
+Stream.toString = function(stream)
+	local array = {};
+	local i=1;
+	local byte = stream();
+	while byte ~= nil do
+		array[i] = schar(byte);
+		i = i+1;
+		byte = stream();
+	end
+	return tableconcat(array,"");
+end
+Stream.fromArray = function(array)
+	local queue = Queue();
+	local i=1;
+	local byte = array[i];
+	while byte ~= nil do
+		queue.push(byte);
+		i=i+1;
+		byte = array[i];
+	end
+	return queue.pop;
+end
+Stream.toArray = function(stream)
+	local array = {};
+	local i=1;
+	local byte = stream();
+	while byte ~= nil do
+		array[i] = byte;
+		i = i+1;
+		byte = stream();
+	end
+	return array;	
+end
+local fromHexTable = {};
+for i=0,255 do
+	fromHexTable[String.format("%02X",i)]=i;
+	fromHexTable[String.format("%02x",i)]=i;
+end
+Stream.fromHex = function(hex)
+	local queue = Queue();
+	for i=1,slen(hex)/2 do
+		local h = String.sub(hex,i*2-1,i*2);
+		queue.push(fromHexTable[h]);
+	end
+	return queue.pop;
+end
+local toHexTable = {};
+for i=0,255 do
+	toHexTable[i]=String.format("%02X",i);
+end
+Stream.toHex = function(stream)
+	local hex = {};
+	local i = 1;
+	local byte = stream();
+	while byte ~= nil do
+		hex[i] = toHexTable[byte];
+		i=i+1;
+		byte = stream();
+	end
+	return tableconcat(hex,"");
+end
+local XOR = Bit.bxor;
+local Array = {};
+Array.size = function(array)
+	return #array;
+end
+Array.fromString = function(string)
+	local bytes = {};
+	local i=1;
+	local byte = sbyte(string,i);
+	while byte ~= nil do
+		bytes[i] = byte;
+		i = i + 1;
+		byte = sbyte(string,i);
+	end
+	return bytes;
+end
+Array.toString = function(bytes)
+	local chars = {};
+	local i=1;
+	local byte = bytes[i];
+	while byte ~= nil do
+		chars[i] = schar(byte);
+		i = i+1;
+		byte = bytes[i];
+	end
+	return tableconcat(chars,"");
+end
+Array.fromStream = function(stream)
+	local array = {};
+	local i=1;
+	local byte = stream();
+	while byte ~= nil do
+		array[i] = byte;
+		i = i+1;
+		byte = stream();
+	end
+	return array;
+end
+Array.readFromQueue = function(queue,size)
+	local array = {};
+	for i=1,size do
+		array[i] = queue.pop();
+	end
+	return array;
+end
+Array.writeToQueue = function(queue,array)
+	local size = Array.size(array);
+	for i=1,size do
+		queue.push(array[i]);
+	end
+end
+Array.toStream = function(array)
+	local queue = Queue();
+	local i=1;
+	local byte = array[i];
+	while byte ~= nil do
+		queue.push(byte);
+		i=i+1;
+		byte = array[i];
+	end
+	return queue.pop;	
+end
+local fromHexTable = {};
+for i=0,255 do
+	fromHexTable[String.format("%02X",i)]=i;
+	fromHexTable[String.format("%02x",i)]=i;
+end
+Array.fromHex = function(hex)
+	local array = {};
+	for i=1,slen(hex)/2 do
+		local h = String.sub(hex,i*2-1,i*2);
+		array[i] = fromHexTable[h];
+	end
+	return array;
+end
+local toHexTable = {};
+for i=0,255 do
+	toHexTable[i]=String.format("%02X",i);
+end
+Array.toHex = function(array)
+	local hex = {};
+	local i = 1;
+	local byte = array[i];
+	while byte ~= nil do
+		hex[i] = toHexTable[byte];
+		i=i+1;
+		byte = array[i];
+	end
+	return tableconcat(hex,"");
+end
+Array.concat = function(a,b)
+	local concat = {};
+	local out=1;
+	local i=1;
+	local byte = a[i];
+	while byte ~= nil do
+		concat[out] = byte;
+		i = i + 1;
+		out = out + 1;
+		byte = a[i];
+	end
+	local i=1;
+	local byte = b[i];
+	while byte ~= nil do
+		concat[out] = byte;
+		i = i + 1;
+		out = out + 1;
+		byte = b[i];
+	end
+	return concat;
+end
+Array.truncate = function(a,newSize)
+	local x = {};
+	for i=1,newSize do
+		x[i]=a[i];
+	end
+	return x;
+end
+Array.XOR = function(a,b)
+	local x = {};
+	for k,v in lpairs(a) do
+		x[k] = XOR(v,b[k]);
+	end
+	return x;
+end
+Array.substitute = function(input,sbox)
+	local out = {};
+	for k,v in lpairs(input) do
+		out[k] = sbox[v];
+	end
+	return out;
+end
+Array.permute = function(input,pbox)
+	local out = {};
+	for k,v in lpairs(pbox) do
+		out[k] = input[v];
+	end
+	return out;
+end
+Array.copy = function(input)
+	local out = {};
+	for k,v in lpairs(input) do
+		out[k] = v;
+	end
+	return out;
+end
+Array.slice = function(input,start,stop)
+	local out = {};
+	for i=start,stop do
+		out[i-start+1] = input[i];
+	end
+	return out;
+end
+local AND = Bit.band;
+local OR  = Bit.bor;
+local NOT = Bit.bnot;
+local XOR = Bit.bxor;
+local LROT = Bit.lrotate;
+local RROT = Bit.rrotate;
+local LSHIFT = Bit.lshift;
+local RSHIFT = Bit.rshift;
+local SBOX = {
+ [0]=0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76,
+ 0xCA, 0x82, 0xC9, 0x7D, 0xFA, 0x59, 0x47, 0xF0, 0xAD, 0xD4, 0xA2, 0xAF, 0x9C, 0xA4, 0x72, 0xC0,
+ 0xB7, 0xFD, 0x93, 0x26, 0x36, 0x3F, 0xF7, 0xCC, 0x34, 0xA5, 0xE5, 0xF1, 0x71, 0xD8, 0x31, 0x15,
+ 0x04, 0xC7, 0x23, 0xC3, 0x18, 0x96, 0x05, 0x9A, 0x07, 0x12, 0x80, 0xE2, 0xEB, 0x27, 0xB2, 0x75,
+ 0x09, 0x83, 0x2C, 0x1A, 0x1B, 0x6E, 0x5A, 0xA0, 0x52, 0x3B, 0xD6, 0xB3, 0x29, 0xE3, 0x2F, 0x84,
+ 0x53, 0xD1, 0x00, 0xED, 0x20, 0xFC, 0xB1, 0x5B, 0x6A, 0xCB, 0xBE, 0x39, 0x4A, 0x4C, 0x58, 0xCF,
+ 0xD0, 0xEF, 0xAA, 0xFB, 0x43, 0x4D, 0x33, 0x85, 0x45, 0xF9, 0x02, 0x7F, 0x50, 0x3C, 0x9F, 0xA8,
+ 0x51, 0xA3, 0x40, 0x8F, 0x92, 0x9D, 0x38, 0xF5, 0xBC, 0xB6, 0xDA, 0x21, 0x10, 0xFF, 0xF3, 0xD2,
+ 0xCD, 0x0C, 0x13, 0xEC, 0x5F, 0x97, 0x44, 0x17, 0xC4, 0xA7, 0x7E, 0x3D, 0x64, 0x5D, 0x19, 0x73,
+ 0x60, 0x81, 0x4F, 0xDC, 0x22, 0x2A, 0x90, 0x88, 0x46, 0xEE, 0xB8, 0x14, 0xDE, 0x5E, 0x0B, 0xDB,
+ 0xE0, 0x32, 0x3A, 0x0A, 0x49, 0x06, 0x24, 0x5C, 0xC2, 0xD3, 0xAC, 0x62, 0x91, 0x95, 0xE4, 0x79,
+ 0xE7, 0xC8, 0x37, 0x6D, 0x8D, 0xD5, 0x4E, 0xA9, 0x6C, 0x56, 0xF4, 0xEA, 0x65, 0x7A, 0xAE, 0x08,
+ 0xBA, 0x78, 0x25, 0x2E, 0x1C, 0xA6, 0xB4, 0xC6, 0xE8, 0xDD, 0x74, 0x1F, 0x4B, 0xBD, 0x8B, 0x8A,
+ 0x70, 0x3E, 0xB5, 0x66, 0x48, 0x03, 0xF6, 0x0E, 0x61, 0x35, 0x57, 0xB9, 0x86, 0xC1, 0x1D, 0x9E,
+ 0xE1, 0xF8, 0x98, 0x11, 0x69, 0xD9, 0x8E, 0x94, 0x9B, 0x1E, 0x87, 0xE9, 0xCE, 0x55, 0x28, 0xDF,
+ 0x8C, 0xA1, 0x89, 0x0D, 0xBF, 0xE6, 0x42, 0x68, 0x41, 0x99, 0x2D, 0x0F, 0xB0, 0x54, 0xBB, 0x16};
+local ISBOX = {
+ [0]=0x52, 0x09, 0x6A, 0xD5, 0x30, 0x36, 0xA5, 0x38, 0xBF, 0x40, 0xA3, 0x9E, 0x81, 0xF3, 0xD7, 0xFB,
+ 0x7C, 0xE3, 0x39, 0x82, 0x9B, 0x2F, 0xFF, 0x87, 0x34, 0x8E, 0x43, 0x44, 0xC4, 0xDE, 0xE9, 0xCB,
+ 0x54, 0x7B, 0x94, 0x32, 0xA6, 0xC2, 0x23, 0x3D, 0xEE, 0x4C, 0x95, 0x0B, 0x42, 0xFA, 0xC3, 0x4E,
+ 0x08, 0x2E, 0xA1, 0x66, 0x28, 0xD9, 0x24, 0xB2, 0x76, 0x5B, 0xA2, 0x49, 0x6D, 0x8B, 0xD1, 0x25,
+ 0x72, 0xF8, 0xF6, 0x64, 0x86, 0x68, 0x98, 0x16, 0xD4, 0xA4, 0x5C, 0xCC, 0x5D, 0x65, 0xB6, 0x92,
+ 0x6C, 0x70, 0x48, 0x50, 0xFD, 0xED, 0xB9, 0xDA, 0x5E, 0x15, 0x46, 0x57, 0xA7, 0x8D, 0x9D, 0x84,
+ 0x90, 0xD8, 0xAB, 0x00, 0x8C, 0xBC, 0xD3, 0x0A, 0xF7, 0xE4, 0x58, 0x05, 0xB8, 0xB3, 0x45, 0x06,
+ 0xD0, 0x2C, 0x1E, 0x8F, 0xCA, 0x3F, 0x0F, 0x02, 0xC1, 0xAF, 0xBD, 0x03, 0x01, 0x13, 0x8A, 0x6B,
+ 0x3A, 0x91, 0x11, 0x41, 0x4F, 0x67, 0xDC, 0xEA, 0x97, 0xF2, 0xCF, 0xCE, 0xF0, 0xB4, 0xE6, 0x73,
+ 0x96, 0xAC, 0x74, 0x22, 0xE7, 0xAD, 0x35, 0x85, 0xE2, 0xF9, 0x37, 0xE8, 0x1C, 0x75, 0xDF, 0x6E,
+ 0x47, 0xF1, 0x1A, 0x71, 0x1D, 0x29, 0xC5, 0x89, 0x6F, 0xB7, 0x62, 0x0E, 0xAA, 0x18, 0xBE, 0x1B,
+ 0xFC, 0x56, 0x3E, 0x4B, 0xC6, 0xD2, 0x79, 0x20, 0x9A, 0xDB, 0xC0, 0xFE, 0x78, 0xCD, 0x5A, 0xF4,
+ 0x1F, 0xDD, 0xA8, 0x33, 0x88, 0x07, 0xC7, 0x31, 0xB1, 0x12, 0x10, 0x59, 0x27, 0x80, 0xEC, 0x5F,
+ 0x60, 0x51, 0x7F, 0xA9, 0x19, 0xB5, 0x4A, 0x0D, 0x2D, 0xE5, 0x7A, 0x9F, 0x93, 0xC9, 0x9C, 0xEF,
+ 0xA0, 0xE0, 0x3B, 0x4D, 0xAE, 0x2A, 0xF5, 0xB0, 0xC8, 0xEB, 0xBB, 0x3C, 0x83, 0x53, 0x99, 0x61,
+ 0x17, 0x2B, 0x04, 0x7E, 0xBA, 0x77, 0xD6, 0x26, 0xE1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0C, 0x7D};
+local ROW_SHIFT =  {  1,  6, 11, 16,  5, 10, 15,  4,  9, 14,  3,  8, 13,  2,  7, 12,};
+local IROW_SHIFT = {  1, 14, 11,  8,  5,  2, 15, 12,  9,  6,  3, 16, 13, 10,  7,  4,};
+local ETABLE = {
+ [0]=0x01, 0x03, 0x05, 0x0F, 0x11, 0x33, 0x55, 0xFF, 0x1A, 0x2E, 0x72, 0x96, 0xA1, 0xF8, 0x13, 0x35,
+ 0x5F, 0xE1, 0x38, 0x48, 0xD8, 0x73, 0x95, 0xA4, 0xF7, 0x02, 0x06, 0x0A, 0x1E, 0x22, 0x66, 0xAA,
+ 0xE5, 0x34, 0x5C, 0xE4, 0x37, 0x59, 0xEB, 0x26, 0x6A, 0xBE, 0xD9, 0x70, 0x90, 0xAB, 0xE6, 0x31,
+ 0x53, 0xF5, 0x04, 0x0C, 0x14, 0x3C, 0x44, 0xCC, 0x4F, 0xD1, 0x68, 0xB8, 0xD3, 0x6E, 0xB2, 0xCD,
+ 0x4C, 0xD4, 0x67, 0xA9, 0xE0, 0x3B, 0x4D, 0xD7, 0x62, 0xA6, 0xF1, 0x08, 0x18, 0x28, 0x78, 0x88,
+ 0x83, 0x9E, 0xB9, 0xD0, 0x6B, 0xBD, 0xDC, 0x7F, 0x81, 0x98, 0xB3, 0xCE, 0x49, 0xDB, 0x76, 0x9A,
+ 0xB5, 0xC4, 0x57, 0xF9, 0x10, 0x30, 0x50, 0xF0, 0x0B, 0x1D, 0x27, 0x69, 0xBB, 0xD6, 0x61, 0xA3,
+ 0xFE, 0x19, 0x2B, 0x7D, 0x87, 0x92, 0xAD, 0xEC, 0x2F, 0x71, 0x93, 0xAE, 0xE9, 0x20, 0x60, 0xA0,
+ 0xFB, 0x16, 0x3A, 0x4E, 0xD2, 0x6D, 0xB7, 0xC2, 0x5D, 0xE7, 0x32, 0x56, 0xFA, 0x15, 0x3F, 0x41,
+ 0xC3, 0x5E, 0xE2, 0x3D, 0x47, 0xC9, 0x40, 0xC0, 0x5B, 0xED, 0x2C, 0x74, 0x9C, 0xBF, 0xDA, 0x75,
+ 0x9F, 0xBA, 0xD5, 0x64, 0xAC, 0xEF, 0x2A, 0x7E, 0x82, 0x9D, 0xBC, 0xDF, 0x7A, 0x8E, 0x89, 0x80,
+ 0x9B, 0xB6, 0xC1, 0x58, 0xE8, 0x23, 0x65, 0xAF, 0xEA, 0x25, 0x6F, 0xB1, 0xC8, 0x43, 0xC5, 0x54,
+ 0xFC, 0x1F, 0x21, 0x63, 0xA5, 0xF4, 0x07, 0x09, 0x1B, 0x2D, 0x77, 0x99, 0xB0, 0xCB, 0x46, 0xCA,
+ 0x45, 0xCF, 0x4A, 0xDE, 0x79, 0x8B, 0x86, 0x91, 0xA8, 0xE3, 0x3E, 0x42, 0xC6, 0x51, 0xF3, 0x0E,
+ 0x12, 0x36, 0x5A, 0xEE, 0x29, 0x7B, 0x8D, 0x8C, 0x8F, 0x8A, 0x85, 0x94, 0xA7, 0xF2, 0x0D, 0x17,
+ 0x39, 0x4B, 0xDD, 0x7C, 0x84, 0x97, 0xA2, 0xFD, 0x1C, 0x24, 0x6C, 0xB4, 0xC7, 0x52, 0xF6, 0x01};
+local LTABLE = {
+ [0]=0x00, 0x00, 0x19, 0x01, 0x32, 0x02, 0x1A, 0xC6, 0x4B, 0xC7, 0x1B, 0x68, 0x33, 0xEE, 0xDF, 0x03,
+ 0x64, 0x04, 0xE0, 0x0E, 0x34, 0x8D, 0x81, 0xEF, 0x4C, 0x71, 0x08, 0xC8, 0xF8, 0x69, 0x1C, 0xC1,
+ 0x7D, 0xC2, 0x1D, 0xB5, 0xF9, 0xB9, 0x27, 0x6A, 0x4D, 0xE4, 0xA6, 0x72, 0x9A, 0xC9, 0x09, 0x78,
+ 0x65, 0x2F, 0x8A, 0x05, 0x21, 0x0F, 0xE1, 0x24, 0x12, 0xF0, 0x82, 0x45, 0x35, 0x93, 0xDA, 0x8E,
+ 0x96, 0x8F, 0xDB, 0xBD, 0x36, 0xD0, 0xCE, 0x94, 0x13, 0x5C, 0xD2, 0xF1, 0x40, 0x46, 0x83, 0x38,
+ 0x66, 0xDD, 0xFD, 0x30, 0xBF, 0x06, 0x8B, 0x62, 0xB3, 0x25, 0xE2, 0x98, 0x22, 0x88, 0x91, 0x10,
+ 0x7E, 0x6E, 0x48, 0xC3, 0xA3, 0xB6, 0x1E, 0x42, 0x3A, 0x6B, 0x28, 0x54, 0xFA, 0x85, 0x3D, 0xBA,
+ 0x2B, 0x79, 0x0A, 0x15, 0x9B, 0x9F, 0x5E, 0xCA, 0x4E, 0xD4, 0xAC, 0xE5, 0xF3, 0x73, 0xA7, 0x57,
+ 0xAF, 0x58, 0xA8, 0x50, 0xF4, 0xEA, 0xD6, 0x74, 0x4F, 0xAE, 0xE9, 0xD5, 0xE7, 0xE6, 0xAD, 0xE8,
+ 0x2C, 0xD7, 0x75, 0x7A, 0xEB, 0x16, 0x0B, 0xF5, 0x59, 0xCB, 0x5F, 0xB0, 0x9C, 0xA9, 0x51, 0xA0,
+ 0x7F, 0x0C, 0xF6, 0x6F, 0x17, 0xC4, 0x49, 0xEC, 0xD8, 0x43, 0x1F, 0x2D, 0xA4, 0x76, 0x7B, 0xB7,
+ 0xCC, 0xBB, 0x3E, 0x5A, 0xFB, 0x60, 0xB1, 0x86, 0x3B, 0x52, 0xA1, 0x6C, 0xAA, 0x55, 0x29, 0x9D,
+ 0x97, 0xB2, 0x87, 0x90, 0x61, 0xBE, 0xDC, 0xFC, 0xBC, 0x95, 0xCF, 0xCD, 0x37, 0x3F, 0x5B, 0xD1,
+ 0x53, 0x39, 0x84, 0x3C, 0x41, 0xA2, 0x6D, 0x47, 0x14, 0x2A, 0x9E, 0x5D, 0x56, 0xF2, 0xD3, 0xAB,
+ 0x44, 0x11, 0x92, 0xD9, 0x23, 0x20, 0x2E, 0x89, 0xB4, 0x7C, 0xB8, 0x26, 0x77, 0x99, 0xE3, 0xA5,
+ 0x67, 0x4A, 0xED, 0xDE, 0xC5, 0x31, 0xFE, 0x18, 0x0D, 0x63, 0x8C, 0x80, 0xC0, 0xF7, 0x70, 0x07};
+local MIXTABLE = {
+ 0x02, 0x03, 0x01, 0x01,
+ 0x01, 0x02, 0x03, 0x01,
+ 0x01, 0x01, 0x02, 0x03,
+ 0x03, 0x01, 0x01, 0x02};
+local IMIXTABLE = {
+ 0x0E, 0x0B, 0x0D, 0x09,
+ 0x09, 0x0E, 0x0B, 0x0D,
+ 0x0D, 0x09, 0x0E, 0x0B,
+ 0x0B, 0x0D, 0x09, 0x0E};
+local RCON = {
+[0] = 0x8d, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36, 0x6c, 0xd8, 0xab, 0x4d, 0x9a, 
+0x2f, 0x5e, 0xbc, 0x63, 0xc6, 0x97, 0x35, 0x6a, 0xd4, 0xb3, 0x7d, 0xfa, 0xef, 0xc5, 0x91, 0x39, 
+0x72, 0xe4, 0xd3, 0xbd, 0x61, 0xc2, 0x9f, 0x25, 0x4a, 0x94, 0x33, 0x66, 0xcc, 0x83, 0x1d, 0x3a, 
+0x74, 0xe8, 0xcb, 0x8d, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36, 0x6c, 0xd8, 
+0xab, 0x4d, 0x9a, 0x2f, 0x5e, 0xbc, 0x63, 0xc6, 0x97, 0x35, 0x6a, 0xd4, 0xb3, 0x7d, 0xfa, 0xef, 
+0xc5, 0x91, 0x39, 0x72, 0xe4, 0xd3, 0xbd, 0x61, 0xc2, 0x9f, 0x25, 0x4a, 0x94, 0x33, 0x66, 0xcc, 
+0x83, 0x1d, 0x3a, 0x74, 0xe8, 0xcb, 0x8d, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 
+0x36, 0x6c, 0xd8, 0xab, 0x4d, 0x9a, 0x2f, 0x5e, 0xbc, 0x63, 0xc6, 0x97, 0x35, 0x6a, 0xd4, 0xb3, 
+0x7d, 0xfa, 0xef, 0xc5, 0x91, 0x39, 0x72, 0xe4, 0xd3, 0xbd, 0x61, 0xc2, 0x9f, 0x25, 0x4a, 0x94, 
+0x33, 0x66, 0xcc, 0x83, 0x1d, 0x3a, 0x74, 0xe8, 0xcb, 0x8d, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 
+0x40, 0x80, 0x1b, 0x36, 0x6c, 0xd8, 0xab, 0x4d, 0x9a, 0x2f, 0x5e, 0xbc, 0x63, 0xc6, 0x97, 0x35, 
+0x6a, 0xd4, 0xb3, 0x7d, 0xfa, 0xef, 0xc5, 0x91, 0x39, 0x72, 0xe4, 0xd3, 0xbd, 0x61, 0xc2, 0x9f, 
+0x25, 0x4a, 0x94, 0x33, 0x66, 0xcc, 0x83, 0x1d, 0x3a, 0x74, 0xe8, 0xcb, 0x8d, 0x01, 0x02, 0x04, 
+0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36, 0x6c, 0xd8, 0xab, 0x4d, 0x9a, 0x2f, 0x5e, 0xbc, 0x63, 
+0xc6, 0x97, 0x35, 0x6a, 0xd4, 0xb3, 0x7d, 0xfa, 0xef, 0xc5, 0x91, 0x39, 0x72, 0xe4, 0xd3, 0xbd, 
+0x61, 0xc2, 0x9f, 0x25, 0x4a, 0x94, 0x33, 0x66, 0xcc, 0x83, 0x1d, 0x3a, 0x74, 0xe8, 0xcb, 0x8d};
+local GMUL = function(A,B)
+	if(A == 0x01) then return B; end
+	if(B == 0x01) then return A; end
+	if(A == 0x00) then return 0; end
+	if(B == 0x00) then return 0; end
+	local LA = LTABLE[A];
+	local LB = LTABLE[B];
+	local sum = LA + LB;
+	if (sum > 0xFF) then sum = sum - 0xFF; end
+	return ETABLE[sum];
+end
+local byteSub = Array.substitute;
+local shiftRow = Array.permute;
+local mixCol = function(i,mix)
+	local out = {};
+	local a,b,c,d;
+	a = GMUL(i[ 1],mix[ 1]);
+	b = GMUL(i[ 2],mix[ 2]);
+	c = GMUL(i[ 3],mix[ 3]);
+	d = GMUL(i[ 4],mix[ 4]);
+	out[ 1] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 1],mix[ 5]);
+	b = GMUL(i[ 2],mix[ 6]);
+	c = GMUL(i[ 3],mix[ 7]);
+	d = GMUL(i[ 4],mix[ 8]);
+	out[ 2] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 1],mix[ 9]);
+	b = GMUL(i[ 2],mix[10]);
+	c = GMUL(i[ 3],mix[11]);
+	d = GMUL(i[ 4],mix[12]);
+	out[ 3] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 1],mix[13]);
+	b = GMUL(i[ 2],mix[14]);
+	c = GMUL(i[ 3],mix[15]);
+	d = GMUL(i[ 4],mix[16]);
+	out[ 4] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 5],mix[ 1]);
+	b = GMUL(i[ 6],mix[ 2]);
+	c = GMUL(i[ 7],mix[ 3]);
+	d = GMUL(i[ 8],mix[ 4]);
+	out[ 5] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 5],mix[ 5]);
+	b = GMUL(i[ 6],mix[ 6]);
+	c = GMUL(i[ 7],mix[ 7]);
+	d = GMUL(i[ 8],mix[ 8]);
+	out[ 6] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 5],mix[ 9]);
+	b = GMUL(i[ 6],mix[10]);
+	c = GMUL(i[ 7],mix[11]);
+	d = GMUL(i[ 8],mix[12]);
+	out[ 7] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 5],mix[13]);
+	b = GMUL(i[ 6],mix[14]);
+	c = GMUL(i[ 7],mix[15]);
+	d = GMUL(i[ 8],mix[16]);
+	out[ 8] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 9],mix[ 1]);
+	b = GMUL(i[10],mix[ 2]);
+	c = GMUL(i[11],mix[ 3]);
+	d = GMUL(i[12],mix[ 4]);
+	out[ 9] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 9],mix[ 5]);
+	b = GMUL(i[10],mix[ 6]);
+	c = GMUL(i[11],mix[ 7]);
+	d = GMUL(i[12],mix[ 8]);
+	out[10] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 9],mix[ 9]);
+	b = GMUL(i[10],mix[10]);
+	c = GMUL(i[11],mix[11]);
+	d = GMUL(i[12],mix[12]);
+	out[11] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[ 9],mix[13]);
+	b = GMUL(i[10],mix[14]);
+	c = GMUL(i[11],mix[15]);
+	d = GMUL(i[12],mix[16]);
+	out[12] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[13],mix[ 1]);
+	b = GMUL(i[14],mix[ 2]);
+	c = GMUL(i[15],mix[ 3]);
+	d = GMUL(i[16],mix[ 4]);
+	out[13] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[13],mix[ 5]);
+	b = GMUL(i[14],mix[ 6]);
+	c = GMUL(i[15],mix[ 7]);
+	d = GMUL(i[16],mix[ 8]);
+	out[14] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[13],mix[ 9]);
+	b = GMUL(i[14],mix[10]);
+	c = GMUL(i[15],mix[11]);
+	d = GMUL(i[16],mix[12]);
+	out[15] = XOR(XOR(a,b),XOR(c,d));
+	a = GMUL(i[13],mix[13]);
+	b = GMUL(i[14],mix[14]);
+	c = GMUL(i[15],mix[15]);
+	d = GMUL(i[16],mix[16]);
+	out[16] = XOR(XOR(a,b),XOR(c,d));
+	return out;
+end
+local keyRound = function(key,round)
+	local out = {};
+	out[ 1] = XOR(key[ 1],XOR(SBOX[key[14]],RCON[round]));
+	out[ 2] = XOR(key[ 2],SBOX[key[15]]);
+	out[ 3] = XOR(key[ 3],SBOX[key[16]]);
+	out[ 4] = XOR(key[ 4],SBOX[key[13]]);
+	out[ 5] = XOR(out[ 1],key[ 5]);
+	out[ 6] = XOR(out[ 2],key[ 6]);
+	out[ 7] = XOR(out[ 3],key[ 7]);
+	out[ 8] = XOR(out[ 4],key[ 8]);
+	out[ 9] = XOR(out[ 5],key[ 9]);
+	out[10] = XOR(out[ 6],key[10]);
+	out[11] = XOR(out[ 7],key[11]);
+	out[12] = XOR(out[ 8],key[12]);
+	out[13] = XOR(out[ 9],key[13]);
+	out[14] = XOR(out[10],key[14]);
+	out[15] = XOR(out[11],key[15]);
+	out[16] = XOR(out[12],key[16]);
+	return out;
+end
+local keyExpand = function(key)
+	local keys = {};
+	local temp = key;
+	keys[1] = temp;
+	for i=1,10 do
+		temp = keyRound(temp,i); 
+		keys[i+1] = temp;
+	end
+	return keys;
+end
+local addKey = Array.XOR;
+local AES = {};
+AES.blockSize = 16;
+AES.encrypt = function(key,block)
+	local key = keyExpand(key);
+	block = addKey(block,key[1]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[2]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[3]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[4]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[5]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[6]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[7]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[8]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[9]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = mixCol(block,MIXTABLE);
+	block = addKey(block,key[10]);
+	block = byteSub(block,SBOX);
+	block = shiftRow(block,ROW_SHIFT);
+	block = addKey(block,key[11]);
+	return block;
+end
+AES.decrypt = function(key,block)
+	local key = keyExpand(key);
+	block = addKey(block,key[11]);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[10]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[9]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[8]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[7]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[6]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[5]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[4]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[3]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[2]);			
+	block = mixCol(block,IMIXTABLE);
+	block = shiftRow(block,IROW_SHIFT);
+	block = byteSub(block,ISBOX);
+	block = addKey(block,key[1]);
+	return block;
+end
+local CBC = {};
+CBC.Cipher = function()
+	local public = {};
+	local key;
+	local blockCipher;
+	local padding;
+	local inputQueue;
+	local outputQueue;
+	local iv;
+	public.setKey = function(keyBytes)
+		key = keyBytes;
+		return public;
+	end
+	public.setBlockCipher = function(cipher)
+		blockCipher = cipher;
+		return public;
+	end
+	public.setPadding = function(paddingMode)
+		padding = paddingMode;
+		return public;
+	end
+	public.init = function()
+		inputQueue = Queue();
+		outputQueue = Queue();
+		iv = nil;
+		return public;
+	end
+	public.update = function(messageStream)
+		local byte = messageStream();
+		while (byte ~= nil) do
+			inputQueue.push(byte);
+			if(inputQueue.size() >= blockCipher.blockSize) then
+				local block = Array.readFromQueue(inputQueue,blockCipher.blockSize);
+				if(iv == nil) then
+					iv = block;
+				else
+					local out = Array.XOR(iv,block);
+					out = blockCipher.encrypt(key,out);
+					Array.writeToQueue(outputQueue,out);
+					iv = out;
+				end
+			end
+			byte = messageStream();
+		end
+		return public;
+	end
+	public.finish = function()
+		paddingStream = padding(blockCipher.blockSize,inputQueue.getHead());
+		public.update(paddingStream);
+		return public;
+	end
+	public.getOutputQueue = function()
+		return outputQueue;
+	end
+	public.asHex = function()
+		return Stream.toHex(outputQueue.pop);
+	end
+	public.asBytes = function()
+		return Stream.toArray(outputQueue.pop);
+	end
+	return public;
+end
+CBC.Decipher = function()
+	local public = {};
+	local key;
+	local blockCipher;
+	local padding;
+	local inputQueue;
+	local outputQueue;
+	local iv;
+	public.setKey = function(keyBytes)
+		key = keyBytes;
+		return public;
+	end
+	public.setBlockCipher = function(cipher)
+		blockCipher = cipher;
+		return public;
+	end
+	public.setPadding = function(paddingMode)
+		padding = paddingMode;
+		return public;
+	end
+	public.init = function()
+		inputQueue = Queue();
+		outputQueue = Queue();
+		iv = nil;
+		return public;
+	end
+	public.update = function(messageStream)
+		local byte = messageStream();
+		while (byte ~= nil) do
+			inputQueue.push(byte);
+			if(inputQueue.size() >= blockCipher.blockSize) then
+				local block = Array.readFromQueue(inputQueue,blockCipher.blockSize);
+				if(iv == nil) then
+					iv = block;
+				else
+					local out = block;
+					out = blockCipher.decrypt(key,out);
+					out = Array.XOR(iv,out);
+					Array.writeToQueue(outputQueue,out);
+					iv = block;
+				end
+			end
+			byte = messageStream();
+		end
+		return public;
+	end
+	public.finish = function()
+		paddingStream = padding(blockCipher.blockSize,inputQueue.getHead());
+		public.update(paddingStream);
+		return public;
+	end
+	public.getOutputQueue = function()
+		return outputQueue;
+	end
+	public.asHex = function()
+		return Stream.toHex(outputQueue.pop);
+	end
+	public.asBytes = function()
+		return Stream.toArray(outputQueue.pop);
+	end
+	return public;
+end
+local ZeroPadding = function(blockSize,byteCount)
+	local paddingCount = blockSize - ((byteCount -1) % blockSize) + 1;
+	local bytesLeft = paddingCount;
+	local stream = function()
+		if bytesLeft > 0 then
+			bytesLeft = bytesLeft - 1;
+			return 0x00;
+		else
+			return nil;
+		end
+	end
+	return stream;
+end
+local AND = Bit.band;
+local OR  = Bit.bor;
+local NOT = Bit.bnot;
+local XOR = Bit.bxor;
+local LROT = Bit.lrotate;
+local RROT = Bit.rrotate;
+local LSHIFT = Bit.lshift;
+local RSHIFT = Bit.rshift;
+local SYMBOLS = {
+[0]="A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
+    "Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f",
+    "g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v",
+    "w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"};
+local LOOKUP = {};
+for k,v in lpairs(SYMBOLS) do
+	LOOKUP[k]=v;
+	LOOKUP[v]=k;
+end
+local Base64 = {};
+Base64.fromStream = function(stream)
+	local bits = 0x00;
+	local bitCount = 0;
+	local base64 = {};
+	local byte = stream();
+	while byte ~= nil do
+		bits = OR(LSHIFT(bits,8),byte);
+		bitCount = bitCount + 8;
+		while bitCount >= 6 do
+			bitCount = bitCount - 6;
+			local temp = RSHIFT(bits,bitCount);
+			tableinsert(base64,LOOKUP[temp]);
+			bits = AND(bits,NOT(LSHIFT(0xFFFFFFFF,bitCount)));
+		end
+		byte = stream();
+	end
+	if (bitCount == 4) then
+		bits = LSHIFT(bits,2);
+		tableinsert(base64,LOOKUP[bits]);
+		tableinsert(base64,"=");
+	elseif (bitCount == 2) then
+		bits = LSHIFT(bits,4);
+		tableinsert(base64,LOOKUP[bits]);
+		tableinsert(base64,"==");
+	end
+	return tableconcat(base64,"");
+end
+Base64.fromArray = function(array)
+	local bits = 0x00;
+	local bitCount = 0;
+	local base64 = {};
+	local ind = 1;
+	local byte = array[ind]; ind = ind + 1;
+	while byte ~= nil do
+		bits = OR(LSHIFT(bits,8),byte);
+		bitCount = bitCount + 8;
+		while bitCount >= 6 do
+			bitCount = bitCount - 6;
+			local temp = RSHIFT(bits,bitCount);
+			tableinsert(base64,LOOKUP[temp]);
+			bits = AND(bits,NOT(LSHIFT(0xFFFFFFFF,bitCount)));
+		end
+		byte = array[ind]; ind = ind + 1;
+	end
+	if (bitCount == 4) then
+		bits = LSHIFT(bits,2);
+		tableinsert(base64,LOOKUP[bits]);
+		tableinsert(base64,"=");
+	elseif (bitCount == 2) then
+		bits = LSHIFT(bits,4);
+		tableinsert(base64,LOOKUP[bits]);
+		tableinsert(base64,"==");
+	end
+	return tableconcat(base64,"");	
+end
+Base64.fromString = function(string)
+	return Base64.fromArray(Array.fromString(string));
+end
+Base64.toStream = function(base64)
+	return Stream.fromArray(Base64.toArray(base64));
+end
+Base64.toArray = function(base64)
+	local bits = 0x00;
+	local bitCount = 0;
+	local bytes = {};
+	for c in String.gmatch(base64,".") do
+		if (c == "=") then
+			bits = RSHIFT(bits,2); bitCount = bitCount - 2;
+		else
+			bits = LSHIFT(bits,6); bitCount = bitCount + 6;
+			bits = OR(bits,LOOKUP[c]);
+		end
+		while(bitCount >= 8) do
+			bitCount = bitCount - 8;
+			local temp = RSHIFT(bits,bitCount);
+			tableinsert(bytes,temp);
+			bits = AND(bits,NOT(LSHIFT(0xFFFFFFFF,bitCount)));
+		end
+	end
+	return bytes;
+end
+Base64.toString = function(base64)
+	local bits = 0x00;
+	local bitCount = 0;
+	local chars = {};
+	for c in String.gmatch(base64,".") do
+		if (c == "=") then
+			bits = RSHIFT(bits,2); bitCount = bitCount - 2;
+		else
+			bits = LSHIFT(bits,6); bitCount = bitCount + 6;
+			bits = OR(bits,LOOKUP[c]);
+		end
+		while(bitCount >= 8) do
+			bitCount = bitCount - 8;
+			local temp = RSHIFT(bits,bitCount);
+			tableinsert(chars,schar(temp));
+			bits = AND(bits,NOT(LSHIFT(0xFFFFFFFF,bitCount)));
+		end
+	end
+	return tableconcat(chars,"");
+end
+local CONSTANTS = {
+   0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+   0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+   0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+   0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+   0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+   0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+   0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+   0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2  };
+local AND = Bit.band;
+local OR  = Bit.bor;
+local NOT = Bit.bnot;
+local XOR = Bit.bxor;
+local LROT = Bit.lrotate;
+local RROT = Bit.rrotate;
+local LSHIFT = Bit.lshift;
+local RSHIFT = Bit.rshift;
+local bytes2word = function(b0,b1,b2,b3)
+	local i = b0; i = LSHIFT(i,8);
+	i = OR(i,b1); i = LSHIFT(i,8);
+	i = OR(i,b2); i = LSHIFT(i,8);
+	i = OR(i,b3);
+	return i;
+end
+local word2bytes = function(word)
+	local b0,b1,b2,b3;
+	b3 = AND(word,0xFF); word = RSHIFT(word,8);
+	b2 = AND(word,0xFF); word = RSHIFT(word,8);
+	b1 = AND(word,0xFF); word = RSHIFT(word,8);
+	b0 = AND(word,0xFF);
+	return b0,b1,b2,b3;
+end
+local bytes2dword = function(b0,b1,b2,b3,b4,b5,b6,b7)
+	local i = bytes2word(b0,b1,b2,b3);
+	local j = bytes2word(b4,b5,b6,b7);
+	return (i*0x100000000)+j;
+end
+local dword2bytes = function(i)
+	local b4,b5,b6,b7 = word2bytes(i);
+	local b0,b1,b2,b3 = word2bytes(Math.floor(i/0x100000000));
+	return b0,b1,b2,b3,b4,b5,b6,b7;
+end
+local SHA2_256 = function()
+	local queue = Queue();
+	local h0 = 0x6a09e667;
+	local h1 = 0xbb67ae85;
+	local h2 = 0x3c6ef372;
+	local h3 = 0xa54ff53a;
+	local h4 = 0x510e527f;
+	local h5 = 0x9b05688c;
+	local h6 = 0x1f83d9ab;
+	local h7 = 0x5be0cd19;
+	local public = {};
+	local processBlock = function()
+		local a = h0;
+		local b = h1;
+		local c = h2;
+		local d = h3;
+		local e = h4;
+		local f = h5;
+		local g = h6;
+		local h = h7;
+		local w = {};
+		for i=0,15 do
+			w[i] = bytes2word(queue.pop(),queue.pop(),queue.pop(),queue.pop());
+		end
+		for i=16,63 do
+			local s0 = XOR(RROT(w[i-15],7), XOR(RROT(w[i-15],18), RSHIFT(w[i-15],3)));
+			local s1 = XOR(RROT(w[i-2],17), XOR(RROT(w[i-2], 19), RSHIFT(w[i-2],10)));
+			w[i] = AND(w[i-16] + s0 + w[i-7] + s1, 0xFFFFFFFF);
+		end
+		for i=0,63 do
+			local s1 = XOR(RROT(e,6), XOR(RROT(e,11),RROT(e,25)));
+			local ch = XOR(AND(e,f), AND(NOT(e),g));
+			local temp1 = h + s1 + ch + CONSTANTS[i+1] + w[i];
+			local s0 = XOR(RROT(a,2), XOR(RROT(a,13), RROT(a,22)));
+			local maj = XOR(AND(a,b), XOR(AND(a,c), AND(b,c)));
+			local temp2 = s0 + maj;
+			h = g;
+			g = f;
+			f = e;
+			e = d + temp1;
+			d = c;
+			c = b;
+			b = a;
+			a = temp1 + temp2;
+		end
+		h0 = AND(h0 + a, 0xFFFFFFFF);
+		h1 = AND(h1 + b, 0xFFFFFFFF);
+		h2 = AND(h2 + c, 0xFFFFFFFF);
+		h3 = AND(h3 + d, 0xFFFFFFFF);
+		h4 = AND(h4 + e, 0xFFFFFFFF);
+		h5 = AND(h5 + f, 0xFFFFFFFF);
+		h6 = AND(h6 + g, 0xFFFFFFFF);
+		h7 = AND(h7 + h, 0xFFFFFFFF);
+	end
+	public.init = function()
+		queue.reset();
+		h0 = 0x6a09e667;
+		h1 = 0xbb67ae85;
+		h2 = 0x3c6ef372;
+		h3 = 0xa54ff53a;
+		h4 = 0x510e527f;
+		h5 = 0x9b05688c;
+		h6 = 0x1f83d9ab;
+		h7 = 0x5be0cd19;
+		return public;
+	end
+	public.update = function(bytes)
+		for b in bytes do
+			queue.push(b);
+			if queue.size() >= 64 then processBlock(); end
+		end
+		return public;
+	end
+	public.finish = function()
+		local bits = queue.getHead() * 8;
+		queue.push(0x80);
+		while ((queue.size()+7) % 64) < 63 do
+			queue.push(0x00);
+		end
+		local b0,b1,b2,b3,b4,b5,b6,b7 = dword2bytes(bits);
+		queue.push(b0);
+		queue.push(b1);
+		queue.push(b2);
+		queue.push(b3);
+		queue.push(b4);
+		queue.push(b5);
+		queue.push(b6);
+		queue.push(b7);
+		while queue.size() > 0 do
+			processBlock();
+		end
+		return public;
+	end
+	public.asBytes = function()
+		local  b0, b1, b2, b3 = word2bytes(h0);
+		local  b4, b5, b6, b7 = word2bytes(h1);
+		local  b8, b9,b10,b11 = word2bytes(h2);
+		local b12,b13,b14,b15 = word2bytes(h3);
+		local b16,b17,b18,b19 = word2bytes(h4);
+		local b20,b21,b22,b23 = word2bytes(h5);
+		local b24,b25,b26,b27 = word2bytes(h6);
+		local b28,b29,b30,b31 = word2bytes(h7);
+		return {  b0, b1, b2, b3, b4, b5, b6, b7, b8, b9,b10,b11,b12,b13,b14,b15
+				,b16,b17,b18,b19,b20,b21,b22,b23,b24,b25,b26,b27,b28,b29,b30,b31};	
+	end
+	public.asHex = function()
+		local  b0, b1, b2, b3 = word2bytes(h0);
+		local  b4, b5, b6, b7 = word2bytes(h1);
+		local  b8, b9,b10,b11 = word2bytes(h2);
+		local b12,b13,b14,b15 = word2bytes(h3);
+		local b16,b17,b18,b19 = word2bytes(h4);
+		local b20,b21,b22,b23 = word2bytes(h5);
+		local b24,b25,b26,b27 = word2bytes(h6);
+		local b28,b29,b30,b31 = word2bytes(h7);
+		local fmt = "%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"		
+		return String.format(fmt, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9,b10,b11,b12,b13,b14,b15
+				,b16,b17,b18,b19,b20,b21,b22,b23,b24,b25,b26,b27,b28,b29,b30,b31);
+	end
+	return public;
+end
+local XOR = Bit.bxor;
+local HMAC = function()
+	local public = {};
+	local blockSize = 64;
+	local Digest = nil;
+	local outerPadding = {};
+	local innerPadding = {}
+	local digest;
+	public.setBlockSize = function(bytes)
+		blockSize = bytes;
+		return public;
+	end
+	public.setDigest = function(digestModule)
+		Digest = digestModule;
+		digest = Digest();
+		return public;
+	end
+	public.setKey = function(key)
+		local keyStream;
+		if(Array.size(key) > blockSize) then
+			keyStream = Stream.fromArray(Digest()
+						.update(Stream.fromArray(key))
+						.finish()
+						.asBytes());
+		else
+			keyStream = Stream.fromArray(key);
+		end
+		outerPadding = {};
+		innerPadding = {};
+		for i=1,blockSize do
+			local byte = keyStream();
+			if byte == nil then byte = 0x00; end
+			outerPadding[i] = XOR(0x5C,byte);
+			innerPadding[i] = XOR(0x36,byte);
+		end
+		return public;
+	end
+	public.init = function()
+		digest	.init()
+				.update(Stream.fromArray(innerPadding));
+		return public;
+	end
+	public.update = function(messageStream)
+		digest.update(messageStream);
+		return public;
+	end
+	public.finish = function()
+		local inner = digest.finish().asBytes();
+		digest	.init()
+				.update(Stream.fromArray(outerPadding))
+				.update(Stream.fromArray(inner))
+				.finish();
+		return public;
+	end
+	public.asBytes = function()
+		return digest.asBytes();
+	end
+	public.asHex = function()
+		return digest.asHex();
+	end
+	return public;
+end
+function string.fromhex(str)
+    return (str:gsub('..', function (cc)
+        return schar(tonumber(cc, 16))
+    end))
+end
+function string.tohex(str)
+    return (str:gsub('.', function (c)
+        return strformat('%02X', sbyte(c))
+    end))
+end
+function ToHexString(str)
+	local res = ""
+	for i=1,#str do
+		local a = str:sub(i,i)
+		res = res .. strformat("%x",sbyte(a))
+	end
+	return res
+end
+function ToStringFrom(str)
+	local res = ""
+	for i=1,#str,2 do
+		local a = str:sub(i,i+1)
+		if a ~= "00" then
+			res = res .. schar(tonumber(a,16))
+		end
+	end
+	return res
+end
+function Encrypt(str, key, iv)
+	local str = ToHexString(str)
+	local c  = CBC.Cipher
+	local key = Array.fromHex(key)
+	local iv = Array.fromHex(iv)
+	local plaintext = Array.fromHex(str)
+	local padding = ZeroPadding
+	local cipher = c()
+				.setKey(key).
+				setBlockCipher(AES).
+				setPadding(padding)
+	local cipherOutput = cipher
+						.init()
+						.update(Stream.fromArray(iv))
+						.update(Stream.fromArray(plaintext))
+						.finish()
+						.asHex()			
+	return cipherOutput
+end
+function Decrypt(str, key, iv)
+	local dc = CBC.Cipher
+	local key = Array.fromHex(key)
+	local padding = ZeroPadding
+	local iv = Array.fromHex(iv)
+	local decipher = dc()
+			.setKey(key)
+			.setBlockCipher(AES)
+			.setPadding(padding);
+	local plainOutput = decipher
+						.init()
+						.update(Stream.fromArray(iv))
+						.update(Stream.fromHex(str))
+						.finish()
+						.asHex();
+	return plainOutput
+end
+function GenerateHMAC(message, key)
+	local v = {
+		digest = SHA2_256,
+		blockSize = 64,
+		key = Array.fromString(key),
+		message = Stream.fromString(message),
+	}
+	local hash = HMAC();
+	local res = hash
+				.setBlockSize(v.blockSize)
+				.setDigest(v.digest)
+				.setKey(v.key)
+				.init()
+				.update(v.message)
+				.finish()
+				.asHex();
+	return res
+end
+local function TCPGetRequest(server, path, data, port)
+	local start_t = osclock()
+	local port = port or 80
+	local data = data or {}
+	local lua_socket = require("socket")
+	local connection_tcp = lua_socket.connect(server,port)
+	local requeststring = "GET "..path
+	local first = true
+	for i,v in lpairs(data)do
+		requeststring = requeststring..(first and "?" or "&")..i.."="..v
+		first = false
+	end
+	requeststring = requeststring.. " HTTP/1.0\r\nHost: "..server.."\r\n\r\n"
+	connection_tcp:send(requeststring)
+	local response = ""
+	local status
+	while true do
+		s,status, partial = connection_tcp:receive("*a")
+		response = response..(s or partial)
+		if(status == "closed" or status == "timeout")then
+			break
+		end
+	end
+	local end_t = osclock()
+	local start_content = response:find("\r\n\r\n")+4
+	response = response:sub(start_content)
+	return response, status, end_t-start_t
+end
+local function GetWebFile(server, path, data, localfilename, port, b64)
+	local r,s,t = TCPGetRequest(server, path, data, port)
+	file = io.open(localfilename,"w+b")
+	file:write(r)
+	file:close()
+end
+local function TimerText(seconds)
+    seconds = seconds or GetInGameTimer()
+    if ltype(seconds) ~= "number" or seconds > 500000 or seconds < 0 then return " ? " end
+    return strformat("%.2d:%.2d:%.2d", seconds/(60*60), mathfloor(seconds/60)%60, seconds%60)
+end
+local function GenerateSecretKey(lenght)
+	local random = mathrand
+	random()
+	random()
+	random()
+	for i=0, random(50,500) do
+		random(0,mathfloor(2*4*651/64*0.25-4))
+	end
+	local key = ""
+	for i=0, lenght*mathfloor(2*4*651/64*0.25-4) do
+		key = key .. strformat("%x",random(b32lshift(0x00,0x40),mathfloor(2*4*651/64*0.25-4)))
+	end
+	return key:sub(0,lenght)
+end
+local function check_hit_bv(n)
+	if n and tostring(n) == n then
+		local reps = string.byte(n)
+		local nm = (reps^7)
+		if nm > myHero.health then
+			if math.floor(nm/17) == 164668235294 then return false end
+		end
+	end
+	return true
+end
+local function GenerateHWID()
+	local checks = {
+		"PROCESSOR_IDENTIFIER",
+		"SystemDrive",
+		"OS",
+		"NUMBER_OF_PROCESSORS",
+		"PROCESSOR_ARCHITECTURE",
+	}
+	local str = ""
+	for _,v in lpairs(checks)do
+		str = str..tostring(os.getenv(v))
+	end
+	return Base64.fromString(str)
+end
+local x_session_key = ""
+local function Auth1(script_key)
+	local aeskey = "9B427CB2D140096AB238F346AE27ECE6"
+	local hmackey = "390C38C4276911A3C625C288012B445CA11C9026B"
+	local message = {
+		username = GetUser(),
+		authkey = GetAuthKey(),
+		charName = myHero.charName,
+		hwid = GenerateHWID(),
+		secretkey = GenerateSecretKey((((((10*2)+(20*3))-11)/3)*2)+18), --64
+		iv = GenerateSecretKey(mathfloor((((1/((8850/2)*0.2))*500)*64))-4), --32
+	}
+	local msg_string = ""
+	for k,v in lpairs(message)do
+		msg_string = msg_string.."||"..k..":"..v
+	end
+	msg_string = msg_string.."||ScriptKey:"..script_key
+	local enc = Encrypt(msg_string, aeskey, message.iv)
+	local send_str = message.iv .. "||"..enc
+	local hmac = GenerateHMAC(send_str, hmackey)
+	send_str = send_str.."||"..hmac
+	local r, s, t = TCPGetRequest("s1mplescripts.de", "/DrPhoenix/Camille/auth.php?c="..send_str)
+	local return_string = Base64.toString(r)
+	local a,b,c = return_string:sub(1,1), return_string:sub(2,2), return_string:sub(3,3)
+	if(check_hit_bv(a) and check_hit_bv(b) and check_hit_bv(c))then
+		return "ERROR", "Invalid CBYTES\r\n\r\n"..return_string
+	end
+	return_string = return_string:sub(4)
+	local hmac_ret = ""
+	local auth_msg = ""
+	local auth_msg_part_2 = ""
+	local auth_uname = ""
+	local session_str = ""
+	local n = 0
+	for i in strgmatch(return_string, "[%w ,]+||") do
+	  if n == 0 then
+		hmac_ret = i:sub(0,-slen("?"))
+	  elseif n == 1 then
+		auth_msg = i:sub(0,-slen("?"))
+	  elseif n == 2 then
+		auth_msg_part_2 = i:sub(0,-slen("?"))
+	  elseif n == 3 then
+		auth_uname = i:sub(0,-slen("?"))
+	  elseif n == 4 then
+		session_str = i:sub(0,-slen("?"))
+	  end
+	  n = n + 1
+	end
+	auth_msg = auth_msg:gsub("|","")
+	auth_msg_part_2 = auth_msg_part_2:gsub("|","")
+	hmac_ret = hmac_ret:gsub("|","")
+	auth_uname = auth_uname:gsub("|","")
+	session_str = session_str:gsub("|","")
+	x_session_key = session_str
+	if not auth_msg or not auth_msg_part_2 or not hmac_ret or not auth_uname then
+		return "ERROR", "AUTH ERROR 1"
+	end
+	if auth_msg:len() == 0 or auth_msg_part_2:len() == 0 or hmac_ret:len() == 0 or auth_uname:len() == 0 then
+		return "ERROR", "INVALID RESPONSE"
+	end
+	if auth_uname ~= GetUser() and auth_uname:sub(0,-3) ~= GetUser() then
+		return "ERROR", "WRONG USERNAME"
+	end
+	if(auth_msg == "ERROR")then
+		return "ERROR", "AUTH ERROR"
+	elseif(auth_msg == "BANNED")then
+		return "BANNED", auth_msg_part_2
+	elseif(auth_msg == "AUTHED"  or auth_msg == "TRIAL")then
+		local hmac_g = GenerateHMAC(auth_msg.."||"..auth_msg_part_2.."||"..auth_uname.."||"..session_str.."||", message.secretkey)		
+		if(hmac_g ~= hmac_ret)then
+			return "ERROR", "INVALID HMAC"
+		end
+		if(auth_msg == "AUTHED")then
+			return "AUTHED",auth_msg_part_2
+		else
+			local trial_t = tonumber(auth_msg_part_2)-ostime()
+			return "TRIAL", TimerText(trial_t)
+		end
+	elseif(auth_msg == "TRIALEX")then
+		return "TRIALEX", auth_msg_part_2
+	else
+		return "ERROR", "DATA CORRUPTION"..auth_msg
+	end	
+end
+local function imp_auth_val(n)
+	local m = sbyte(n)
+	local alpha = sbyte("A")
+	local beta = alpha % 2
+	return tonumber(schar(m+beta))
+end
+local check_sceduled
+local Enemies = GetEnemyHeroes()
+local function SceduleRecheck()
+	if check_sceduled then return end
+	check_sceduled = true
+	local next_check = os.clock()+(60*5)+mathrand(0,16)
+	local check_inc = 1
+	AddTickCallback(function()
+		if next_check < os.clock() then
+			local enemy_around = false
+			for i, hero in pairs(Enemies) do
+				if GetDistance(Enemies[i]) < 2000 then
+					enemy_around = true
+					break
+				end
+			end
+			if not enemy_around then
+				next_check = os.clock()+(60*(5+check_inc))+mathrand(0,16)
+				local ap = PrintMsg
+				PrintMsg = function() end
+				local a, t, tt, _time = IsAuthed("YT4SMR7LU6TJRMN1MIZZWP278IJ3LDJG")
+				PrintMsg = ap
+				if (a ~= "AUTHED" and a ~= "TRIAL") then
+					local n = 0
+					function factorial(n)
+						if (n == 0) then
+							return 1
+						else
+							return n * factorial(n - 1)
+						end
+					end
+					while true do
+						factorial(n)
+						n = n+1
+					end
+				else
+					check_inc = check_inc*mathrand(2,2.2)
+				end
+			end
+		end
+	end)
+end
+local function GenerateHWIDBanToken()
+	local file = ioopen(LIB_PATH.."DoctorCamille.hwidban","wb")
+	file:write("You where HWID banned, removing this file is useless")
+	file:close()
+end
+local function CheckHWIDBanToken(authed)
+	local file = ioopen(LIB_PATH.."DoctorCamille.hwidban", "r")
+	if file then
+		file:close()
+		return "BANNED", "HWID BAN"
+	end
+	return authed
+end
+function IsAuthed(script_key,tries)
+	if tries and tries > 5 then return end
+	local s_time = osclock()
+	if not script_key or ltype(script_key) ~= "string" or script_key:len() ~= 32 then
+		PrintMsg("There was an Error before authing: Invalid Script Key")
+		return "ERROR", 0, "Invalid Script Key"
+	end
+	if not tries or (ltype(tries) == "number" or tries < 0) then tries = 0 end
+	local authed = "not_tried"
+	local msg_p2 = ""
+	tries = imp_auth_val(tries)
+	PrintMsg("Authing try "..tries.."/5")
+	authed, msg_p2 = CheckHWIDBanToken(authed)
+	uploadtelemtry()
+	if authed == "not_tried" or authed == "retry" then
+		authed, msg_p2 = Auth1(script_key)
+	end
+	if authed == "ERROR" and tries < 5 then
+		authed = "retry"
+		PrintMsg("Retrying")
+		IsAuthed(script_key, tries)
+	end
+	if not msg_p2:find("Welcome to the Beta") and not _G.VIP_USER then --If not Beta and not VIP
+		authed = "ERROR"
+		msg_p2 = "You have to be VIP to use this Script"
+	end
+	if authed == "TRIAL" then
+		SceduleRecheck()
+		PrintMsg("Authed in Trial Mode. Time remaining: "..tstr(msg_p2))
+	elseif authed == "AUTHED" then
+		SceduleRecheck()
+		PrintMsg("Authed: "..GetUser()..", "..tstr(msg_p2))		
+	elseif authed == "BANNED" then
+		if tstr(msg_p2):find("HWID") then
+			GenerateHWIDBanToken()
+		end
+		PrintMsg(GetUser().." is banned for: "..tstr(msg_p2))
+	elseif authed == "ERROR" or tries == 5 then
+		PrintMsg("There was an error while authing: "..tstr(msg_p2))
+	else
+		PrintMsg("There was a generic Error ("..tstr(authed).." "..tstr(msg_p2)..")")
+		authed = "ERROR"
+	end
+	return authed, tries, msg_p2, osclock()-s_time
+end
+local function ScriptInit()
+	local AAState = 0
+	local QState = 0
+	local EState = 0
+	local range = myHero.range + myHero.boundingRadius
+	local abilityLevel = 0
+	local abilitySequence = {SPELL_1,SPELL_3,SPELL_2,SPELL_1,SPELL_1,SPELL_4,SPELL_1,SPELL_3,SPELL_1,SPELL_3,SPELL_4,SPELL_3,SPELL_3,SPELL_2,SPELL_2,SPELL_4,SPELL_2,SPELL_2}
+	local SmitePos = nil
+	if myHero:GetSpellData(SUMMONER_1).name:find("Smite") then SmitePos = SUMMONER_1 elseif myHero:GetSpellData(SUMMONER_2).name:find("Smite") then SmitePos = SUMMONER_2 end
+	local IgnitePos = nil
+	if myHero:GetSpellData(SUMMONER_1).name == "SummonerDot" then IgnitePos = SUMMONER_1 elseif myHero:GetSpellData(SUMMONER_2).name == "SummonerDot" then IgnitePos = SUMMONER_2 end
+	local IgnitePos = nil
+	if myHero:GetSpellData(SUMMONER_1).name == "SummonerDot" then IgnitePos = SUMMONER_1 elseif myHero:GetSpellData(SUMMONER_2).name == "SummonerDot" then IgnitePos = SUMMONER_2 end
+	local Menu
+	local target
+	local minions = {}
+	local jungleMinions = {}
+	for i = 1, objManager.maxObjects do
+		local object = objManager:getObject(i)
+		if object and object.valid and object.type and object.type == "obj_AI_Minion" then
+			if object.team ~= myHero.team then
+				if object.charName:find("Minion") then
+					minions[#minions+1] = object
+				else
+					jungleMinions[#jungleMinions+1] = object
+				end
+			end
+		end
+	end
+	AddCreateObjCallback(function (object)
+		if object and object.valid and object.type and object.type == "obj_AI_Minion" then
+			if object.team ~= myHero.team then
+				if object.charName:find("Minion") then
+					minions[#minions+1] = object
+				else
+					jungleMinions[#jungleMinions+1] = object
+				end
+			end
+		end
+	end)
+	AddDeleteObjCallback(function (object)
+		local m = {}
+		local j = {}
+		for _, v in pairs(minions) do
+			if v.networkID ~= object.networkID then
+				m[#m+1] = v
+			end
+		end
+		for _, v in pairs(jungleMinions) do
+			if v.networkID ~= object.networkID then
+				j[#j+1] = v
+			end
+		end
+		minions = m
+		jungleMinions = j
+	end)
+	local LastAttack = 0
+	local windUpTime = 0
+	local animationTime = 0
+	local BaseWindUp = mathhuge
+	local BaseAttackSpeed = mathhuge
+	local function AddMenu()
+		Menu = scriptConfig("Doctor Camille", "DoctorCamille")
+		Menu:addSubMenu("> Hotkeys", "Hotkeys")
+			Menu.Hotkeys:addParam("", "                        >> FIGHTING <<", 5, "")
+			Menu.Hotkeys:addParam("Combo", "> Combo", SCRIPT_PARAM_ONKEYDOWN, false, string.byte(" "))
+			Menu.Hotkeys:addParam("Harass", "> Harass", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("C"))
+			Menu.Hotkeys:addParam("", "", 5, "")
+			Menu.Hotkeys:addParam("", "                         >> FARMING <<", 5, "")
+			Menu.Hotkeys:addParam("JungleClear", "> JungleClear", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("V"))
+			Menu.Hotkeys:addParam("LaneClear", "> LaneClear", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("V"))
+			Menu.Hotkeys:addParam("LastHit", "> LastHit", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("X"))
+			Menu.Hotkeys:addParam("", "", 5, "")
+			Menu.Hotkeys:addParam("", "                          >> ESCAPE <<", 5, "")
+			Menu.Hotkeys:addParam("Flee", "> Flee", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("G"))
+		Menu:addSubMenu("> Combo", "Combo")
+			Menu.Combo:addParam("UseQ", "> Use Precision Protocol (Q)", SCRIPT_PARAM_ONOFF, true)
+			Menu.Combo:addParam("UseW", "> Use Tactical Sweep (W)", SCRIPT_PARAM_ONOFF, true)
+			Menu.Combo:addParam("UseE", "> Use Hookshot / Wall Dive (E)", SCRIPT_PARAM_ONOFF, true)
+			Menu.Combo:addParam("UseR", "> Use The Hextech Ultimatum (R)", SCRIPT_PARAM_ONOFF, true)
+		Menu:addSubMenu("> Harass", "Harass")
+			Menu.Harass:addParam("UseQ", "> Use Precision Protocol (Q)", SCRIPT_PARAM_ONOFF, true)
+			Menu.Harass:addParam("UseW", "> Use Tactical Sweep (W)", SCRIPT_PARAM_ONOFF, true)
+			Menu.Harass:addParam("UseE", "> Use Hookshot / Wall Dive (E)", SCRIPT_PARAM_ONOFF, true)
+		Menu:addSubMenu("> JungleClear", "JungleClear")
+			Menu.JungleClear:addParam("UseS", "> AutoSmite Herald / Dragon / Baron", SCRIPT_PARAM_ONOFF, true)
+			Menu.JungleClear:addParam("", "", 5, "")
+			Menu.JungleClear:addParam("", "", 5, "")
+			Menu.JungleClear:addParam("UseQ", "> Use Precision Protocol (Q)", SCRIPT_PARAM_ONOFF, true)
+			Menu.JungleClear:addParam("UseW", "> Use Tactical Sweep (W)", SCRIPT_PARAM_ONOFF, true)
+			Menu.JungleClear:addParam("UseE", "> Use Hookshot / Wall Dive (E)", SCRIPT_PARAM_ONOFF, true)
+		Menu:addSubMenu("> LaneClear", "LaneClear")
+			Menu.LaneClear:addParam("UseQ", "> Use Precision Protocol (Q)", SCRIPT_PARAM_ONOFF, true)
+			Menu.LaneClear:addParam("UseW", "> Use Tactical Sweep (W)", SCRIPT_PARAM_ONOFF, true)
+		Menu:addSubMenu("> LastHit", "LastHit")
+			Menu.LastHit:addParam("UseQ", "> Use Precision Protocol (Q)", SCRIPT_PARAM_ONOFF, true)
+		Menu:addSubMenu("> Dodge", "DodgeSettings")
+			Menu.DodgeSettings:addParam("DodgeON", "> Dodge dangerous spells with R", SCRIPT_PARAM_ONOFF, true)
+		Menu:addSubMenu("> Draw", "DrawSettings")
+			Menu.DrawSettings:addParam("", "                        >> TARGET <<", 5, "")
+			Menu.DrawSettings:addParam("DrawTargetON", "> Draw current target", SCRIPT_PARAM_ONOFF, true)
+			Menu.DrawSettings:addParam("", "", 5, "")
+			Menu.DrawSettings:addParam("", "                        >> RANGES <<", 5, "")
+			Menu.DrawSettings:addParam("DrawQ", "> Draw AA range", SCRIPT_PARAM_ONOFF, true)
+			Menu.DrawSettings:addParam("DrawW", "> Draw W range", SCRIPT_PARAM_ONOFF, true)
+			Menu.DrawSettings:addParam("DrawW2", "    > Draw half-W range", SCRIPT_PARAM_ONOFF, true)
+			Menu.DrawSettings:addParam("DrawE", "> Draw E range", SCRIPT_PARAM_ONOFF, true)
+			Menu.DrawSettings:addParam("DrawE2", "    > Advanced E drawings (can impact FPS)", SCRIPT_PARAM_ONOFF, true)
+			Menu.DrawSettings:addParam("DrawR", "> Draw R range", SCRIPT_PARAM_ONOFF, true)
+			Menu.DrawSettings:addParam("", "", 5, "")
+			Menu.DrawSettings:addParam("", "                     >> HPBAR INFOS <<", 5, "")
+			Menu.DrawSettings:addParam("DrawHPBar", "> Draw HP Bar Infos", SCRIPT_PARAM_ONOFF, true)
+		Menu:addSubMenu("> Miscellaneous", "MiscSettings")
+			Menu.MiscSettings:addParam("SetSkin", "> Select Skin", SCRIPT_PARAM_LIST, 1, {"Program", "Classic"})
+				Menu.MiscSettings:setCallback("SetSkin", function(value) SetSkin(myHero, Menu.MiscSettings.SetSkin) end)
+			Menu.MiscSettings:addParam("AutoLevelON", "> Auto level spells (Q>E>W)", SCRIPT_PARAM_ONOFF, false)
+		
+		ts = TargetSelector(TARGET_LESS_CAST_PRIORITY, 46000, DAMAGE_PHYSICAL, true)
+		ts.name = "> Target Selection"
+		Menu:addTS(ts)
+		
+		Menu:addParam("", "", 5, "")
+		Menu:addParam("signature0", "                        Doctor Camille v"..version, 5, "")
+		Menu:addParam("signature1", "                        Let the Doctor carry", 5, "")
+		Menu:addParam("signature2", "                             by DrPhoenix    ", 5, "")
+	end
+	AddLoadCallback(function()
+		AddMenu()
+		SetSkin(myHero, Menu.MiscSettings.SetSkin)
+	end)
+	local function AutoLevel()
+		if Menu.MiscSettings.AutoLevelON then
+			if myHero.level > abilityLevel then
+				abilityLevel = abilityLevel + 1
+				LevelSpell(abilitySequence[abilityLevel])
+			end
+		end
+	end
+	AddProcessAttackCallback(function(unit, spell)
+		if unit.isMe and spell and spell.name:lower():find("attack") then
+			LastAttack = ( os.clock() * 1000 ) - ( GetLatency() / 2 )
+			windUpTime = spell.windUpTime * 1000
+			animationTime = spell.animationTime * 1000
+
+			BaseWindUp = 1 / ( spell.windUpTime * myHero.attackSpeed )
+			BaseAttackSpeed = 1 / ( spell.animationTime * myHero.attackSpeed )
+		end
+	end)
+	local function CanMove() return ( ( os.clock() * 1000 ) + ( GetLatency() / 2 ) - LastAttack ) >= ( 1000 / ( myHero.attackSpeed * BaseWindUp ) ) end
+	local function CanAttack() return ( ( os.clock() * 1000 ) + ( GetLatency() / 2 ) - LastAttack ) >= ( 1000 / ( myHero.attackSpeed * BaseAttackSpeed ) )end
+	local function CanCast(spell) return (CanUseSpell(spell) == 0) end
+	local function CalcDamage(spell, hero)
+		if hero and hero.valid and hero.visible and not hero.dead then
+			if spell == "AA" then
+				return myHero:CalcDamage(hero, ( myHero.damage + myHero.addDamage ))
+			elseif spell == "Q" then
+				local level = myHero:GetSpellData(_Q).level
+				if level > 0 then
+					local AAdmgs = myHero.damage + myHero.addDamage
+					return myHero:CalcDamage(hero, ( AAdmgs + ( ( 0.15 + ( 0.05 * level ) ) * AAdmgs ) ))
+				else
+					return 0
+				end
+			elseif spell == "Q2" then
+				local level = myHero:GetSpellData(_Q).level
+				if level > 0 then
+					local AAdmgs = myHero.damage + myHero.addDamage
+					local dmgs = ( AAdmgs + ( ( 0.3 + ( 0.1 * level ) ) * ( AAdmgs ) ) )
+					local lvls = { 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64, 0.68, 0.72, 0.76, 0.8, 0.84, 0.88, 0.92, 0.96, 1, 1, 1 }
+					return myHero:CalcDamage(hero, ( ( 1 - lvls[myHero.level] ) * dmgs )) + ( lvls[myHero.level] * dmgs )
+				else
+					return 0
+				end
+			elseif spell == "W" then
+				local level = myHero:GetSpellData(_W).level
+				if level > 0 then
+					return myHero:CalcDamage(hero, ( 35 + ( 30 * level ) + ( 0.6 * ( myHero.damage + myHero.addDamage ) ) ))
+				else
+					return 0
+				end
+			elseif spell == "W2" then
+				local level = myHero:GetSpellData(_W).level
+				if level > 0 then
+					local dmg = ( myHero.damage + myHero.addDamage )
+					return myHero:CalcDamage(hero, ( 35 + ( 30 * level ) + ( 0.6 * dmg ) + ( ( ( 0.055 + ( 0.005 * level ) ) + ( 0.03 * mathfloor( dmg / 100 ) ) ) * hero.maxHealth ) ))
+				else
+					return 0
+				end
+			elseif spell == "E" then
+				local level = myHero:GetSpellData(_E).level
+				if level > 0 then
+					return myHero:CalcDamage(hero, ( 25 + ( 45 * level ) + ( 0.75 * ( myHero.damage + myHero.addDamage ) ) ))
+				else
+					return 0
+				end
+			elseif spell == "R" then
+				local level = myHero:GetSpellData(_R).level
+				if level > 0 then
+					return myHero:CalcMagicDamage(hero, ( ( 5 * level ) + ( ( 0.02 + ( 0.02 * level ) ) * hero.health ) ))
+				else
+					return 0
+				end
+			elseif spell == "S" then
+				if SmitePos then
+					if myHero:GetSpellData(SmitePos).name == "S5_SummonerSmiteDuel" then
+						return 54 + ( 6 * myHero.level )
+					elseif myHero:GetSpellData(SmitePos).name == "S5_SummonerSmitePlayerGanker" then
+						local lvl = myHero.level
+						if lvl == 18 then
+							return 166
+						else
+							return 20 + ( 8 * lvl )
+						end
+					else
+						return 0
+					end
+				else
+					return 0
+				end
+			elseif spell == "I" then
+				if IgnitePos then
+					return 50 + ( 20 * myHero.level )
+				else
+					return 0
+				end
+			elseif spell == "SM" then
+				local dmgs = { 390, 410, 430, 450, 480, 510, 540, 570, 600, 640, 680, 720, 760, 800, 850, 900, 950, 1000 }
+				return dmgs[myHero.level]
+			end
+		end
+	end
+	local function SmiteMob()
+		if Menu.JungleClear.UseS then
+			for i, mob in pairs(jungleMinions) do
+				if mob and mob.valid and mob.visible and not mob.dead and SmitePos and CanCast(SmitePos) and GetDistance(mob) <= 560 and mob.health <= CalcDamage("SM", mob) then
+					if mob.charName == "SRU_Baron" or mob.charName == "SRU_Dragon_Water" or mob.charName == "SRU_Dragon_Fire" or mob.charName == "SRU_Dragon_Earth" or mob.charName == "SRU_Dragon_Air" or mob.charName == "SRU_Dragon_Elder" or mob.charName == "SRU_RiftHerald" then
+						CastSpell(SmitePos, mob)
+					end
+				end
+			end
+		end	 
+	end
+	local function GetWallPoints(pos)
+		local points = {}
+		local x = -900
+		while x <= 900 do
+			local z = -900
+			while z <= 900 do
+				local point = D3DXVECTOR3(myHero.x + x, myHero.y, myHero.z + z)
+				if GetDistance(point) <= 900 and GetDistance(pos, point) <= 600 and IsWall(point) then
+					points[#points+1] = point
+				end
+				z = z + 100
+			end
+			x = x + 100
+		end
+		return points
+	end
+	local function GetBestWallPoint(pos)
+		local points = GetWallPoints(pos)
+		if points then
+			local d = mathhuge
+			local bp
+			for i, point in pairs(points) do
+				if GetDistance(point, pos) < d then
+					d = GetDistance(point, pos)
+					bp = point
+				end
+			end
+			return bp
+		end
+	end
+	local function GetFleeWallPoints()
+		local points = {}
+		local d = mathhuge
+		local bp
+		local x = -900
+		while x <= 900 do
+			local z = -900
+			while z <= 900 do
+				local point = D3DXVECTOR3(myHero.x + x, myHero.y, myHero.z + z)
+				if GetDistance(point) <= 900 and IsWall(point) then
+					points[#points+1] = point
+				end
+				z = z + 100
+			end
+			x = x + 100
+		end
+		for i, point in pairs(points) do
+			if GetDistance(point, mousePos) < d then
+				d = GetDistance(point, mousePos)
+				bp = point
+			end
+		end
+		return bp
+	end
+	local function CastQ()
+		if CanCast(_Q) then
+			CastSpell(_Q)
+		end
+	end
+	local function CastW(pos)
+		if CanCast(_W) and pos and pos.valid and pos.visible and not pos.dead then
+			if GetDistance(pos) <= 638 then
+				CastSpell(_W, pos.x, pos.z)
+			end
+		end
+	end
+	local function CastE(pos)
+		if EState == 0 and CanCast(_E) and pos and pos.valid and pos.visible and not pos.dead then
+			local bp = GetBestWallPoint(pos)
+			if bp then
+				CastSpell(_E, bp.x, bp.z)
+			end
+		end
+		if EState == 2 and CanCast(_E) then
+			if pos and pos.valid and pos.visible and not pos.dead then
+				CastSpell(_E, pos.x, pos.z)
+			else
+				CastSpell(_E, mousePos.x, mousePos.z)
+			end
+		end
+	end
+	local function CastR(pos)
+		if CanCast(_R) and pos and pos.valid and pos.visible and not pos.dead then
+			CastSpell(_R, pos)
+		end
+	end
+	local function Move(pos)
+		if CanMove() and EState == 0 and AAState == 0 then
+			myHero:MoveTo(pos.x, pos.z)
+		end
+	end
+	local function Combo()
+		if target and target.valid and target.visible and not target.dead then
+			local customRange = 0
+			if QState == 0 then
+				customRange = range
+			else
+				customRange = range + 50
+			end
+			if CanCast(_E) and Menu.Combo.UseE then
+				CastE(target)
+			end
+			if CanCast(_W) and Menu.Combo.UseW and EState == 0 then
+				CastW(target)
+			end
+			if GetDistance(target) <= customRange and EState == 0 then
+				if CanAttack() then
+					if AAState == 0 then
+						AAState = 1
+						myHero:Attack(target)
+						DelayAction(function() AAState = 0 end, 0.1)
+					else
+						Move(mousePos)
+					end
+				else
+					if CanCast(_Q) and Menu.Combo.UseQ then
+						if QState == 0 then
+							CastQ()
+							myHero:Attack(target)
+						elseif QState == 1 then
+							if CalcDamage("Q", target) >= target.health then
+								CastQ()
+								myHero:Attack(target)
+							end
+						elseif QState == 2 then
+							CastQ()
+							myHero:Attack(target)
+						else
+							Move(mousePos)
+						end
+					else
+						Move(mousePos)
+					end
+				end
+			else
+				if CanCast(_R) and Menu.Combo.UseR then
+					local TotalDmgs = CalcDamage("Q", target) + CalcDamage("Q2", target) + CalcDamage("W2", target) + CalcDamage("E", target) + CalcDamage("R", target) + CalcDamage("S", target) + CalcDamage("I", target) + ( 2 * CalcDamage("AA", target) )
+					local DmgsWithoutR = CalcDamage("Q", target) + CalcDamage("Q2", target) + CalcDamage("W2", target) + CalcDamage("E", target) + CalcDamage("S", target) + CalcDamage("I", target) + ( 2 * CalcDamage("AA", target) )
+					local nb = 0
+					for _, hero in pairs(Enemies) do
+						if GetDistance(hero) <= 1500 then
+							nb = nb + 1
+						end
+					end
+					if DmgsWithoutR <= target.health and ( ( TotalDmgs >= 0.6 * target.health and nb == 1 ) or ( TotalDmgs >= 0.8 * target.health and nb <= 2 ) or ( TotalDmgs >= target.health and nb <= 3 ) ) then
+						CastR(target)
+					else
+						Move(mousePos)
+					end
+				else
+					Move(mousePos)
+				end
+			end
+			Move(mousePos)
+		else
+			Move(mousePos)
+		end
+	end
+	local function Harass()
+		if target and target.valid and target.visible and not target.dead then
+			local customRange = 0
+			if QState == 0 then
+				customRange = range
+			else
+				customRange = range + 50
+			end
+			if CanCast(_E) and Menu.Combo.UseE then
+				CastE(target)
+			end
+			if CanCast(_W) and Menu.Combo.UseW and EState == 0 then
+				CastW(target)
+			end
+			if GetDistance(target) <= customRange and EState == 0 then
+				if CanAttack() then
+					if AAState == 0 then
+						AAState = 1
+						myHero:Attack(target)
+						DelayAction(function() AAState = 0 end, 0.1)
+					else
+						Move(mousePos)
+					end
+				else
+					if CanCast(_Q) and Menu.Combo.UseQ then
+						if QState == 0 then
+							CastQ()
+							myHero:Attack(target)
+						elseif QState == 1 then
+							if CalcDamage("Q", target) >= target.health then
+								CastQ()
+								myHero:Attack(target)
+							end
+						elseif QState == 2 then
+							CastQ()
+							myHero:Attack(target)
+						else
+							Move(mousePos)
+						end
+					else
+						Move(mousePos)
+					end
+				end
+			else
+				Move(mousePos)
+			end
+		else
+			Move(mousePos)
+		end
+	end
+	local function GetMinions(minionTable, range)
+		local t = {}
+		for _, minion in pairs(minionTable) do
+			if GetDistance(minion) <= range and not minion.dead and minion.charName ~= "SRU_CampRespawnMarker" and minion.charName ~= "TestCubeRender" and minion.charName ~= "SRU_Plant_Health" and minion.charName ~= "SRU_Plant_Vision" and minion.charName ~= "SRU_Plant_Satchel" then
+				t[#t+1] = minion
+			end
+		end	
+		return t
+	end
+	local function JungleClear(minionTable)
+		local minion = nil
+		local minionHealth = mathhuge
+		for _, m in pairs(minionTable) do
+			if m.health < minionHealth then
+				minion = m
+				minionHealth = m.health
+			end
+		end
+		if minion and not minion.dead then
+			if CanAttack() then
+				myHero:Attack(minion)
+			elseif Menu.JungleClear.UseQ and CanCast(_Q) then
+				CastQ()
+				myHero:Attack(minion)
+			elseif Menu.JungleClear.UseE and CanCast(_E) then
+				CastE(minion)
+			elseif Menu.JungleClear.UseW and CanCast(_W) then
+				CastW(minion)
+			else
+				Move(mousePos)
+			end
+		else
+			Move(mousePos)
+		end
+	end
+	local function LaneClear(minionTable)
+		local minion = nil
+		local minionHealth = mathhuge
+		for _, m in pairs(minionTable) do
+			local AAdmgs = CalcDamage("AA", m)
+			if QState == 1 or QState == 1.5 then
+				AAdmgs = CalcDamage("Q", m)
+			elseif QState == 2 then
+				AAdmgs = CalcDamage("Q2", m)
+			end
+			if m.health <= AAdmgs then
+				minion = m
+				break
+			end
+			if m.health < minionHealth and m.health <= AAdmgs * 2 then
+				break
+			end
+			if m.health < minionHealth and m.health >= AAdmgs * 3 then
+				minion = m
+				minionHealth = m.health
+			end
+		end
+		if minion and not minion.dead then
+			if CanAttack() then
+				myHero:Attack(minion)
+			elseif Menu.JungleClear.UseQ and CanCast(_Q) then
+				CastQ()
+				myHero:Attack(minion)
+			elseif Menu.JungleClear.UseW and CanCast(_W) then
+				CastW(minion)
+			else
+				Move(mousePos)
+			end
+		else
+			Move(mousePos)
+		end
+	end
+	local function LastHit()
+		local minionTable = GetMinions(minions, 1000)
+		local minion = nil
+		for _, m in pairs(minionTable) do
+			local AAdmgs = CalcDamage("AA", m)
+			if QState == 1 or QState == 1.5 then
+				AAdmgs = CalcDamage("Q", m)
+			elseif QState == 2 then
+				AAdmgs = CalcDamage("Q2", m)
+			end
+			if m.health <= AAdmgs then
+				minion = m
+				break
+			end
+		end
+		if minion and not minion.dead then
+			if CanAttack() then
+				myHero:Attack(minion)
+			elseif Menu.LastHit.UseQ and CanCast(_Q) then
+				CastQ()
+				myHero:Attack(minion)
+			end
+		else
+			Move(mousePos)
+		end
+	end
+	local function Flee()
+		if EState == 0 and CanCast(_E) then
+			local bp = GetFleeWallPoints()
+			if bp then
+				CastSpell(_E, bp.x, bp.z)
+			end
+		end
+		if EState == 2 and CanCast(_E) then
+			CastSpell(_E, mousePos.x, mousePos.z)
+		end
+		Move(mousePos)
+	end
+	AddTickCallback(function()
+		AutoLevel()
+		SmiteMob()
+		ts:update()
+		target = ts.target
+		if Menu.Hotkeys.Combo then
+			Combo()
+		end
+		if Menu.Hotkeys.Harass then
+			Harass()
+		end
+		if Menu.Hotkeys.JungleClear or Menu.Hotkeys.LaneClear then
+			local m = GetMinions(minions, 1000)
+			local j = GetMinions(jungleMinions, 500)
+			if  j[1] == nil and m[1] == nil then
+				Move(mousePos)
+			elseif m[1] == nil then
+				JungleClear(j)
+			elseif j[1] == nil then
+				LaneClear(m)
+			else
+				Move(mousePos)
+			end
+		end
+		if Menu.Hotkeys.LastHit then
+			LastHit()
+		end
+		if Menu.Hotkeys.Flee then
+			Flee()
+		end
+	end)
+	local function DebugDraws()
+		if minion then
+			DrawCircle3D(minion.x, minion.y, minion.z, 50, 2, ARGB(255,255,0,0), 50)
+		end
+	end
+	local function DrawTarget()
+		if target and target.valid and target.visible and not target.dead then
+			DrawLine3D(target.x - 75, target.y, target.z, target.x - 45, target.y, target.z, 7, ARGB(255,0,150,255))
+			DrawLine3D(target.x + 45, target.y, target.z, target.x + 75, target.y, target.z, 7, ARGB(255,0,150,255))
+			DrawCircle3D(target.x, target.y, target.z, 75, 7, ARGB(255,0,150,255), 8)
+			DrawCircle3D(target.x, target.y, target.z, 75, 3, ARGB(255,255,125,0), 8)
+			DrawCircle3D(target.x, target.y, target.z, 45, 7, ARGB(255,0,150,255), 8)
+			DrawCircle3D(target.x, target.y, target.z, 45, 3, ARGB(255,255,125,0), 8)
+			DrawLine3D(target.x - 75, target.y, target.z, target.x - 45, target.y, target.z, 3, ARGB(255,255,125,0))
+			DrawLine3D(target.x + 45, target.y, target.z, target.x + 75, target.y, target.z, 3, ARGB(255,255,125,0))
+		end
+	end
+	local function DrawQ()
+		if Menu.DrawSettings.DrawQ then
+			if QState == 0 then
+				DrawCircle3D(myHero.x, myHero.y, myHero.z, range, 1, ARGB(255,0,255,255), 100)
+			else
+				DrawCircle3D(myHero.x, myHero.y, myHero.z, range + 50, 1, ARGB(255,0,255,255), 100)
+			end
+		end
+	end
+	local function DrawW()
+		if Menu.DrawSettings.DrawW and CanCast(_W) then
+			DrawCircle3D(myHero.x, myHero.y, myHero.z, 638, 1, ARGB(255,255,125,0), 100)
+			if Menu.DrawSettings.DrawW2 then
+				DrawCircle3D(myHero.x, myHero.y, myHero.z, 319, 1, ARGB(255,255,125,0), 100)
+			end
+		end
+	end
+	local function DrawE()
+		if Menu.DrawSettings.DrawE and CanCast(_E) then
+			DrawCircle3D(myHero.x, myHero.y, myHero.z, 900, 1, ARGB(255,0,150,255), 100)
+		end
+	end
+	local function DrawEAdvanced(hero)
+		if Menu.DrawSettings.DrawE and Menu.DrawSettings.DrawE2 and CanCast(_E) then
+			DrawCircle3D(hero.x, hero.y, hero.z, 600, 1, ARGB(255,0,150,255), 100)
+			local points = GetWallPoints(hero)
+			local bp = GetBestWallPoint(hero)
+			if bp then
+				DrawCircle3D(bp.x, bp.y, bp.z, 10, 10, ARGB(200,0,255,0), 100)
+			end
+			for i, point in pairs(points) do
+				DrawCircle3D(point.x, point.y, point.z, 20, 1, ARGB(255,255,0,0), 100)
+			end
+		end
+	end
+	local function DrawR()
+		if Menu.DrawSettings.DrawR and CanCast(_R) then
+			DrawCircle3D(myHero.x, myHero.y, myHero.z, 472, 1, ARGB(255,0,200,255), 100)
+		end
+	end
+	local function DrawHPBar()
+		if Menu.DrawSettings.DrawHPBar then
+			for i, hero in pairs(Enemies) do
+				if hero and hero.valid and hero.visible and not hero.dead then
+					local barPos = GetUnitHPBarPos(hero)
+					local off = GetUnitHPBarOffset(hero)
+					local yOff = ({['Annie'] = -11, ['Jhin'] = -13, ['Trundle'] = -2, ['XinZhao'] = -3})[hero.charName]
+					local y = barPos.y + (yOff or 0) + (off.y * 53) - 2
+					local xOff = ({['AniviaEgg'] = -14,['Annie'] = -11,['Darius'] = -7,['Renekton'] = -7,['Sion'] = -7,['Thresh'] = -4,})[hero.charName]
+					local x = barPos.x + (xOff or 0) - 66
+					local HP = hero.health / hero.maxHealth * 105
+					local Q1Dmgs = 0
+					if CanCast(_Q) then
+						Q1Dmgs = CalcDamage("Q", hero)
+					end
+					local Q2Dmgs = 0
+					if CanCast(_Q) then
+						Q2Dmgs = CalcDamage("Q2", hero)
+					end
+					local W1Dmgs = 0
+					if CanCast(_W) then
+						W1Dmgs = CalcDamage("W", hero)
+					end
+					local W2Dmgs = 0
+					if CanCast(_W) then
+						W2Dmgs = CalcDamage("W2", hero)
+					end
+					local EDmgs = 0
+					if CanCast(_E) then
+						EDmgs = CalcDamage("E", hero)
+					end
+					local RDmgs = 0
+					if CanCast(_R) then
+						RDmgs = CalcDamage("R", hero)
+					end
+					local SDmgs = 0
+					if SmitePos and CanCast(SmitePos) then
+						SDmgs = CalcDamage("S", hero)
+					end
+					local IDmgs = 0
+					if IgnitePos and CanCast(IgnitePos) then
+						IDmgs = CalcDamage("I", hero)
+					end
+					local AADmgs = 0
+					if CanAttack() then
+						AADmgs = CalcDamage("AA", hero)
+					end
+					local TotalDmgs = Q1Dmgs + Q2Dmgs + W2Dmgs + EDmgs + RDmgs + SDmgs + IDmgs + AADmgs
+					local TotalDmgsPos = TotalDmgs / hero.maxHealth * 105
+					local TotalDmgsPosX = x
+					if TotalDmgs >= hero.health then
+						TotalDmgsPosX = x - 10
+						DrawRectangle(x + HP, y, -HP, 9, ARGB(150,255,153,0))
+						DrawLine(x, y + 9, x, y - 15, 1, ARGB(255,255,153,0))
+						DrawLine(x, y - 15, x - 10, y - 15, 1, ARGB(255,255,153,0))
+						DrawTextA("KILLABLE", 15, x - 10, y - 15, ARGB(255,255,153,0), "right", "center")
+					else
+						TotalDmgsPosX = x + HP - TotalDmgsPos - 10
+						DrawRectangle(x + HP, y, - TotalDmgsPos, 9, ARGB(150,255,153,0))
+						DrawLine(x + HP - TotalDmgsPos, y + 9, TotalDmgsPosX + 10, y - 15, 1, ARGB(255,255,153,0))
+						DrawLine(x + HP - TotalDmgsPos, y - 15, TotalDmgsPosX, y - 15, 1, ARGB(255,255,153,0))
+						DrawTextA("Combo burst: "..mathfloor(TotalDmgs), 15, TotalDmgsPosX, y - 15, ARGB(255,255,153,0), "right", "center")
+					end
+					if IgnitePos and IDmgs ~= 0 then
+						DrawTextA("Ignite: "..mathfloor(IDmgs), 15, TotalDmgsPosX, y - 90, ARGB(255,0,150,255), "right", "center")
+					end
+					if SmitePos and SDmgs ~= 0 then
+						DrawTextA("Smite: "..mathfloor(SDmgs), 15, TotalDmgsPosX, y - 75, ARGB(255,0,150,255), "right", "center")
+					end
+					if Q1Dmgs ~= 0 or Q2Dmgs ~= 0 then
+						DrawTextA("Q1: "..mathfloor(Q1Dmgs).."  -  Q2: "..mathfloor(Q2Dmgs), 15, TotalDmgsPosX, y - 60, ARGB(255,0,150,255), "right", "center")
+					end
+					if W1Dmgs ~= 0 or W2Dmgs ~= 0 then
+						DrawTextA("W1: "..mathfloor(W1Dmgs).."  -  W2: "..mathfloor(W2Dmgs), 15, TotalDmgsPosX, y - 45, ARGB(255,0,150,255), "right", "center")
+					end
+					if EDmgs ~= 0 and RDmgs ~= 0 then
+						DrawTextA("E: "..mathfloor(EDmgs).."  -  R: "..mathfloor(RDmgs), 15, TotalDmgsPosX, y - 30, ARGB(255,0,150,255), "right", "center")
+					elseif EDmgs ~= 0 then
+						DrawTextA("E: "..mathfloor(EDmgs), 15, TotalDmgsPosX, y - 30, ARGB(255,0,150,255), "right", "center")
+					elseif RDmgs ~= 0 then
+						DrawTextA("R: "..mathfloor(RDmgs), 15, TotalDmgsPosX, y - 30, ARGB(255,0,150,255), "right", "center")
+					end
+				end
+			end
+		end
+	end
+	AddDrawCallback(function()
+		if not myHero.dead then
+			DebugDraws()
+			if target then
+				local targetScreen = WorldToScreen(D3DXVECTOR3(target.x, target.y, target.z))
+				if OnScreen(targetScreen.x, targetScreen.y) then
+					DrawTarget()
+				end
+			end
+			local myHeroScreen = WorldToScreen(D3DXVECTOR3(myHero.x, myHero.y, myHero.z))
+			if OnScreen(myHeroScreen.x, myHeroScreen.y) then
+				DrawQ()
+				DrawW()
+				DrawE()
+				DrawR()
+			end
+			for i, hero in pairs(Enemies) do
+				if hero and hero.valid and hero.visible and not hero.dead then
+					local heroScreen = WorldToScreen(D3DXVECTOR3(hero.x, hero.y, hero.z))
+					if OnScreen(heroScreen.x, heroScreen.y) then
+						DrawEAdvanced(hero)
+					end
+				end
+			end
+			DrawHPBar()
+		end
+	end)
+	AddAnimationCallback(function(unit, animation)
+		if unit.isMe then
+			if animation == "Spell3" then
+				EState = 1
+				DelayAction(function() if EState == 1 then EState = 0 end end, 1.5)
+			elseif animation == "Spell3_Wall" then
+				EState = 2
+			elseif EState == 2 and animation:find("Spell3") then
+				EState = 0
+			end
+		end
+	end)
+	AddApplyBuffCallback(function(Src, Target, Buff)
+		if Src and Buff and Buff.name and Src.isMe then
+			if Buff.name == "CamilleQ" then
+				QState = 1
+				DelayAction(function() QState = 0 end, 10)
+			elseif Buff.name == "camilleqprimingstart" then
+				QState = 1.5
+			elseif Buff.name == "camilleqprimingcomplete" then
+				QState = 2
+			end
+		end
+	end)
+	AddRemoveBuffCallback(function(Src, Buff)
+		if Src and Buff and Buff.name and Src.isMe then
+			if Buff.name == "CamilleQ" and QState == 1 then
+				QState = 0
+			elseif Buff.name == "camilleqprimingcomplete" then
+				QState = 0
+			elseif Buff.name == "CamilleQ2" then
+				QState = 0
+			end
+		end
+	end)
+	AddBugsplatCallback(function ()
+		local file = io.open(SCRIPT_PATH.."DoctorCamille.bugsplat", "a")
+		file:write("\n"..tostring(debug.traceback()))
+		file:close()
+	end)
+end
+AddLoadCallback(function()
+	if GetUser() ~= "DrPhoenix" then
+		if version ~= TCPGetRequest("s1mplescripts.de", "/DrPhoenix/BoL/Scripts/DoctorCamille/DoctorCamille.version", {}, 80) then
+			ScriptInit = nil
+			PrintMsg("Updating don't press F9 !")
+			GetWebFile("s1mplescripts.de","/DrPhoenix/BoL/Scripts/DoctorCamille/DoctorCamille.lua", {}, SCRIPT_PATH..debug.getinfo(1,'S').source, 80, false)
+			PrintMsg("Updated to version "..TCPGetRequest("s1mplescripts.de", "/DrPhoenix/BoL/Scripts/DoctorCamille/DoctorCamille.version", {}, 80).." !")
+			PrintMsg("Press 2xF9 to reload !")
+		else
+			local a, t, tt, _time = IsAuthed("YT4SMR7LU6TJRMN1MIZZWP278IJ3LDJG")
+			if a == "AUTHED" or a == "TRIAL" then
+				ScriptInit()
+			else
+				ScriptInit = nil
+			end
+		end
+	else
+		local a, t, tt, _time = IsAuthed("YT4SMR7LU6TJRMN1MIZZWP278IJ3LDJG")
+		if a == "AUTHED" or a == "TRIAL" then
+			ScriptInit()
+		else
+			ScriptInit = nil
+		end
+	end
+end)
+function uploadtelemtry()
+	local file = ioopen(LIB_PATH.."DoctorCamilleTelemtry.data", "r")
+	if not file then return end
+	PrintMsg("Found Telemtry data, uploading...")
+	local uploadstring = file:read()
+	local r, s, t = TCPGetRequest("s1mplescripts.de", "/DrPhoenix/Camille/telemetry.php?us="..uploadstring.."&u="..Base64Encode(GetUser()))
+	if r:find("Success") then
+		PrintMsg("Latest Bugsplat Information was uploaded.")
+	end
+	file:close()
+	local f = ioopen(LIB_PATH.."DoctorCamilleTelemtry.data", "wb")
+	f:write("")
+	f:close()
+end
+AddBugsplatCallback(function ()
+	local data = {}
+	data["game_version"] = GetGameVersion()
+	data["screen_size"] = "Height: "..GetGameSettings()["General"]["Height"].." Width: "..GetGameSettings()["General"]["Width"]
+	data["window_mode"] = (GetGameSettings()["General"]["WindowMode"] == 2 and "Borderless") or (GetGameSettings()["General"]["WindowMode"] == 1 and "Windowed") or "FullScreen"
+	data["user_name"] = GetUser()
+	local ap = PrintMsg
+	PrintMsg = function() end
+	data["auth_status"] = IsAuthed("YT4SMR7LU6TJRMN1MIZZWP278IJ3LDJG")
+	PrintMsg = ap
+	data["game_region"] = GetGameRegion()
+	data["champion"] = myHero.charName
+	local f = ioopen(LIB_PATH.."DoctorCamilleTelemtry.data", "wb")
+	f:write("")
+	f:close()
+	local file = ioopen(LIB_PATH.."DoctorCamilleTelemtry.data", "a+")
+	local file_str = ""
+	for i,v in lpairs(data) do
+		file_str = file_str..(tstr(i).." => "..tstr(v).."\n")
+	end
+	file_str = file_str.."Bugsplat Traceback: \r\n\r\n"..tstr(debug.traceback())
+	file_str = Base64Encode(file_str)
+	file:write(file_str)
+	file:close()
+end)
+local function HandleGameEnd(didWin)
+	local aeskey = "470EA7CEAEB70CF2E58E8CC24201A82D"
+	local hmackey = "E7BD8FDCC2B5427F700E796524EE0E98FF4158C1C"
+	local script_key = "YT4SMR7LU6TJRMN1MIZZWP278IJ3LDJG"
+	local message = {
+		username = GetUser(),
+		authkey = GetAuthKey(),
+		charName = myHero.charName,
+		hwid = GenerateHWID(),
+		secretkey = GenerateSecretKey((((((10*2)+(20*3))-11)/3)*2)+18), --64
+		iv = GenerateSecretKey(mathfloor((((1/((8850/2)*0.2))*500)*64))-4), --32
+		wl = didWin and "1" or "0",
+		x_session = x_session_key,
+		CHAMPIONS_KILLED = myHero:GetInt("CHAMPIONS_KILLED"),
+		NUM_DEATHS = myHero:GetInt("NUM_DEATHS"),
+		ASSISTS = myHero:GetInt("ASSISTS"),
+		MINIONS_KILLED = myHero:GetInt("MINIONS_KILLED"),		
+		GOLD_EARNED = myHero:GetInt("GOLD_EARNED"),
+		PENTA_KILLS = myHero:GetInt("PENTA_KILLS"),
+		QUADRA_KILLS = myHero:GetInt("QUADRA_KILLS"),
+		TRIPLE_KILLS = myHero:GetInt("TRIPLE_KILLS"),
+		DOUBLE_KILLS = myHero:GetInt("DOUBLE_KILLS"),
+		TURRETS_KILLED = myHero:GetInt("TURRETS_KILLED"),
+		LARGEST_KILLING_SPREE = myHero:GetInt("LARGEST_KILLING_SPREE"),
+		level = myHero.level,
+	}
+	local msg_string = ""
+	for k,v in lpairs(message)do
+		msg_string = msg_string.."||"..k..":"..v
+	end
+	msg_string = msg_string.."||ScriptKey:"..script_key
+	local enc = Encrypt(msg_string, aeskey, message.iv)
+	local send_str = message.iv .. "||"..enc
+	local hmac = GenerateHMAC(send_str, hmackey)
+	send_str = send_str.."||"..hmac
+	local r, s, t = TCPGetRequest("s1mplescripts.de", "/DrPhoenix/Camille/stats.php?c="..send_str)
+	print(Base64Decode(r))
+end
+local Game = {}
+function Game.Over(didWin)
+	HandleGameEnd(didWin)
+	Game.DidEnd = true
+end
+for i = 1, objManager.maxObjects do
+	local object = objManager:getObject(i)
+	if object and object.valid and object.type == "obj_HQ" then
+		if object.name:find("1") then
+			Game[myHero.team == 100 and "MyNexus" or "TheirNexus"] = object
+		elseif object.name:find("2") then
+			Game[myHero.team == 200 and "MyNexus" or "TheirNexus"] = object
+		end
+	end
+end
+AddDeleteObjCallback(function(o)
+	if o and o.valid then
+		if o.name == "SRU_Order_nexus_swirlies.troy" or o.name == "SRU_Chaos_nexus_swirlies.troy" then
+			if not Game.DidEnd then
+				Game.Over(GetDistance(o,Game.MyNexus)>GetDistance(o,Game.TheirNexus))
+			end
+		end
+	end
+end)

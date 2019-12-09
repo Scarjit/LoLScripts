@@ -1,0 +1,223 @@
+Revised: June 2, 2014
+
+MASTER LICENSING AGREEMENT FOR AUTHORIZED TEAMSPEAK HOST PROVIDERS (ATHPs), NON-PROFIT LICENSEES (NPL) AND ANNUAL ACTIVATION LICENSEES (AAL)
+
+THIS LICENSING AGREEMENT ("AGREEMENT") is entered into between "you," the person or company using the software brand TeamSpeak, developed by TeamSpeak Systems GmbH ("TeamSpeak"), and TeamSpeak Systems GmbH (Germany).
+
+USE OF TEAMSPEAK SOFTWARE INDICATES YOUR ACCEPTANCE OF THESE TERMS.
+
+
+
+I. DEFINITIONS
+
+1. "Standard software" refers to the object code of TeamSpeak Voice Communication Software Version 3.x (binary executable) as well as to all previous versions, both the client and the server that are made available to you by TeamSpeak, including all standard software extensions, upgrades or updates that you receive if and when they are available.
+
+2. "Licensed material" refers to the standard software together with the documentation provided therewith and other information provided by TeamSpeak in conjunction with the license for the standard software.
+
+3. "Client" refers to the TeamSpeak standard software that connects to the TeamSpeak server software via the Internet. The client therefore usually runs on the computer of the end user. A client can be connected to one or more servers at the same time. Several clients can communicate with one another, if the communication data is routed through the server and distributed by it to other clients. Thus, clients do not communicate directly with one another, but only connect to the server, which acts as an exchange and router for voice communication. 
+
+4. "Commercially active" refers to a person, a business, an organization, or a group (e.g. also a so-called "clan" or "guild," such terms being commonly used by the gaming industry) or other entities. Moreover, the aforementioned groups pursue business activities through which their presence, and/or their operational structures including their Internet presence are employed to obtain economic benefits of any kind, including use of the software to realize profits and/or to obtain economic benefits.
+
+The items listed below - without claiming to be comprehensive - are examples of commercially active entities: 
+
+a) Persons (individuals, but also companies or associations), even those not registered as a business, but which have a source of income from generating profits from direct sales, rental, advertising, or the privileged use of immaterial goods and services, donations, or revenue from the provision of other products or services (e.g. persons or companies that charge a fee for installing or servicing TeamSpeak software even if they do not charge a fee for hosting it).  This also applies to instances in which only the server operating system is charged as a service and the installation of the TeamSpeak software is included as a part of the service package.
+
+b) Hosting companies or organizations that charge a recurring fee - usually monthly - for the use of a server.
+
+c) Hosting companies or organizations that do NOT charge a monthly fee for the use of a server, but rather obtain income from advertising and/or donations or from the provision of other products or services (as defined in I 4 a). A hosting company is also to be regarded as commercially active if it is compensated for the use of a server by advertising products or services of another company even if there is no charge for the use of a server itself. Such companies are usually referred to in the industry as "sponsors." An example: operators that receive "payments" in the form of a virtual currency (gold etc.) in exchange for the use of a server in the context of a Massively Multiplayer Online Game (MMOG).
+
+d) You are obligated to provide TeamSpeak with information at all times concerning the circumstances that form the basis for your classification as "commercially active" in the sense of the criteria put forth above.
+
+5. "Server" refers to the TeamSpeak standard software that is installed on a computer (a "server" in the sense of hardware) and acts as a host. This "server" computer is usually to be found in a computing center and rarely at the location of the end user. The "server" software is a program with which the client communicates in order to obtain access to special services and to enable an exchange of data between two or more clients that have established a connection to the server.   
+
+6. "Virtual server" refers to an entity within the TeamSpeak server software that in turn externally presents itself as a stand-alone server (cf. point 5).  While the server software generally only runs once for each individual computer, the software offers the opportunity to allow one or more virtual server entities to run simultaneously.  In this manner the provider can make TeamSpeak server software available on a computer in the form of several virtual server entities that run simultaneously and thereby optimize utilization of available hardware resources. In such cases the server software serves as a container for one or more virtual servers that outwardly present themselves as independent stand-alone units. Unless possessing detailed knowledge thereof, the end user cannot determine whether or not two virtual servers are running on the same or different physical servers. 
+
+7. "Slots" refers to the number of places made available to clients through a virtual server. Each connected client occupies one slot. The number of slots can be set individually for each individual server. This determines the number of slots and thereby how many end users can simultaneously connect to a virtual server and communicate with one another. If a virtual server is, for example, configured for 10 slots, a maximum of 10 users can be connected at the same time. The 11th user would be rejected by means of an error message. As soon as the user disconnects from the server, this person's slot becomes open and is once again available for incoming connections. Slots constitute the basic accounting unit, because a TeamSpeak provider usually sells servers with a limit on concurrent users and invoice this service based on the number of slots sold.
+
+8. "Dynamic slot adaptation" refers to intentional repeated increases and decreases of the slots on a virtual server with the objective to thereby obscure the actual number of resold slots, in order to achieve a reduction of the average slot count used in a given month and in turn lowering the invoice amount.
+
+9. "Authorized TeamSpeak host provider" or "ATHP" designates an economic unit that acquires a license for standard software in return for a payment of a monthly fee. ATHPs usually also charge their customers a monthly fee for use of the virtual server or link the use of the virtual server with other free or paid services or offers for their customers. The ATHP license is mandatory as soon as TS3 servers are offered in return for compensation or to obtain economic benefits of any kind (e.g. also so-called "sponsoring," advertising, etc.). It is hereby expressly pointed out that the ATHP is not entitled to resell the license it has acquired (or parts thereof) to third parties. 
+
+10. Annual Activation Licenses (AALs) are intended for "commercially active" clients (No. 4 of this Section) wishing to host a TeamSpeak server. Standard configurations for servers and slot counters are offered through our automated sales system. However, should you require a larger number of servers or slots, it may be possible to issue a user-defined license in order to meet your needs. To discuss this possibility, please contact our sales team. No claim to the provision of the user-defined license exists. 
+The purchase of a TeamSpeak AAL in standard configuration is a simple and fully automated procedure. To request TeamSpeak AAL, you must open an account on the TeamSpeak Web site and provide all required information in a true and complete manner. Then you add the license by choosing "Buy NEW License."  You shall be invoiced immediately for this. Once you have paid, the license is automatically provided and you shall receive your license key by email. AALs are issued for a period of one year. 
+
+The AAL is initially contracted for one year (year indicates the contract year, therefore calculated one year from the point in time at which the signed contract has arrived at the TeamSpeak location). It will automatically extend itself for another year if no termination takes place before the contract's expiration date.  We are referring to the termination provisions regarding this under VII 3 b. At the beginning of each contract year the current fee becomes due for one year in advance.
+
+If new versions with enhanced functionality are released, TeamSpeak has the right to implement reasonable fee increases.  If at the time of the occurring one year extension a new price list is valid due to the release of a new version the annual price will be increased accordingly.
+
+Resale or transfer is prohibited. This annual activation license is not suited for you, as soon as you:
+
+- use the TeamSpeak server to obtain economic benefits, 
+- use the TeamSpeak server as the basis of a new product, or
+- offer the TeamSpeak server in order to obtain financial compensation or compensation having monetary value. 
+
+If the foregoing applies to you, please contact our Sales Department in order to obtain advice on the appropriate type of license. 
+
+In case of non-compliance with this paragraph, you are required to provide information and pay compensation in accordance with Section VI, No. 2 f.
+
+11. An NPL (Non-Profit License) is a license for the use of a TeamSpeak server for persons or groups that are not commercially active in the sense of Section I. No. 4 and is issued free of cost. The NPL is non-transferable and thus tied to the applicant. A transfer of the license for the purpose of allowing hosting by third parties is not permitted. Even parts of this license (virtual server) are non-transferable. Each person or group may have only one NPL. In order to apply for a TeamSpeak non-profit license it is necessary to open an account on the TeamSpeak Web site, to truthfully and completely provide all information required therein, as well as to carry out the steps provided there for obtaining the NPL. Non-profit licenses include 2 virtual servers with a combined total of 512 slots and are issued for a period of half a year and automatically renewed for another six months if the license is still in use. The actual utilization of slots is transmitted to the tracking server; the right to reduce the number of slots to reflect actual use is reserved.  A claim to issuance of an NPL does not exist. Decisions by TeamSpeak concerning the issuance or non-issuance of an NPL are final and neither negotiable nor actionable.
+In the case of a violation of these licensing provisions, the NPL holder is obligated to provide information and pay compensation in accordance with Section VI, No. 2 f.  A possible immediate revocation of the license is not affected thereby. Since the NPL is provided free of charge, if issued, it can be revoked by TeamSpeak at any time without notification of reasons.
+
+
+
+II. LICENSING FEES
+
+1. All those who are commercially active and use the server or the client must pay a licensing fee regardless of whether or not they themselves charge a fee for use of the server. All accounting, billing and payment matters are handled by TeamSpeak Systems Inc., USA. TeamSpeak Systems GmbH, Germany is the claim holder. Questions concerning accounting and billing are to be sent to sales@TeamSpeak.com or to be submitted using the ticket system at https://support.TeamSpeak.com.  Price information concerning the standard software can be downloaded at https://sales.TeamSpeak.com/pricing.  
+
+2. You are solely responsible for the payment of all taxes (including all sales and use taxes, as well as taxes on intangible assets and property) that you are obliged to pay as a result of entering into this Agreement and the use of the licensed materials. The fees do not include sales taxes, use taxes, VAT or other taxes (including the applicable withholding taxes). The payment of taxes is your responsibility.  All fees are to be paid within 14 days of the invoice date in the currency specified on your standard software order form. After the due date, i.e. from the 15th day after receipt of the invoice, the claim shall bear interest at the rate of 8% points above the prime rate of the European Central Bank (ECB), as long as a consumer is not involved in the legal transaction.  For consumers the interest rate is 5% points above the prime interest rate of the ECB. You are not a consumer if you meet the definition of one who is commercially active (Section I. No. 4).  
+
+If you are a German customer who is buying our products, then the VAT shall be separately indicated and is also to be paid at the same time as the net amount. The term "German" refers to a customer who runs its company from Germany; this will usually be the company seat, but can also be the business premises.
+
+3. All payments must be made within 14 days of electronic or postal delivery of the invoice. You must ensure that you can properly receive invoices, e.g. by maintaining a current, valid email address that you provide in your online customer account or by ensuring that one of your representatives logs onto your online account on a regular monthly basis in order to access recent bills. If an invoice remains unpaid 30 days or longer after the due date, your rights to the software are terminated until all amounts due are paid. However, you continue to be obligated - for any possible further use - to pay the usual fees and to provide compensation for any further prohibited use, such damages to be calculated on a case-by-case basis. TeamSpeak reserves the right to revoke your server license on a continuing basis or to revoke your license entirely if you repeatedly fail to fulfill your payment obligations in a timely fashion. 
+
+4. If new versions with enhanced functionality are released, TeamSpeak has the right to implement reasonable fee increases. In that case a new price list will be sent to you. You agree that you will state your acceptance of the new pice list without delay but within 14 days at the latest. The new rates will become valid 14 days after receipt of the new price list, if you have agreed. If you do not agree with the price change you can terminate the contract by sending a termination notice - which is also to be stated without delay - within a time frame of 14 days.  If you don´t state your acceptance of the new termination provision within 14 days, Teamspeak has the right to terminate without notice.
+
+
+
+III. ATHP LICENSE
+
+You are to be considered as an ATHP if you have obtained a license for the standard software as part of a monthly fee schedule for realizing a profit within the meaning of Section I No. 4. You are hereby granted a license to install the standard software on one or more CPUs based on the following conditions:
+
+1. You must open a customer account on the Web site of TeamSpeak at https://sales.TeamSpeak.com and provide all information required therein in a truthful and complete fashion.
+
+2. ATHPs must pay a recurring, monthly licensing fee based on the average number of slots configured on each (virtual) server in the preceding month (example: if in the previous month a virtual server was configured to 50 slots on 15 of 30 days, then 25 slots will be billed out for this virtual server). At the commencement of this Licensing Agreement, the minimum monthly number of slots is 200. As a reseller, an interest in serving a growing market is assumed on the part of TeamSpeak. For the appearance of the products of TeamSpeak and due to economic points of view issuing permanent licenses is not useful when used for fewer than 1000 slots. Therefore, after 12 months the minimum number of slots increases to 1,000. If during a given month (starting with the validity of the 1,000 slot rule in the 13th month) you use fewer than the specified minimum number of slots, you shall nonetheless be charged for the minimum. Upon termination and while a new contract is issued soon afterwards the duration of the previous contract is included in the calculation in order to prevent bypassing the 1,000 slot rule through termination and new contract acceptance.The 1,000 slot rule applies to all ATHP licenses that were issued after 04.01.2014.  Should the slot count be below 1000 as of the 13th month TeamSpeak can request information with regard to the reasons. If no statement or comprehensible explanation is given the right to an extraordinary termination for this important reason is reserved.
+
+The licensing fee is to be paid independent of whether or not an ATHP customer uses the virtual server. If we determine that a so-called "dynamic slot adaptation" (cf. Section I No. 8) is being practiced, we reserve the right to adjust the invoice to that amount that would be due upon legitimate use for the peak case with a surcharge of 30%. In this case we are also entitled to bill for the additional costs we have incurred thereby and to claim damages that we have incurred, whereby the 30 % surcharge shall be credited against additional costs and other damages. Your right to demonstrate damages of a lesser extent remains unaffected hereby. 
+
+3. The fees shall be invoiced to ATHPs on a monthly basis by TeamSpeak Systems Inc., USA on behalf of TeamSpeak Systems GmbH, Germany. All invoices are normally sent out by email on the first or second day of each month and also posted online on the customer account of the ATHP on the TeamSpeak Web site at  https://sales.TeamSpeak.com.
+
+You hereby declare yourself in agreement that the data for the slot numbers of each virtual server hosted by an ATHP shall be transmitted daily to the TeamSpeak tracking server so that TeamSpeak can follow the extent of your use and prepare an appropriate invoice.  The basis for invoicing is the protocols on the TeamSpeak protocol servers, which ascertain the extent of your daily usage. 
+
+4. You hereby declare your agreement that all data concerning you may be stored and processed in accordance with the (BDSG) (Bundesdatenschutzgesetz = German Federal Data Protection Act), the TKG (Telekommunikationsgesetz = German Telecommunications Act) and the TMG (Telemediengesetz = German Telemedia Act) to the extent this is necessary to implement the contractual relationship. You hereby undertake for your part to comply with the provisions of the statutes set out in the prior sentence when using our software, in particular to properly inform third parties concerning any data collection and obtain their agreement therefor. If data protection provisions of countries other than Germany require compliance with other mandatory regulations, then both contracting parties are obliged to comply with them. 
+
+5. You are not permitted to install any firewalls or any other tools that could block the communication between your virtual server and the TeamSpeak tracking servers or otherwise manipulate the protocol results. Should violations of this duty take place, TeamSpeak is entitled to seek information from you concerning the usage that actually took place. This requires you to present TeamSpeak with the underlying data/protocols. Under these circumstances you are obligated to pay for actual use with a surcharge of 30% based on the graduation of prices according to paragraph Number 6 below. In this regard it may prove necessary for TeamSpeak to demonstrate a higher level of damages (legal expenses, expenses of a more general nature, etc.). You are also entitled to demonstrate that a lesser amount of damage has occurred. Increased usage fees are to be applied as a credit against any possible damages that must be compensated. 
+
+6. You are entitled to use the standard software on a monthly basis based upon payment of the monthly fee therefor, which shall be subsequently billed based on the graduation of prices that is set out on the Web site www.TeamSpeak.com in its current version. 
+
+7. If and when available, you shall receive free standard software upgrades. You are obligated to promptly install server upgrades after they are released. The regulation with regard to the price adjustment for new versions (according to II 4) remains unaffected.
+
+8. There is no claim for issuance of an ATHP license. Decisions by TeamSpeak concerning whether or not to issue an ATHP license are final and neither negotiable nor actionable. 
+
+
+
+IV. INDEMNITY / WARRANTY          
+
+TeamSpeak shall only pay compensation for damages or reimburse futile expenses, regardless of the legal basis therefor (e.g. due to legal or law-related obligations, violation of duty and torts), only to the following extent:
+
+1. The liability for intentional acts is unlimited.
+
+2. In the case of simple negligence TeamSpeak is only liable up to the amount of typical damages that were foreseeable at the time of concluding the contract.
+
+3. The objection of contributory negligence is open to TeamSpeak. In particular, you have the duty to keep your data secure and to maintain virus protection according to the current state of the art.
+
+4. In the case of loss of life, bodily injury and impairment to health, as well as in the case of claims brought under the Product Liability Statute, the statutory provisions apply.  
+
+5. The software has the agreed-upon properties and quality, is suitable for the use contractually set out in this Agreement, otherwise for ordinary use, and is of the quality customary for software of this type; however, the software is not free of defects. The following types of impaired software function do not constitute defects: those arising out of hardware defects, those relating to environmental conditions, incorrect operation, or similar matters.  An immaterial reduction in quality shall not be taken into account.
+
+6. In the case of defects in quality, TeamSpeak can initially undertake subsequent performance. In this regard, TeamSpeak has a choice between elimination of the defect, through delivery of a program that does not have this defect, or by demonstrating possibilities through which the effects of the defect may be avoided. You shall accept a new program version of equivalent value or a prior program version of equivalent value that is free of defects, unless this proves to be unreasonable.
+
+7. You are to provide support to TeamSpeak in the analysis of errors and elimination of defects by specifically describing the problems that have arisen, providing TeamSpeak with comprehensive information and by granting the required amount of time and the opportunity to eliminate any defects. TeamSpeak can also provide services through remote maintenance. You must ensure - at your own cost - that the necessary technical conditions have been met for TeamSpeak to provide help. If necessary, you are to grant TeamSpeak access to your computer system after being provided with appropriate prior notice.
+
+8. TeamSpeak can seek additional costs if the software has been modified, installed outside of the designated environment, or operated in an incorrect fashion. You are obligated to reimburse expenses if no defect is found. An offset shall be granted for possible contributory negligence on your part.
+
+9. If TeamSpeak issues a final refusal to undertake subsequent performance or if final performance fails completely, or if subsequent performance is unreasonable for you, then you may cancel this Agreement or reduce compensation in an appropriate manner and, if necessary, seek compensation for damages or reimbursement of expenses. 
+
+10. If the contractual relationship is terminated, you must bring your claims within a preclusive period of 3 months from the termination date. If the contractual relationship still continues, then claims must be brought within 6 months of the time you first became aware of them.
+
+
+
+V. DISTRIBUTION
+
+1. The only permissible method for distribution of the standard software through the Internet is to do so through a link to the Internet page of TeamSpeak (www.TeamSpeak.com). You are only entitled to distribute the standard software over the Internet in another manner, especially by offering it for the purpose of downloading, if TeamSpeak gives you prior written consent. 
+
+2. If you offer the standard software for the purpose of downloading, then you are obligated to provide TeamSpeak with information about this, in particular, you must provide the records that contain the download data. For each unauthorized download, liquidated damages in the amount of a flat fee of $150 must be paid, in addition to any other claims for damages on the part of TeamSpeak. You are obligated to provide information concerning the nature and extent of use that you have authorized as well as returning the benefits of use that either you or third parties have received thereby. In such instances you are obligated to provide TeamSpeak with the data/logs that form the basis for this information. You are under an obligation to pay for your actual usage plus a surcharge of 30% on the graduation of prices under Section III, No. 5. This does not exclude proof of a higher level of damage for TeamSpeak (legal fees, fees of a more general nature, etc.) in individual cases. The increased usage fee shall then be used as a credit against any damages that are to be paid.
+
+3. Apart from the conditions of this Agreement, you are required to obtain the prior written consent of TeamSpeak in order to hand over the standard software to third parties (e.g. publishers, magazines, third party products). In the event of an infringement, No. 2 above applies accordingly.
+
+
+
+VI. OWNERSHIP AND RESTRICTIONS
+
+1. You hereby acknowledge that your rights in and to the licensed material are solely limited to the extent described above (usage of the standard software in exchange for payment of fees paid at regular intervals) and that you do not have any other property rights to any other aspects of the licensed material. You hereby acknowledge that TeamSpeak and/or its licensors possess all rights, including the rights of ownership and exploitation in - but not restricted to - copyrights, patent rights, the right to the confidentiality of trade secrets, as well as all other rights relating to the intellectual property in and to the licensed material and in/to all altered, modified and corrected versions thereof. 
+
+2. You are prohibited from undertaking the following activities (with the exception of the limited use of an SDK), and you may not allow a third party to undertake them: 
+
+a) to modify or appropriate the licensed material or, 
+
+b) to decompile, to reassemble, to disassemble the source code or otherwise to attempt to decipher the source code of any object code (or the underlying ideas, algorithms, structures and organization) that is contained in the standard software. 
+
+c) Except for the purposes expressly provided for herein, you are not entitled to market the licensed material, to sublicense, to distribute, to reproduce, to rent, to lease, to offer as part of a timesharing agreement, or to exploit it in any other fashion, whether as a stand-alone version or while integrated into other products. 
+
+d) You may not use the standard software for the benefit of third parties, unless doing so expressly conforms to the license for use granted for the standard software in this agreement. 
+
+e) This Agreement and the license granted therein may not be assigned, sublicensed, or otherwise transferred without the prior written consent of TeamSpeak. 
+
+f) for each case of infringement against the provisions put forth above under a) - e) you are obligated to provide information concerning the nature and extent of use authorized by you and to return the benefits of use that either you have received or that third parties have received based on your authorization. In such a case you are obligated to provide TeamSpeak with a data/log forming the basis therefor.  Under these circumstances you are required to pay liquidated damages for actual usage plus a surcharge of 30 % based on the graduation of prices under Section III., No. 5. In such instances proof of higher (legal fees, expenses of a more general nature) or lower damage is not excluded. The increased usage fee is then to be deducted from the damages to be paid.
+
+
+
+VII. DURATION OF AGREEMENT AND TERMINATION
+
+1. This Agreement becomes effective on the date of your acceptance thereof and is to remain in force until the provisions set forth herein expire or are terminated. TeamSpeak retains the right to terminate this Agreement and to revoke your license if you violate any of the provisions of this Agreement. 
+
+2. Any notice of termination is required to be at least in a text format (e.g. via email). All deadlines are calculated, unless determined otherwise, as of receipt by the recipient of the notice.  
+
+3. Below the ordinary rights of termination which exist for the individual types of contracts are outlined (meaning a reason for termination is not required); the right of both parties to extraordinary termination for importation reasons (in particular violations of the contract) remains unaffected:
+
+a) An NPL can be revoked and respectively be terminated by TeamSpeak at any time without indicating a reason since it involves a gratuitous provision. You have the right to terminate your use with a notice period of one month.
+
+b) The AAL is initially contracted for one year (year is the year of the contract, therefore calculated one year from the point in time in which the signed contract is received by TeamSpeak). You are entitled at any time to end the AAL within a contract year by notice of termination to be effective by the end of the current contract year. The AAL extends itself with the first day each that follows after a contract year for that additional year, if the termination notice has not been received on the last day of the current contract year. 
+
+TeamSpeak is entitled to terminate the AAL with a notice of 3 months to be effective by the end of a contract year.
+
+c) The ATHP license can be terminated by TeamSpeak with a period of six months, calculated from the receipt of the notice of termination. You have the right to terminate at any time with a period of one month. 
+
+4. After this Agreement terminates, you must immediately stop the use of the licensed material and destroy all copies and associated intellectual property that are in your possession, custody, or power of disposition. You are obligated to present TeamSpeak with a written confirmation to this effect within two weeks after termination of the Agreement, from which it follows that, to the best of your knowledge, you have taken all reasonable steps to destroy all originals and copies of the licensed materials and that these have actually been destroyed. 
+
+
+
+VIII. TORTS
+
+You hereby make the assurance that you shall not violate any of the provisions of this Agreement and that:
+
+1. You shall not use the standard software in order to engage in any illegal activities and you shall also not allow third parties to misuse the standard software for illegal purposes.
+
+2. You shall not use the standard software in any manner that interrupts or harms third parties in the operation of services by exhausting or deactivating network resources, as may e.g. occur as a result of automated inquiries, overloading, or similar activities.   
+
+3. You are not to use the standard software for activities that violate any third party rights, e.g. through the use, public display or performance, reproduction, distribution, or modification of any communications or material that violates the copyrights, trademark rights, rights of publication, data protection rights or property rights of third parties.   
+
+4. In the case of the unauthorized use of our standard software you are obligated to provide us with information and to render account concerning the nature and extent of usage by yourself or third parties - regardless of whether or not it is your own use or authorizing/ permitting or even supporting the unauthorized use of our standard software by third parties. 
+
+5. Moreover, for the circumstances set out in No. 4 above, you are obligated to pay reasonable compensation for use and possibly damages for your own use and for the use of our products that you have either caused or permitted.  For each instance of infringement VI, Number 2 Letter f applies accordingly.
+
+
+
+IX. NON-DISCLOSURE
+
+You are not permitted to reveal the following information to third parties, to make such information available to third parties, or to make such information accessible to third parties in any way:
+
+1. Information and data that you receive from TeamSpeak and that is related to the licensed material.
+
+2. Training materials and procedural documents that TeamSpeak prepared for the use or installation of the standard software (hereinafter referred to collectively as "confidential information"). Unless this Agreement expressly provides otherwise, you are not permitted to use or disclose this confidential information without the prior written consent of TeamSpeak, with the exception of employees who must be familiar with this information in order to carry out their duties in a proper fashion and only on the  condition that these persons have signed written agreements that also place them under an obligation of non-disclosure and that includes rules at least as stringent as those of the applicable provisions in this section. 
+
+3. In addition to the obligation of non-disclosure described above, you also hereby grant the assurance that you shall carefully protect confidential information - especially source codes, as well as the methods for operating and installing standard software.  
+
+4. Upon termination of this Agreement or at the request of TeamSpeak all documents containing confidential information are to be returned immediately, any remaining or retained standard software or parts thereof are to be deleted and such deletions shall be confirmed to us in writing. 
+
+5. Your duties under this Agreement shall survive the termination of this Agreement. These obligations also apply to your representatives, successors, and assigns where applicable. In any event, in the case of permissible disclosure to third parties, you must obligate them accordingly. 
+
+
+
+X. OTHER PROVISIONS
+
+1. Changes, additions or adjustments to this Agreement undertaken by TeamSpeak that are occasioned by unforeseeable changes that TeamSpeak does not initiate and over which TeamSpeak has no influence and that become necessary and do not disturb the principle of equivalence that existed at the time of contract conclusion to a material extent, are to be treated as binding as soon as the updated version has been published on the Web site at www.TeamSpeak.com or has been sent to you by email and you have not objected thereto within a time period of 4 weeks after publication of the change.  You are under an obligation to remain informed by regularly checking the Internet site for changes to this Agreement.
+
+2. Should a provision of this Agreement prove to be invalid, this does not affect the validity of the remaining provisions. To the extent permitted by statute, the invalid provision is to be replaced by a provision that comes closest to the original intent of the parties.  
+
+3. This entire Agreement must be in written form; even modifications must be in writing. No. 1 of this section remains unaffected hereby.
+
+4. You hereby agree to comply with all export and re-export regulations and restrictions of the respective competent authorities or governmental bodies of the countries whose law is affected by the exercise of rights arising out of this Agreement. The provisions of countries whose rights are affected by the use and dissemination of the standard software are mandatory provisions that must be complied with. This applies especially to tax provisions. You are required to keep sufficiently informed in this regard.
+
+5. The parties hereby agree that all controversies arising out of and in connection with this agreement, regardless of conflict of law provisions, are subject to the law of the Federal Republic of Germany,  also including the substantive law thereof, to the exclusion of the UN Sales Law. The parties agree that German courts have jurisdiction over all controversies arising out of and in connection with this agreement. The place of performance is Krün, Germany.  
+
+6. It is not permitted to transfer or assign this Agreement or parts thereof without the written consent of TeamSpeak. 

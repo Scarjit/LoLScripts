@@ -1,0 +1,196 @@
+body, html {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background: #e8c9ea;
+	font-family: Helvetica;
+	color: black;
+}
+
+.content {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px;
+}
+
+.nav ul {
+	position: relative;
+	z-index: 100;
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0px;
+	background-color: #e04ad1;
+}
+
+.nav li {
+	font-size: 20px;
+	line-height: 40px;
+	text-align: left;
+}
+
+.nav a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	padding-left: 15px;
+	border-bottom: 1px solid #888;
+	transition: .3s background-color;
+}
+
+.nav a:hover {
+	background-color: #ff5eff;
+}
+
+.nav a.active {
+	background-color: #ff5eff;
+	color: #fff;
+	cursor: default;
+}
+
+/* Sub Menus */
+.nav li li {
+	font-size: .8em;
+}
+
+/*******************************************
+	 Style menu for larger screens
+
+	 Using 650px (130px each * 5 items), but ems
+	 or other values could be used depending on other factors
+********************************************/
+
+@media screen and (min-width: 650px) {
+	.nav li {
+		width: 130px;
+		border-bottom: none;
+		height: 50px;
+		line-height: 50px;
+		font-size: 1.4em;
+		display: inline-block;
+		margin-right: -4px;
+	}
+
+	.nav a {
+		border-bottom: none;
+	}
+
+	.nav > ul > li {
+		text-align: center;
+	}
+
+	.nav > ul > li > a {
+		padding-left: 0;
+	}
+
+	/* Sub Menus */
+	.nav li ul {
+		position: absolute;
+		display: none;
+		width: inherit;
+	}
+
+	.nav li:hover ul {
+		display: block;
+	}
+
+	.nav li ul li {
+		display: block;
+	}
+}
+
+.main {
+	position: relative;
+	z-index: 0;
+	width: 40%;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+}
+
+.champion, .champion_off {
+	width: 120px;
+	height: 120px;
+	display: inline-block;
+	margin: 30px;
+}
+
+.champion_icon, .champion_icon_hover {
+	position: absolute;
+}
+
+.champion .champion_icon_hover, .champion_off .champion_icon_hover {
+	width: 120px;
+	opacity: 0;
+	filter: alpha(opacity=0); /* For IE8 and earlier */
+	-webkit-transition: .2s ease-in-out;
+	-moz-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+}
+
+.champion:hover .champion_icon_hover {
+	opacity: 1;
+	filter: alpha(opacity=100); /* For IE8 and earlier */
+	-webkit-transition: .2s ease-in-out;
+	-moz-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+}
+
+.champion .champion_icon {
+	filter: grayscale(0%);
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	-webkit-transition: .2s ease-in-out;
+	-moz-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+}
+
+.champion:hover .champion_icon {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-webkit-transition: .2s ease-in-out;
+	-moz-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+}
+
+.champion_off .champion_icon {
+	opacity: 0.3;
+	filter: alpha(opacity=30) grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-webkit-transition: .2s ease-in-out;
+	-moz-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+}
+
+.portfolio_user_logo {
+	width: 100px;
+	height: 100px;
+}
+
+.footer, .push {
+	height: 10px;
+}
+
+.footer {
+	text-align: center;
+	vertical-align: middle;
+	color: black;
+	line-height: 0px;
+}
+
+.footer a {
+	color: #ff00fa;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
+}

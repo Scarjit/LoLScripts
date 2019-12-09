@@ -1,0 +1,1 @@
+select A.channel_id as channel_id, A.channel_parent_id as channel_parent_id, B.ident as ident, B.value as value from channels A join channel_properties B on A.channel_id=B.id where A.server_id=:server_id: and B.server_id=:server_id: order by channel_id;

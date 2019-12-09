@@ -1,0 +1,3781 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="stylesheet.css" type="text/css">
+<title id="server_query_manual">Server Query Manual</title>
+</head>
+<body>
+<div class="section">
+	<p class="document_title">
+		TeamSpeak 3 ServerQuery Manual
+	</p>
+	<p class="last_update">
+		last update: 
+		6/6/2016
+	</p>
+	<p class="copyright">
+		Copyright ©2009-2016 TeamSpeak Systems GmbH
+	</p>
+
+    <div class="image_logo"></div>
+    
+	<h1 id="index">Index</h1>
+
+
+</div>
+<ul id="toc">
+<li><span><a href="#introduction">Introduction</a></span></li>
+<ul><li class="sub_li"><span><a href="#how_to_establish_a_serverquery_connection">How to establish a ServerQuery connection</a></span></li></ul>
+<li><span><a href="#command_syntax">Command Syntax</a></span></li>
+<ul>
+<li class="sub_li"><span><a href="#summary_of_command_syntax">
+		Summary of Command Syntax
+	</a></span></li>
+<li class="sub_li"><span><a href="#examples_of_command_syntax">
+		Examples of Command Syntax
+	</a></span></li>
+</ul>
+<li><span><a href="#escaping">Escaping</a></span></li>
+<li><span><a href="#whitelisting_and_blacklisting">Whitelisting and Blacklisting</a></span></li>
+<ul>
+<li class="sub_li"><span><a href="#how_to_use_the_whitelist">How to Use the Whitelist</a></span></li>
+<li class="sub_li"><span><a href="#how_to_use_the_blacklist">How to Use the Blacklist</a></span></li>
+</ul>
+<li><span><a href="#command_reference">Command Reference</a></span></li>
+<ul>
+<li class="sub_li"><span><a href="#help">help</a></span></li>
+<li class="sub_li"><span><a href="#quit">quit</a></span></li>
+<li class="sub_li"><span><a href="#login">login</a></span></li>
+<li class="sub_li"><span><a href="#logout">logout</a></span></li>
+<li class="sub_li"><span><a href="#version">version</a></span></li>
+<li class="sub_li"><span><a href="#hostinfo">hostinfo</a></span></li>
+<li class="sub_li"><span><a href="#instanceinfo">instanceinfo</a></span></li>
+<li class="sub_li"><span><a href="#instanceedit">instanceedit</a></span></li>
+<li class="sub_li"><span><a href="#bindinglist">bindinglist</a></span></li>
+<li class="sub_li"><span><a href="#use">use</a></span></li>
+<li class="sub_li"><span><a href="#serverlist">serverlist</a></span></li>
+<li class="sub_li"><span><a href="#serveridgetbyport">serveridgetbyport</a></span></li>
+<li class="sub_li"><span><a href="#serverdelete">serverdelete</a></span></li>
+<li class="sub_li"><span><a href="#servercreate">servercreate</a></span></li>
+<li class="sub_li"><span><a href="#serverstart">serverstart</a></span></li>
+<li class="sub_li"><span><a href="#serverstop">serverstop</a></span></li>
+<li class="sub_li"><span><a href="#serverprocessstop">serverprocessstop</a></span></li>
+<li class="sub_li"><span><a href="#serverinfo">serverinfo</a></span></li>
+<li class="sub_li"><span><a href="#serverrequestconnectioninfo">serverrequestconnectioninfo</a></span></li>
+<li class="sub_li"><span><a href="#servertemppasswordadd">servertemppasswordadd</a></span></li>
+<li class="sub_li"><span><a href="#servertemppassworddel">servertemppassworddel</a></span></li>
+<li class="sub_li"><span><a href="#servertemppasswordlist">servertemppasswordlist</a></span></li>
+<li class="sub_li"><span><a href="#serveredit">serveredit</a></span></li>
+<li class="sub_li"><span><a href="#servergrouplist">servergrouplist</a></span></li>
+<li class="sub_li"><span><a href="#servergroupadd">servergroupadd</a></span></li>
+<li class="sub_li"><span><a href="#servergroupdel">servergroupdel</a></span></li>
+<li class="sub_li"><span><a href="#servergroupcopy">servergroupcopy</a></span></li>
+<li class="sub_li"><span><a href="#servergrouprename">servergrouprename</a></span></li>
+<li class="sub_li"><span><a href="#servergrouppermlist">servergrouppermlist</a></span></li>
+<li class="sub_li"><span><a href="#servergroupaddperm">servergroupaddperm</a></span></li>
+<li class="sub_li"><span><a href="#servergroupdelperm">servergroupdelperm</a></span></li>
+<li class="sub_li"><span><a href="#servergroupaddclient">servergroupaddclient</a></span></li>
+<li class="sub_li"><span><a href="#servergroupdelclient">servergroupdelclient</a></span></li>
+<li class="sub_li"><span><a href="#servergroupclientlist">servergroupclientlist</a></span></li>
+<li class="sub_li"><span><a href="#servergroupsbyclientid">servergroupsbyclientid</a></span></li>
+<li class="sub_li"><span><a href="#servergroupautoaddperm">servergroupautoaddperm</a></span></li>
+<li class="sub_li"><span><a href="#servergroupautodelperm">servergroupautodelperm</a></span></li>
+<li class="sub_li"><span><a href="#serversnapshotcreate">serversnapshotcreate</a></span></li>
+<li class="sub_li"><span><a href="#serversnapshotdeploy">serversnapshotdeploy</a></span></li>
+<li class="sub_li"><span><a href="#servernotifyregister">servernotifyregister</a></span></li>
+<li class="sub_li"><span><a href="#servernotifyunregister">servernotifyunregister</a></span></li>
+<li class="sub_li"><span><a href="#sendtextmessage">sendtextmessage</a></span></li>
+<li class="sub_li"><span><a href="#logview">logview</a></span></li>
+<li class="sub_li"><span><a href="#logadd">logadd</a></span></li>
+<li class="sub_li"><span><a href="#gm">gm</a></span></li>
+<li class="sub_li"><span><a href="#channellist">channellist</a></span></li>
+<li class="sub_li"><span><a href="#channelinfo">channelinfo</a></span></li>
+<li class="sub_li"><span><a href="#channelfind">channelfind</a></span></li>
+<li class="sub_li"><span><a href="#channelmove">channelmove</a></span></li>
+<li class="sub_li"><span><a href="#channelcreate">channelcreate</a></span></li>
+<li class="sub_li"><span><a href="#channeldelete">channeldelete</a></span></li>
+<li class="sub_li"><span><a href="#channeledit">channeledit</a></span></li>
+<li class="sub_li"><span><a href="#channelgrouplist">channelgrouplist</a></span></li>
+<li class="sub_li"><span><a href="#channelgroupadd">channelgroupadd</a></span></li>
+<li class="sub_li"><span><a href="#channelgroupdel">channelgroupdel</a></span></li>
+<li class="sub_li"><span><a href="#channelgroupcopy">channelgroupcopy</a></span></li>
+<li class="sub_li"><span><a href="#channelgrouprename">channelgrouprename</a></span></li>
+<li class="sub_li"><span><a href="#channelgroupaddperm">channelgroupaddperm</a></span></li>
+<li class="sub_li"><span><a href="#channelgrouppermlist">channelgrouppermlist</a></span></li>
+<li class="sub_li"><span><a href="#channelgroupdelperm">channelgroupdelperm</a></span></li>
+<li class="sub_li"><span><a href="#channelgroupclientlist">channelgroupclientlist</a></span></li>
+<li class="sub_li"><span><a href="#setclientchannelgroup">setclientchannelgroup</a></span></li>
+<li class="sub_li"><span><a href="#tokenadd">tokenadd</a></span></li>
+<li class="sub_li"><span><a href="#tokendelete">tokendelete</a></span></li>
+<li class="sub_li"><span><a href="#tokenlist">tokenlist</a></span></li>
+<li class="sub_li"><span><a href="#tokenuse">tokenuse</a></span></li>
+<li class="sub_li"><span><a href="#channelpermlist">channelpermlist</a></span></li>
+<li class="sub_li"><span><a href="#channeladdperm">channeladdperm</a></span></li>
+<li class="sub_li"><span><a href="#channeldelperm">channeldelperm</a></span></li>
+<li class="sub_li"><span><a href="#clientlist">clientlist</a></span></li>
+<li class="sub_li"><span><a href="#clientinfo">clientinfo</a></span></li>
+<li class="sub_li"><span><a href="#clientfind">clientfind</a></span></li>
+<li class="sub_li"><span><a href="#clientedit">clientedit</a></span></li>
+<li class="sub_li"><span><a href="#clientdblist">clientdblist</a></span></li>
+<li class="sub_li"><span><a href="#clientdbinfo">clientdbinfo</a></span></li>
+<li class="sub_li"><span><a href="#clientdbfind">clientdbfind</a></span></li>
+<li class="sub_li"><span><a href="#clientdbedit">clientdbedit</a></span></li>
+<li class="sub_li"><span><a href="#clientdbdelete">clientdbdelete</a></span></li>
+<li class="sub_li"><span><a href="#clientgetids">clientgetids</a></span></li>
+<li class="sub_li"><span><a href="#clientgetdbidfromuid">clientgetdbidfromuid</a></span></li>
+<li class="sub_li"><span><a href="#clientgetnamefromuid">clientgetnamefromuid</a></span></li>
+<li class="sub_li"><span><a href="#clientgetuidfromclid">clientgetuidfromclid</a></span></li>
+<li class="sub_li"><span><a href="#clientgetnamefromdbid">clientgetnamefromdbid</a></span></li>
+<li class="sub_li"><span><a href="#clientsetserverquerylogin">clientsetserverquerylogin</a></span></li>
+<li class="sub_li"><span><a href="#clientupdate">clientupdate</a></span></li>
+<li class="sub_li"><span><a href="#clientmove">clientmove</a></span></li>
+<li class="sub_li"><span><a href="#clientkick">clientkick</a></span></li>
+<li class="sub_li"><span><a href="#clientpoke">clientpoke</a></span></li>
+<li class="sub_li"><span><a href="#clientpermlist">clientpermlist</a></span></li>
+<li class="sub_li"><span><a href="#clientaddperm">clientaddperm</a></span></li>
+<li class="sub_li"><span><a href="#clientdelperm">clientdelperm</a></span></li>
+<li class="sub_li"><span><a href="#channelclientpermlist">channelclientpermlist</a></span></li>
+<li class="sub_li"><span><a href="#channelclientaddperm">channelclientaddperm</a></span></li>
+<li class="sub_li"><span><a href="#channelclientdelperm">channelclientdelperm</a></span></li>
+<li class="sub_li"><span><a href="#permissionlist">permissionlist</a></span></li>
+<li class="sub_li"><span><a href="#permidgetbyname">permidgetbyname</a></span></li>
+<li class="sub_li"><span><a href="#permoverview">permoverview</a></span></li>
+<li class="sub_li"><span><a href="#permget">permget</a></span></li>
+<li class="sub_li"><span><a href="#permfind">permfind</a></span></li>
+<li class="sub_li"><span><a href="#permreset">permreset</a></span></li>
+<li class="sub_li"><span><a href="#privilegekeylist">privilegekeylist</a></span></li>
+<li class="sub_li"><span><a href="#privilegekeyadd">privilegekeyadd</a></span></li>
+<li class="sub_li"><span><a href="#privilegekeydelete">privilegekeydelete</a></span></li>
+<li class="sub_li"><span><a href="#privilegekeyuse">privilegekeyuse</a></span></li>
+<li class="sub_li"><span><a href="#messagelist">messagelist</a></span></li>
+<li class="sub_li"><span><a href="#messageadd">messageadd</a></span></li>
+<li class="sub_li"><span><a href="#messagedel">messagedel</a></span></li>
+<li class="sub_li"><span><a href="#messageget">messageget</a></span></li>
+<li class="sub_li"><span><a href="#messageupdateflag">messageupdateflag</a></span></li>
+<li class="sub_li"><span><a href="#complainlist">complainlist</a></span></li>
+<li class="sub_li"><span><a href="#complainadd">complainadd</a></span></li>
+<li class="sub_li"><span><a href="#complaindelall">complaindelall</a></span></li>
+<li class="sub_li"><span><a href="#complaindel">complaindel</a></span></li>
+<li class="sub_li"><span><a href="#banclient">banclient</a></span></li>
+<li class="sub_li"><span><a href="#banlist">banlist</a></span></li>
+<li class="sub_li"><span><a href="#banadd">banadd</a></span></li>
+<li class="sub_li"><span><a href="#bandel">bandel</a></span></li>
+<li class="sub_li"><span><a href="#bandelall">bandelall</a></span></li>
+<li class="sub_li"><span><a href="#ftinitupload">ftinitupload</a></span></li>
+<li class="sub_li"><span><a href="#ftinitdownload">ftinitdownload</a></span></li>
+<li class="sub_li"><span><a href="#ftlist">ftlist</a></span></li>
+<li class="sub_li"><span><a href="#ftgetfilelist">ftgetfilelist</a></span></li>
+<li class="sub_li"><span><a href="#ftgetfileinfo">ftgetfileinfo</a></span></li>
+<li class="sub_li"><span><a href="#ftstop">ftstop</a></span></li>
+<li class="sub_li"><span><a href="#ftdeletefile">ftdeletefile</a></span></li>
+<li class="sub_li"><span><a href="#ftcreatedir">ftcreatedir</a></span></li>
+<li class="sub_li"><span><a href="#ftrenamefile">ftrenamefile</a></span></li>
+<li class="sub_li"><span><a href="#customsearch">customsearch</a></span></li>
+<li class="sub_li"><span><a href="#custominfo">custominfo</a></span></li>
+<li class="sub_li"><span><a href="#whoami">whoami</a></span></li>
+</ul>
+<li><span><a href="#server_instance_properties">Server Instance Properties</a></span></li>
+<li><span><a href="#virtual_server_properties">Virtual Server Properties</a></span></li>
+<li><span><a href="#channel_properties">Channel Properties</a></span></li>
+<li><span><a href="#client_properties">Client Properties</a></span></li>
+<li><span><a href="#definitions">Definitions</a></span></li>
+</ul>
+<div class="section">
+	<h1 id="introduction">Introduction</h1>
+	<p><i>ServerQuery</i> is a command-line interface built into the <i>TeamSpeak 3 Server</i> which allows powerful scripting and automation tools to be built based on the exact same instruction set and functionality provided by the <i>TeamSpeak 3 Client</i>. For example, you can use scripts to automate the management of virtual servers or nightly backups. In short, you can perform operations more efficiently by using <i>ServerQuery</i> scripts than you can by using a user interface.<br>
+	This manual describes the general <i>ServerQuery</i> usage and syntax and provides examples for all commands available on a <i>TeamSpeak 3 Server</i> running version &gt;= <b>3.0.5</b>.</p>
+	<h2 id="how_to_establish_a_serverquery_connection">How to establish a ServerQuery connection</h2>
+	<p>Connecting to a <i>ServerQuery</i> interface can be done by using a character-mode terminal client such as <i>Telnet</i> or <i>PuTTY</i>. Basically, a <i>ServerQuery</i> client is acting like a real client, except it's unable to send or receive voice data.<br>
+	Per default, the <i>TeamSpeak 3 Server</i> is waiting for incoming <i>ServerQuery</i> connections on port <i>10011</i> (TCP). On success, the server should welcome you with a TS3 prompt.</p>
+</div>
+<div class="section">
+	<h1 id="command_syntax">Command Syntax</h1>
+	<p>
+		This section describes the syntax of all <i>ServerQuery</i> commands.
+	</p>
+	<h2 id="summary_of_command_syntax">
+		Summary of Command Syntax
+	</h2>
+	<p>
+		<i>ServerQuery</i> commands follow the general syntax of:
+		<p class="function_syntax">
+			command [parameter...] [option...]
+		</p>
+		The command is a single word which may contain lowercase letters, digits and underscore symbols (a-z 0-9 _) followed by a whitespace. A parameter block is made up of one or more key-value pairs separated by a whitespace. In addition, various commands support options which are specified with a leading minus. For example:
+		<p class="function_example_input">
+			command key1=value1 key2=value2 -option1 -option2
+		</p>
+		The pipe symbol (|) is also used to separate list items (e.g. multiple clients in a virtual servers <code>clientlist</code>).
+	</p>
+	<h2 id="examples_of_command_syntax">
+		Examples of Command Syntax
+	</h2>
+	<p>
+		The following provides some common <i>ServerQuery</i> syntax examples:
+		<p class="function_example_input">
+			serverlist<br>
+			clientlist -uid -away -groups<br>
+			clientdbfind pattern=ScP<br>
+			clientdbfind pattern=FPMPSC6MXqXq751dX7BKV0JniSo= -uid<br>
+			clientkick reasonid=5 reasonmsg=Go\saway! clid=1|clid=2|clid=3<br>
+			channelmove cid=16 cpid=1 order=0<br>
+			sendtextmessage targetmode=2 target=12 msg=Hello\sWorld!<br>
+		</p>
+	</p>
+</div>
+<div class="section">
+	<h1 id="escaping">Escaping</h1>
+	<p>
+		You cannot use whitespaces or any special characters in parameters.
+		Instead, the <i>TeamSpeak 3 Server</i> supports the use of escape patterns which can be used to insert newlines, tabs or other special characters into a parameter string.
+		The same escape patterns are used to clean up the servers output and prevent parsing issues.<br>
+		Here's an example on how to escape a parameter string correctly.<br>
+		<p class="example_heading">Right:</p>
+		<code>serveredit virtualserver_name=TeamSpeak\s]\p[\sServer</code><br>
+
+		<p class="example_heading">Wrong:</p>
+		<code>serveredit virtualserver_name=TeamSpeak ]|[ Server</code><br><br>
+		The following characters need to be escaped if they are to be used:<br>
+
+		<table cols="5" class="escaping">
+<th>name</th>
+<th>char</th>
+<th>ascii</th>
+<th>replace char</th>
+<th>replace ascii</th>
+<tr>
+<td>Backslash</td>
+<td>\</td>
+<td>92</td>
+<td>\\</td>
+<td>92 92</td>
+</tr>
+<tr>
+<td>Slash</td>
+<td>/</td>
+<td>47</td>
+<td>\/</td>
+<td>92 47</td>
+</tr>
+<tr>
+<td>Whitespace</td>
+<td>" "</td>
+<td>32</td>
+<td>\s</td>
+<td>92 115</td>
+</tr>
+<tr>
+<td>Pipe</td>
+<td>|</td>
+<td>124</td>
+<td>\p</td>
+<td>92 112</td>
+</tr>
+<tr>
+<td>Bell</td>
+<td>\a</td>
+<td>7</td>
+<td>\a</td>
+<td>92 97</td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td>\b</td>
+<td>8</td>
+<td>\b</td>
+<td>92 98</td>
+</tr>
+<tr>
+<td>Formfeed</td>
+<td>\f</td>
+<td>12</td>
+<td>\f</td>
+<td>92 102</td>
+</tr>
+<tr>
+<td>Newline</td>
+<td>\n</td>
+<td>10</td>
+<td>\n</td>
+<td>92 110</td>
+</tr>
+<tr>
+<td>Carriage Return</td>
+<td>\r</td>
+<td>13</td>
+<td>\r</td>
+<td>92 114</td>
+</tr>
+<tr>
+<td>Horizontal Tab</td>
+<td>\t</td>
+<td>9</td>
+<td>\t</td>
+<td>92 116</td>
+</tr>
+<tr>
+<td>Vertical Tab</td>
+<td>\v</td>
+<td>11</td>
+<td>\v</td>
+<td>92 118</td>
+</tr>
+</table>
+	</p>
+
+</div>
+<div class="section">
+	<h1 id="whitelisting_and_blacklisting">Whitelisting and Blacklisting</h1>
+	<p>
+		The <i>TeamSpeak 3 Server</i> includes flood protection technology for the <i>ServerQuery</i> interface which means that a <i>ServerQuery</i> client can only execute a finite number of commands per time unit. 
+		These limits are controlled by the following server instance properties:<br>
+		<ul>
+<li><code>SERVERINSTANCE_SERVERQUERY_FLOOD_COMMANDS</code></li>
+<li><code>SERVERINSTANCE_SERVERQUERY_FLOOD_TIME</code></li>
+</ul>
+		Per default, the <i>TeamSpeak 3 Server</i> will not allow more than 10 commands within 3 seconds from the same source. You can use the following command to modify these settings:<br>
+		<code>instanceedit serverinstance_serverquery_flood_commands=10 serverinstance_serverquery_flood_time=3</code><br>
+		If you're using automated scripts or web applications to manage your servers, it's most likely possible that you'll exceed those limits. Therefore, the <i>TeamSpeak 3 Server</i> provides whitelisting and blacklisting features for the <i>ServerQuery</i> interface.
+	</p>
+	<h2 id="how_to_use_the_whitelist">How to Use the Whitelist</h2>
+	<p>
+		The whitelist is a list of approved hosts that are allowed to ignore the flood protection settings on a <i>TeamSpeak 3 Server</i>. 
+		For example, if you're using a web administration interface, we strongly recommend that you add the IP address of your web server to the whitelist file. 
+		In a new installation of the <i>TeamSpeak 3 Server</i>, this file is called <i>query_ip_whitelist.txt</i> and it contains the loopback IP address of your server (127.0.0.1). 
+		You can enter an infinite number of IP addresses to the whitelist, one IP address per line.<br><br>
+		<code>85.25.120.233<br>
+		80.190.225.233<br>
+		75.125.142.2<br>
+		194.97.114.2<br>
+		79.218.0.0/16<br>
+		127.0.0.1</code><br><br>
+		The <i>TeamSpeak 3 Server</i> also supports <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a> (CIDR) notation so you can easily add an entire network to your whitelists. 
+		CIDR notation uses a syntax of specifying IP addresses using the base address of the network followed by a slash and the size of the routing prefix, e.g., 192.168.0.0/16 (IPv4) and 2001:db8::/32 (IPv6).
+	</p>
+	<h2 id="how_to_use_the_blacklist">How to Use the Blacklist</h2>
+	<p>
+		The blacklist is a list of hosts that, for one reason or another, are being denied access to the <i>ServerQuery</i> interface. In a new installation of the <i>TeamSpeak 3 Server</i>, this file is called <i>query_ip_blacklist.txt</i> and is empty. The syntax of this file is equal to the whitelist, e.g. 0.0.0.0/0 will refuse all incoming connections.
+	</p>
+</div>
+<div class="section">
+	<h1 id="command_reference">Command Reference</h1>
+	<p>This is a list of the commands available when using the <i>TeamSpeak 3 ServerQuery</i> interface.</p>
+	<div class="function_div">
+<p class="function_name" id="help">help</p>
+<p class="function_desc">Provides information about <i>ServerQuery</i> commands. Used without parameters, <code>help</code> lists and briefly describes every command.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_help_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">help [{command}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">help serverinfo</p>
+<p class="function_example_output">Usage: serverinfo
+
+Displays detailed configuration information about a virtual server including ID, number of clients online, configuration, etc.
+
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="quit">quit</p>
+<p class="function_desc">Closes the <i>ServerQuery</i> connection to the <i>TeamSpeak 3 Server instance</i>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">quit</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">quit</p>
+<p class="function_example_output"></p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="login">login</p>
+<p class="function_desc">Authenticates with the <i>TeamSpeak 3 Server</i> instance using given <i>ServerQuery</i> login credentials.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverquery_login<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">login client_login_name={username} client_login_password={password}
+login {username} {password}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">login client_login_name=xyz client_login_password=xyz</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="logout">logout</p>
+<p class="function_desc">Deselects the active virtual server and logs out from the server instance.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverquery_login<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">logout</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">logout</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="version">version</p>
+<p class="function_desc">Displays the servers version information including platform and build number.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_version_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">version</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">version</p>
+<p class="function_example_output">version=3.0.0-alpha4 build=9155 platform=Linux
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="hostinfo">hostinfo</p>
+<p class="function_desc">Displays detailed connection information about the server instance including uptime, number of virtual servers online, traffic information, etc.
+
+For detailed information, see <a href="#server_instance_properties">Server Instance Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_info_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">hostinfo</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">hostinfo</p>
+<p class="function_example_output">instance_uptime=1903203 host_timestamp_utc=1259337246 virtualservers_running_total=1 connection_filetransfer_bandwidth_sent=0 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="instanceinfo">instanceinfo</p>
+<p class="function_desc">Displays the server instance configuration including database revision number, the file transfer port, default group IDs, etc.
+For detailed information, see <a href="#server_instance_properties">Server Instance Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_info_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">instanceinfo</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">instanceinfo</p>
+<p class="function_example_output">serverinstance_database_version=11 serverinstance_filetransfer_port=30033 serverinstance_template_guest_serverquery_group=1 serverinstance_template_serveradmin_group=3 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="instanceedit">instanceedit</p>
+<p class="function_desc">Changes the server instance configuration using given properties.
+For detailed information, see <a href="#server_instance_properties">Server Instance Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_modify_settings<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">instanceedit [instance_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">instanceedit serverinstance_filetransfer_port=1337</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="bindinglist">bindinglist</p>
+<p class="function_desc">Displays a list of IP addresses used by the server instance on multi-homed machines. If no subsystem is specified, "voice" is used by default.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_binding_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">bindinglist [subsystem={voice|query|filetransfer}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">bindinglist</p>
+<p class="function_example_output">ip=0.0.0.0|ip=0::0
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="use">use</p>
+<p class="function_desc">Selects the virtual server specified with <code>sid</code> or <code>port</code> to allow further interaction. The <i>ServerQuery</i> client will appear on the virtual server and acts like a real <i>TeamSpeak 3 Client</i>, except it's unable to send or receive voice data.
+If your database contains multiple virtual servers using the same UDP port, <code>use</code> will select a random virtual server using the specified <code>port</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_select<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">use [sid={serverID}] [port={serverPort}] [-virtual]
+use {serverID} [-virtual]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">use sid=1</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serverlist">serverlist</p>
+<p class="function_desc">Displays a list of virtual servers including their ID, status, number of clients online, etc. If you're using the <code>-all</code> option, the server will list all virtual servers stored in the database. This can be useful when multiple server instances with different machine IDs are using the same database. The machine ID is used to identify the server instance a virtual server is associated with.
+The status of a virtual server can be either <code>online, offline, booting up, shutting down</code> or <code>virtual online</code>. While most of them are self-explanatory, <code>virtual online</code> is a bit more complicated.
+Whenever you select a virtual server which is currently stopped with the <code>-virtual</code> parameter, it will be started in virtual mode which means you are able to change its configuration, create channels or change permissions, but no regular <i>TeamSpeak 3 Client</i> can connect. As soon as the last <i>ServerQuery</i> client deselects the virtual server, its status will be changed back to <code>offline</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_virtualserver_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serverlist [-uid] [-short] [-all] [-onlyoffline]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serverlist</p>
+<p class="function_example_output">virtualserver_id=1 virtualserver_port=9987 virtualserver_status=online virtualserver_clientsonline=6 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serveridgetbyport">serveridgetbyport</p>
+<p class="function_desc">Displays the database ID of the virtual server running on the UDP port specified by <code>virtualserver_port</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_virtualserver_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serveridgetbyport virtualserver_port={serverPort}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serveridgetbyport virtualserver_port=9987</p>
+<p class="function_example_output">server_id=1
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serverdelete">serverdelete</p>
+<p class="function_desc">Deletes the virtual server specified with <code>sid</code>. Please note that only virtual servers in stopped state can be deleted.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_delete<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serverdelete sid={serverID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serverdelete sid=1</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servercreate">servercreate</p>
+<p class="function_desc">Creates a new virtual server using the given properties and displays its ID, port and initial administrator privilege key. If <code>virtualserver_port</code> is not specified, the server will test for the first unused UDP port.
+The first virtual server will be running on UDP port 9987 by default. Subsequently started virtual servers will be running on increasing UDP port numbers.
+For detailed information, see <a href="#virtual_server_properties">Virtual Server Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_create<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servercreate virtualserver_name={serverName} [virtualserver_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servercreate virtualserver_name=TeamSpeak\s]\p[\sServer virtualserver_port=9988 virtualserver_maxclients=32</p>
+<p class="function_example_output">sid=2 virtualserver_port=9988 token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serverstart">serverstart</p>
+<p class="function_desc">Starts the virtual server specified with <code>sid</code>. Depending on your permissions, you're able to start either your own virtual server only or all virtual servers in the server instance.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_start_any<br>b_virtualserver_start<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serverstart sid={serverID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serverstart sid=1</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serverstop">serverstop</p>
+<p class="function_desc">Stops the virtual server specified with <code>sid</code>. Depending on your permissions, you're able to stop either your own virtual server only or all virtual servers in the server instance.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_stop_any<br>b_virtualserver_stop<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serverstop sid={serverID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serverstop sid=1</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serverprocessstop">serverprocessstop</p>
+<p class="function_desc">Stops the entire <i>TeamSpeak 3 Server</i> instance by shutting down the process.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_stop<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serverprocessstop</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serverprocessstop</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serverinfo">serverinfo</p>
+<p class="function_desc">Displays detailed configuration information about the selected virtual server including unique ID, number of clients online, configuration, etc.
+For detailed information, see <a href="#virtual_server_properties">Virtual Server Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_info_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serverinfo</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serverinfo</p>
+<p class="function_example_output">virtualserver_port=9987 virtualserver_unique_identifier=zrPkjznB1tMnRwj01xx7RxXjqeY= virtualserver_name=TeamSpeak\s]I[\sServer …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serverrequestconnectioninfo">serverrequestconnectioninfo</p>
+<p class="function_desc">Displays detailed connection information about the selected virtual server including uptime, traffic information, etc.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_connectioninfo_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serverrequestconnectioninfo</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serverrequestconnectioninfo</p>
+<p class="function_example_output">connection_filetransfer_bandwidth_sent=0 connection_filetransfer_bandwidth_received=0 connection_packets_sent_total=241454 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servertemppasswordadd">servertemppasswordadd</p>
+<p class="function_desc">Sets a new temporary server password specified with <code>pw</code>. The temporary password will be valid for the number of seconds specified with duration. The client connecting with this password will automatically join the channel specified with <code>tcid</code>. If <code>tcid</code> is set to 0, the client will join the default channel.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_modify_password<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servertemppasswordadd pw={password} desc={description} duration={seconds} tcid={channelID} tcpw={channelPW}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servertemppasswordadd pw=secret desc=none duration=3600 tcid=117535 tcpw=secret</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servertemppassworddel">servertemppassworddel</p>
+<p class="function_desc">Deletes the temporary server password specified with <code>pw</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_modify_password<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servertemppassworddel pw={password}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servertemppassworddel pw=secret</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servertemppasswordlist">servertemppasswordlist</p>
+<p class="function_desc">Returns a list of active temporary server passwords. The output contains the clear-text password, the nickname and unique identifier of the creating client.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_modify_password<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servertemppasswordlist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servertemppasswordlist</p>
+<p class="function_example_output">nickname=serveradmin uid=serveradmin desc=none pw_clear=secret start=1331496494 end=1331500094 tcid=117535
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serveredit">serveredit</p>
+<p class="function_desc">Changes the selected virtual servers configuration using given properties.  Note that this command accepts multiple properties which means that you're able to change all settings of the selected virtual server at once.
+For detailed information, see <a href="#virtual_server_properties">Virtual Server Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_modify_name<br>b_virtualserver_modify_welcomemessage<br>b_virtualserver_modify_maxclients<br>b_virtualserver_modify_reserved_slots<br>b_virtualserver_modify_password<br>b_virtualserver_modify_default_servergroup<br>b_virtualserver_modify_default_channelgroup<br>b_virtualserver_modify_default_channeladmingroup<br>b_virtualserver_modify_ft_settings<br>b_virtualserver_modify_ft_quotas<br>b_virtualserver_modify_channel_forced_silence<br>b_virtualserver_modify_complain<br>b_virtualserver_modify_antiflood<br>b_virtualserver_modify_hostmessage<br>b_virtualserver_modify_hostbanner<br>b_virtualserver_modify_hostbutton<br>b_virtualserver_modify_port<br>b_virtualserver_modify_autostart<br>b_virtualserver_modify_needed_identity_security_level<br>b_virtualserver_modify_priority_speaker_dimm_modificator<br>b_virtualserver_modify_log_settings<br>b_virtualserver_modify_icon_id<br>b_virtualserver_modify_weblist<br>b_virtualserver_modify_min_client_version<br>b_virtualserver_modify_codec_encryption_mode<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serveredit [virtualserver_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serveredit virtualserver_name=TeamSpeak\s]\p[\sServer virtualserver_maxclients=32</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergrouplist">servergrouplist</p>
+<p class="function_desc">Displays a list of server groups available. Depending on your permissions, the output may also contain global <i>ServerQuery</i> groups and template groups.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_modify_querygroup<br>b_serverinstance_modify_templates<br>b_virtualserver_servergroup_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergrouplist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergrouplist</p>
+<p class="function_example_output">sgid=9 name=Server\sAdmin type=1 iconid=300 savedb=1|sgid=10 name=Normal type=1 iconid=0 savedb=1|sgid=11 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupadd">servergroupadd</p>
+<p class="function_desc">Creates a new server group using the name specified with name and displays its ID. The optional type parameter can be used to create <i>ServerQuery</i> groups and template groups. For detailed information, see <a href="#definitions">Definitions</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_servergroup_create<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupadd name={groupName} [type={groupDbType}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupadd name=Server\sAdmin</p>
+<p class="function_example_output">sgid=13
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupdel">servergroupdel</p>
+<p class="function_desc">Deletes the server group specified with <code>sgid</code>. If <code>force</code> is set to <i>1</i>, the server group will be deleted even if there are clients within.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_servergroup_delete<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupdel sgid={groupID} force={1|0}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupdel sgid=13</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupcopy">servergroupcopy</p>
+<p class="function_desc">Creates a copy of the server group specified with <code>ssgid</code>. If <code>tsgid</code> is set to <i>0</i>, the server will create a new group. To overwrite an existing group, simply set <code>tsgid</code> to the ID of a designated target group. If a target group is set, the <code>name</code> parameter will be ignored.
+The <code>type</code> parameter can be used to create <i>ServerQuery</i> groups and template groups. For detailed information, see <a href="#definitions">Definitions</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_servergroup_create<br>i_group_modify_power<br>i_group_needed_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupcopy ssgid={sourceGroupID} tsgid={targetGroupID} name={groupName} type={groupDbType}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupcopy ssgid=6 tsgid=0 name=My\sGroup\s(Copy) type=1</p>
+<p class="function_example_output">sgid=21
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergrouprename">servergrouprename</p>
+<p class="function_desc">Changes the name of the server group specified with <code>sgid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergrouprename sgid={groupID} name={groupName}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergrouprename sgid=13 name=New\sName</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergrouppermlist">servergrouppermlist</p>
+<p class="function_desc">Displays a list of permissions assigned to the server group specified with <code>sgid</code>. If the <code>-permsid</code> option is specified, the output will contain the permission names instead of the internal IDs.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_servergroup_permission_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergrouppermlist sgid={groupID} [-permsid]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergrouppermlist sgid=13</p>
+<p class="function_example_output">permid=8470 permvalue=1 permnegated=0 permskip=0|permid=8475 permvalue=1 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupaddperm">servergroupaddperm</p>
+<p class="function_desc">Adds a set of specified permissions to the server group specified with <code>sgid</code>. Multiple permissions can be added by providing the four parameters of each permission. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupaddperm sgid={groupID} [permid={permID}…] [permsid={permName}…] permvalue={permValue}… permnegated={1|0}… permskip={1|0}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupaddperm sgid=13 permid=17276 permvalue=50 permnegated=0 permskip=0|permid=21415 permvalue=20 permnegated=0</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input">servergroupaddperm sgid=3 permsid=b_virtualserver_modify_maxclients permvalue=1 permnegated=0 permskip=0</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupdelperm">servergroupdelperm</p>
+<p class="function_desc">Removes a set of specified permissions from the server group specified with <code>sgid</code>. Multiple permissions can be removed at once. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupdelperm sgid={groupID} [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupdelperm sgid=16 permid=17276|permid=21415</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input">servergroupdelperm sgid=3 permsid=b_virtualserver_modify_maxclients</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupaddclient">servergroupaddclient</p>
+<p class="function_desc">Adds a client to the server group specified with <code>sgid</code>. Please note that a client cannot be added to default groups or template groups.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_member_add_power<br>i_group_needed_member_add_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupaddclient sgid={groupID} cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupaddclient sgid=16 cldbid=3</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupdelclient">servergroupdelclient</p>
+<p class="function_desc">Removes a client specified with <code>cldbid</code> from the server group specified with <code>sgid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_member_remove_power<br>i_group_needed_member_remove_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupdelclient sgid={groupID} cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupdelclient sgid=16 cldbid=3</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupclientlist">servergroupclientlist</p>
+<p class="function_desc">Displays the IDs of all clients currently residing in the server group specified with <code>sgid</code>. If you're using the optional <code>-names</code> option, the output will also contain the last known nickname and the unique identifier of the clients.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_servergroup_client_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupclientlist sgid={groupID} [-names]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupclientlist sgid=16</p>
+<p class="function_example_output">cldbid=7|cldbid=8|cldbid=9|cldbid=11|cldbid=13|cldbid=16|cldbid=18|cldbid=29|cldbid=32|cldbid=34|cldbid=37|cldbid=40|cldbid=47|cldbid=53
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupsbyclientid">servergroupsbyclientid</p>
+<p class="function_desc">Displays all server groups the client specified with <code>cldbid</code> is currently residing in.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupsbyclientid cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupsbyclientid cldbid=18</p>
+<p class="function_example_output">name=Server\sAdmin sgid=6 cldbid=18
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupautoaddperm">servergroupautoaddperm</p>
+<p class="function_desc">Adds a set of specified permissions to <b>*ALL*</b> regular server groups on all virtual servers. The target groups will be identified by the value of their <code>i_group_auto_update_type</code> permission specified with <code>sgtype</code>. Multiple permissions can be added at once. A permission can be specified by <code>permid</code> or <code>permsid</code>.
+
+The known values for <code>sgtype</code> are:
+
+<b>10</b>: Channel Guest
+<b>15</b>: Server Guest
+<b>20</b>: Query Guest
+<b>25</b>: Channel Voice
+<b>30</b>: Server Normal
+<b>35</b>: Channel Operator
+<b>40</b>: Channel Admin
+<b>45</b>: Server Admin
+<b>50</b>: Query Admin</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_permission_modify_power_ignore<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupautoaddperm sgtype={groupID} [permid={permID}…] [permsid={permName}…] permvalue={permValue}… permnegated={1|0}… permskip={1|0}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupautoaddperm sgtype=45 permsid=b_virtualserver_start permvalue=1 permskip=0 permnegated=0</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servergroupautodelperm">servergroupautodelperm</p>
+<p class="function_desc">Removes a set of specified permissions from <b>*ALL*</b> regular server groups on all virtual servers. The target groups will be identified by the value of their <code>i_group_auto_update_type</code> permission specified with <code>sgtype</code>. Multiple permissions can be removed at once. A permission can be specified by <code>permid</code> or <code>permsid</code>.
+
+The known values for <code>sgtype</code> are:
+
+<b>10</b>: Channel Guest
+<b>15</b>: Server Guest
+<b>20</b>: Query Guest
+<b>25</b>: Channel Voice
+<b>30</b>: Server Normal
+<b>35</b>: Channel Operator
+<b>40</b>: Channel Admin
+<b>45</b>: Server Admin
+<b>50</b>: Query Admin</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_permission_modify_power_ignore<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servergroupautodelperm sgtype={groupID} [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servergroupautodelperm sgtype=45 permsid=b_virtualserver_start</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serversnapshotcreate">serversnapshotcreate</p>
+<p class="function_desc">Displays a snapshot of the selected virtual server containing all settings, groups and known client identities. The data from a server snapshot can be used to restore a virtual servers configuration, channels and permissions using the <code>serversnapshotdeploy</code> command.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_snapshot_create<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serversnapshotcreate</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serversnapshotcreate</p>
+<p class="function_example_output">hash=bnTd2E1kNITHjJYRCFjgbKKO5P8=|virtualserver_unique_identifier=zrPkjznB1tMnRwj01xx7RxXjqeY= virtualserver_name=TeamSpeak\s]I[\sServer …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="serversnapshotdeploy">serversnapshotdeploy</p>
+<p class="function_desc">Restores the selected virtual servers configuration using the data from a previously created server snapshot. Please note that the <i>TeamSpeak 3 Server</i> does <b>NOT</b> check for necessary permissions while deploying a snapshot so the command could be abused to gain additional privileges.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_snapshot_deploy<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">serversnapshotdeploy [-mapping] virtualserver_snapshot</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">serversnapshotdeploy hash=bnTd2E1kNITHjJYRCFjgbKKO5P8=|virtualserver_unique_identifier=zrPkjznB1tMnRwj01xx7RxXjq= …</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input">serversnapshotdeploy -mapping hash=bnTd2E1kNITHjJYRCFjgbKKO5P8=|virtualserver_…</p>
+<p class="function_example_output">ocid=36 ncid=40|ocid=37 ncid=41|ocid=38 ncid=42|ocid=39 ncid=43
+error id=0 msg=ok</p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servernotifyregister">servernotifyregister</p>
+<p class="function_desc">Registers for a specified category of events on a virtual server to receive notification messages. Depending on the notifications you've registered for, the server will send you a message on every event in the view of your <i>ServerQuery</i> client (e.g. clients joining your channel, incoming text messages, server configuration changes, etc). The event source is declared by the <code>event</code> parameter while <code>id</code> can be used to limit the notifications to a specific channel.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_notify_register<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servernotifyregister event={server|channel|textserver|textchannel|textprivate} [id={channelID}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servernotifyregister event=server</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input">servernotifyregister event=channel id=123</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="servernotifyunregister">servernotifyunregister</p>
+<p class="function_desc">Unregisters all events previously registered with <code>servernotifyregister</code> so you will no longer receive notification messages.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_notify_unregister<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">servernotifyunregister</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">servernotifyunregister</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="sendtextmessage">sendtextmessage</p>
+<p class="function_desc">Sends a text message to a specified target. If <code>targetmode</code> is set to <code>1</code>, a message is sent to the client with the ID specified by <code>target</code>. If <code>targetmode</code> is set to <code>2</code> or <code>3</code>, the <code>target</code> parameter will be ignored and a message is sent to the current channel or server respectively.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_client_private_textmessage_power<br>i_client_needed_private_textmessage_power<br>b_client_server_textmessage_send<br>b_client_channel_textmessage_send<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">sendtextmessage targetmode={1-3} target={clientID} msg={text}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">sendtextmessage targetmode=2 target=1 msg=Hello\sWorld!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="logview">logview</p>
+<p class="function_desc">Displays a specified number of entries from the servers log. If <code>instance</code> is set to <i>1</i>, the server will return lines from the master logfile (<code>ts3server_0.log</code>) instead of the selected virtual server logfile.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_log_view<br>b_virtualserver_log_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">logview [lines={1-100}] [reverse={1|0}] [instance={1|0}] [begin_pos={n}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">logview lines=30</p>
+<p class="function_example_output">last_pos=403788 file_size=411980 l=\p\slistening\son\s0.0.0.0:9987 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="logadd">logadd</p>
+<p class="function_desc">Writes a custom entry into the servers log. Depending on your permissions, you'll be able to add entries into the server instance log and/or your virtual servers log. The <code>loglevel</code> parameter specifies the type of the entry.
+
+For detailed information, see <a href="#definitions">Definitions</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_log_add<br>b_virtualserver_log_add<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">logadd loglevel={1-4} logmsg={text}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">logadd loglevel=4 logmsg=Informational\smessage!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="gm">gm</p>
+<p class="function_desc">Sends a text message to all clients on all virtual servers in the <i>TeamSpeak 3 Server</i> instance.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_textmessage_send<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">gm msg={text}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">gm msg=Hello\sWorld!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channellist">channellist</p>
+<p class="function_desc">Displays a list of channels created on a virtual server including their ID, order, name, etc. The output can be modified using several command options.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channel_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channellist [-topic] [-flags] [-voice] [-limits] [-icon] [-secondsempty]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channellist -topic</p>
+<p class="function_example_output">cid=15 pid=0 channel_order=0 channel_name=Default\sChannel channel_topic=Default\sChannel\shas\sno\s[b]topic[\/b] total_clients=2|cid=16 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelinfo">channelinfo</p>
+<p class="function_desc">Displays detailed configuration information about a channel including ID, topic, description, etc.
+For detailed information, see <a href="#channel_properties">Channel Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_channel_info_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelinfo cid={channelID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelinfo cid=1</p>
+<p class="function_example_output">channel_name=Default\sChannel channel_topic=Default\sChannel\shas\sno\s[b]topic[\/b] channel_description=This\sis\sthe\sdefault\schannel …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelfind">channelfind</p>
+<p class="function_desc">Displays a list of channels matching a given name pattern.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channel_search<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelfind pattern={channelName}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelfind pattern=default</p>
+<p class="function_example_output">cid=15 channel_name=Default\sChannel
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelmove">channelmove</p>
+<p class="function_desc">Moves a channel to a new parent channel with the ID <code>cpid</code>. If order is specified, the channel will be sorted right under the channel with the specified ID. If <code>order</code> is set to <i>0</i>, the channel will be sorted right below the new parent.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_channel_min_depth<br>i_channel_max_depth<br>b_channel_modify_parent<br>b_channel_modify_sortorder<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelmove cid={channelID} cpid={channelParentID} [order={channelSortOrder}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelmove cid=16 cpid=1 order=0</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelcreate">channelcreate</p>
+<p class="function_desc">Creates a new channel using the given properties and displays its ID. Note that this command accepts multiple properties which means that you're able to specifiy all settings of the new channel at once.
+For detailed information, see <a href="#channel_properties">Channel Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_channel_min_depth<br>i_channel_max_depth<br>b_channel_create_child<br>b_channel_create_permanent<br>b_channel_create_semi_permanent<br>b_channel_create_temporary<br>b_channel_create_with_topic<br>b_channel_create_with_description<br>b_channel_create_with_password<br>b_channel_create_modify_with_codec_speex8<br>b_channel_create_modify_with_codec_speex16<br>b_channel_create_modify_with_codec_speex32<br>b_channel_create_modify_with_codec_celtmono48<br>i_channel_create_modify_with_codec_maxquality<br>i_channel_create_modify_with_codec_latency_factor_min<br>b_channel_create_with_maxclients<br>b_channel_create_with_maxfamilyclients<br>b_channel_create_with_sortorder<br>b_channel_create_with_default<br>b_channel_create_with_needed_talk_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelcreate channel_name={channelName} [channel_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelcreate channel_name=My\sChannel channel_topic=My\sTopic</p>
+<p class="function_example_output">cid=16
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channeldelete">channeldelete</p>
+<p class="function_desc">Deletes an existing channel by ID. If <code>force</code> is set to <i>1</i>, the channel will be deleted even if there are clients within. The clients will be kicked to the default channel with an appropriate reason message.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_channel_delete_permanent<br>b_channel_delete_semi_permanent<br>b_channel_delete_temporary<br>b_channel_delete_flag_force<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channeldelete cid={channelID} force={1|0}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channeldelete cid=16 force=1</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channeledit">channeledit</p>
+<p class="function_desc">Changes a channels configuration using given properties. Note that this command accepts multiple properties which means that you're able to change all settings of the channel specified with <code>cid</code> at once.
+For detailed information, see <a href="#channel_properties">Channel Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_channel_min_depth<br>i_channel_max_depth<br>b_channel_modify_parent<br>b_channel_modify_make_default<br>b_channel_modify_make_permanent<br>b_channel_modify_make_semi_permanent<br>b_channel_modify_make_temporary<br>b_channel_modify_name<br>b_channel_modify_topic<br>b_channel_modify_description<br>b_channel_modify_password<br>b_channel_modify_codec<br>b_channel_create_modify_with_codec_speex8<br>b_channel_create_modify_with_codec_speex16<br>b_channel_create_modify_with_codec_speex32<br>b_channel_create_modify_with_codec_celtmono48<br>b_channel_modify_codec_quality<br>b_channel_create_modify_with_codec_maxquality<br>b_channel_modify_codec_latency_factor<br>b_channel_modify_make_codec_encrypted<br>b_channel_modify_maxclients<br>b_channel_modify_maxfamilyclients<br>b_channel_modify_sortorder<br>b_channel_modify_needed_talk_power<br>i_channel_modify_power<br>i_channel_needed_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channeledit cid={channelID} [channel_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channeledit cid=15 channel_codec_quality=3 channel_description=My\sDescription</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgrouplist">channelgrouplist</p>
+<p class="function_desc">Displays a list of channel groups available on the selected virtual server.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channelgroup_list<br>b_serverinstance_modify_templates<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgrouplist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgrouplist</p>
+<p class="function_example_output">cgid=1 name=Channel\sAdmin type=2 iconid=100 savedb=1|cgid=2 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgroupadd">channelgroupadd</p>
+<p class="function_desc">Creates a new channel group using a given name and displays its ID. The optional <code>type</code> parameter can be used to create template groups.
+For detailed information, see <a href="#definitions">Definitions</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channelgroup_create<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgroupadd name={groupName} [type={groupDbType}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgroupadd name=Channel\sAdmin</p>
+<p class="function_example_output">cgid=13
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgroupdel">channelgroupdel</p>
+<p class="function_desc">Deletes a channel group by ID. If <code>force</code> is set to <i>1</i>, the channel group will be deleted even if there are clients within.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channelgroup_delete<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgroupdel cgid={groupID} force={1|0}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgroupdel cgid=13</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgroupcopy">channelgroupcopy</p>
+<p class="function_desc">Creates a copy of the channel group specified with <code>scgid</code>. If <code>tcgid</code> is set to <i>0</i>, the server will create a new group. To overwrite an existing group, simply set <code>tcgid</code> to the ID of a designated target group. If a target group is set, the <code>name</code> parameter will be ignored. The <code>type</code> parameter can be used to create template groups.
+For detailed information, see <a href="#definitions">Definitions</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channelgroup_create<br>i_group_modify_power<br>i_group_needed_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgroupcopy scgid={sourceGroupID} tsgid={targetGroupID} name={groupName} type={groupDbType}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgroupcopy scgid=4 tcgid=0 name=My\sGroup\s(Copy) type=1</p>
+<p class="function_example_output">cgid=33
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgrouprename">channelgrouprename</p>
+<p class="function_desc">Changes the name of a specified channel group.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgrouprename cgid={groupID} name={groupName}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgrouprename cgid=13 name=New\sName</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgroupaddperm">channelgroupaddperm</p>
+<p class="function_desc">Adds a set of specified permissions to a channel group. Multiple permissions can be added by providing the two parameters of each permission. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgroupaddperm cgid={groupID} [permid={permID}…] [permsid={permName}…] permvalue={permValue}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgroupaddperm cgid=13 permid=17276 permvalue=50|permid=21415 permvalue=20</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgrouppermlist">channelgrouppermlist</p>
+<p class="function_desc">Displays a list of permissions assigned to the channel group specified with <code>cgid</code>. If the <code>-permsid</code> option is specified, the output will contain the permission names instead of the internal IDs.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channelgroup_permission_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgrouppermlist cgid={groupID} [-permsid]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgrouppermlist cgid=13</p>
+<p class="function_example_output">permid=8470 permvalue=1 permnegated=0 permskip=0|permid=8475 permvalue=1 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgroupdelperm">channelgroupdelperm</p>
+<p class="function_desc">Removes a set of specified permissions from the channel group. Multiple permissions can be removed at once. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgroupdelperm cgid={groupID} [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgroupdelperm cgid=16 permid=17276|permid=21415</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelgroupclientlist">channelgroupclientlist</p>
+<p class="function_desc">Displays all the client and/or channel IDs currently assigned to channel groups. All three parameters are optional so you're free to choose the most suitable combination for your requirements.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channelgroup_client_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelgroupclientlist [cid={channelID}] [cldbid={clientDBID}] [cgid={groupID}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelgroupclientlist cid=2 cgid=9</p>
+<p class="function_example_output">cid=2 cldbid=9 cgid=9|cid=2 cldbid=24 cgid=9|cid=2 cldbid=47 cgid=9
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="setclientchannelgroup">setclientchannelgroup</p>
+<p class="function_desc">Sets the channel group of a client to the ID specified with <code>cgid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_member_add_power<br>i_group_needed_member_add_power<br>i_group_member_remove_power<br>i_group_needed_member_remove_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">setclientchannelgroup cgid={groupID} cid={channelID} cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">setclientchannelgroup cgid=13 cid=15 cldbid=20</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+    <div class="function_div">
+<p class="function_name" id="tokenadd">tokenadd</p>
+<p class="function_desc">Alias for privilegekeyadd.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">tokenadd tokentype={1|0} tokenid1={groupID} tokenid2={channelID} [tokendescription={description}] [tokencustomset={customFieldSet}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">tokenadd tokentype=0 tokenid1=6 tokenid2=0 tokendescription=Test\stoken\swith\scustom\sset tokencustomset=ident=forum_user\svalue=Sven\sPaulsen\pident=forum_id\svalue=123</p>
+<p class="function_example_output">token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+    
+    <div class="function_div">
+<p class="function_name" id="tokendelete">tokendelete</p>
+<p class="function_desc">Alias for privilegekeydelete</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">tokendelete token={tokenKey}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">tokendelete token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+    
+    <div class="function_div">
+<p class="function_name" id="tokenlist">tokenlist</p>
+<p class="function_desc">Alias for privilegekeylist.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">tokenlist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">tokenlist</p>
+<p class="function_example_output">token=88CVUg\/zkujt+y+WfHdko79UcM4R6uyCL6nEfy3B token_type=0 token_id1=9...
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+    <div class="function_div">
+<p class="function_name" id="tokenuse">tokenuse</p>
+<p class="function_desc">Alias for privilegekeyuse.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">tokenuse token={tokenKey}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">tokenuse token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+    
+	<div class="function_div">
+<p class="function_name" id="channelpermlist">channelpermlist</p>
+<p class="function_desc">Displays a list of permissions defined for a channel.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channel_permission_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelpermlist cid={channelID} [-permsid]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelpermlist cid=2</p>
+<p class="function_example_output">cid=2 permid=4353 permvalue=1 permnegated=0 permskip=0|permid=17276 permvalue=50 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channeladdperm">channeladdperm</p>
+<p class="function_desc">Adds a set of specified permissions to a channel. Multiple permissions can be added by providing the two parameters of each permission. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channeladdperm cid={channelID} [permid={permID}…] [permsid={permName}…] permvalue={permValue}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channeladdperm cid=16 permid=17276 permvalue=50|permid=21415 permvalue=20</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channeldelperm">channeldelperm</p>
+<p class="function_desc">Removes a set of specified permissions from a channel. Multiple permissions can be removed at once. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channeldelperm cid=123 [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channeldelperm cid=16 permid=17276|permid=21415</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientlist">clientlist</p>
+<p class="function_desc">Displays a list of clients online on a virtual server including their ID, nickname, status flags, etc. The output can be modified using several command options.
+Please note that the output will only contain clients which are currently in channels you're able to subscribe to.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_client_list<br>i_channel_subscribe_power<br>i_channel_needed_subscribe_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientlist [-uid] [-away] [-voice] [-times] [-groups] [-info] [-country] [-ip] [-badges]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientlist -away</p>
+<p class="function_example_output">clid=5 cid=7 client_database_id=40 client_nickname=ScP client_type=0 client_away=1 client_away_message=not\shere|clid=6 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientinfo">clientinfo</p>
+<p class="function_desc">Displays detailed configuration information about a client including unique ID, nickname, client version, etc.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_info_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientinfo clid={clientID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientinfo clid=6</p>
+<p class="function_example_output">client_unique_identifier=P5H2hrN6+gpQI4n\/dXp3p17vtY0= client_nickname=Rabe85 client_version=3.0.0-alpha24\s[Build:\s8785]\s(UI:\s8785) …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientfind">clientfind</p>
+<p class="function_desc">Displays a list of clients matching a given name pattern.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_client_search<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientfind pattern={clientName}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientfind pattern=sven</p>
+<p class="function_example_output">clid=7 client_nickname=Sven
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientedit">clientedit</p>
+<p class="function_desc">Changes a clients settings using given properties.
+For detailed information, see <a href="#client_properties">Client Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_modify_description<br>b_client_set_talk_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientedit clid={clientID} [client_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientedit clid=10 client_description=Best\sguy\sever!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientdblist">clientdblist</p>
+<p class="function_desc">Displays a list of client identities known by the server including their database ID, last nickname, etc.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_client_dblist<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientdblist [start={offset}] [duration={limit}] [-count]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientdblist</p>
+<p class="function_example_output">cldbid=7 client_unique_identifier=DZhdQU58qyooEK4Fr8Ly738hEmc= client_nickname=MuhChy client_created=1259147468 client_lastconnected=1259421233 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientdbinfo">clientdbinfo</p>
+<p class="function_desc">Displays detailed database information about a client including unique ID, creation date, etc.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_client_dbinfo<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientdbinfo cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientdbinfo cldbid=4</p>
+<p class="function_example_output">client_unique_identifier=FPMPSC6MXqXq751dX7BKV0JniSo= client_nickname=ScP client_created=1265411019 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientdbfind">clientdbfind</p>
+<p class="function_desc">Displays a list of client database IDs matching a given pattern. You can either search for a clients last known nickname or his unique identity by using the <code>-uid</code> option.
+		The pattern parameter can include regular characters and SQL wildcard characters (e.g. %).</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_client_dbsearch<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientdbfind pattern={clientName|clientUID} [-uid]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientdbfind pattern=%Sven%</p>
+<p class="function_example_output">cldbid=56
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientdbedit">clientdbedit</p>
+<p class="function_desc">Changes a clients settings using given properties.
+For detailed information, see <a href="#client_properties">Client Properties</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_modify_dbproperties<br>b_client_modify_description<br>b_client_set_talk_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientdbedit cldbid={clientDBID} [client_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientdbedit cldbid=56 client_description=Best\sguy\sever!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientdbdelete">clientdbdelete</p>
+<p class="function_desc">Deletes a clients properties from the database.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_delete_dbproperties<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientdbdelete cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientdbdelete cldbid=56</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientgetids">clientgetids</p>
+<p class="function_desc">Displays all client IDs matching the unique identifier specified by <code>cluid</code>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientgetids cluid={clientUID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientgetids cluid=dyjxkshZP6bz0n3bnwFQ1CkwZOM=</p>
+<p class="function_example_output">cluid=dyjxkshZP6bz0n3bnwFQ1CkwZOM= clid=1 name=Janko
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientgetdbidfromuid">clientgetdbidfromuid</p>
+<p class="function_desc">Displays the database ID matching the unique identifier specified by <code>cluid</code>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientgetdbidfromuid cluid={clientUID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientgetdbidfromuid cluid=dyjxkshZP6bz0n3bnwFQ1CkwZOM=</p>
+<p class="function_example_output">cluid=dyjxkshZP6bz0n3bnwFQ1CkwZOM= cldbid=32
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientgetnamefromuid">clientgetnamefromuid</p>
+<p class="function_desc">Displays the database ID and nickname matching the unique identifier specified by <code>cluid</code>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientgetnamefromuid cluid={clientUID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientgetnamefromuid cluid=dyjxkshZP6bz0n3bnwFQ1CkwZOM=</p>
+<p class="function_example_output">cluid=dyjxkshZP6bz0n3bnwFQ1CkwZOM= cldbid=32 name=Janko
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+    <div class="function_div">
+<p class="function_name" id="clientgetuidfromclid">clientgetuidfromclid</p>
+<p class="function_desc">Displays the unique identifier matching the clientID specified by <code>clid</code>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientgetuidfromclid clid={clientID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientgetuidfromclid clid=8</p>
+<p class="function_example_output">clid=8 cluid=yXM6PUfbCcPU+joxIFek1xOQwwQ= nickname=MuhChy1
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+    
+	<div class="function_div">
+<p class="function_name" id="clientgetnamefromdbid">clientgetnamefromdbid</p>
+<p class="function_desc">Displays the unique identifier and nickname matching the database ID specified by <code>cldbid</code>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientgetnamefromdbid cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientgetnamefromdbid cldbid=32</p>
+<p class="function_example_output">cluid=dyjxkshZP6bz0n3bnwFQ1CkwZOM= cldbid=32 name=Janko
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientsetserverquerylogin">clientsetserverquerylogin</p>
+<p class="function_desc">Updates your own <i>ServerQuery</i> login credentials using a specified username. The password will be auto-generated.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_create_modify_serverquery_login<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientsetserverquerylogin client_login_name={username}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientsetserverquerylogin client_login_name=admin</p>
+<p class="function_example_output">client_login_password=+r\/TQqvR
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientupdate">clientupdate</p>
+<p class="function_desc">Change your <i>ServerQuery</i> clients settings using given properties.
+For detailed information, see <a href="#client_properties">Client Properties</a>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientupdate [client_properties…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientupdate client_nickname=ScP\s(query)</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientmove">clientmove</p>
+<p class="function_desc">Moves one or more clients specified with <code>clid</code> to the channel with ID <code>cid</code>. If the target channel has a password, it needs to be specified with <code>cpw</code>. If the channel has no password, the parameter can be omitted.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_client_move_power<br>i_client_needed_move_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientmove clid={clientID}… cid={channelID} [cpw={channelPassword}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientmove clid=5|clid=6 cid=3</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientkick">clientkick</p>
+<p class="function_desc">Kicks one or more clients specified with <code>clid</code> from their currently joined channel or from the server, depending on <code>reasonid</code>. The <code>reasonmsg</code> parameter specifies a text message sent to the kicked clients. This parameter is optional and may only have a maximum of 40 characters.
+For detailed information, see <a href="#definitions">Definitions</a>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_client_kick_from_server_power<br>i_client_kick_from_channel_power<br>i_client_needed_kick_from_server_power<br>i_client_needed_kick_from_channel_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientkick clid={clientID}… reasonid={4|5} [reasonmsg={text}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientkick clid=5|clid=6 reasonid=4 reasonmsg=Go\saway!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientpoke">clientpoke</p>
+<p class="function_desc">Sends a poke message to the client specified with <code>clid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_client_poke_power<br>i_client_needed_poke_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientpoke clid={clientID} msg={text}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientpoke clid=5 msg=Wake\sup!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientpermlist">clientpermlist</p>
+<p class="function_desc">Displays a list of permissions defined for a client.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_client_permission_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientpermlist cldbid={clientDBID} [-permsid]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientpermlist cldbid=2</p>
+<p class="function_example_output">cldbid=2 permid=4353 permvalue=1 permnegated=0 permskip=0|permid=17276 permvalue=50 permnegated=0 permskip=0|permid=21415 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientaddperm">clientaddperm</p>
+<p class="function_desc">Adds a set of specified permissions to a client. Multiple permissions can be added by providing the three parameters of each permission. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">clientaddperm cldbid={clientDBID} [permid={permID}…] [permsid={permName}…] permvalue={permValue}… permskip={1|0}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientaddperm cldbid=16 permid=17276 permvalue=50 permskip=1|permid=21415 permvalue=20 permskip=0</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="clientdelperm">clientdelperm</p>
+<p class="function_desc">Removes a set of specified permissions from a client. Multiple permissions can be removed at once. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channeldelperm cldbid={clientDBID} [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">clientdelperm cldbid=16 permid=17276|permid=21415</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelclientpermlist">channelclientpermlist</p>
+<p class="function_desc">Displays a list of permissions defined for a client in a specific channel.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_channelclient_permission_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelclientpermlist cid={channelID} cldbid={clientDBID} [-permsid]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelclientpermlist cid=12 cldbid=3</p>
+<p class="function_example_output">cid=12 cldbid=3 permid=4353 permvalue=1 permnegated=0 permskip=0|permid=17276 permvalue=50 permnegated=0 permskip=0|permid=21415 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelclientaddperm">channelclientaddperm</p>
+<p class="function_desc">Adds a set of specified permissions to a client in a specific channel. Multiple permissions can be added by providing the three parameters of each permission. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelclientaddperm cid={channelID} cldbid={clientDBID} [permid={permID}…] [permsid={permName}…] permvalue={permValue}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelclientaddperm cid=12 cldbid=3 permid=17276 permvalue=50|permid=21415 permvalue=20</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="channelclientdelperm">channelclientdelperm</p>
+<p class="function_desc">Removes a set of specified permissions from a client in a specific channel. Multiple permissions can be removed at once. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_group_modify_power<br>i_group_needed_modify_power<br>i_permission_modify_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">channelclientdelperm cid={channelID} cldbid={clientDBID} [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">channelclientdelperm cid=12 cldbid=3 permid=17276|permid=21415</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="permissionlist">permissionlist</p>
+<p class="function_desc">Displays a list of permissions available on the server instance including ID, name and description.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_permission_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">permissionlist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">permissionlist</p>
+<p class="function_example_output">permid=21413 permname=b_client_channel_textmessage_send permdesc=Send\stext\smessages\sto\schannel|permid=21414 permname=i_client_talk_power …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="permidgetbyname">permidgetbyname</p>
+<p class="function_desc">Displays the database ID of one or more permissions specified by <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_serverinstance_permission_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">permidgetbyname permsid={permName}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">permidgetbyname permsid=b_serverinstance_help_view|permsid=b_serverinstance_info_view</p>
+<p class="function_example_output">permsid=b_serverinstance_help_view permid=4353|permsid=b_serverinstance_info_view permid=4355
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="permoverview">permoverview</p>
+<p class="function_desc">Displays all permissions assigned to a client for the channel specified with <code>cid</code>. If <code>permid</code> is set to <i>0</i>, all permissions will be displayed. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_permissionoverview_view<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">permoverview cid={channelID} cldbid={clientDBID} [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">permoverview cldbid=57 cid=74 permid=0</p>
+<p class="function_example_output">t=0 id1=5 id2=0 p=37 v=1 n=0 s=0|t=0 id1=5 id2=0 p=38 v=1 n=0 s=0 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="permget">permget</p>
+<p class="function_desc">Displays the current value of the permission specified with <code>permid</code> or <code>permsid</code> for your own connection. This can be useful when you need to check your own privileges.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_permissionoverview_own<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">permget permid={permID}|permid={permID}
+permget permsid={permName}|permsid={permName}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">permget permid=21174</p>
+<p class="function_example_output">permsid=i_client_move_power permid=21174 permvalue=100
+error id=0 msg=ok</p>
+<br><p class="function_example_input">permget permsid=i_client_move_power</p>
+<p class="function_example_output">permsid=i_client_move_power permid=21174 permvalue=100
+error id=0 msg=ok</p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="permfind">permfind</p>
+<p class="function_desc">Displays detailed information about all assignments of the permission specified with <code>permid</code>. The output is similar to <code>permoverview</code> which includes the type and the ID of  the client, channel or group associated with the permission. A permission can be specified by <code>permid</code> or <code>permsid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_permission_find<br>b_serverinstance_permission_find <br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">permfind [permid={permID}…] [permsid={permName}…]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">permfind permid=4353</p>
+<p class="function_example_output">t=0 id1=1 id2=0 p=4353|t=0 id1=2 id2=0 p=4353
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="permreset">permreset</p>
+<p class="function_desc">Restores the default permission settings on the selected virtual server and creates a new initial administrator token. Please note that in case of an error during the <code>permreset</code> call - e.g. when the database has been modified or corrupted - the virtual server will be deleted from the database.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_permission_reset<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">permreset</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">permreset</p>
+<p class="function_example_output">token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="privilegekeylist">privilegekeylist</p>
+<p class="function_desc">Displays a list of privilege keys available including their type and group IDs. Tokens can be used to gain access to specified server or channel groups.
+A privilege key is similar to a client with administrator privileges that adds you to a certain permission group, but without the necessity of a such a client with administrator privileges to actually exist. It is a long (random looking) string that can be used as a ticket into a specific server group.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_token_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">privilegekeylist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">privilegekeylist</p>
+<p class="function_example_output">token=88CVUg\/zkujt+y+WfHdko79UcM4R6uyCL6nEfy3B token_type=0 token_id1=9 token_id2=0 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="privilegekeyadd">privilegekeyadd</p>
+<p class="function_desc">Create a new token. If <code>tokentype</code> is set to <i>0</i>, the ID specified with <code>tokenid1</code> will be a server group ID. Otherwise, <code>tokenid1</code> is used as a channel group ID and you need to provide a valid channel ID using <code>tokenid2</code>.
+The <code>tokencustomset</code> parameter allows you to specify a set of custom client properties. This feature can be used when generating tokens to combine a website account database with a TeamSpeak user. The syntax of the value needs to be escaped using the <i>ServerQuery</i> escape patterns and has to follow the general syntax of:
+<code>ident=ident1 value=value1|ident=ident2 value=value2|ident=ident3 value=value3</code></p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_token_add<br>i_group_needed_member_add_power<br>i_group_member_add_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">privilegekeyadd tokentype={1|0} tokenid1={groupID} tokenid2={channelID} [tokendescription={description}] [tokencustomset={customFieldSet}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">privilegekeyadd tokentype=0 tokenid1=6 tokenid2=0 tokendescription=Test\stoken\swith\scustom\sset tokencustomset=ident=forum_user\svalue=Sven\sPaulsen\pident=forum_id\svalue=123</p>
+<p class="function_example_output">token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="privilegekeydelete">privilegekeydelete</p>
+<p class="function_desc">Deletes an existing token matching the token key specified with <code>token</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_token_delete<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">privilegekeydelete token={tokenKey}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">privilegekeydelete token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="privilegekeyuse">privilegekeyuse</p>
+<p class="function_desc">Use a token key gain access to a server or channel group. Please note that the server will automatically delete the token after it has been used.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_virtualserver_token_use<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">privilegekeyuse token={tokenKey}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">privilegekeyuse token=eKnFZQ9EK7G7MhtuQB6+N2B1PNZZ6OZL3ycDp2OW</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="messagelist">messagelist</p>
+<p class="function_desc">Displays a list of offline messages you've received. The output contains the senders unique identifier, the messages subject, etc.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">messagelist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">messagelist</p>
+<p class="function_example_output">msgid=4 cluid=xwEzb5ENOaglVHu9oelK++reUyE= subject=Test timestamp=1259439465 flag_read=0 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="messageadd">messageadd</p>
+<p class="function_desc">Sends an offline message to the client specified by cluid.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">messageadd cluid={clientUID} subject={subject} message={text}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">messageadd cluid=oHhi9WzXLNEFQOwAu4JYKGU+C+c= subject=Hi! message=Where\sare\syou?!?</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="messagedel">messagedel</p>
+<p class="function_desc">Deletes an existing offline message with ID <code>msgid</code> from your inbox.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">messagedel msgid={messageID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">messagedel msgid=4</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="messageget">messageget</p>
+<p class="function_desc">Displays an existing offline message with ID <code>msgid</code> from your inbox. Please note that this does not automatically set the <code>flag_read</code> property of the message.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">messageget msgid={messageID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">messageget msgid=4</p>
+<p class="function_example_output">msgid=4 cluid=xwEzb5ENOaglVHu9oelK++reUyE= subject=Hi! message=Where\sare\syou?!?
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="messageupdateflag">messageupdateflag</p>
+<p class="function_desc">Updates the <code>flag_read</code> property of the offline message specified with <code>msgid</code>. If <code>flag</code> is set to <i>1</i>, the message will be marked as read.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">messageupdateflag msgid={messageID} flag={1|0}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">messageupdateflag msgid=4 flag=1</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="complainlist">complainlist</p>
+<p class="function_desc">Displays a list of complaints on the selected virtual server. If <code>tcldbid</code> is specified, only complaints about the targeted client will be shown.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_complain_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">complainlist [tcldbid={targetClientDBID}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">complainlist tcldbid=3</p>
+<p class="function_example_output">tcldbid=3 tname=Julian fcldbid=56 fname=Sven message=Bad\sguy! timestamp=1259440948 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="complainadd">complainadd</p>
+<p class="function_desc">Submits a complaint about a connected client with database ID <code>tcldbid</code> to the server.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_client_complain_power<br>i_client_needed_complain_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">complainadd tcldbid={targetClientDBID} message={text}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">complainadd tcldbid=3 message=Bad\sguy!</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="complaindelall">complaindelall</p>
+<p class="function_desc">Deletes all complaints about the client with database ID <code>tcldbid</code> from the server.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_complain_delete<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">complaindelall tcldbid={targetClientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">complaindelall tcldbid=3</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="complaindel">complaindel</p>
+<p class="function_desc">Deletes the complaint about the client with ID <code>tcldbid</code> submitted by the client with ID <code>fcldbid</code> from the server.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_complain_delete<br>b_client_complain_delete_own<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">complaindel tcldbid={targetClientDBID} fcldbid={fromClientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">complaindel tcldbid=3 fcldbid=4</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="banclient">banclient</p>
+<p class="function_desc">Bans the client specified with ID <code>clid</code> from the server. Please note that this will create two separate ban rules for the targeted clients IP address and his unique identifier.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_client_ban_power<br>i_client_needed_ban_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">banclient clid={clientID} [time={timeInSeconds}] [banreason={text}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">banclient clid=4 time=3600</p>
+<p class="function_example_output">banid=2
+banid=3
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="banlist">banlist</p>
+<p class="function_desc">Displays a list of active bans on the selected virtual server.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_ban_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">banlist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">banlist</p>
+<p class="function_example_output">banid=7 ip=1.2.3.4 created=1259444002242 invokername=Sven invokercldbid=56 invokeruid=oHhi9WzXLNEFQOwAu4JYKGU+C+c= reason enforcements=0
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="banadd">banadd</p>
+<p class="function_desc">Adds a new ban rule on the selected virtual server. All parameters are optional but at least one of the following must be set: <code>ip</code>, <code>name</code>, or <code>uid</code>.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_ban_create<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">banadd [ip={regexp}] [name={regexp}] [uid={clientUID}] [time={timeInSeconds}] [banreason={text}]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">banadd ip=1.2.3.4 banreason=just\s4\sfun</p>
+<p class="function_example_output">banid=1
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="bandel">bandel</p>
+<p class="function_desc">Deletes the ban rule with ID <code>banid</code> from the server.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_ban_delete<br>b_client_ban_delete_own<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">bandel banid={banID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">bandel banid=3</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="bandelall">bandelall</p>
+<p class="function_desc">Deletes all active ban rules from the server.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_client_ban_delete<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">bandelall</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">bandelall</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftinitupload">ftinitupload</p>
+<p class="function_desc">Initializes a file transfer upload. <code>clientftfid</code> is an arbitrary ID to identify the file transfer on client-side. On success, the server generates a new <code>ftkey</code> which is required to start uploading the file through <i>TeamSpeak 3</i>'s file transfer interface. Since version 3.0.13 there is an optional <code>proto</code> parameter. The client can request a protocol version with it. Currently only 0 and 1 are supported which only differ in the way they handle some timings. The server will reply which protocol version it will support. The server will reply with an <code>ip</code> parameter if it determines the filetransfer subsystem is not reachable by the ip that is currently being used for the query connection.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_ft_file_upload_power<br>i_ft_needed_file_ upload _power<br>i_ft_quota_mb_upload_per_client<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftinitupload clientftfid={clientFileTransferID} name={filePath} cid={channelID} cpw={channelPassword} size={fileSize} overwrite={1|0} resume={1|0} [proto=0-1]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftinitupload clientftfid=1 name=\/image.iso cid=5 cpw= size=673460224 overwrite=1 resume=0</p>
+<p class="function_example_output">clientftfid=1 serverftfid=6 ftkey=itRNdsIOvcBiBg\/Xj4Ge51ZSrsShHuid port=30033 seekpos=0 proto=0
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftinitdownload">ftinitdownload</p>
+<p class="function_desc">Initializes a file transfer download. <code>clientftfid</code> is an arbitrary ID to identify the file transfer on client-side. On success, the server generates a new <code>ftkey</code> which is required to start downloading the file through <i>TeamSpeak 3</i>'s file transfer interface. Since version 3.0.13 there is an optional <code>proto</code> parameter. The client can request a protocol version with it. Currently only 0 and 1 are supported which only differ in the way they handle some timings. The server will reply which protocol version it will support. The server will reply with an <code>ip</code> parameter if it determines the filetransfer subsystem is not reachable by the ip that is currently being used for the query connection.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_ft_file_download_power<br>i_ft_needed_file_ download _power<br>i_ft_quota_mb_ download _per_client<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftinitdownload clientftfid={clientFileTransferID} name={filePath} cid={channelID} cpw={channelPassword} seekpos={seekPosition} [proto=0-1]</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftinitdownload clientftfid=1 name=\/image.iso cid=5 cpw= seekpos=0</p>
+<p class="function_example_output">clientftfid=1 serverftfid=7 ftkey=NrOga\/4d2GpYC5oKgxuclTO37X83ca\/1 port=30033 size=673460224 proto=0
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftlist">ftlist</p>
+<p class="function_desc">Displays a list of running file transfers on the selected virtual server. The output contains the path to which a file is uploaded to, the current transfer rate in bytes per second, etc.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">b_ft_transfer_list<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftlist</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftlist</p>
+<p class="function_example_output">clid=2 path=files\/virtualserver_1\/channel_5 name=image.iso size=673460224 sizedone=450756 clientftfid=2 serverftfid=6 sender=0 status=1 current_speed=60872.8 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftgetfilelist">ftgetfilelist</p>
+<p class="function_desc">Displays a list of files and directories stored in the specified channels file repository.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_ft_file_browse_power<br>i_ft_needed_file_browse_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftgetfilelist cid={channelID} cpw={channelPassword} path={filePath}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftgetfilelist cid=2 cpw= path=\/</p>
+<p class="function_example_output">cid=2 path=\/ name=Stuff size=0 datetime=1259415210 type=0|name=Pic1.PNG size=563783 datetime=1259425462 type=1|name=Pic2.PNG …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftgetfileinfo">ftgetfileinfo</p>
+<p class="function_desc">Displays detailed information about one or more specified files stored in a channels file repository.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_ft_file_browse_power<br>i_ft_needed_file_browse_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftgetfileinfo cid={channelID} cpw={channelPassword} name={filePath}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftgetfileinfo cid=2 cpw= path=\/Pic1.PNG|cid=2 cpw= path=\/Pic2.PNG</p>
+<p class="function_example_output">cid=2 path=\/ name=Stuff size=0 datetime=1259415210 type=0|name=Pic1.PNG size=563783 datetime=1259425462 type=1|name=Pic2.PNG …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftstop">ftstop</p>
+<p class="function_desc">Stops the running file transfer with server-side ID <code>serverftfid</code>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftstop serverftfid={serverFileTransferID} delete={1|0}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftstop serverftfid=2 delete=1</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftdeletefile">ftdeletefile</p>
+<p class="function_desc">Deletes one or more files stored in a channels file repository.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_ft_file_delete_power<br>i_ft_needed_file_delete_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftdeletefile cid={channelID} cpw={channelPassword} name={filePath}…</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftdeletefile cid=2 cpw= name=\/Pic1.PNG|name=\/Pic2.PNG</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftcreatedir">ftcreatedir</p>
+<p class="function_desc">Creates new directory in a channels file repository.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_ft_directory_create_power<br>i_ft_needed_file_directory_create_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftcreatedir cid={channelID} cpw={channelPassword} dirname={dirPath}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftcreatedir cid=2 cpw= dirname=\/My\sDirectory</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="ftrenamefile">ftrenamefile</p>
+<p class="function_desc">Renames a file in a channels file repository. If the two parameters <code>tcid</code> and <code>tcpw</code> are specified, the file will be moved into another channels file repository.</p>
+<br><p class="subheading-permissions">Permissions:</p>
+<p class="function_perms">i_ft_file_rename_power<br>i_ft_needed_file_rename_power<br></p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">ftrenamefile cid={channelID} cpw={channelPassword} [tcid={targetChannelID}] [tcpw={targetChannelPassword}] oldname={oldFilePath} newname={newFilePath}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">ftrenamefile cid=2 cpw= tcid=3 tcpw=secret oldname=\/Pic3.PNG newname=\/Pic3.PNG</p>
+<p class="function_example_output">error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="customsearch">customsearch</p>
+<p class="function_desc">Searches for custom client properties specified by <code>ident</code> and <code>value</code>. The value parameter can include regular characters and SQL wildcard characters (e.g. <code>%</code>).</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">customsearch ident={ident} pattern={pattern}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">customsearch ident=forum_account pattern=%ScP%</p>
+<p class="function_example_output">cldbid=2 ident=forum_account value=ScP
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="custominfo">custominfo</p>
+<p class="function_desc">Displays a list of custom properties for the client specified with <code>cldbid</code>.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">custominfo cldbid={clientDBID}</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">custominfo cldbid=3</p>
+<p class="function_example_output">cldbid=3 ident=forum_account value=ScP|ident=forum_id value=123
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+
+	<div class="function_div">
+<p class="function_name" id="whoami">whoami</p>
+<p class="function_desc">Displays information about your current <i>ServerQuery</i> connection including your loginname, etc.</p>
+<br><p class="subheading-syntax">Syntax:</p>
+<p class="function_syntax">whoami</p>
+<br><p class="subheading-example">Example:</p>
+<p class="function_example_input">whoami</p>
+<p class="function_example_output">virtualserver_status=online virtualserver_id=1 virtualserver_unique_identifier=zrPkjznB1tMnRwj01xx7RxXjqeY= client_channel_id=2 …
+error id=0 msg=ok</p>
+<br><p class="function_example_input"></p>
+<p class="function_example_output"></p>
+</div>
+</div>
+<div class="section">
+	<h1 id="server_instance_properties">Server Instance Properties</h1>
+	<p>
+		This is a list of properties available for the server instance:<br>
+	</p>
+	<table class="properties">
+<tr>
+<th>Name</th>
+<th>Changable</th>
+</tr>
+<tr>
+<td>
+<p class="property_name">INSTANCE_UPTIME</p>
+<p class="property_description"> Uptime in seconds</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> HOST_TIMESTAMP_UTC</p>
+<p class="property_description"> Current server date and time as UTC timestamp</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> VIRTUALSERVERS_RUNNING_TOTAL</p>
+<p class="property_description"> Number of virtual servers running</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_FILETRANSFER_BANDWIDTH_SENT</p>
+<p class="property_description"> Current bandwidth used for outgoing file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_FILETRANSFER_BANDWIDTH_RECEIVED</p>
+<p class="property_description"> Current bandwidth used for incoming file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_PACKETS_SENT_TOTAL</p>
+<p class="property_description"> Total amount of packets sent</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_PACKETS_RECEIVED_TOTAL</p>
+<p class="property_description"> Total amount of packets received</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_BYTES_SENT_TOTAL</p>
+<p class="property_description"> Total amount of bytes sent</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_BYTES_RECEIVED_TOTAL</p>
+<p class="property_description"> Total amount of bytes received</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_BANDWIDTH_SENT_LAST_SECOND_TOTAL</p>
+<p class="property_description"> Average bandwidth used for outgoing data in the last second (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_BANDWIDTH_RECEIVED_LAST_SECOND_TOTAL</p>
+<p class="property_description"> Average bandwidth used for incoming data in the last second (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_BANDWIDTH_SENT_LAST_MINUTE_TOTAL</p>
+<p class="property_description"> Average bandwidth used for outgoing data in the last minute (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> CONNECTION_BANDWIDTH_RECEIVED_LAST_MINUTE_TOTAL</p>
+<p class="property_description"> Average bandwidth used for incoming data in the last minute (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_DATABASE_VERSION</p>
+<p class="property_description"> Database revision number</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_GUEST_SERVERQUERY_GROUP</p>
+<p class="property_description"> Default ServerQuery group ID</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_TEMPLATE_SERVERADMIN_GROUP</p>
+<p class="property_description"> Default template group ID for administrators on new virtual servers (used to create initial token)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_FILETRANSFER_PORT</p>
+<p class="property_description"> TCP port used for file transfers</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_MAX_DOWNLOAD_TOTAL_BANDWITDH</p>
+<p class="property_description"> Max bandwidth available for outgoing file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_MAX_UPLOAD_TOTAL_BANDWITDH</p>
+<p class="property_description"> Max bandwidth available for incoming file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_TEMPLATE_SERVERDEFAULT_GROUP</p>
+<p class="property_description"> Default server group ID used in templates</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_TEMPLATE_CHANNELDEFAULT_GROUP </p>
+<p class="property_description"> Default channel group ID used in templates</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_TEMPLATE_CHANNELADMIN_GROUP</p>
+<p class="property_description"> Default channel administrator group ID used in templates</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> VIRTUALSERVERS_TOTAL_MAXCLIENTS</p>
+<p class="property_description"> Max number of clients for all virtual servers</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> VIRTUALSERVERS_TOTAL_CLIENTS_ONLINE</p>
+<p class="property_description"> Number of clients online on all virtual servers</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> VIRTUALSERVERS_TOTAL_CHANNELS_ONLINE</p>
+<p class="property_description"> Number of channels on all virtual servers</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_SERVERQUERY_FLOOD_COMMANDS</p>
+<p class="property_description"> Max number of commands allowed in seconds</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_SERVERQUERY_FLOOD_TIME</p>
+<p class="property_description"> Timeframe in seconds for commands</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name"> SERVERINSTANCE_SERVERQUERY_FLOOD_BAN_TIME</p>
+<p class="property_description"> Time in seconds used for automatic bans triggered by the ServerQuery flood protection</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+</table>
+</div>
+<div class="section">
+	<h1 id="virtual_server_properties">Virtual Server Properties</h1>
+	<p>
+		This is a list of properties available for virtual servers:<br>
+	</p>
+	<table class="properties">
+<tr>
+<th>Name</th>
+<th>Changable</th>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_NAME</p>
+<p class="property_description">Name of the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_WELCOMEMESSAGE</p>
+<p class="property_description">Welcome message of the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MAXCLIENTS</p>
+<p class="property_description">Number of slots available on the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_PASSWORD</p>
+<p class="property_description">Password of the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_FLAG_PASSWORD</p>
+<p class="property_description">Indicates whether the server has a password set or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_CLIENTSONLINE</p>
+<p class="property_description">Number of clients connected to the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_QUERYCLIENTSONLINE</p>
+<p class="property_description">Number of ServerQuery clients connected to the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_CHANNELSONLINE</p>
+<p class="property_description">Number of channels created on the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_CREATED</p>
+<p class="property_description">Creation date and time of the virtual server as UTC timestamp</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_UPTIME</p>
+<p class="property_description">Uptime in seconds</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTMESSAGE</p>
+<p class="property_description">Host message of the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTMESSAGE_MODE</p>
+<p class="property_description">Host message mode of the virtual server (see <a href="#definitions.html">Definitions</a>)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_DEFAULT_SERVER_GROUP</p>
+<p class="property_description">Default server group ID</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_DEFAULT_CHANNEL_GROUP</p>
+<p class="property_description">Default channel group ID</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_DEFAULT_CHANNEL_ADMIN_GROUP</p>
+<p class="property_description">Default channel administrator group ID</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_PLATFORM</p>
+<p class="property_description">Operating system the server is running on</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_VERSION</p>
+<p class="property_description">Server version information including build number</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MAX_DOWNLOAD_TOTAL_BANDWIDTH </p>
+<p class="property_description">Max bandwidth for outgoing file transfers on the virtual server (Bytes/s)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MAX_UPLOAD_TOTAL_BANDWIDTH </p>
+<p class="property_description">Max bandwidth for incoming  file transfers on the virtual server (Bytes/s)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTBANNER_URL</p>
+<p class="property_description">Host banner URL opened on click</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTBANNER_GFX_URL</p>
+<p class="property_description">Host banner URL used as image source</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTBANNER_GFX_INTERVAL</p>
+<p class="property_description">Interval for reloading the banner on client-side</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_COMPLAIN_AUTOBAN_COUNT</p>
+<p class="property_description">Number of complaints needed to ban a client automatically</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_COMPLAIN_AUTOBAN_TIME</p>
+<p class="property_description">Time in seconds used for automatic bans triggered by complaints</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_COMPLAIN_REMOVE_TIME</p>
+<p class="property_description">Time in seconds before a complaint is deleted automatically</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MIN_CLIENTS_IN_CHANNEL_BEFORE_FORCED_SILENCE</p>
+<p class="property_description">Number of clients in the same channel needed to force silence</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_PRIORITY_SPEAKER_DIMM_MODIFICATOR</p>
+<p class="property_description">Client volume lowered automatically while a priority speaker is talking</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ANTIFLOOD_POINTS_TICK_REDUCE</p>
+<p class="property_description">Anti-flood points removed from a client for being good</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ANTIFLOOD_POINTS_NEEDED_COMMAND_BLOCK</p>
+<p class="property_description">Anti-flood points needed to block commands being executed by the client</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ANTIFLOOD_POINTS_NEEDED_IP_BLOCK</p>
+<p class="property_description">Anti-flood points needed to block incoming connections from the client</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTBANNER_MODE</p>
+<p class="property_description">The display mode for the virtual servers hostbanner (see <a href="#definitions.html">Definitions</a>)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ASK_FOR_PRIVILEGEKEY</p>
+<p class="property_description">Indicates whether the initial privilege key for the virtual server has been used or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_CLIENT_CONNECTIONS</p>
+<p class="property_description">Total number of clients connected to the virtual server since it was last started</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_QUERY_CLIENT_CONNECTIONS</p>
+<p class="property_description">Total number of ServerQuery clients connected to the virtual server since it was last started</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTBUTTON_TOOLTIP</p>
+<p class="property_description">Text used for the tooltip of the host button on client-side</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTBUTTON_GFX_URL</p>
+<p class="property_description">Text used for the tooltip of the host button on client-side</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_HOSTBUTTON_URL</p>
+<p class="property_description">URL opened on click on the host button</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_DOWNLOAD_QUOTA</p>
+<p class="property_description">Download quota for the virtual server (MByte)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_UPLOAD_QUOTA</p>
+<p class="property_description">Download quota for the virtual server (MByte)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MONTH_BYTES_DOWNLOADED</p>
+<p class="property_description">Number of bytes downloaded from the virtual server on the current month</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MONTH_BYTES_UPLOADED</p>
+<p class="property_description">Number of bytes uploaded to the virtual server on the current month</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_TOTAL_BYTES_DOWNLOADED</p>
+<p class="property_description">Number of bytes downloaded from the virtual server since it was last started</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ TOTAL_BYTES_UPLOADED</p>
+<p class="property_description">Number of bytes uploaded to the virtual server since it was last started</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_UNIQUE_IDENTIFER</p>
+<p class="property_description">Unique ID of the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ID</p>
+<p class="property_description">Database ID of the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MACHINE_ID</p>
+<p class="property_description">Machine ID identifying the server instance associated with the virtual server in the database</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_PORT</p>
+<p class="property_description">UDP port the virtual server is listening on</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_AUTOSTART</p>
+<p class="property_description">Indicates whether the server starts automatically with the server instance or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_FILETRANSFER_BANDWIDTH_SENT</p>
+<p class="property_description">Current bandwidth used for outgoing  file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_FILETRANSFER_BANDWIDTH_RECEIVED</p>
+<p class="property_description">Current bandwidth used for incoming  file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_PACKETS_SENT_TOTAL</p>
+<p class="property_description">Total amount of packets sent</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_PACKETS_RECEIVED_TOTAL</p>
+<p class="property_description">Total amount of packets received</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BYTES_SENT_TOTAL</p>
+<p class="property_description">Total amount of bytes sent</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BYTES_RECEIVED_TOTAL</p>
+<p class="property_description">Total amount of bytes received</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_SENT_LAST_SECOND_TOTAL</p>
+<p class="property_description">Average bandwidth used for outgoing data in the last second (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_RECEIVED_LAST_SECOND_TOTAL</p>
+<p class="property_description">Average bandwidth used for incoming data in the last second (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_SENT_LAST_MINUTE_TOTAL</p>
+<p class="property_description">Average bandwidth used for outgoing data in the last minute (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_RECEIVED_LAST_MINUTE_TOTAL</p>
+<p class="property_description">Average bandwidth used for incoming data in the last minute (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_STATUS</p>
+<p class="property_description">Status of the virtual server (online | virtual online | offline | booting up | shutting down | …)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ LOG_CLIENT</p>
+<p class="property_description">Indicates whether the server logs events related to clients or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ LOG_QUERY</p>
+<p class="property_description">Indicates whether the server logs events related to ServerQuery clients or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ LOG_CHANNEL</p>
+<p class="property_description">Indicates whether the server logs events related to channels or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ LOG_PERMISSIONS</p>
+<p class="property_description">Indicates whether the server logs events related to permissions or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ LOG_SERVER</p>
+<p class="property_description">Indicates whether the server logs events related to server changes or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ LOG_FILETRANSFER</p>
+<p class="property_description">Indicates whether the server logs events related to file transfers or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MIN_CLIENT_VERSION</p>
+<p class="property_description">Minimal desktop client version required to connect</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MIN_ANDROID_VERSION</p>
+<p class="property_description">Minimal Android client version required to connect</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MIN_IOS_VERSION</p>
+<p class="property_description">Minimal iOS client version required to connect</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_MIN_WINPHONE_VERSION</p>
+<p class="property_description">Place holder for the minimal Windows phone client version required to connect. Currently there are no plans to support Windows phone though</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_NEEDED_IDENTITY_SECURITY_LEVEL</p>
+<p class="property_description">Minimum client identity  security level required to connect to the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_NAME_PHONETIC </p>
+<p class="property_description">Phonetic name of the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_ICON_ID </p>
+<p class="property_description">CRC32 checksum of the virtual server icon</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_RESERVED_SLOTS </p>
+<p class="property_description">Number of reserved slots available on the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_TOTAL_PACKETLOSS_SPEECH </p>
+<p class="property_description">The average packet loss for speech data on the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_TOTAL_PACKETLOSS_KEEPALIVE </p>
+<p class="property_description">The average packet loss for keepalive data on the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_TOTAL_PACKETLOSS_CONTROL </p>
+<p class="property_description">The average packet loss for control data on the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_TOTAL_PACKETLOSS_TOTAL </p>
+<p class="property_description">The average packet loss for all data on the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_TOTAL_PING </p>
+<p class="property_description">The average ping of all clients connected to the virtual server</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_IP </p>
+<p class="property_description">The IPv4 address the virtual server is listening on</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_WEBLIST_ENABLED </p>
+<p class="property_description">Indicates whether the server appears in the global web server list or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_CODEC_ENCRYPTION_MODE </p>
+<p class="property_description">The global codec encryption mode of the virtual server</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">VIRTUALSERVER_FILEBASE</p>
+<p class="property_description">The directory where the virtual servers filebase is located</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+</table>
+</div>
+<div class="section">
+	<h1 id="channel_properties">Channel Properties</h1>
+	<p>
+		This is a list of properties available for channels:<br>
+	</p>
+	<table class="properties">
+<tr>
+<th>Name</th>
+<th>Changable</th>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_NAME</p>
+<p class="property_description">Name of the channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_TOPIC</p>
+<p class="property_description">Topic of the channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_DESCRIPTION</p>
+<p class="property_description">Description of the channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_PASSWORD</p>
+<p class="property_description">Password of the channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_PASSWORD</p>
+<p class="property_description">Indicates whether the channel has a password set or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL CODEC</p>
+<p class="property_description">Codec used by the channel (see <a href="#definitions">Definitions</a>)</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_CODEC_QUALITY</p>
+<p class="property_description">Codec quality used by the channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_MAXCLIENTS</p>
+<p class="property_description">Individual max number of clients for the channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_MAXFAMILYCLIENTS</p>
+<p class="property_description">Individual max number of clients for the channel family</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_ORDER</p>
+<p class="property_description">ID of the channel below which the channel is positioned</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_PERMANENT</p>
+<p class="property_description">Indicates whether the channel is permanent or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_SEMI_PERMANENT</p>
+<p class="property_description">Indicates whether the channel is semi-permanent or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_TEMPORARY</p>
+<p class="property_description">Indicates whether the channel is temporary or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_DEFAULT</p>
+<p class="property_description">Indicates whether the channel is the virtual servers default channel or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_MAXCLIENTS_UNLIMITED</p>
+<p class="property_description">Indicates whether the channel has a max clients limit or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_MAXFAMILYCLIENTS_UNLIMITED</p>
+<p class="property_description">Indicates whether the channel has a max family clients limit or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FLAG_MAXFAMILYCLIENTS_INHERITED</p>
+<p class="property_description">Indicates whether the channel inherits the max family clients from his parent channel or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_NEEDED_TALK_POWER</p>
+<p class="property_description">Needed talk power for this channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_NAME_PHONETIC</p>
+<p class="property_description">Phonetic name of the channel</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FILEPATH</p>
+<p class="property_description">Path of the channels file repository</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_FORCED_SILENCE</p>
+<p class="property_description">Indicates whether the channel is silenced or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_ICON_ID </p>
+<p class="property_description">CRC32 checksum of the channel icon</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CHANNEL_CODEC_IS_UNENCRYPTED</p>
+<p class="property_description">Indicates whether speech data transmitted in this channel is encrypted or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CPID</p>
+<p class="property_description">The channels parent ID</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CID</p>
+<p class="property_description">The channels ID</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+</table>
+</div>
+<div class="section">
+	<h1 id="client_properties">Client Properties</h1>
+	<p>
+		This is a list of properties available for clients:<br>
+	</p>
+	<table class="properties">
+<tr>
+<th>Name</th>
+<th>Changable</th>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_UNIQUE_IDENTIFIER</p>
+<p class="property_description">Unique ID of the client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_NICKNAME</p>
+<p class="property_description">Nickname of the client</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_VERSION</p>
+<p class="property_description">Client version information including build number</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_PLATFORM</p>
+<p class="property_description">Operating system the client is running on</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_INPUT_MUTED</p>
+<p class="property_description">Indicates whether the client has their microphone muted or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_OUTPUT_MUTED</p>
+<p class="property_description">Indicates whether the client has their speakers muted or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_INPUT_HARDWARE</p>
+<p class="property_description">Indicates whether the client has enabled their capture device or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_OUTPUT_HARDWARE</p>
+<p class="property_description">Indicates whether the client has enabled their playback device or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_DEFAULT_CHANNEL</p>
+<p class="property_description">Default channel of the client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_LOGIN_NAME</p>
+<p class="property_description">Username of a ServerQuery client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_DATABASE_ID</p>
+<p class="property_description">Database ID of the client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_CHANNEL_GROUP_ID</p>
+<p class="property_description">Current channel group ID of the client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_SERVER_GROUPS</p>
+<p class="property_description">Current server group IDs of the client separated by a comma</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_CREATED</p>
+<p class="property_description">Creation date and time of the clients first connection to the server as UTC timestamp</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_LASTCONNECTED</p>
+<p class="property_description">Creation date and time of the clients last connection to the server as UTC timestamp</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_TOTALCONNECTIONS</p>
+<p class="property_description">Total number of connections from this client since the server was started</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_AWAY</p>
+<p class="property_description">Indicates whether the client is away or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_AWAY_MESSAGE</p>
+<p class="property_description">Away message of the client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_TYPE</p>
+<p class="property_description">Indicates whether the client is a ServerQuery client or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_FLAG_AVATAR</p>
+<p class="property_description">Indicates whether the client has set an avatar or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_TALK_POWER</p>
+<p class="property_description">The clients current talk power</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_TALK_REQUEST</p>
+<p class="property_description">Indicates whether the client is requesting talk power or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_TALK_REQUEST_MSG</p>
+<p class="property_description">The clients current talk power request message</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_IS_TALKER</p>
+<p class="property_description">Indicates whether the client is able to talk or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_MONTH_BYTES_DOWNLOADED</p>
+<p class="property_description">Number of bytes downloaded by the client on the current month</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_MONTH_BYTES_UPLOADED</p>
+<p class="property_description">Number of bytes uploaded by the client on the current month</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_TOTAL_BYTES_DOWNLOADED</p>
+<p class="property_description">Number of bytes downloaded by the client since the server was started</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_TOTAL_BYTES_UPLOADED</p>
+<p class="property_description">Number of bytes uploaded by the client since the server was started</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_IS_PRIORITY_SPEAKER</p>
+<p class="property_description">Indicates whether the client is a priority speaker or not</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_UNREAD_MESSAGES</p>
+<p class="property_description">Number of unread offline messages in this clients inbox</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_NICKNAME_PHONETIC </p>
+<p class="property_description">Phonetic name of the client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_DESCRIPTION</p>
+<p class="property_description">Brief description of the client</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_NEEDED_SERVERQUERY_VIEW_POWER</p>
+<p class="property_description">The clients current ServerQuery view power</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_FILETRANSFER_BANDWIDTH_SENT</p>
+<p class="property_description">Current bandwidth used for outgoing  file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_FILETRANSFER_BANDWIDTH_RECEIVED</p>
+<p class="property_description">Current bandwidth used for incoming  file transfers (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_PACKETS_SENT_TOTAL</p>
+<p class="property_description">Total amount of packets sent</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_PACKETS_RECEIVED_TOTAL</p>
+<p class="property_description">Total amount of packets received</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BYTES_SENT_TOTAL</p>
+<p class="property_description">Total amount of bytes sent</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BYTES_RECEIVED_TOTAL</p>
+<p class="property_description">Total amount of bytes received</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_SENT_LAST_SECOND_TOTAL</p>
+<p class="property_description">Average bandwidth used for outgoing data in the last second (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_RECEIVED_LAST_SECOND_TOTAL</p>
+<p class="property_description">Average bandwidth used for incoming data in the last second (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_SENT_LAST_MINUTE_TOTAL</p>
+<p class="property_description">Average bandwidth used for outgoing data in the last minute (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_BANDWIDTH_RECEIVED_LAST_MINUTE_TOTAL</p>
+<p class="property_description">Average bandwidth used for incoming data in the last minute (Bytes/s)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CONNECTION_CLIENT_IP </p>
+<p class="property_description">The IPv4 address of the client</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_IS_CHANNEL_COMMANDER </p>
+<p class="property_description">Indicates whether the client is a channel commander or not</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_ICON_ID </p>
+<p class="property_description">CRC32 checksum of the client icon</p>
+</td>
+<td><p class="property_changable">Yes</p></td>
+</tr>
+<tr>
+<td>
+<p class="property_name">CLIENT_COUNTRY </p>
+<p class="property_description">The country identifier of the client (i.e. DE)</p>
+</td>
+<td><p class="property_changable">No</p></td>
+</tr>
+</table>
+</div>
+<div class="section">
+	<h1 id="definitions">Definitions</h1>
+	<p>
+		The following enumerations can be used to change the behavior of various <i>ServerQuery</i> commands:<br>
+	</p>
+	<div class="enum">
+		<p class="enum_name">enum HostMessageMode {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">HostMessageMode_NONE = 0,</p></span>
+			<p class="enum_option_description">// 0: don't display anything</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">HostMessageMode_LOG,</p></span>
+			<p class="enum_option_description">// 1: display message in chatlog</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">HostMessageMode_MODAL,</p></span>
+			<p class="enum_option_description">// 2: display message in modal dialog</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">HostMessageMode_MODALQUIT</p></span>
+			<p class="enum_option_description">// 3: display message in modal dialog and close connection</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum HostBannerMode {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name"> HostBannerMode_NOADJUST = 0,</p></span>
+			<p class="enum_option_description">// 0: do not adjust</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">HostBannerMode_IGNOREASPECT,</p></span>
+			<p class="enum_option_description">// 1: adjust but ignore aspect ratio (like TeamSpeak 2)</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">HostBannerMode_KEEPASPECT</p></span>
+			<p class="enum_option_description">// 2: adjust and keep aspect ratio</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum Codec {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">CODEC_SPEEX_NARROWBAND = 0,</p></span>
+			<p class="enum_option_description">// 0: speex narrowband     (mono, 16bit, 8kHz)</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">CODEC_SPEEX_WIDEBAND,</p></span>
+			<p class="enum_option_description">// 1: speex wideband       (mono, 16bit, 16kHz)</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">CODEC_SPEEX_ULTRAWIDEBAND,</p></span>
+			<p class="enum_option_description">// 2: speex ultra-wideband (mono, 16bit, 32kHz)</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">CODEC_CELT_MONO</p></span>
+			<p class="enum_option_description">// 3: celt mono            (mono, 16bit, 48kHz)</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum CodecEncryptionMode {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">CODEC_CRYPT_INDIVIDUAL = 0,</p></span>
+			<p class="enum_option_description">// 0: configure per channel</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">CODEC_CRYPT_DISABLED,</p></span>
+			<p class="enum_option_description">// 1: globally disabled</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">CODEC_CRYPT_ENABLED</p></span>
+			<p class="enum_option_description">// 2: globally enabled</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum TextMessageTargetMode {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">TextMessageTarget_CLIENT = 1,</p></span>
+			<p class="enum_option_description">// 1: target is a client</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">TextMessageTarget_CHANNEL,</p></span>
+			<p class="enum_option_description">// 2: target is a channel</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">TextMessageTarget_SERVER</p></span>
+			<p class="enum_option_description">// 3: target is a virtual server</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum LogLevel {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">LogLevel_ERROR = 1,</p></span>
+			<p class="enum_option_description">// 1: everything that is really bad</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">LogLevel_WARNING,</p></span>
+			<p class="enum_option_description">// 2: everything that might be bad</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">LogLevel_DEBUG,</p></span>
+			<p class="enum_option_description">// 3: output that might help find a problem</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">LogLevel_INFO</p></span>
+			<p class="enum_option_description">// 4: informational output</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum ReasonIdentifier {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">REASON_KICK_CHANNEL = 4,</p></span>
+			<p class="enum_option_description">// 4: kick client from channel</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">REASON_KICK_SERVER</p></span>
+			<p class="enum_option_description">// 5: kick client from server</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum PermissionGroupDatabaseTypes {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupDBTypeTemplate = 0,</p></span>
+			<p class="enum_option_description">// 0: template group     (used for new virtual servers)</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupDBTypeRegular,</p></span>
+			<p class="enum_option_description">// 1: regular group      (used for regular clients)</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupDBTypeQuery</p></span>
+			<p class="enum_option_description">// 2: global query group (used for ServerQuery clients)</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum PermissionGroupTypes {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupTypeServerGroup = 0,</p></span>
+			<p class="enum_option_description">// 0: server group permission</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupTypeGlobalClient,</p></span>
+			<p class="enum_option_description">// 1: client specific permission</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupTypeChannel,</p></span>
+			<p class="enum_option_description">// 2: channel specific permission</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupTypeChannelGroup,</p></span>
+			<p class="enum_option_description">// 3: channel group permission</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">PermGroupTypeChannelClient</p></span>
+			<p class="enum_option_description">// 4: channel-client specific permission</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+	<div class="enum">
+		<p class="enum_name">enum TokenType {</p>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">TokenServerGroup = 0,</p></span>
+			<p class="enum_option_description">// 0: server group token (id1={groupID} id2=0)</p>
+		</div>
+		<div class="enum_value">
+			<span class="enum_name_span"><p class="enum_option_name">TokenChannelGroup</p></span>
+			<p class="enum_option_description">// 1: channel group token (id1={groupID} id2={channelID})</p>
+		</div>
+	<p class="enum_name">};</p>
+</div>
+<br><br>
+</div>
+</body>
+</html>

@@ -1,0 +1,2701 @@
+==========Thu Dec 8 02:59:32 CET 2016==========
+||                                           ||
+||Executing apt-get Scripts                  ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://security.ubuntu.com/ubuntu xenial-security InRelease
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Hit:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease
+Hit:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Thu Dec 8 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [14.9 kB]
+Get:6 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [64.5 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [111 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [367 kB]
+Fetched 864 kB in 0s (1,136 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Fri Dec 9 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [210 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [112 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [440 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [171 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [368 kB]
+Get:10 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [134 kB]
+Get:11 http://security.ubuntu.com/ubuntu xenial-security/main Sources [52.5 kB]
+Get:12 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [189 kB]
+Fetched 1,983 kB in 0s (2,605 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libbit-vector-perl libcarp-clan-perl libdate-calc-perl libdate-calc-xs-perl
+  libiptables-chainmgr-perl libiptables-parse-perl libnet-ip-perl
+  libnetaddr-ip-perl libsocket6-perl libunix-syslog-perl
+Use 'sudo apt autoremove' to remove them.
+The following packages will be upgraded:
+  apport libc-bin libc6 locales multiarch-support python3-apport
+  python3-problem-report snapd tzdata
+9 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 12.9 MB of archives.
+After this operation, 607 kB disk space will be freed.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libc6 amd64 2.23-0ubuntu5 [2,589 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 locales all 2.23-0ubuntu5 [3,215 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libc-bin amd64 2.23-0ubuntu5 [638 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 multiarch-support amd64 2.23-0ubuntu5 [6,832 B]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 tzdata all 2016j-0ubuntu0.16.04 [168 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3-problem-report all 2.20.1-0ubuntu2.2 [9,894 B]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3-apport all 2.20.1-0ubuntu2.2 [79.5 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apport all 2.20.1-0ubuntu2.2 [120 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 snapd amd64 2.17.1ubuntu1 [6,115 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 12.9 MB in 2s (5,516 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95162 files and directories currently installed.)
+Preparing to unpack .../libc6_2.23-0ubuntu5_amd64.deb ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Unpacking libc6:amd64 (2.23-0ubuntu5) over (2.23-0ubuntu4) ...
+Setting up libc6:amd64 (2.23-0ubuntu5) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Processing triggers for libc-bin (2.23-0ubuntu4) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95162 files and directories currently installed.)
+Preparing to unpack .../locales_2.23-0ubuntu5_all.deb ...
+Unpacking locales (2.23-0ubuntu5) over (2.23-0ubuntu4) ...
+Preparing to unpack .../libc-bin_2.23-0ubuntu5_amd64.deb ...
+Unpacking libc-bin (2.23-0ubuntu5) over (2.23-0ubuntu4) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libc-bin (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95162 files and directories currently installed.)
+Preparing to unpack .../multiarch-support_2.23-0ubuntu5_amd64.deb ...
+Unpacking multiarch-support (2.23-0ubuntu5) over (2.23-0ubuntu4) ...
+Setting up multiarch-support (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95162 files and directories currently installed.)
+Preparing to unpack .../tzdata_2016j-0ubuntu0.16.04_all.deb ...
+Unpacking tzdata (2016j-0ubuntu0.16.04) over (2016h-0ubuntu0.16.04) ...
+Preparing to unpack .../python3-problem-report_2.20.1-0ubuntu2.2_all.deb ...
+Unpacking python3-problem-report (2.20.1-0ubuntu2.2) over (2.20.1-0ubuntu2.1) ...
+Preparing to unpack .../python3-apport_2.20.1-0ubuntu2.2_all.deb ...
+Unpacking python3-apport (2.20.1-0ubuntu2.2) over (2.20.1-0ubuntu2.1) ...
+Preparing to unpack .../apport_2.20.1-0ubuntu2.2_all.deb ...
+Unpacking apport (2.20.1-0ubuntu2.2) over (2.20.1-0ubuntu2.1) ...
+Preparing to unpack .../snapd_2.17.1ubuntu1_amd64.deb ...
+Warning: Stopping snapd.service, but it can still be activated by:
+  snapd.socket
+Unpacking snapd (2.17.1ubuntu1) over (2.16ubuntu3) ...
+Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for systemd (229-4ubuntu12) ...
+Setting up locales (2.23-0ubuntu5) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+Generation complete.
+Setting up tzdata (2016j-0ubuntu0.16.04) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+
+Current default time zone: 'Europe/Paris'
+Local time is now:      Fri Dec  9 06:25:20 CET 2016.
+Universal Time is now:  Fri Dec  9 05:25:20 UTC 2016.
+Run 'dpkg-reconfigure tzdata' if you wish to change it.
+
+Setting up python3-problem-report (2.20.1-0ubuntu2.2) ...
+Setting up python3-apport (2.20.1-0ubuntu2.2) ...
+Setting up apport (2.20.1-0ubuntu2.2) ...
+insserv: warning: script 'mystartup.sh' missing LSB tags and overrides
+Setting up snapd (2.17.1ubuntu1) ...
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libbit-vector-perl libcarp-clan-perl libdate-calc-perl libdate-calc-xs-perl
+  libiptables-chainmgr-perl libiptables-parse-perl libnet-ip-perl
+  libnetaddr-ip-perl libsocket6-perl libunix-syslog-perl
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  libbit-vector-perl libcarp-clan-perl libdate-calc-perl libdate-calc-xs-perl
+  libiptables-chainmgr-perl libiptables-parse-perl libnet-ip-perl
+  libnetaddr-ip-perl libsocket6-perl libunix-syslog-perl
+0 upgraded, 0 newly installed, 10 to remove and 0 not upgraded.
+After this operation, 2,044 kB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95171 files and directories currently installed.)
+Removing libdate-calc-xs-perl (6.4-1build1) ...
+Removing libdate-calc-perl (6.4-1) ...
+Removing libbit-vector-perl (7.4-1build1) ...
+Removing libcarp-clan-perl (6.04-2) ...
+Removing libiptables-chainmgr-perl (1.5-1) ...
+Removing libiptables-parse-perl (1.6-1) ...
+Removing libnet-ip-perl (1.26-1) ...
+Removing libnetaddr-ip-perl (4.078+dfsg-1build1) ...
+Removing libsocket6-perl (0.25-1build2) ...
+Removing libunix-syslog-perl (1.1-2build7) ...
+Processing triggers for man-db (2.7.5-1) ...
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del locales 2.23-0ubuntu4 [3,214 kB]
+Del snapd 2.16ubuntu3 [6,169 kB]
+Del libc6 2.23-0ubuntu4 [2,586 kB]
+Del libc-bin 2.23-0ubuntu4 [623 kB]
+Del multiarch-support 2.23-0ubuntu4 [6,828 B]
+Del tzdata 2016h-0ubuntu0.16.04 [168 kB]
+
+
+
+==========Sat Dec 10 06:25:02 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:2 http://security.ubuntu.com/ubuntu xenial-security/main Sources [52.5 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [189 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [77.7 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [64.5 kB]
+Hit:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [210 kB]
+Get:10 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [440 kB]
+Get:11 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [171 kB]
+Get:12 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [368 kB]
+Fetched 1,879 kB in 1s (1,217 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sun Dec 11 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [440 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [368 kB]
+Fetched 1,114 kB in 1s (831 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Mon Dec 12 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (466 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Tue Dec 13 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (352 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  python3-software-properties software-properties-common
+2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 29.4 kB of archives.
+After this operation, 5,120 B of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 software-properties-common all 0.96.20.5 [9,432 B]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3-software-properties all 0.96.20.5 [19.9 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 29.4 kB in 0s (1,423 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94980 files and directories currently installed.)
+Preparing to unpack .../software-properties-common_0.96.20.5_all.deb ...
+Unpacking software-properties-common (0.96.20.5) over (0.96.20.4) ...
+Preparing to unpack .../python3-software-properties_0.96.20.5_all.deb ...
+Unpacking python3-software-properties (0.96.20.5) over (0.96.20.4) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for dbus (1.10.6-1ubuntu3.1) ...
+Setting up python3-software-properties (0.96.20.5) ...
+Setting up software-properties-common (0.96.20.5) ...
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del python3-software-properties 0.96.20.4 [20.0 kB]
+Del software-properties-common 0.96.20.4 [9,416 B]
+
+
+
+==========Wed Dec 14 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/main Sources [53.0 kB]
+Get:6 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [15.3 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/multiverse Sources [724 B]
+Get:8 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [191 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [211 kB]
+Get:10 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [78.7 kB]
+Get:11 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [113 kB]
+Get:12 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [64.8 kB]
+Get:13 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/multiverse Sources [3,640 B]
+Get:14 http://security.ubuntu.com/ubuntu xenial-security/universe Translation-en [35.5 kB]
+Get:15 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [440 kB]
+Get:16 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [2,756 B]
+Get:17 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [370 kB]
+Get:18 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [134 kB]
+Get:19 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [7,376 B]
+Fetched 2,026 kB in 2s (1,004 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  apt apt-transport-https apt-utils libapt-inst2.0 libapt-pkg5.0
+5 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2,021 kB of archives.
+After this operation, 4,096 B of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libapt-pkg5.0 amd64 1.2.15ubuntu0.2 [702 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libapt-inst2.0 amd64 1.2.15ubuntu0.2 [55.7 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apt amd64 1.2.15ubuntu0.2 [1,042 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apt-utils amd64 1.2.15ubuntu0.2 [196 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apt-transport-https amd64 1.2.15ubuntu0.2 [26.0 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 2,021 kB in 0s (10.0 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94980 files and directories currently installed.)
+Preparing to unpack .../libapt-pkg5.0_1.2.15ubuntu0.2_amd64.deb ...
+Unpacking libapt-pkg5.0:amd64 (1.2.15ubuntu0.2) over (1.2.15) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Setting up libapt-pkg5.0:amd64 (1.2.15ubuntu0.2) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94980 files and directories currently installed.)
+Preparing to unpack .../libapt-inst2.0_1.2.15ubuntu0.2_amd64.deb ...
+Unpacking libapt-inst2.0:amd64 (1.2.15ubuntu0.2) over (1.2.15) ...
+Preparing to unpack .../apt_1.2.15ubuntu0.2_amd64.deb ...
+Unpacking apt (1.2.15ubuntu0.2) over (1.2.15) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up apt (1.2.15ubuntu0.2) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94980 files and directories currently installed.)
+Preparing to unpack .../apt-utils_1.2.15ubuntu0.2_amd64.deb ...
+Unpacking apt-utils (1.2.15ubuntu0.2) over (1.2.15) ...
+Preparing to unpack .../apt-transport-https_1.2.15ubuntu0.2_amd64.deb ...
+Unpacking apt-transport-https (1.2.15ubuntu0.2) over (1.2.15) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libapt-inst2.0:amd64 (1.2.15ubuntu0.2) ...
+Setting up apt-utils (1.2.15ubuntu0.2) ...
+Setting up apt-transport-https (1.2.15ubuntu0.2) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del apt 1.2.15 [1,041 kB]
+Del apt-utils 1.2.15 [196 kB]
+Del libapt-pkg5.0 1.2.15 [702 kB]
+Del apt-transport-https 1.2.15 [26.0 kB]
+Del libapt-inst2.0 1.2.15 [55.5 kB]
+
+
+
+==========Thu Dec 15 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [211 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [113 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [440 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [370 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [135 kB]
+Get:10 http://security.ubuntu.com/ubuntu xenial-security/main Sources [53.6 kB]
+Get:11 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [192 kB]
+Get:12 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [79.4 kB]
+Get:13 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [65.6 kB]
+Get:14 http://security.ubuntu.com/ubuntu xenial-security/universe Translation-en [35.9 kB]
+Fetched 2,002 kB in 1s (1,214 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  apport libpam-systemd libsystemd0 libudev1 python3-apport
+  python3-problem-report systemd systemd-sysv udev
+9 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 5,204 kB of archives.
+After this operation, 16.4 kB disk space will be freed.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 systemd-sysv amd64 229-4ubuntu13 [12.6 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpam-systemd amd64 229-4ubuntu13 [115 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libsystemd0 amd64 229-4ubuntu13 [205 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 systemd amd64 229-4ubuntu13 [3,615 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 udev amd64 229-4ubuntu13 [991 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libudev1 amd64 229-4ubuntu13 [55.1 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3-problem-report all 2.20.1-0ubuntu2.4 [10.1 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3-apport all 2.20.1-0ubuntu2.4 [79.4 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apport all 2.20.1-0ubuntu2.4 [120 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 5,204 kB in 1s (2,806 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94980 files and directories currently installed.)
+Preparing to unpack .../systemd-sysv_229-4ubuntu13_amd64.deb ...
+Unpacking systemd-sysv (229-4ubuntu13) over (229-4ubuntu12) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up systemd-sysv (229-4ubuntu13) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94980 files and directories currently installed.)
+Preparing to unpack .../libpam-systemd_229-4ubuntu13_amd64.deb ...
+Unpacking libpam-systemd:amd64 (229-4ubuntu13) over (229-4ubuntu12) ...
+Preparing to unpack .../libsystemd0_229-4ubuntu13_amd64.deb ...
+Unpacking libsystemd0:amd64 (229-4ubuntu13) over (229-4ubuntu12) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Setting up libsystemd0:amd64 (229-4ubuntu13) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94980 files and directories currently installed.)
+Preparing to unpack .../systemd_229-4ubuntu13_amd64.deb ...
+Unpacking systemd (229-4ubuntu13) over (229-4ubuntu12) ...
+Processing triggers for dbus (1.10.6-1ubuntu3.1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Setting up systemd (229-4ubuntu13) ...
+addgroup: The group `systemd-journal' already exists as a system group. Exiting.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94968 files and directories currently installed.)
+Preparing to unpack .../udev_229-4ubuntu13_amd64.deb ...
+Unpacking udev (229-4ubuntu13) over (229-4ubuntu12) ...
+Preparing to unpack .../libudev1_229-4ubuntu13_amd64.deb ...
+Unpacking libudev1:amd64 (229-4ubuntu13) over (229-4ubuntu12) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for systemd (229-4ubuntu13) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Setting up libudev1:amd64 (229-4ubuntu13) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94968 files and directories currently installed.)
+Preparing to unpack .../python3-problem-report_2.20.1-0ubuntu2.4_all.deb ...
+Unpacking python3-problem-report (2.20.1-0ubuntu2.4) over (2.20.1-0ubuntu2.2) ...
+Preparing to unpack .../python3-apport_2.20.1-0ubuntu2.4_all.deb ...
+Unpacking python3-apport (2.20.1-0ubuntu2.4) over (2.20.1-0ubuntu2.2) ...
+Preparing to unpack .../apport_2.20.1-0ubuntu2.4_all.deb ...
+Unpacking apport (2.20.1-0ubuntu2.4) over (2.20.1-0ubuntu2.2) ...
+Processing triggers for systemd (229-4ubuntu13) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for shared-mime-info (1.5-2ubuntu0.1) ...
+Setting up libpam-systemd:amd64 (229-4ubuntu13) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up udev (229-4ubuntu13) ...
+addgroup: The group `input' already exists as a system group. Exiting.
+update-initramfs: deferring update (trigger activated)
+Setting up python3-problem-report (2.20.1-0ubuntu2.4) ...
+Setting up python3-apport (2.20.1-0ubuntu2.4) ...
+Setting up apport (2.20.1-0ubuntu2.4) ...
+Processing triggers for initramfs-tools (0.122ubuntu8.5) ...
+update-initramfs: Generating /boot/initrd.img-4.4.0-53-generic
+W: mdadm: /etc/mdadm/mdadm.conf defines no arrays.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del python3-problem-report 2.20.1-0ubuntu2.2 [9,894 B]
+Del systemd 229-4ubuntu12 [3,783 kB]
+Del libsystemd0 229-4ubuntu12 [205 kB]
+Del udev 229-4ubuntu12 [993 kB]
+Del libpam-systemd 229-4ubuntu12 [115 kB]
+Del apport 2.20.1-0ubuntu2.2 [120 kB]
+Del python3-apport 2.20.1-0ubuntu2.2 [79.5 kB]
+Del libudev1 229-4ubuntu12 [55.2 kB]
+Del systemd-sysv 229-4ubuntu12 [12.7 kB]
+
+
+
+==========Fri Dec 16 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [113 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [440 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [370 kB]
+Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [15.3 kB]
+Get:9 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [65.6 kB]
+Fetched 1,310 kB in 1s (800 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sat Dec 17 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [441 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [370 kB]
+Fetched 1,117 kB in 1s (999 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sun Dec 18 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [441 kB]
+Fetched 747 kB in 2s (355 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Mon Dec 19 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Fetched 306 kB in 1s (286 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Tue Dec 20 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [440 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [370 kB]
+Fetched 1,117 kB in 1s (907 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  cloud-init cloud-initramfs-copymods cloud-initramfs-dyn-netconf
+  grub-legacy-ec2 ifupdown initramfs-tools initramfs-tools-bin
+  initramfs-tools-core isc-dhcp-client isc-dhcp-common open-iscsi overlayroot
+12 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,116 kB of archives.
+After this operation, 11.3 kB of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 open-iscsi amd64 2.0.873+git0.3b4b4500-14ubuntu3.3 [334 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 ifupdown amd64 0.8.10ubuntu1.2 [54.9 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 initramfs-tools all 0.122ubuntu8.7 [8,640 B]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 initramfs-tools-core all 0.122ubuntu8.7 [42.6 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 initramfs-tools-bin amd64 0.122ubuntu8.7 [9,652 B]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 isc-dhcp-client amd64 4.3.3-5ubuntu12.6 [223 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 isc-dhcp-common amd64 4.3.3-5ubuntu12.6 [105 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 cloud-init all 0.7.8-49-g9e904bb-0ubuntu1~16.04.2 [288 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 cloud-initramfs-copymods all 0.27ubuntu1.3 [4,280 B]
+Get:10 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 cloud-initramfs-dyn-netconf all 0.27ubuntu1.3 [6,840 B]
+Get:11 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 grub-legacy-ec2 all 0.7.8-49-g9e904bb-0ubuntu1~16.04.2 [24.0 kB]
+Get:12 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 overlayroot all 0.27ubuntu1.3 [15.5 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 1,116 kB in 0s (6,924 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94968 files and directories currently installed.)
+Preparing to unpack .../open-iscsi_2.0.873+git0.3b4b4500-14ubuntu3.3_amd64.deb ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Unpacking open-iscsi (2.0.873+git0.3b4b4500-14ubuntu3.3) over (2.0.873+git0.3b4b4500-14ubuntu3.2) ...
+Preparing to unpack .../ifupdown_0.8.10ubuntu1.2_amd64.deb ...
+Unpacking ifupdown (0.8.10ubuntu1.2) over (0.8.10ubuntu1.1) ...
+Preparing to unpack .../initramfs-tools_0.122ubuntu8.7_all.deb ...
+Unpacking initramfs-tools (0.122ubuntu8.7) over (0.122ubuntu8.5) ...
+Preparing to unpack .../initramfs-tools-core_0.122ubuntu8.7_all.deb ...
+Unpacking initramfs-tools-core (0.122ubuntu8.7) over (0.122ubuntu8.5) ...
+Preparing to unpack .../initramfs-tools-bin_0.122ubuntu8.7_amd64.deb ...
+Unpacking initramfs-tools-bin (0.122ubuntu8.7) over (0.122ubuntu8.5) ...
+Preparing to unpack .../isc-dhcp-client_4.3.3-5ubuntu12.6_amd64.deb ...
+Unpacking isc-dhcp-client (4.3.3-5ubuntu12.6) over (4.3.3-5ubuntu12.4) ...
+Preparing to unpack .../isc-dhcp-common_4.3.3-5ubuntu12.6_amd64.deb ...
+Unpacking isc-dhcp-common (4.3.3-5ubuntu12.6) over (4.3.3-5ubuntu12.4) ...
+Preparing to unpack .../cloud-init_0.7.8-49-g9e904bb-0ubuntu1~16.04.2_all.deb ...
+Unpacking cloud-init (0.7.8-49-g9e904bb-0ubuntu1~16.04.2) over (0.7.8-49-g9e904bb-0ubuntu1~16.04.1) ...
+Preparing to unpack .../cloud-initramfs-copymods_0.27ubuntu1.3_all.deb ...
+Unpacking cloud-initramfs-copymods (0.27ubuntu1.3) over (0.27ubuntu1.2) ...
+Preparing to unpack .../cloud-initramfs-dyn-netconf_0.27ubuntu1.3_all.deb ...
+Unpacking cloud-initramfs-dyn-netconf (0.27ubuntu1.3) over (0.27ubuntu1.2) ...
+Preparing to unpack .../grub-legacy-ec2_0.7.8-49-g9e904bb-0ubuntu1~16.04.2_all.deb ...
+Leaving 'diversion of /usr/sbin/grub-set-default to /usr/sbin/grub-set-default.real by grub-legacy-ec2'
+Unpacking grub-legacy-ec2 (0.7.8-49-g9e904bb-0ubuntu1~16.04.2) over (0.7.8-49-g9e904bb-0ubuntu1~16.04.1) ...
+Preparing to unpack .../overlayroot_0.27ubuntu1.3_all.deb ...
+Unpacking overlayroot (0.27ubuntu1.3) over (0.27ubuntu1.2) ...
+Processing triggers for systemd (229-4ubuntu13) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up open-iscsi (2.0.873+git0.3b4b4500-14ubuntu3.3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up ifupdown (0.8.10ubuntu1.2) ...
+Setting up initramfs-tools-bin (0.122ubuntu8.7) ...
+Setting up initramfs-tools-core (0.122ubuntu8.7) ...
+Setting up initramfs-tools (0.122ubuntu8.7) ...
+update-initramfs: deferring update (trigger activated)
+Setting up isc-dhcp-client (4.3.3-5ubuntu12.6) ...
+Setting up isc-dhcp-common (4.3.3-5ubuntu12.6) ...
+Setting up cloud-init (0.7.8-49-g9e904bb-0ubuntu1~16.04.2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Leaving 'diversion of /etc/init/ureadahead.conf to /etc/init/ureadahead.conf.disabled by cloud-init'
+Setting up cloud-initramfs-copymods (0.27ubuntu1.3) ...
+Setting up cloud-initramfs-dyn-netconf (0.27ubuntu1.3) ...
+Setting up grub-legacy-ec2 (0.7.8-49-g9e904bb-0ubuntu1~16.04.2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Searching for GRUB installation directory ... found: /boot/grub
+Searching for default file ... found: /boot/grub/default
+Testing for an existing GRUB menu.lst file ... found: /boot/grub/menu.lst
+Searching for splash image ... none found, skipping ...
+Found kernel: /boot/vmlinuz-4.4.0-45-generic
+Found kernel: /boot/vmlinuz-4.4.0-22-generic
+Replacing config file /run/grub/menu.lst with new version
+Found kernel: /boot/vmlinuz-4.4.0-53-generic
+Found kernel: /boot/vmlinuz-4.4.0-45-generic
+Replacing config file /run/grub/menu.lst with new version
+Updating /boot/grub/menu.lst ... done
+
+Setting up overlayroot (0.27ubuntu1.3) ...
+Installing new version of config file /etc/overlayroot.conf ...
+Processing triggers for initramfs-tools (0.122ubuntu8.7) ...
+update-initramfs: Generating /boot/initrd.img-4.4.0-53-generic
+W: mdadm: /etc/mdadm/mdadm.conf defines no arrays.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del initramfs-tools 0.122ubuntu8.5 [8,618 B]
+Del isc-dhcp-common 4.3.3-5ubuntu12.4 [104 kB]
+Del cloud-initramfs-dyn-netconf 0.27ubuntu1.2 [6,578 B]
+Del open-iscsi 2.0.873+git0.3b4b4500-14ubuntu3.2 [335 kB]
+Del initramfs-tools-core 0.122ubuntu8.5 [42.2 kB]
+Del initramfs-tools-bin 0.122ubuntu8.5 [9,334 B]
+Del overlayroot 0.27ubuntu1.2 [14.4 kB]
+Del grub-legacy-ec2 0.7.8-49-g9e904bb-0ubuntu1~16.04.1 [24.4 kB]
+Del cloud-init 0.7.8-49-g9e904bb-0ubuntu1~16.04.1 [288 kB]
+Del isc-dhcp-client 4.3.3-5ubuntu12.4 [223 kB]
+Del cloud-initramfs-copymods 0.27ubuntu1.2 [4,050 B]
+Del ifupdown 0.8.10ubuntu1.1 [54.9 kB]
+
+
+
+==========Wed Dec 21 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [212 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [442 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [370 kB]
+Fetched 1,331 kB in 1s (1,222 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.4.0-45 linux-headers-4.4.0-45-generic
+  linux-image-4.4.0-45-generic
+Use 'sudo apt autoremove' to remove them.
+The following packages will be upgraded:
+  cloud-init grub-legacy-ec2
+2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 312 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 cloud-init all 0.7.8-49-g9e904bb-0ubuntu1~16.04.3 [288 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 grub-legacy-ec2 all 0.7.8-49-g9e904bb-0ubuntu1~16.04.3 [24.1 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 312 kB in 0s (560 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 122805 files and directories currently installed.)
+Preparing to unpack .../cloud-init_0.7.8-49-g9e904bb-0ubuntu1~16.04.3_all.deb ...
+Unpacking cloud-init (0.7.8-49-g9e904bb-0ubuntu1~16.04.3) over (0.7.8-49-g9e904bb-0ubuntu1~16.04.2) ...
+Preparing to unpack .../grub-legacy-ec2_0.7.8-49-g9e904bb-0ubuntu1~16.04.3_all.deb ...
+Leaving 'diversion of /usr/sbin/grub-set-default to /usr/sbin/grub-set-default.real by grub-legacy-ec2'
+Unpacking grub-legacy-ec2 (0.7.8-49-g9e904bb-0ubuntu1~16.04.3) over (0.7.8-49-g9e904bb-0ubuntu1~16.04.2) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Setting up cloud-init (0.7.8-49-g9e904bb-0ubuntu1~16.04.3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Leaving 'diversion of /etc/init/ureadahead.conf to /etc/init/ureadahead.conf.disabled by cloud-init'
+Setting up grub-legacy-ec2 (0.7.8-49-g9e904bb-0ubuntu1~16.04.3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Searching for GRUB installation directory ... found: /boot/grub
+Searching for default file ... found: /boot/grub/default
+Testing for an existing GRUB menu.lst file ... found: /boot/grub/menu.lst
+Searching for splash image ... none found, skipping ...
+Found kernel: /boot/vmlinuz-4.4.0-53-generic
+Found kernel: /boot/vmlinuz-4.4.0-45-generic
+Found kernel: /boot/vmlinuz-4.4.0-57-generic
+Found kernel: /boot/vmlinuz-4.4.0-53-generic
+Found kernel: /boot/vmlinuz-4.4.0-45-generic
+Replacing config file /run/grub/menu.lst with new version
+Updating /boot/grub/menu.lst ... done
+
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.4.0-45 linux-headers-4.4.0-45-generic
+  linux-image-4.4.0-45-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  linux-headers-4.4.0-45 linux-headers-4.4.0-45-generic
+  linux-image-4.4.0-45-generic
+0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
+After this operation, 133 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 122805 files and directories currently installed.)
+Removing linux-headers-4.4.0-45-generic (4.4.0-45.66) ...
+Removing linux-headers-4.4.0-45 (4.4.0-45.66) ...
+Removing linux-image-4.4.0-45-generic (4.4.0-45.66) ...
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 4.4.0-45-generic /boot/vmlinuz-4.4.0-45-generic
+update-initramfs: Deleting /boot/initrd.img-4.4.0-45-generic
+run-parts: executing /etc/kernel/postrm.d/zz-update-grub 4.4.0-45-generic /boot/vmlinuz-4.4.0-45-generic
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-4.4.0-57-generic
+Found initrd image: /boot/initrd.img-4.4.0-57-generic
+Found linux image: /boot/vmlinuz-4.4.0-53-generic
+Found initrd image: /boot/initrd.img-4.4.0-53-generic
+done
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del linux-headers-virtual 4.4.0.53.56 [1,756 B]
+Del grub-legacy-ec2 0.7.8-49-g9e904bb-0ubuntu1~16.04.2 [24.0 kB]
+Del linux-headers-generic 4.4.0.53.56 [2,274 B]
+Del linux-image-virtual 4.4.0.53.56 [2,284 B]
+Del cloud-init 0.7.8-49-g9e904bb-0ubuntu1~16.04.2 [288 kB]
+Del linux-virtual 4.4.0.53.56 [1,778 B]
+
+
+
+==========Thu Dec 22 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (351 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  liblxc1 lxc-common lxcfs
+3 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 276 kB of archives.
+After this operation, 16.4 kB of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 liblxc1 amd64 2.0.6-0ubuntu1~ubuntu16.04.1 [209 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 lxc-common amd64 2.0.6-0ubuntu1~ubuntu16.04.1 [27.5 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 lxcfs amd64 2.0.5-0ubuntu1~ubuntu16.04.1 [39.0 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 276 kB in 0s (4,827 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95097 files and directories currently installed.)
+Preparing to unpack .../liblxc1_2.0.6-0ubuntu1~ubuntu16.04.1_amd64.deb ...
+Unpacking liblxc1 (2.0.6-0ubuntu1~ubuntu16.04.1) over (2.0.5-0ubuntu1~ubuntu16.04.3) ...
+Preparing to unpack .../lxc-common_2.0.6-0ubuntu1~ubuntu16.04.1_amd64.deb ...
+Unpacking lxc-common (2.0.6-0ubuntu1~ubuntu16.04.1) over (2.0.5-0ubuntu1~ubuntu16.04.3) ...
+Preparing to unpack .../lxcfs_2.0.5-0ubuntu1~ubuntu16.04.1_amd64.deb ...
+Unpacking lxcfs (2.0.5-0ubuntu1~ubuntu16.04.1) over (2.0.4-0ubuntu1~ubuntu16.04.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for systemd (229-4ubuntu13) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up lxcfs (2.0.5-0ubuntu1~ubuntu16.04.1) ...
+Setting up liblxc1 (2.0.6-0ubuntu1~ubuntu16.04.1) ...
+Setting up lxc-common (2.0.6-0ubuntu1~ubuntu16.04.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del lxcfs 2.0.4-0ubuntu1~ubuntu16.04.1 [38.9 kB]
+
+
+
+==========Fri Dec 23 06:25:02 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [444 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [370 kB]
+Fetched 1,120 kB in 1s (758 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sat Dec 24 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (278 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sun Dec 25 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (297 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Mon Dec 26 06:25:02 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (301 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Tue Dec 27 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (283 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Wed Dec 28 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (281 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Thu Dec 29 06:25:02 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (417 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Fri Dec 30 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (173 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sat Dec 31 06:25:01 CET 2016==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (291 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sun Jan 1 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (361 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Mon Jan 2 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (358 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Tue Jan 3 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (264 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Wed Jan 4 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [212 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [114 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/multiverse Sources [4,016 B]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [444 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [372 kB]
+Get:10 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [137 kB]
+Get:11 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [7,380 B]
+Fetched 1,597 kB in 1s (1,385 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  grub-common grub-pc grub-pc-bin grub2-common unattended-upgrades
+5 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 3,335 kB of archives.
+After this operation, 8,192 B of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 grub-pc amd64 2.02~beta2-36ubuntu3.6 [197 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 grub-pc-bin amd64 2.02~beta2-36ubuntu3.6 [889 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 grub2-common amd64 2.02~beta2-36ubuntu3.6 [512 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 grub-common amd64 2.02~beta2-36ubuntu3.6 [1,706 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 unattended-upgrades all 0.90ubuntu0.3 [31.7 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 3,335 kB in 1s (2,979 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95097 files and directories currently installed.)
+Preparing to unpack .../grub-pc_2.02~beta2-36ubuntu3.6_amd64.deb ...
+Unpacking grub-pc (2.02~beta2-36ubuntu3.6) over (2.02~beta2-36ubuntu3.2) ...
+Preparing to unpack .../grub-pc-bin_2.02~beta2-36ubuntu3.6_amd64.deb ...
+Unpacking grub-pc-bin (2.02~beta2-36ubuntu3.6) over (2.02~beta2-36ubuntu3.2) ...
+Preparing to unpack .../grub2-common_2.02~beta2-36ubuntu3.6_amd64.deb ...
+Unpacking grub2-common (2.02~beta2-36ubuntu3.6) over (2.02~beta2-36ubuntu3.2) ...
+Preparing to unpack .../grub-common_2.02~beta2-36ubuntu3.6_amd64.deb ...
+Unpacking grub-common (2.02~beta2-36ubuntu3.6) over (2.02~beta2-36ubuntu3.2) ...
+Preparing to unpack .../unattended-upgrades_0.90ubuntu0.3_all.deb ...
+Unpacking unattended-upgrades (0.90ubuntu0.3) over (0.90ubuntu0.2) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for install-info (6.1.0.dfsg.1-5) ...
+Processing triggers for systemd (229-4ubuntu13) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Setting up grub-common (2.02~beta2-36ubuntu3.6) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+Setting up grub2-common (2.02~beta2-36ubuntu3.6) ...
+Setting up grub-pc-bin (2.02~beta2-36ubuntu3.6) ...
+Setting up grub-pc (2.02~beta2-36ubuntu3.6) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Installing for i386-pc platform.
+Installation finished. No error reported.
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-4.4.0-57-generic
+Found initrd image: /boot/initrd.img-4.4.0-57-generic
+Found linux image: /boot/vmlinuz-4.4.0-53-generic
+Found initrd image: /boot/initrd.img-4.4.0-53-generic
+done
+Setting up unattended-upgrades (0.90ubuntu0.3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del grub2-common 2.02~beta2-36ubuntu3.2 [511 kB]
+Del grub-pc 2.02~beta2-36ubuntu3.2 [197 kB]
+Del grub-common 2.02~beta2-36ubuntu3.2 [1,707 kB]
+Del grub-pc-bin 2.02~beta2-36ubuntu3.2 [884 kB]
+Del unattended-upgrades 0.90ubuntu0.2 [31.7 kB]
+
+
+
+==========Thu Jan 5 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (409 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Fri Jan 6 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Fetched 306 kB in 0s (427 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  python3-distupgrade snap-confine snapd ubuntu-core-launcher
+  ubuntu-release-upgrader-core update-notifier-common
+6 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 8,460 kB of archives.
+After this operation, 15.5 MB of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 snap-confine amd64 2.20.1ubuntu1 [42.1 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 ubuntu-core-launcher amd64 2.20.1ubuntu1 [2,396 B]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 update-notifier-common all 3.168.3 [165 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 ubuntu-release-upgrader-core all 1:16.04.20 [29.3 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3-distupgrade all 1:16.04.20 [104 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 snapd amd64 2.20.1ubuntu1 [8,117 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 8,460 kB in 1s (5,283 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95097 files and directories currently installed.)
+Preparing to unpack .../snap-confine_2.20.1ubuntu1_amd64.deb ...
+Unpacking snap-confine (2.20.1ubuntu1) over (1.0.43-0ubuntu1~16.04.1) ...
+Preparing to unpack .../ubuntu-core-launcher_2.20.1ubuntu1_amd64.deb ...
+Unpacking ubuntu-core-launcher (2.20.1ubuntu1) over (1.0.43-0ubuntu1~16.04.1) ...
+Preparing to unpack .../update-notifier-common_3.168.3_all.deb ...
+Unpacking update-notifier-common (3.168.3) over (3.168.2) ...
+Preparing to unpack .../ubuntu-release-upgrader-core_1%3a16.04.20_all.deb ...
+Unpacking ubuntu-release-upgrader-core (1:16.04.20) over (1:16.04.19) ...
+Preparing to unpack .../python3-distupgrade_1%3a16.04.20_all.deb ...
+Unpacking python3-distupgrade (1:16.04.20) over (1:16.04.19) ...
+Preparing to unpack .../snapd_2.20.1ubuntu1_amd64.deb ...
+Warning: Stopping snapd.service, but it can still be activated by:
+  snapd.socket
+Unpacking snapd (2.20.1ubuntu1) over (2.17.1ubuntu1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up snap-confine (2.20.1ubuntu1) ...
+Installing new version of config file /etc/apparmor.d/usr.lib.snapd.snap-confine ...
+Setting up ubuntu-core-launcher (2.20.1ubuntu1) ...
+Setting up update-notifier-common (3.168.3) ...
+Setting up python3-distupgrade (1:16.04.20) ...
+Setting up ubuntu-release-upgrader-core (1:16.04.20) ...
+Setting up snapd (2.20.1ubuntu1) ...
+Installing new version of config file /etc/X11/Xsession.d/65snappy ...
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del ubuntu-core-launcher 1.0.43-0ubuntu1~16.04.1 [2,702 B]
+Del snap-confine 1.0.43-0ubuntu1~16.04.1 [28.9 kB]
+Del ubuntu-release-upgrader-core 1:16.04.19 [29.3 kB]
+Del update-notifier-common 3.168.2 [163 kB]
+Del python3-distupgrade 1:16.04.19 [104 kB]
+Del snapd 2.17.1ubuntu1 [6,115 kB]
+
+
+
+==========Sat Jan 7 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [445 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [373 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [7,384 B]
+Fetched 1,133 kB in 0s (1,136 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Sun Jan 8 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 1s (287 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Mon Jan 9 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (648 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Tue Jan 10 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [445 kB]
+Fetched 752 kB in 0s (848 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Wed Jan 11 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Fetched 306 kB in 0s (579 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.4.0-53 linux-headers-4.4.0-53-generic
+  linux-image-4.4.0-53-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.4.0-53 linux-headers-4.4.0-53-generic
+  linux-image-4.4.0-53-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  linux-headers-4.4.0-53 linux-headers-4.4.0-53-generic
+  linux-image-4.4.0-53-generic
+0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
+After this operation, 135 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 122938 files and directories currently installed.)
+Removing linux-headers-4.4.0-53-generic (4.4.0-53.74) ...
+Removing linux-headers-4.4.0-53 (4.4.0-53.74) ...
+Removing linux-image-4.4.0-53-generic (4.4.0-53.74) ...
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 4.4.0-53-generic /boot/vmlinuz-4.4.0-53-generic
+update-initramfs: Deleting /boot/initrd.img-4.4.0-53-generic
+run-parts: executing /etc/kernel/postrm.d/zz-update-grub 4.4.0-53-generic /boot/vmlinuz-4.4.0-53-generic
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-4.4.0-59-generic
+Found initrd image: /boot/initrd.img-4.4.0-59-generic
+Found linux image: /boot/vmlinuz-4.4.0-57-generic
+Found initrd image: /boot/initrd.img-4.4.0-57-generic
+done
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Thu Jan 12 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:2 http://security.ubuntu.com/ubuntu xenial-security/main Sources [54.5 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [201 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [84.3 kB]
+Hit:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [214 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [451 kB]
+Get:10 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [177 kB]
+Get:11 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [376 kB]
+Fetched 1,865 kB in 1s (1,022 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  apt apt-transport-https apt-utils libapache2-mod-php7.0 libapt-inst2.0
+  libapt-pkg5.0 php7.0-cli php7.0-common php7.0-gd php7.0-json php7.0-mbstring
+  php7.0-mcrypt php7.0-mysql php7.0-opcache php7.0-readline php7.0-xml
+16 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6,212 kB of archives.
+After this operation, 49.2 kB of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libapt-pkg5.0 amd64 1.2.18 [707 kB]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libapt-inst2.0 amd64 1.2.18 [55.6 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apt amd64 1.2.18 [1,042 kB]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apt-utils amd64 1.2.18 [196 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apt-transport-https amd64 1.2.18 [26.0 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 php7.0-mcrypt amd64 7.0.13-0ubuntu0.16.04.1 [14.5 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 php7.0-mbstring amd64 7.0.13-0ubuntu0.16.04.1 [462 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-xml amd64 7.0.13-0ubuntu0.16.04.1 [113 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-readline amd64 7.0.13-0ubuntu0.16.04.1 [12.9 kB]
+Get:10 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-opcache amd64 7.0.13-0ubuntu0.16.04.1 [76.1 kB]
+Get:11 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-mysql amd64 7.0.13-0ubuntu0.16.04.1 [123 kB]
+Get:12 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-json amd64 7.0.13-0ubuntu0.16.04.1 [16.9 kB]
+Get:13 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-gd amd64 7.0.13-0ubuntu0.16.04.1 [27.4 kB]
+Get:14 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libapache2-mod-php7.0 amd64 7.0.13-0ubuntu0.16.04.1 [1,224 kB]
+Get:15 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-cli amd64 7.0.13-0ubuntu0.16.04.1 [1,282 kB]
+Get:16 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 php7.0-common amd64 7.0.13-0ubuntu0.16.04.1 [833 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 6,212 kB in 0s (9,388 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95195 files and directories currently installed.)
+Preparing to unpack .../libapt-pkg5.0_1.2.18_amd64.deb ...
+Unpacking libapt-pkg5.0:amd64 (1.2.18) over (1.2.15ubuntu0.2) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Setting up libapt-pkg5.0:amd64 (1.2.18) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95195 files and directories currently installed.)
+Preparing to unpack .../libapt-inst2.0_1.2.18_amd64.deb ...
+Unpacking libapt-inst2.0:amd64 (1.2.18) over (1.2.15ubuntu0.2) ...
+Preparing to unpack .../archives/apt_1.2.18_amd64.deb ...
+Unpacking apt (1.2.18) over (1.2.15ubuntu0.2) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up apt (1.2.18) ...
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95195 files and directories currently installed.)
+Preparing to unpack .../apt-utils_1.2.18_amd64.deb ...
+Unpacking apt-utils (1.2.18) over (1.2.15ubuntu0.2) ...
+Preparing to unpack .../apt-transport-https_1.2.18_amd64.deb ...
+Unpacking apt-transport-https (1.2.18) over (1.2.15ubuntu0.2) ...
+Preparing to unpack .../php7.0-mcrypt_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-mcrypt (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-mbstring_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-mbstring (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-xml_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-xml (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-readline_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-readline (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-opcache_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-opcache (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-mysql_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-mysql (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-json_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-json (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-gd_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-gd (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../libapache2-mod-php7.0_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking libapache2-mod-php7.0 (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-cli_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-cli (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Preparing to unpack .../php7.0-common_7.0.13-0ubuntu0.16.04.1_amd64.deb ...
+Unpacking php7.0-common (7.0.13-0ubuntu0.16.04.1) over (7.0.8-0ubuntu0.16.04.3) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libapt-inst2.0:amd64 (1.2.18) ...
+Setting up apt-utils (1.2.18) ...
+Setting up apt-transport-https (1.2.18) ...
+Setting up php7.0-common (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-mcrypt (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-mbstring (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-xml (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-readline (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-opcache (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-mysql (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-json (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-gd (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Setting up php7.0-cli (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Replacing config file /etc/php/7.0/cli/php.ini with new version
+Setting up libapache2-mod-php7.0 (7.0.13-0ubuntu0.16.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Replacing config file /etc/php/7.0/apache2/php.ini with new version
+apache2_invoke php7.0: already enabled
+Processing triggers for libc-bin (2.23-0ubuntu5) ...
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+
+==========Fri Jan 13 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Sources [215 kB]
+Get:6 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [117 kB]
+Get:7 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [452 kB]
+Get:8 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [178 kB]
+Get:9 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [378 kB]
+Get:10 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [140 kB]
+Fetched 1,787 kB in 1s (1,173 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  initramfs-tools initramfs-tools-bin initramfs-tools-core
+  python3-update-manager update-manager-core
+5 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 97.8 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 initramfs-tools all 0.122ubuntu8.8 [8,610 B]
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 initramfs-tools-core all 0.122ubuntu8.8 [42.6 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 initramfs-tools-bin amd64 0.122ubuntu8.8 [9,618 B]
+Get:4 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3-update-manager all 1:16.04.5 [31.6 kB]
+Get:5 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates/main amd64 update-manager-core all 1:16.04.5 [5,320 B]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 97.8 kB in 0s (1,255 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 95195 files and directories currently installed.)
+Preparing to unpack .../initramfs-tools_0.122ubuntu8.8_all.deb ...
+Unpacking initramfs-tools (0.122ubuntu8.8) over (0.122ubuntu8.7) ...
+Preparing to unpack .../initramfs-tools-core_0.122ubuntu8.8_all.deb ...
+Unpacking initramfs-tools-core (0.122ubuntu8.8) over (0.122ubuntu8.7) ...
+Preparing to unpack .../initramfs-tools-bin_0.122ubuntu8.8_amd64.deb ...
+Unpacking initramfs-tools-bin (0.122ubuntu8.8) over (0.122ubuntu8.7) ...
+Preparing to unpack .../python3-update-manager_1%3a16.04.5_all.deb ...
+Unpacking python3-update-manager (1:16.04.5) over (1:16.04.4) ...
+Preparing to unpack .../update-manager-core_1%3a16.04.5_all.deb ...
+Unpacking update-manager-core (1:16.04.5) over (1:16.04.4) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up initramfs-tools-bin (0.122ubuntu8.8) ...
+Setting up initramfs-tools-core (0.122ubuntu8.8) ...
+Setting up initramfs-tools (0.122ubuntu8.8) ...
+update-initramfs: deferring update (trigger activated)
+Setting up python3-update-manager (1:16.04.5) ...
+Setting up update-manager-core (1:16.04.5) ...
+Processing triggers for initramfs-tools (0.122ubuntu8.8) ...
+update-initramfs: Generating /boot/initrd.img-4.4.0-59-generic
+W: mdadm: /etc/mdadm/mdadm.conf defines no arrays.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Del initramfs-tools-bin 0.122ubuntu8.7 [9,652 B]
+Del initramfs-tools-core 0.122ubuntu8.7 [42.6 kB]
+Del initramfs-tools 0.122ubuntu8.7 [8,640 B]
+
+
+
+==========Sat Jan 14 06:25:01 CET 2017==========
+||                                           ||
+||         Executing apt-get Scripts         ||
+||                                           ||
+===============================================
+
+           <<< apt-get update >>>
+
+Hit:1 http://nova.clouds.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:3 http://nova.clouds.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Fetched 306 kB in 0s (525 kB/s)
+Reading package lists...
+
+           <<< apt-get dist-upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get upgrade >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+           <<< apt-get autoremove >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+           <<< apt-get autoclean >>>
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+

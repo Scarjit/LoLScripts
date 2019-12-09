@@ -1,0 +1,63 @@
+﻿Updating an existing MySQL database to MariaDB
+==============================================
+
+What is MariaDB?
+----------------
+On https://mariadb.org/ MariaDB describes itself as "An enhanced, drop-in replacement for MySQL."
+This means you can think of MariaDB as a MySQL fork with some enhancements, but 100% compatible with
+MySQL.
+
+Why did TeamSpeak switch to MariaDB?
+------------------------------------
+1. We had to switch over to MySQL 5.5 for other reasons (see point 2). Because we had to do this, we
+   looked at what the community was doing. There seemed to be many high profile companies that have
+   switched to MariaDDB from MySQL. One of the reasons (which also applies to us) is better 
+   licensing conditions, and concern of what Oracle is doing with MySQL.
+2. To fully support Utf8 characters, we need the TeamSpeak database to work with the 'utf8mb4'
+   character set. This was not available when TeamSpeak 3 was released back in 2009. This character
+   set was introduced in MySql 5.5.3 and thus we needed to upgrade to a MySQL client 5.5 or higher.
+   For reasons stated in point 1, we decided to switch to MariaDB while we were at it.
+
+Why do we need to update the database?
+--------------------------------------
+MariaDB is a drop-in replacement for MySQL, so normally you would not need to update your database.
+But you need to run two (or in special cases just one) update scripts. These scripts are located in
+sql/updates_and_fixes
+
+1. convert_mysql_to_mariadb.sql
+This script converts all the tables to use the 'utf8mb4' character set, and adds a new table 
+teamspeak3_metadata to signal the ts3db_mariadb plugin that the database has been converted.
+
+2. mariadb_fix_latin_utf8.sql
+Due to a bug in the old ts3db_mysql plugin, all the text the ts3server sent to MySQL was interpreted
+as 'latin1' character set text even though we sent utf8 encoded text. This resulted in text data
+being recoded again as utf8 in the database, resulting in utf8 encoded as utf8(mb4). This script
+undoes this double encoding, and fixes some errors resulting from that. The only time you do not
+have to run this script, is if you have a specially compiled libmysqlclient that had the default 
+character set set to utf8. If you do not know if this was the case, then you can assume you need to
+run this script.
+
+Step by step instructions.
+--------------------------
+It would be smart to make a backup of the database first, and test these following steps on the
+backup first. This can avoid some nasty surprises later.
+
+1. Stop *all* ts3 server using this database. If you have one or more live ts3 servers running while
+   running these scripts, BAD THINGS WILL HAPPEN.
+2. Make a backup of the database. (Just in case)
+3. Using mysql client, run the convert_mysql_to_mariadb.sql on the database.
+4. Using mysql client, run the mariadb_fix_latin_utf8.sql on the database. (unless you had a 
+   libmysqlclient compiled with default character set utf8, which is unlikely).
+6. Edit the plugin ini file you had for mysql, usually ts3db_mysql.ini, if needed. Probably
+   these settings will stay the same though. Also you should rename the ini file to
+   ts3db_mariadb.ini, although this is not strictly needed.
+7. Copy the libmariadb.dll/.so/.dylib from the redist folder to the same folder as the plugin (main 
+   folder). You can omit this step if you want to use your own (or system installed) libmariadb.
+   You can get the official libs here: https://downloads.mariadb.org/client-native/
+8. Edit your ts3server.ini or what ever you named your ini startup file.
+   -change dbplugin=ts3db_mysql to dbplugin=ts3db_mariadb
+   -change dbsqlcreatepath=create_mysql/ to dbsqlcreatepath=create_mariadb/
+   -change dbpluginparameter=ts3db_mysql.ini to dbpluginparameter=ts3db_mariadb.ini if you changed
+   it in step 6
+9. Start your ts3 server(s).
+10. Reward your self with your drink of choice for a job well done.
