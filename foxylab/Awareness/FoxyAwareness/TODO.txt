@@ -1,0 +1,24 @@
+﻿Heroes:
+	- Cooldown Tracker
+		- Under Healthbar [HPBarPosition is broken]
+		- On Screen [Waiting for HPBarPosition fix]
+	- FoW Tracker [Waiting for Hesa to fix Tactical Map]
+		- Waypoints [DONE]
+	- Gank Alert [DONE/SendPing is broken]
+	- Recall Tracker [IsRecalling broken / Custom Implementation based on Buffs is broken too, since i can't get a list of bugs from a Network ID]
+	- Additional Awareness
+		- SnapLines [DONE]
+		- Tower Range [DONE]
+
+Other:
+	- Ward Tracker [DONE]
+	- Jungle Camp Tracker [DONE]
+		-> Does not work really well, do to changed from Riot Games
+	- Boss Tracker [DONE]
+		-> Implemented for Dragon/Baron/Herald
+		-> Only works if spotted before
+		-> Only Dragon works well
+
+Online:
+	-> Removed, not sure if Hesa likes online functions in "Offical" Plugins
+

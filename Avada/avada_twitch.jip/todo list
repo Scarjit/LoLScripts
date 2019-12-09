@@ -1,0 +1,14 @@
+--[[
+TODO LIST (order of priority)
+=============================
+- Incorporate more damage reduction calculations (MasteryWardenOfTheDawn, FerociousHowl, BraumShieldRaise, GarenW, GragasWSelf, etc etc)
+- E damage drawing on enemy hpbar
+- E Before Death
+
+- Auto W(?)
+- No W if enemy under turret
+- No W while R
+- W on x amount of targets
+
+- requests ????
+]]

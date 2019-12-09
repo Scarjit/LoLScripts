@@ -1,0 +1,11 @@
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\FoxyUtility.dll
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\FoxyUtility.pdb
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\HesaEngine.Core.dll
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\SharpDX.dll
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\fasmdll_managed.dll
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\SharpDX.DirectInput.dll
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\SharpDX.Direct3D9.dll
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\bin\Debug\fasmdll_managed.pdb
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\obj\Debug\FoxyUtility.dll
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\obj\Debug\FoxyUtility.pdb
+G:\HESA ENGINE\FOXY.lab\FoxyUtility\FoxyUtility\obj\Debug\FoxyUtility.csprojResolveAssemblyReference.cache
