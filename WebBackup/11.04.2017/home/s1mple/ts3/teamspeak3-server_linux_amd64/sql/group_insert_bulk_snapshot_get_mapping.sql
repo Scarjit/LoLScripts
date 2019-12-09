@@ -1,1 +1,0 @@
-select group_id, org_group_id from :table: where server_id = :server_id: ;

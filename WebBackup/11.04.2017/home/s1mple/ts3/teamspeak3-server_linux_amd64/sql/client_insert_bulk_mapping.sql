@@ -1,1 +1,0 @@
-select org_client_id, client_id from clients where server_id = :server_id:;

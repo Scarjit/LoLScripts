@@ -1,2 +1,0 @@
-Delete From server_properties where ident = "virtualserver_max_upload_total_bandwidth" and value ="-1";
-Delete From server_properties where ident = "virtualserver_max_download_total_bandwidth" and value ="-1";
